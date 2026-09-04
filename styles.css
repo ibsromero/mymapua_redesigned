@@ -129,6 +129,29 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 	.footer div { display: flex; flex-wrap: wrap; gap: 10px 15px; }
 	.footer a { overflow-wrap: anywhere; }
 	.toast { right: 12px; bottom: 12px; left: 12px; max-width: none; text-align: center; }
+	.schedule-mobile-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; margin: 4px 0 12px; }
+	.mobile-day-button { min-height: 38px; padding: 7px 2px; color: var(--red); border: 1px solid var(--rule); background: var(--paper); font-size: 10px; font-weight: 700; }
+	.mobile-day-button.active { color: #fff; border-color: var(--red); background: var(--red); }
+	.schedule-mobile-list { display: block; }
+	.mobile-day { display: none; }
+	.mobile-day.active { display: block; }
+	.mobile-day > h2 { margin: 0 0 9px; font: 400 21px/1.2 Georgia, "Times New Roman", serif; }
+	.mobile-class { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 13px; align-items: center; min-height: 78px; padding: 13px 12px; border: 1px solid var(--rule); border-bottom: 0; background: var(--paper); }
+	.mobile-class:last-child { border-bottom: 1px solid var(--rule); }
+	.mobile-class-time { color: var(--muted); font-size: 10px; line-height: 1.35; }
+	.mobile-class .class-block { min-height: 0; padding: 0; border: 0; background: transparent; text-align: left; align-items: flex-start; }
+	.mobile-class .class-block strong { font-size: 11px; }
+	.mobile-class .class-block span, .mobile-class .class-block small { font-size: 10px; }
+	.mobile-empty { margin: 0; padding: 18px 12px; border: 1px solid var(--rule); color: var(--muted); font-size: 11px; }
+	.weekly-schedule { display: none !important; }
+	.quick-card { min-height: 86px; padding: 12px 0; }
+	.quick-card small { line-height: 1.35; }
+	.soa-table { border-left: 1px solid var(--rule); border-right: 1px solid var(--rule); }
+	.soa-table .table-title { padding: 17px 15px; }
+}
+
+@media (min-width: 801px) {
+	.schedule-mobile-days, .schedule-mobile-list { display: none; }
 }
 
 @media (max-width: 420px) {
