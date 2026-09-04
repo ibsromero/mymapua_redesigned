@@ -4,6 +4,13 @@
 
 This is a static site, so it does not require a build command or environment variables.
 
+### Project structure
+
+- `index.html`, `styles.css`, and `script.js` are the Vercel entrypoint and frontend.
+- `assets/` contains deployable visual assets.
+- `data/mds/` contains the legacy source records used for the prototype content.
+- `reference/` contains design reference material and is excluded from deployment.
+
 ### Vercel dashboard
 
 1. Open [vercel.com/new](https://vercel.com/new).
