@@ -141,3 +141,11 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 	.payment-method-grid button { min-height: 64px; }
 	.table-title { padding-inline: 15px; }
 }
+
+@media (max-width: 800px) {
+	.overview-grid > .metric-card { grid-auto-rows: auto; }
+	.overview-grid > .metric-card .mini-label { grid-row: 1; }
+	.overview-grid > .metric-card .metric-value { grid-row: 2; margin-top: 7px; }
+	.overview-grid > .metric-card .metric-note { grid-row: 3; margin-top: 7px; }
+	.overview-grid > .metric-card .text-link { grid-row: 4; margin-top: 8px; }
+}
