@@ -63,7 +63,37 @@ pageData['#schedule'][2] = scheduleView();
 function historyTable() { return `<table><thead><tr><th>Term</th><th>Description</th><th>Payment date</th><th>OR number</th><th class="amount">Amount</th></tr></thead><tbody>${paymentRows.map((row) => `<tr>${row.slice(0, 4).map((cell) => `<td>${cell}</td>`).join('')}<td class="amount">₱ ${row[4]}</td></tr>`).join('')}</tbody></table>`; }
 
 function showToast(message) { toast.textContent = message; toast.classList.add('show'); window.clearTimeout(showToast.timeout); showToast.timeout = window.setTimeout(() => toast.classList.remove('show'), 2600); }
-function bindActions() { document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => showToast(button.dataset.toast))); const helpButton = document.querySelector('#helpButton'); if (helpButton) helpButton.addEventListener('click', () => showToast('Help Center is coming right up.')); document.querySelectorAll('form').forEach((form) => form.addEventListener('submit', (event) => { event.preventDefault(); showToast('Changes saved successfully.'); })); document.querySelectorAll('.term-switch button').forEach((button) => button.addEventListener('click', () => { document.querySelectorAll('.term-switch button').forEach((termButton) => termButton.classList.remove('active')); button.classList.add('active'); showToast(`${button.textContent} schedule selected.`); })); document.querySelectorAll('.curriculum-tabs button,.year-links button').forEach((button) => button.addEventListener('click', () => { const group = button.parentElement; group.querySelectorAll('button').forEach((item) => item.classList.remove('active')); button.classList.add('active'); })); }
+function bindActions() {
+  document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => showToast(button.dataset.toast)));
+  const helpButton = document.querySelector('#helpButton');
+  if (helpButton) helpButton.addEventListener('click', () => showToast('Help Center is coming right up.'));
+  document.querySelectorAll('form').forEach((form) => form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    showToast('Changes saved successfully.');
+  }));
+  document.querySelectorAll('.term-switch button').forEach((button) => button.addEventListener('click', () => {
+    const group = button.parentElement;
+    group.querySelectorAll('button').forEach((termButton) => termButton.classList.remove('active'));
+    button.classList.add('active');
+    showToast(`${button.textContent} schedule selected.`);
+  }));
+  document.querySelectorAll('.curriculum-tabs button,.year-links button').forEach((button) => button.addEventListener('click', () => {
+    const group = button.parentElement;
+    group.querySelectorAll('button').forEach((item) => item.classList.remove('active'));
+    button.classList.add('active');
+  }));
+  const statement = document.querySelector('.soa-table');
+  if (statement) {
+    const total = statement.querySelector('.table-total .amount');
+    statement.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => checkbox.addEventListener('change', () => {
+      const selectedAmount = [...statement.querySelectorAll('input[type="checkbox"]:checked')].reduce((sum, item) => {
+        const amount = item.closest('tr').querySelector('.amount').textContent.replace(/[^0-9.]/g, '');
+        return sum + Number.parseFloat(amount || 0);
+      }, 0);
+      total.textContent = `₱ ${selectedAmount.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }));
+  }
+}
 function setActiveLink(hash) { document.querySelectorAll('.nav-link').forEach((link) => { const active = link.getAttribute('href') === hash || (hash === '#dashboard' && link.getAttribute('href') === '#dashboard'); link.classList.toggle('active', active); if (active) { const group = link.closest('.nav-group'); if (group) setSectionState(group, true); } }); }
 function setSectionState(group, isOpen) { group.classList.toggle('collapsed', !isOpen); const toggle = group.querySelector('.section-toggle'); if (toggle) toggle.setAttribute('aria-expanded', String(isOpen)); }
 function initSectionToggles() { document.querySelectorAll('.nav-group').forEach((group, index) => { const toggle = group.querySelector('.section-toggle'); if (!toggle) return; const savedState = window.localStorage.getItem(`mymapua-section-v2-${index}`); setSectionState(group, savedState === 'open'); toggle.addEventListener('click', () => { const isOpen = group.classList.contains('collapsed'); document.querySelectorAll('.nav-group').forEach((otherGroup) => setSectionState(otherGroup, false)); setSectionState(group, isOpen); document.querySelectorAll('.nav-group').forEach((otherGroup, otherIndex) => window.localStorage.setItem(`mymapua-section-v2-${otherIndex}`, otherGroup === group && isOpen ? 'open' : 'closed')); }); }); }
