@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+        <title>
+	My Contact Info
+</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <link href="../Css/csStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="../Css/csStructure.css" rel="stylesheet" type="text/css"/>
+        <link href="../Css/cssAlert.css" rel="stylesheet" type="text/css"/>
+        <link href="../Css/jquery-ui-1.12.1-blitzer/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="../Jscript/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jquery-migrate-1.4.1.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jquery-migrate-3.0.0.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jquery-ui-1.12.1.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jsNav.js"></script>
+        <script type="text/javascript" src="../Jscript/jsAlert.js"></script>
+    </head>
+    <body>
+        <form method="post" action="./ContactInfo.aspx" id="aspnetForm">
+            <div class="aspNetHidden">
+                <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value=""/>
+                <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value=""/>
+                <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="A1srtU+LcyC/aLaqkwr932Jekmp+jjBBAT2nmMg7vTbcu7IaooYLs5hDgiVY1q79IF5tuONic5NBhUszRTU+mpSDodCcR9FTPMmtssUetiY5btgMBNMAyeW6wD21OoDYTgSjx6l11d4Z1V2IRssTBH4Fwx0O1rPk2FBRztEf9vM/2PjG6s2mQxpGhvJdTdWKRlGf9z7g2WE6UiUQtaufDYfMaMc98gzBT2738rtSyeI57euCQKKSB5FgnGnLpMt7Bej5p1zZ5rNAWBxeeYd1XGpuuToijyvjiFFn99hEblqULZB8S2q3nLc/ffktp+z2cd8924ilPnNBpVI4cYLd+WydX/muJw/rrXgsV5ZoC1Xst9DCd1xi5/d2OG/g3QW+H8WZi91YOBcDSRgcqE26c5QBZATcO/kVBFB2KXQrxFbVzXKc8FYb7mRjZG8ta7uBylkQ8A=="/>
+            </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                var theForm = document.forms['aspnetForm'];
+                if (!theForm) {
+                    theForm = document.aspnetForm;
+                }
+                function __doPostBack(eventTarget, eventArgument) {
+                    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                        theForm.__EVENTTARGET.value = eventTarget;
+                        theForm.__EVENTARGUMENT.value = eventArgument;
+                        theForm.submit();
+                    }
+                }
+                //]]>
+            </script>
+            <script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZMk18vvGtvsDYCNRqRvIKtoppgd-fBXxCoU1JgrO6SrrIScXMw2&amp;t=638628495619783110" type="text/javascript"></script>
+            <script src="../Scripts/WebForms/MsAjax/MicrosoftAjax.js" type="text/javascript"></script>
+            <script src="../Scripts/WebForms/MsAjax/MicrosoftAjaxWebForms.js" type="text/javascript"></script>
+            <div class="aspNetHidden">
+                <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="DE41CE72"/>
+            </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', ['tctl00$cphMain$ctl00', ''], ['ctl00$cphMain$btnSaveContactInfo', ''], [], 90, 'ctl00');
+                //]]>
+            </script>
+            <div id="header">
+                <span id="header2"></span>
+            </div>
+            <div id="placeHolderBody">
+                <script type="text/javascript" src="../Jscript/jsContactInfo.js"></script>
+                <div id="topNavigation">
+                    <input type="submit" name="ctl00$cphMain$StudentNavigation1$btnToEmployee" value="..." id="ctl00_cphMain_StudentNavigation1_btnToEmployee" style="display:none"/>
+                    <div id='home'>
+                        <a href='Default.aspx'>My Home</a>
+                    </div>
+                    <div id='profile' class='show'>
+                        <span class='first'>Profile</span>
+                        <span id='pro' class='excol'>&nbsp</span>
+                    </div>
+                    <ul class='subUl toggle'>
+                        <li id='contactinfo' class='selected'>My Contact Info</li>
+                        <li>
+                            <a id='datasheet' href='StudentDataSheet.aspx'>My Personal Data</a>
+                        </li>
+                        <li>
+                            <a id='grades' href='Grades.aspx'>My Grades</a>
+                        </li>
+                        <li id='schedule'>
+                            <a href='Schedule.aspx'>My Schedule</a>
+                        </li>
+                        <li id='curriculum'>
+                            <a href='Curriculum.aspx'>My Curriculum</a>
+                        </li>
+                        <li id='mail'>
+                            <a href='http://portal.office.com' target='_blank'>My Office 365</a>
+                        </li>
+                        <li id='changepassword'>
+                            <a href="https://aka.ms/sspr" target='_blank'>Reset My Password</a>
+                        </li>
+                        <li id='registerpassword'>
+                            <a href="https://aka.ms/ssprsetup" target='_blank'>Reset Info Update</a>
+                        </li>
+                    </ul>
+                    <ul class='subUl toggle'>
+                        <li id='GSmanual'>
+                            <a href='https://my.mapua.edu.ph/Student/Online Enrollment User Manual.pdf' target='_blank'>Online Enrollment User Manual</a>
+                        </li>
+                        <li id='gsa'>
+                            <a href='GSA.aspx'>Print GSA</a>
+                        </li>
+                        <li id='courserequest'>
+                            <a href='CourseRequest.aspx'>Course Request Forms</a>
+                        </li>
+                    </ul>
+                    <div id='payments' class='show'>
+                        <span class='first'>Bills &amp Payments</span>
+                        <span id='pays' class='excol'>&nbsp</span>
+                    </div>
+                    <ul class='subUl toggle'>
+                        <li id='bukaslogo'>
+                            <a href='MyMapuaBukasPDF.pdf' target='_blank'>Guidelines for Bukas Installment Plan</a>
+                        </li>
+                        <li id='charges'>
+                            <a href='Payment.aspx'>Statement of account</a>
+                        </li>
+                        <li id='paymenthistory'>
+                            <a href='PaymentHistory.aspx'>Payment History</a>
+                        </li>
+                    </ul>
+                    <div id='services' class='show'>
+                        <span class='first'>Services</span>
+                        <span id='ser' class='excol'>&nbsp</span>
+                    </div>
+                    <ul class='subUl toggle'>
+                        <li id='academicdocuments'>
+                            <a href='AcademicDocuments.aspx'>Academic Documents</a>
+                        </li>
+                        <li id='downloadableforms'>
+                            <a href='DownloadableForms.aspx'>Downloadable Forms</a>
+                        </li>
+                        <li id='ecm'>
+                            <a href='ECM.aspx' target='_blank'>E-CM</a>
+                        </li>
+                        <li id='linkedin'>
+                            <a href='LinkedinLearning.aspx'>LinkedIn Learning</a>
+                        </li>
+                    </ul>
+                    <div id='feedbackParent' class='show'>
+                        <span class='first'>Concern/Feedback</span>
+                        <span id='feedb' class='excol'>&nbsp</span>
+                    </div>
+                    <ul class='subUl toggle'>
+                        <li id='counselor'>
+                            <a href="/cdn-cgi/l/email-protection#325b466d515551725f4b5f535b5e1c5f534247531c5756471c425a">Email myCounselor</a>
+                        </li>
+                        <li id='feedback'>
+                            <a href='/Auth/Feedback.aspx' target='_blank'>Service Feedback</a>
+                        </li>
+                    </ul>
+                    <div id='feedback'>
+                        <a href='https://support.mapua.edu.ph/' target='_blank'>Help</a>
+                    </div>
+                    <div id='logoff'>
+                        <a href='/LogOff.aspx'>Sign Out</a>
+                    </div>
+                    <br/>
+                </div>
+                <div id="contentBody">
+                    <p class="title2">
+            My Contact Info
+        </p>
+                    <br/>
+                    <div id="ctl00_cphMain_ctl00">
+                        <div style="text-align:center;">
+                            <div style="display:inline-block;">
+                                <fieldset style="text-align:left;width:770px;border-width:thin;border-color:Black;">
+                                    <legend class="title1" style="margin-left:5px;">Personal Contact Information</legend>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td align="right" valign="middle">
+                                                <p style="width:110px;">Smart Mobile No.</p>
+                                            </td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                <input name="ctl00$cphMain$txtSmartCountryCode" type="text" id="ctl00_cphMain_txtSmartCountryCode" readonly="readonly" value="63" style="text-align:center;background-color:#C0C0C0;width:30px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td align="center" style="width:55px;">
+                                                <input name="ctl00$cphMain$txtSmartMobileCode" type="text" id="ctl00_cphMain_txtSmartMobileCode" maxlength="3" style="text-align:center;width:40px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                <input name="ctl00$cphMain$txtSmartMobileNumber" type="text" id="ctl00_cphMain_txtSmartMobileNumber" maxlength="7" style="text-align:center;width:76px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td style="width:52px;"></td>
+                                            <td align="right" valign="middle">
+                                                <p style="width:110px;">Non-Smart Mobile No.</p>
+                                            </td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                <input name="ctl00$cphMain$txtNonSmartCountryCode" type="text" id="ctl00_cphMain_txtNonSmartCountryCode" readonly="readonly" value="63" style="text-align:center;background-color:#C0C0C0;width:30px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td align="center" style="width:55px;">
+                                                <input name="ctl00$cphMain$txtNonSmartMobileCode" type="text" id="ctl00_cphMain_txtNonSmartMobileCode" maxlength="3" style="text-align:center;width:40px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                <input name="ctl00$cphMain$txtNonSmartMobileNumber" type="text" id="ctl00_cphMain_txtNonSmartMobileNumber" maxlength="7" style="text-align:center;width:76px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td style="width:52px;"></td>
+                                        </tr>
+                                        <tr valign="top" align="center" style="font-size:10px;">
+                                            <td></td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                Country
+                                            <br/>Code
+                                        
+                                            </td>
+                                            <td align="center" style="width:60px;">
+                                                Mobile Code
+                                            <br/>(e.g. 987)
+                                        
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                Mobile Number
+                                            <br/>(e.g. 1234567)
+                                        
+                                            </td>
+                                            <td style="width:47px;"></td>
+                                            <td></td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                Country
+                                            <br/>Code
+                                        
+                                            </td>
+                                            <td align="center" style="width:60px;">
+                                                Mobile Code
+                                            <br/>(e.g. 987)
+                                        
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                Mobile Number
+                                            <br/>(e.g. 1234567)
+                                        
+                                            </td>
+                                            <td style="width:47px;"></td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                                <fieldset style="text-align:left;width:770px;border-width:thin;border-color:Black;">
+                                    <legend class="title1" style="margin-left:5px;">Parent Contact Information</legend>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td align="right" valign="middle" style="width:100px;">
+                                            Mother's Name:
+                                        </td>
+                                            <td style="width:165px;">
+                                                <input name="ctl00$cphMain$txtMotherLastName" type="text" id="ctl00_cphMain_txtMotherLastName" maxlength="50" style="width:94%;text-align:left;border:1px solid #000000;text-transform:uppercase;" onkeyup="txtMotherContacts_KeyUp()"/>
+                                            </td>
+                                            <td style="width:165px;">
+                                                <input name="ctl00$cphMain$txtMotherGivenName" type="text" id="ctl00_cphMain_txtMotherGivenName" maxlength="50" style="width:94%;text-align:left;border:1px solid #000000;text-transform:uppercase;" onkeyup="txtMotherContacts_KeyUp()"/>
+                                            </td>
+                                            <td style="width:165px;">
+                                                <input name="ctl00$cphMain$txtMotherMiddleName" type="text" id="ctl00_cphMain_txtMotherMiddleName" maxlength="50" style="width:94%;text-align:left;border:1px solid #000000;text-transform:uppercase;" onkeyup="txtMotherContacts_KeyUp()"/>
+                                            </td>
+                                        </tr>
+                                        <tr align="center" valign="top" style="font-size:9px;">
+                                            <td style="width:100px;"></td>
+                                            <td style="width:165px;">
+                                            Last Name
+                                        </td>
+                                            <td style="width:165px;">
+                                            Given Name
+                                        </td>
+                                            <td style="width:165px;">
+                                            Middle Name
+                                        </td>
+                                        </tr>
+                                    </table>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td align="right" valign="middle">
+                                                <p style="width:110px;">Mother's Landline No.</p>
+                                            </td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:65px;">
+                                                <input name="ctl00$cphMain$txtMotherLandlineCountryCode" type="text" id="ctl00_cphMain_txtMotherLandlineCountryCode" maxlength="4" style="text-align:center;width:45px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtMotherContacts_KeyUp()"/>
+                                            </td>
+                                            <td align="center" style="width:55px;">
+                                                <input name="ctl00$cphMain$txtMotherLandlineAreaCode" type="text" id="ctl00_cphMain_txtMotherLandlineAreaCode" maxlength="4" style="text-align:center;width:45px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtMotherContacts_KeyUp()"/>
+                                            </td>
+                                            <td align="center" style="width:76px;padding-left:5px;">
+                                                <input name="ctl00$cphMain$txtMotherLandlinePhoneNumber" type="text" id="ctl00_cphMain_txtMotherLandlinePhoneNumber" maxlength="9" style="text-align:center;width:76px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtMotherContacts_KeyUp()"/>
+                                            </td>
+                                            <td style="width:22px;"></td>
+                                            <td align="right" valign="middle">
+                                                <p style="width:110px;">Mother's Mobile No.</p>
+                                            </td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                <input name="ctl00$cphMain$txtMotherMobileCountryCode" type="text" id="ctl00_cphMain_txtMotherMobileCountryCode" readonly="readonly" value="63" style="text-align:center;background-color:#C0C0C0;width:30px;border:1px solid #000000;"/>
+                                            </td>
+                                            <td align="center" style="width:60px;">
+                                                <input name="ctl00$cphMain$txtMotherMobileCode" type="text" id="ctl00_cphMain_txtMotherMobileCode" maxlength="3" style="text-align:center;width:40px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtMotherContacts_KeyUp()"/>
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                <input name="ctl00$cphMain$txtMotherMobileNumber" type="text" id="ctl00_cphMain_txtMotherMobileNumber" maxlength="7" style="text-align:center;width:76px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtMotherContacts_KeyUp()"/>
+                                            </td>
+                                            <td style="width:47px;"></td>
+                                        </tr>
+                                        <tr valign="top" align="center" style="font-size:10px;">
+                                            <td></td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:65px;">
+                                                Country Code
+                                            <br/>(e.g. 1234)
+                                        
+                                            </td>
+                                            <td align="center" style="width:55px;">
+                                                Area Code
+                                            <br/>(e.g. 987)
+                                        
+                                            </td>
+                                            <td align="center" style="width:76px;padding-left:5px;">
+                                                Phone Number
+                                            <br/>(e.g. 1234567)
+                                        
+                                            </td>
+                                            <td style="width:22px;"></td>
+                                            <td></td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                Country
+                                            <br/>Code
+                                        
+                                            </td>
+                                            <td align="center" style="width:60px;">
+                                                Mobile Code
+                                            <br/>(e.g. 987)
+                                        
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                Mobile Number
+                                            <br/>(e.g. 1234567)
+                                        
+                                            </td>
+                                            <td style="width:47px;"></td>
+                                        </tr>
+                                    </table>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td align="right" valign="middle" style="width:100px;">
+                                            Father's Name:
+                                        </td>
+                                            <td style="width:165px;">
+                                                <input name="ctl00$cphMain$txtFatherLastName" type="text" id="ctl00_cphMain_txtFatherLastName" maxlength="50" style="width:94%;text-align:left;border:1px solid #000000;text-transform:uppercase;" onkeyup="txtFatherContacts_KeyUp()"/>
+                                            </td>
+                                            <td style="width:165px;">
+                                                <input name="ctl00$cphMain$txtFatherGivenName" type="text" id="ctl00_cphMain_txtFatherGivenName" maxlength="50" style="width:94%;text-align:left;border:1px solid #000000;text-transform:uppercase;" onkeyup="txtFatherContacts_KeyUp()"/>
+                                            </td>
+                                            <td style="width:165px;">
+                                                <input name="ctl00$cphMain$txtFatherMiddleName" type="text" id="ctl00_cphMain_txtFatherMiddleName" maxlength="50" style="width:94%;text-align:left;border:1px solid #000000;text-transform:uppercase;" onkeyup="txtFatherContacts_KeyUp()"/>
+                                            </td>
+                                        </tr>
+                                        <tr align="center" valign="top" style="font-size:9px;">
+                                            <td style="width:100px;"></td>
+                                            <td style="width:165px;">
+                                            Last Name
+                                        </td>
+                                            <td style="width:165px;">
+                                            Given Name
+                                        </td>
+                                            <td style="width:165px;">
+                                            Middle Name
+                                        </td>
+                                        </tr>
+                                    </table>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td align="right" valign="middle">
+                                                <p style="width:110px;">Father's Landline No.</p>
+                                            </td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:65px;">
+                                                <input name="ctl00$cphMain$txtFatherLandlineCountryCode" type="text" id="ctl00_cphMain_txtFatherLandlineCountryCode" maxlength="4" style="text-align:center;width:45px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtFatherContacts_KeyUp()"/>
+                                            </td>
+                                            <td align="center" style="width:55px;">
+                                                <input name="ctl00$cphMain$txtFatherLandlineAreaCode" type="text" id="ctl00_cphMain_txtFatherLandlineAreaCode" maxlength="4" style="text-align:center;width:45px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtFatherContacts_KeyUp()"/>
+                                            </td>
+                                            <td align="center" style="width:76px;padding-left:5px;">
+                                                <input name="ctl00$cphMain$txtFatherLandlinePhoneNumber" type="text" id="ctl00_cphMain_txtFatherLandlinePhoneNumber" maxlength="9" style="text-align:center;width:76px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtFatherContacts_KeyUp()"/>
+                                            </td>
+                                            <td style="width:22px;"></td>
+                                            <td align="right" valign="middle">
+                                                <p style="width:110px;">Father's Mobile No.</p>
+                                            </td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                <input name="ctl00$cphMain$txtFatherMobileCountryCode" type="text" id="ctl00_cphMain_txtFatherMobileCountryCode" readonly="readonly" value="63" style="text-align:center;background-color:#C0C0C0;width:30px;border:1px solid #000000;"/>
+                                            </td>
+                                            <td align="center" style="width:60px;">
+                                                <input name="ctl00$cphMain$txtFatherMobileCode" type="text" id="ctl00_cphMain_txtFatherMobileCode" maxlength="3" style="text-align:center;width:40px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtFatherContacts_KeyUp()"/>
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                <input name="ctl00$cphMain$txtFatherMobileNumber" type="text" id="ctl00_cphMain_txtFatherMobileNumber" maxlength="7" style="text-align:center;width:76px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)" onkeyup="txtFatherContacts_KeyUp()"/>
+                                            </td>
+                                            <td style="width:47px;"></td>
+                                        </tr>
+                                        <tr valign="top" align="center" style="font-size:10px;">
+                                            <td></td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:65px;">
+                                                Country Code
+                                            <br/>(e.g. 1234)
+                                        
+                                            </td>
+                                            <td align="center" style="width:55px;">
+                                                Area Code
+                                            <br/>(e.g. 987)
+                                        
+                                            </td>
+                                            <td align="center" style="width:76px;padding-left:5px;">
+                                                Phone Number
+                                            <br/>(e.g. 1234567)
+                                        
+                                            </td>
+                                            <td style="width:22px;"></td>
+                                            <td></td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                Country
+                                            <br/>Code
+                                        
+                                            </td>
+                                            <td align="center" style="width:60px;">
+                                                Mobile Code
+                                            <br/>(e.g. 987)
+                                        
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                Mobile Number
+                                            <br/>(e.g. 1234567)
+                                        
+                                            </td>
+                                            <td style="width:47px;"></td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                                <fieldset style="text-align:left;width:770px;border-width:thin;border-color:Black;">
+                                    <legend class="title1" style="margin-left:5px;">
+                                        Emergency Contact Group&nbsp(<span style="font-size:11px;font-weight:normal;">In case of emergency, kindly contact this person and my parents</span>
+                                        )
+                                    </legend>
+                                    <br/>
+                                    <div style="margin-left:10px;text-align:center;">
+                                        Emergency Contact Info:&nbsp;&nbsp;<input value="radMotherInfo" name="ctl00$cphMain$radEmergencyInfo" type="radio" id="ctl00_cphMain_radMotherInfo" onclick="rad_Click(this)"/>
+                                        Same as Mother's Info &nbsp;&nbsp;<input value="radFatherInfo" name="ctl00$cphMain$radEmergencyInfo" type="radio" id="ctl00_cphMain_radFatherInfo" onclick="rad_Click(this)"/>
+                                        Same as Father's Info &nbsp;&nbsp;<input value="OtherInfo" name="ctl00$cphMain$radEmergencyInfo" type="radio" id="ctl00_cphMain_OtherInfo" onclick="rad_Click(this)"/>
+                                        Other Info &nbsp;&nbsp;&nbsp;&nbsp;<label id="ctl00_cphMain_lblRelationship">Relationship: </label>
+                                        <select name="ctl00$cphMain$cboRelationship" id="ctl00_cphMain_cboRelationship" style="width:150px;height:24px;border:1px solid #000000;">
+                                            <option value="GRANDMOTHER">GRANDMOTHER</option>
+                                            <option value="GRANDFATHER">GRANDFATHER</option>
+                                            <option value="AUNT">AUNT</option>
+                                            <option value="UNCLE">UNCLE</option>
+                                            <option value="SISTER">SISTER</option>
+                                            <option value="BROTHER">BROTHER</option>
+                                            <option value="OTHERS">OTHERS</option>
+                                        </select>
+                                    </div>
+                                    <br/>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td align="right" valign="middle" style="width:100px;">
+                                            Name:
+                                        </td>
+                                            <td style="width:165px;">
+                                                <input name="ctl00$cphMain$txtEmergencyLastName" type="text" id="ctl00_cphMain_txtEmergencyLastName" maxlength="50" style="width:94%;text-align:left;border:1px solid #000000;text-transform:uppercase;"/>
+                                            </td>
+                                            <td style="width:165px;">
+                                                <input name="ctl00$cphMain$txtEmergencyGivenName" type="text" id="ctl00_cphMain_txtEmergencyGivenName" maxlength="50" style="width:94%;text-align:left;border:1px solid #000000;text-transform:uppercase;"/>
+                                            </td>
+                                            <td style="width:165px;">
+                                                <input name="ctl00$cphMain$txtEmergencyMiddleName" type="text" id="ctl00_cphMain_txtEmergencyMiddleName" maxlength="50" style="width:94%;text-align:left;border:1px solid #000000;text-transform:uppercase;"/>
+                                            </td>
+                                        </tr>
+                                        <tr align="center" valign="top" style="font-size:9px;">
+                                            <td style="width:100px;"></td>
+                                            <td style="width:165px;">
+                                            Last Name
+                                        </td>
+                                            <td style="width:165px;">
+                                            Given Name
+                                        </td>
+                                            <td style="width:165px;">
+                                            Middle Name
+                                        </td>
+                                        </tr>
+                                    </table>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td align="right" valign="middle">
+                                                <p style="width:110px;">Landline No.</p>
+                                            </td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:65px;">
+                                                <input name="ctl00$cphMain$txtEmergencyLandlineCountryCode" type="text" id="ctl00_cphMain_txtEmergencyLandlineCountryCode" maxlength="4" style="text-align:center;width:45px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td align="center" style="width:55px;">
+                                                <input name="ctl00$cphMain$txtEmergencyLandlineAreaCode" type="text" id="ctl00_cphMain_txtEmergencyLandlineAreaCode" maxlength="4" style="text-align:center;width:45px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td align="center" style="width:76px;padding-left:5px;">
+                                                <input name="ctl00$cphMain$txtEmergencyLandlinePhoneNumber" type="text" id="ctl00_cphMain_txtEmergencyLandlinePhoneNumber" maxlength="9" style="text-align:center;width:76px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td style="width:22px;"></td>
+                                            <td align="right" valign="middle">
+                                                <p style="width:110px;">Mobile No.</p>
+                                            </td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                <input name="ctl00$cphMain$txtEmergencyMobileCountryCode" type="text" id="ctl00_cphMain_txtEmergencyMobileCountryCode" readonly="readonly" value="63" style="text-align:center;background-color:#C0C0C0;width:30px;border:1px solid #000000;"/>
+                                            </td>
+                                            <td align="center" style="width:60px;">
+                                                <input name="ctl00$cphMain$txtEmergencyMobileCode" type="text" id="ctl00_cphMain_txtEmergencyMobileCode" maxlength="3" style="text-align:center;width:40px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                <input name="ctl00$cphMain$txtEmergencyMobileNumber" type="text" id="ctl00_cphMain_txtEmergencyMobileNumber" maxlength="7" style="text-align:center;width:76px;border:1px solid #000000;" onkeydown="return txtNumber_KeyDown(event)"/>
+                                            </td>
+                                            <td style="width:47px;"></td>
+                                        </tr>
+                                        <tr valign="top" align="center" style="font-size:10px;">
+                                            <td></td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:65px;">
+                                                Country Code
+                                            <br/>(e.g. 1234)
+                                        
+                                            </td>
+                                            <td align="center" style="width:55px;">
+                                                Area Code
+                                            <br/>(e.g. 987)
+                                        
+                                            </td>
+                                            <td align="center" style="width:76px;padding-left:5px;">
+                                                Phone Number
+                                            <br/>(e.g. 1234567)
+                                        
+                                            </td>
+                                            <td style="width:22px;"></td>
+                                            <td></td>
+                                            <td style="width:5px;"></td>
+                                            <td align="center" style="width:40px;">
+                                                Country
+                                            <br/>Code
+                                        
+                                            </td>
+                                            <td align="center" style="width:60px;">
+                                                Mobile Code
+                                            <br/>(e.g. 987)
+                                        
+                                            </td>
+                                            <td align="center" style="width:76px;">
+                                                Mobile Number
+                                            <br/>(e.g. 1234567)
+                                        
+                                            </td>
+                                            <td style="width:47px;"></td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                                <br/>
+                                <input id="btnSave" type="button" value="SAVE" style="width:70px;height:26px;vertical-align:middle;" onclick="btnSave_Click()"/>
+                                &nbsp;&nbsp;<input id="btnClear" type="button" style="width:70px;height:26px;vertical-align:middle;" value="CLEAR" onclick="btnClear_Click()"/>
+                                <input type="submit" name="ctl00$cphMain$btnSaveContactInfo" value="" id="ctl00_cphMain_btnSaveContactInfo" style="display:none;"/>
+                                <input name="ctl00$cphMain$hdEmergencyRelationship" type="hidden" id="ctl00_cphMain_hdEmergencyRelationship"/>
+                                <input name="ctl00$cphMain$hdSavedInfoStatus" type="hidden" id="ctl00_cphMain_hdSavedInfoStatus"/>
+                                <input name="ctl00$cphMain$hdEmergencyLastName" type="hidden" id="ctl00_cphMain_hdEmergencyLastName"/>
+                                <input name="ctl00$cphMain$hdEmergencyGivenName" type="hidden" id="ctl00_cphMain_hdEmergencyGivenName"/>
+                                <input name="ctl00$cphMain$hdEmergencyMiddleName" type="hidden" id="ctl00_cphMain_hdEmergencyMiddleName"/>
+                                <input name="ctl00$cphMain$hdEmergencyLandlineCountryCode" type="hidden" id="ctl00_cphMain_hdEmergencyLandlineCountryCode"/>
+                                <input name="ctl00$cphMain$hdEmergencyLandlineAreaCode" type="hidden" id="ctl00_cphMain_hdEmergencyLandlineAreaCode"/>
+                                <input name="ctl00$cphMain$hdEmergencyLandlinePhoneNumber" type="hidden" id="ctl00_cphMain_hdEmergencyLandlinePhoneNumber"/>
+                                <input name="ctl00$cphMain$hdEmergencyMobileCode" type="hidden" id="ctl00_cphMain_hdEmergencyMobileCode"/>
+                                <input name="ctl00$cphMain$hdEmergencyMobileNumber" type="hidden" id="ctl00_cphMain_hdEmergencyMobileNumber"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hairLine"></div>
+            <div class="wideLine"></div>
+            <div class="hairLine"></div>
+            <div id="footer">
+                <span>
+                    Copyright © 2001-2017. All rights reserved. <a href="http://www.mapua.edu.ph" target="_blank" class="white noDecor">Map &uacute;a University</a>
+                </span>
+                <br/>
+                <a href="https://my.mapua.edu.ph/Public/TermsOfService.aspx" id="ctl00_aTerms" class="white boldContent" target="_blank">Terms of Service</a>
+                | <a href="https://my.mapua.edu.ph/Public/PrivacyPolicy.aspx" id="ctl00_aPrivacy" class="white boldContent" target="_blank">Privacy Policy</a>
+                <br/>
+                <a href="/cdn-cgi/l/email-protection#d9b1bcb5a9bdbcaab299b4b8a9acb8f7bcbdacf7a9b1" class="white noDecor">
+                    <span class="__cf_email__" data-cfemail="a9c1ccc5d9cdccdac2e9c4c8d9dcc887cccddc87d9c1">[email &#160;protected]</span>
+                </a>
+                <br/>
+                <noscript>
+                    <meta http-equiv="refresh" content="0; URL=https://my.mapua.edu.ph/Error/DisabledJavaScript.html"/>
+                </noscript>
+            </div>
+        </form>
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"6b3bdc68b4fd4ea0a3a3c1e5963ab154","spa":2}' crossorigin="anonymous"></script>
+    </body>
+</html>

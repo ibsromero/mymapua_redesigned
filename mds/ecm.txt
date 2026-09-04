@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+	myMapúa: ECM
+</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <link rel="Shortcut Icon" href="../favicon.ico"/>
+        <link type="text/css" rel="Stylesheet" href="../Css/cssAlert.css"/>
+        <link type="text/css" rel="Stylesheet" href="../Css/cssPrintCM.css"/>
+        <link type="text/css" media="print" href="../Css/cssPrintCM.css"/>
+        <link rel="stylesheet" type="text/css" media="all" href="../Css/cssWatermark.css"/>
+        <link rel="stylesheet" type="text/css" media="print" href="../Css/cssWatermarkPrint.css"/>
+        <script type="text/javascript" src="../Jscript/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jquery-migrate-1.4.1.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jquery-migrate-3.0.0.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jquery-ui-1.12.1.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jsAlert.js"></script>
+        <script type="text/javascript" src="../Jscript/jsPrintCM.js"></script>
+    </head>
+    <body>
+        <form method="post" action="./ECM.aspx" id="form1">
+            <div class="aspNetHidden">
+                <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="FgoNZDq07lkGj9ufuOxbJZNS2i2kwgLcCGOFCHXGRyRX1dPNScBbcC2nIautik5zi1VKBbVsmnvHgkkirbw3wcmSsRtQWaF6RD9A1V0OUI10vvX6QbgG7Gg54ayClQbvkw//Ow0jDP+Tfgn0onvmwOeXGBQEHQkfp2GIQvRwcu5wDAtzQKX7NqX1KFTJDqplI0YYW4H+AXYRX4pkR4RURENRuiPNg2K7PcB2DaJzRoUuz5WvAszGGMr1chBNgYRGsi6qy2QjYUSAn1gYfyCJbN01U7k2Ejiz86GuS2yBtxHf2QjYIHyYuQ2/VXUWOCph7WW9Ou0usKi3ZotqnjqfFOaoFHfedvugMS3XAqHaILEJiaGnABgLt8vYeH6CCIjcwkxjIqArYE8a1V2bDSls9A37xLVcMGOusvAef0hyNHM+QYG3YbwN7wdh3SuvWZvpzvlOgXzpTCDw/k9FgvjIANLw+UaOF3MfNFtQ9yC+eUC+88ndyXvVk/B3e6d33rfcj1xfOWFypWeSm6yCVljZeLmRaMw="/>
+            </div>
+            <div class="aspNetHidden">
+                <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CEFEFB2F"/>
+            </div>
+            <input name="hidAlert" type="hidden" id="hidAlert"/>
+            <div id="divBTNs" style="text-align: center;">
+                <input id="btnPrint" type="button" class="btnPrint" value="Print" onclick="btnPrint_Click()"/>
+                &nbsp;&nbsp;&nbsp;<input id="btnClose" type="button" class="btnPrint" value="Close" onclick="    btnClose_Click()"/>
+            </div>
+            <br/>
+            <div id="divCM" style="">
+                <table id="tblInfo" class="tblDefault">
+                    <tr>
+                        <td class="tdInfoLeftMiddle" rowspan="2">
+                            <div class="divCell" style="width: 94px; vertical-align: middle;">
+                                <img class="imgLogo" src="../Images/Small_Logo.png" alt=""/>
+                            </div>
+                            <div class="divCell">
+                                <label class="lblTitleBig">Mapúa University</label>
+                                <br/>
+                                <label class="lblTitleSmall">Certificate of Matriculation and Assessment</label>
+                            </div>
+                        </td>
+                        <td class="tdInfoMiddle">
+                            <label id="lblSchool_Term" class="lblSmallItalic">School Term</label>
+                            <div class="divSpace5"></div>
+                            <label id="lblSchoolTerm" class="lblNormalBold" style="padding-left: 10px;">1st Quarter SY2026-2027</label>
+                        </td>
+                        <td class="tdInfoRight" rowspan="3">
+                            <label class="lblSmallItalic">Assessment #</label>
+                            <div id="divAssessmentNumber" class="divCenter">
+                                <img id="imgQRCode" class="imgQR" src="https://my.mapua.edu.ph/Auth/QRGenerator.aspx?Value=322D00156691"/>
+                                <strong>322D00156691</strong>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdInfoMiddle">
+                            <label class="lblSmallItalic">Student Number / Program</label>
+                            <div class="divSpace5"></div>
+                            <label id="lblStudentNumberProgram" class="lblNormalBold" style="padding-left: 10px;">2024106318 / IT</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdInfoLeftTop">
+                            <label class="lblSmallItalic">Student Name</label>
+                            <div class="divSpace5"></div>
+                            <label id="lblStudentName" class="lblNormalBold" style="padding-left: 10px;">ROMERO, IBRAHIM RAJAN AZOR II (PAAS)</label>
+                        </td>
+                        <td class="tdInfoLeftLong">
+                            <label class="lblSmallItalic">Nationality / Gender</label>
+                            <div class="divSpace5"></div>
+                            <label id="lblNationalityGender" class="lblNormalBold" style="padding-left: 10px;">FILIPINO / MALE</label>
+                        </td>
+                    </tr>
+                </table>
+                <div class="divSpace10"></div>
+                <div id="divTimeSchedule" style="display:none;">
+                    <table id='tblTimeSchedule' class='tblDefault'>
+                        <tr>
+                            <th class='thTimeSchedule'>TIME</th>
+                            <th class='thTimeSchedule'>MON</th>
+                            <th class='thTimeSchedule'>TUE</th>
+                            <th class='thTimeSchedule'>WED</th>
+                            <th class='thTimeSchedule'>THU</th>
+                            <th class='thTimeSchedule'>FRI</th>
+                            <th class='thTimeSchedule'>SAT</th>
+                            <th class='thTimeSchedule'>SUN</th>
+                        </tr>
+                        <tr>
+                            <td class='tdTimeSchedule' style='align:center;'>
+                                <label class='lblNormal9'>07:30 AM - 09:00 AM</label>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS152P</p>
+                                <p class='parTimeScheduleRight'>MPO409</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ISS160</p>
+                                <p class='parTimeScheduleRight'>MPO604</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='tdTimeSchedule' style='align:center;'>
+                                <label class='lblNormal9'>09:00 AM - 10:30 AM</label>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS152P</p>
+                                <p class='parTimeScheduleRight'>ONLINE</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ISS160</p>
+                                <p class='parTimeScheduleRight'>MPO604</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='tdTimeSchedule' style='align:center;'>
+                                <label class='lblNormal9'>10:30 AM - 12:00 PM</label>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS152P</p>
+                                <p class='parTimeScheduleRight'>MPO604</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>CSS140-1</p>
+                                <p class='parTimeScheduleRight'>ONLINE</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS152P</p>
+                                <p class='parTimeScheduleRight'>MPO409</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ISS160</p>
+                                <p class='parTimeScheduleRight'>MPO604</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='tdTimeSchedule' style='align:center;'>
+                                <label class='lblNormal9'>12:00 PM - 01:30 PM</label>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS152P</p>
+                                <p class='parTimeScheduleRight'>MPO604</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS142P</p>
+                                <p class='parTimeScheduleRight'>MPO601</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>CSS140-1</p>
+                                <p class='parTimeScheduleRight'>ONLINE</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>CSS140-1</p>
+                                <p class='parTimeScheduleRight'>ONLINE</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='tdTimeSchedule' style='align:center;'>
+                                <label class='lblNormal9'>01:30 PM - 03:00 PM</label>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS142P</p>
+                                <p class='parTimeScheduleRight'>MPO601</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='tdTimeSchedule' style='align:center;'>
+                                <label class='lblNormal9'>03:00 PM - 04:30 PM</label>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS142P</p>
+                                <p class='parTimeScheduleRight'>MPO605</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS142P</p>
+                                <p class='parTimeScheduleRight'>MPO601</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS142P</p>
+                                <p class='parTimeScheduleRight'>MPO607</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='tdTimeSchedule' style='align:center;'>
+                                <label class='lblNormal9'>04:30 PM - 06:00 PM</label>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS183-02</p>
+                                <p class='parTimeScheduleRight'>MPO603</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS165-1</p>
+                                <p class='parTimeScheduleRight'>MPO322</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='tdTimeSchedule' style='align:center;'>
+                                <label class='lblNormal9'>06:00 PM - 07:30 PM</label>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS183-02</p>
+                                <p class='parTimeScheduleRight'>MPO603</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS165-1</p>
+                                <p class='parTimeScheduleRight'>MPO322</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='tdTimeSchedule' style='align:center;'>
+                                <label class='lblNormal9'>07:30 PM - 09:00 PM</label>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS183-02</p>
+                                <p class='parTimeScheduleRight'>MPO603</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'>ITS165-1</p>
+                                <p class='parTimeScheduleRight'>MPO322</p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                            <td class='tdTimeSchedule'>
+                                <p class='parTimeScheduleLeft'></p>
+                                <p class='parTimeScheduleRight'></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="divSpace10"></div>
+                <div id="divScheduleDetails">
+                    <table id='tblScheduleDetails' class='tblDefault'>
+                        <tr>
+                            <th class='thScheduleDetailsMedium'>
+                                ENROLLED<br/>COURSE
+                            </th>
+                            <th class='thScheduleDetailsMedium'>
+                                CREDIT<br/>UNITS
+                            </th>
+                            <th class='thScheduleDetailsShort'>SECTION</th>
+                            <th class='thScheduleDetailsShort'>ROOM</th>
+                            <th class='thScheduleDetailsMedium' colspan='2' style='width:110px;'>SCHEDULE</th>
+                            <th class='thScheduleDetailsShort'>
+                                TF<br/>UNITS
+                            </th>
+                            <th class='thScheduleDetailsShort'>
+                                TF<br/>FEE
+                            </th>
+                            <th class='thScheduleDetailsShort'>
+                                L/F/D<br/>UNITS
+                            </th>
+                            <th class='thScheduleDetailsShort'>
+                                L/F/D<br/>FEE
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'>CSS140-1</td>
+                            <td class='tdScheduleDetailsMedium'>3.00</td>
+                            <td class='tdScheduleDetailsShort'>BM10</td>
+                            <td class='tdScheduleDetailsShort'>ONLINE</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>W</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>10:30 AM - 01:30 PM</td>
+                            <td class='tdScheduleDetailsShort'>3.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>6,960.00</td>
+                            <td class='tdScheduleDetailsShort'>0.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>0.00</td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'></td>
+                            <td class='tdScheduleDetailsMedium'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort'>ONLINE</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>F</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>12:00 PM - 01:30 PM</td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'>ISS160</td>
+                            <td class='tdScheduleDetailsMedium'>3.00</td>
+                            <td class='tdScheduleDetailsShort'>BM10</td>
+                            <td class='tdScheduleDetailsShort'>MPO604</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>S</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>07:30 AM - 12:00 PM</td>
+                            <td class='tdScheduleDetailsShort'>3.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>6,960.00</td>
+                            <td class='tdScheduleDetailsShort'>0.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>0.00</td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'>ITS142P</td>
+                            <td class='tdScheduleDetailsMedium'>3.00</td>
+                            <td class='tdScheduleDetailsShort'>BM10</td>
+                            <td class='tdScheduleDetailsShort'>MPO605</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>M</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>03:00 PM - 04:30 PM</td>
+                            <td class='tdScheduleDetailsShort'>3.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>6,960.00</td>
+                            <td class='tdScheduleDetailsShort'>1.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>3,340.00</td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'></td>
+                            <td class='tdScheduleDetailsMedium'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort'>MPO601</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>T</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>12:00 PM - 04:30 PM</td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'></td>
+                            <td class='tdScheduleDetailsMedium'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort'>MPO607</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>W</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>03:00 PM - 04:30 PM</td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'>ITS152P</td>
+                            <td class='tdScheduleDetailsMedium'>3.00</td>
+                            <td class='tdScheduleDetailsShort'>BM14</td>
+                            <td class='tdScheduleDetailsShort'>MPO604</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>M</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>10:30 AM - 01:30 PM</td>
+                            <td class='tdScheduleDetailsShort'>3.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>6,960.00</td>
+                            <td class='tdScheduleDetailsShort'>1.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>3,340.00</td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'></td>
+                            <td class='tdScheduleDetailsMedium'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort'>MPO409</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>Th</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>07:30 AM - 09:00 AM</td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'></td>
+                            <td class='tdScheduleDetailsMedium'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort'>ONLINE</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>Th</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>09:00 AM - 10:30 AM</td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'></td>
+                            <td class='tdScheduleDetailsMedium'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort'>MPO409</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>Th</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>10:30 AM - 12:00 PM</td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                            <td class='tdScheduleDetailsShort'></td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'></td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'>ITS165-1</td>
+                            <td class='tdScheduleDetailsMedium'>3.00</td>
+                            <td class='tdScheduleDetailsShort'>BM12</td>
+                            <td class='tdScheduleDetailsShort'>MPO322</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>Th</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>04:30 PM - 09:00 PM</td>
+                            <td class='tdScheduleDetailsShort'>3.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>6,960.00</td>
+                            <td class='tdScheduleDetailsShort'>0.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>0.00</td>
+                        </tr>
+                        <tr>
+                            <td class='tdScheduleDetailsMedium' style='text-align:left;padding-left:15px;'>ITS183-02</td>
+                            <td class='tdScheduleDetailsMedium'>3.00</td>
+                            <td class='tdScheduleDetailsShort'>BM11</td>
+                            <td class='tdScheduleDetailsShort'>MPO603</td>
+                            <td class='tdScheduleDetailsMedium' style='width:80px;text-align:left;padding-left:10px;border-right-style:none;'>M</td>
+                            <td class='tdScheduleDetailsMedium' style='width:140px;text-align:right;padding-right:10px;border-left-style:none;'>04:30 PM - 09:00 PM</td>
+                            <td class='tdScheduleDetailsShort'>3.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>6,960.00</td>
+                            <td class='tdScheduleDetailsShort'>0.00</td>
+                            <td class='tdScheduleDetailsShort' style='text-align:right;padding-right:15px;'>0.00</td>
+                        </tr>
+                        <tr>
+                            <th class='thScheduleDetailsMedium'>TOTALS</th>
+                            <th class='thScheduleDetailsMedium'>18.00 / (0.00)</th>
+                            <th class='thScheduleDetailsMedium' colspan='4' style='width:370px;'></th>
+                            <th class='thScheduleDetailsShort'>18.00</th>
+                            <th class='thScheduleDetailsShort' style='text-align:right;padding-right:15px;'>41,760.00</th>
+                            <th class='thScheduleDetailsShort'>2.00</th>
+                            <th class='thScheduleDetailsShort' style='text-align:right;padding-right:15px;'>6,680.00</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="divSpace10"></div>
+                <div>
+                    <div class="divCell" style="vertical-align: top;">
+                        <div id="divMiscellaneousCharges" class="divCell" style="width: 280px;">
+                            <table class='tblDefault'>
+                                <tr>
+                                    <th class='thMiscellaneousChargesShort' colspan='2' style='width:280px;'>MISCELLANEOUS CHARGES</th>
+                                </tr>
+                                <tr>
+                                    <th class='thMiscellaneousChargesLong'>PARTICULARS</th>
+                                    <th class='thMiscellaneousChargesShort'>AMOUNT</th>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>COURSERA FEE</td>
+                                    <td class='tdMiscellaneousChargesShort'>3,000.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>INFRASTRUCTURE FEE</td>
+                                    <td class='tdMiscellaneousChargesShort'>1,834.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>INTERNATIONALIZATION FEE</td>
+                                    <td class='tdMiscellaneousChargesShort'>230.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>LIBRARY FEE</td>
+                                    <td class='tdMiscellaneousChargesShort'>1,864.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>MEDICAL AND DENTAL FEE</td>
+                                    <td class='tdMiscellaneousChargesShort'>640.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>METIS</td>
+                                    <td class='tdMiscellaneousChargesShort'>1,500.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>REGISTRATION FEE</td>
+                                    <td class='tdMiscellaneousChargesShort'>1,590.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>SPORTS DEVELOPMENT FEE</td>
+                                    <td class='tdMiscellaneousChargesShort'>589.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>STUDENT COUNCIL FEE</td>
+                                    <td class='tdMiscellaneousChargesShort'>30.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='tdMiscellaneousChargesLong' style='padding-left:5px;'>SUPPLEMENTARY FEE</td>
+                                    <td class='tdMiscellaneousChargesShort'>1,599.00</td>
+                                </tr>
+                                <tr>
+                                    <td class='thMiscellaneousChargesLong'>TOTAL MISC. CHARGES</td>
+                                    <td class='thMiscellaneousChargesShort' style='text-align:right;padding-right:5px;'>12,876.00</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="divCell" style="vertical-align: top;">
+                        <div>
+                            <div id="divPAYMENTOPTIONS" class="divCell" style="width: 460px; display:none;">
+                                <table class='tblDefault'>
+                                    <tr>
+                                        <th class='thMiscellaneousChargesShort' colspan='4' style='width:460px;'>PAYMENT OPTIONS</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='thAssessment'>PARTICULARS</th>
+                                        <th class='thAssessment'>
+                                            FULL           <br/>(100%)       
+                                        </th>
+                                        <th class='thAssessment'>
+                                            OPTION 1           <br/>(40%-14%-30%)       
+                                        </th>
+                                        <th class='thAssessment'>
+                                            OPTION 2           <br/>(20%-40%-40%)       
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class='tdAssessment' style='text-align:left;padding-left:5px;padding-right:0px;'>Tuition Fee</th>
+                                        <th class='tdAssessment'>39,420.00</th>
+                                        <th class='tdAssessment'>41,760.00</th>
+                                        <th class='tdAssessment'>41,760.00</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='tdAssessment' style='text-align:left;padding-left:5px;padding-right:0px;'>L/F/D Fee</th>
+                                        <th class='tdAssessment'>6,680.00</th>
+                                        <th class='tdAssessment'>6,680.00</th>
+                                        <th class='tdAssessment'>6,680.00</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='tdAssessment' style='text-align:left;padding-left:5px;padding-right:0px;'>Misc. Fee</th>
+                                        <th class='tdAssessment'>12,876.00</th>
+                                        <th class='tdAssessment'>12,876.00</th>
+                                        <th class='tdAssessment'>12,876.00</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='tdAssessment' style='text-align:left;padding-left:5px;padding-right:0px;'>Total</th>
+                                        <th class='tdAssessment'>58,976.00</th>
+                                        <th class='tdAssessment'>61,316.00</th>
+                                        <th class='tdAssessment'>61,316.00</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='thAssessment' style='text-align:left;padding-left:5px;padding-right:0px;'>TOTAL AMOUNT</th>
+                                        <th class='thAssessment' style='text-align:right;padding-right:5px;'>117,952.00</th>
+                                        <th class='thAssessment' style='text-align:right;padding-right:5px;'>122,632.00</th>
+                                        <th class='thAssessment' style='text-align:right;padding-right:5px;'>122,632.00</th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="divCell" style="width: 7px;"></div>
+                            <div id="divPaymentMode" class="divCell" style="width: 230px;">
+                                <table class='tblDefault'>
+                                    <tr>
+                                        <th class='thMiscellaneousChargesShort' colspan='4' style='width:230px;'>SELECTED PAYMENT MODE</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='thAssessment'>PARTICULARS</th>
+                                        <th class='thAssessment'>
+                                            INSTALLMENT           <br/>(25%-25%-25%-            25%)       
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class='tdAssessment' style='text-align:left;padding-left:5px;padding-right:0px;'>Tuition Fee</th>
+                                        <th class='tdAssessment'>41,760.00</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='tdAssessment' style='text-align:left;padding-left:5px;padding-right:0px;'>L/F/D Fee</th>
+                                        <th class='tdAssessment'>6,680.00</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='tdAssessment' style='text-align:left;padding-left:5px;padding-right:0px;'>Misc. Fee</th>
+                                        <th class='tdAssessment'>12,876.00</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='thAssessment' style='text-align:left;padding-left:5px;padding-right:0px;'>TOTAL</th>
+                                        <th class='thAssessment' style='text-align:right;padding-right:5px;'>61,316.00</th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="divCell" style="width: 7px;"></div>
+                            <div id="divPaymentDeadline" class="divCell" style="width: 282px; vertical-align: top;">
+                                <table class='tblDefault'>
+                                    <tr>
+                                        <th class='thPaymentDeadlineShort' colspan='2' style='width:284px;'>PAYMENT DEADLINES</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='thPaymentDeadlineLong'>DUE DATE</th>
+                                        <th class='thPaymentDeadlineShort'>INSTALLMENT</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='tdPaymentDeadlineLong' style='text-align:left;padding-right:0px;'>FIRST - Jul 27, 2026</th>
+                                        <th class='tdPaymentDeadlineShort'>15,329.00</th>
+                                    </tr>
+                                    <tr>   
+                                    <tr>
+                                        <th class='tdPaymentDeadlineLong' style='text-align:left;padding-right:0px;'>SECOND - Aug 21, 2026</th>
+                                        <th class='tdPaymentDeadlineShort'>15,329.00</th>
+                                    </tr>
+                                    <tr>   
+                                    <tr>
+                                        <th class='tdPaymentDeadlineLong' style='text-align:left;padding-right:0px;'>THIRD - Sep 11, 2026</th>
+                                        <th class='tdPaymentDeadlineShort'>15,329.00</th>
+                                    </tr>
+                                    <tr>   
+                                    <tr>
+                                        <th class='tdPaymentDeadlineLong' style='text-align:left;padding-right:0px;'>FOURTH - Oct 01, 2026</th>
+                                        <th class='tdPaymentDeadlineShort'>15,329.00</th>
+                                    </tr>
+                                    <tr>   
+                                    <tr>
+                                        <th class='thPaymentDeadlineLong'>TOTALS</th>
+                                        <th class='thPaymentDeadlineShort' style='text-align:right;padding-right:5px;'>61,316.00</th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divSpace10"></div>
+                <div>
+                    <div id="divDiscountSummary" class="divCell" style="vertical-align: top;">
+                        <table class='tblDefault'>
+                            <tr>
+                                <th class='thSummary' colspan='5' style='width:710;'>ASSESSMENT CHARGES, SCHOLARSHIPS, & DISCOUNT SUMMARY</th>
+                            </tr>
+                            <tr>
+                                <th class='thSummary'>PARTICULARS</th>
+                                <th class='thSummary'>TF CHARGES</th>
+                                <th class='thSummary'>L/F/D CHARGES</th>
+                                <th class='thSummary'>MISC. CHARGES</th>
+                                <th class='thSummary'>TOTAL</th>
+                            </tr>
+                            <tr>
+                                <th class='tdSummary' style='text-align:left;padding-left:5px;'>Beginning Balance</th>
+                                <th class='tdSummary'>41,760.00</th>
+                                <th class='tdSummary'>6,680.00</th>
+                                <th class='tdSummary'>12,876.00</th>
+                                <th class='tdSummary'>61,316.00</th>
+                            </tr>
+                            <tr>
+                                <th class='thSummary'>TOTALS</th>
+                                <th class='thSummary' style='text-align:right;padding-right:5px;'>41,760.00</th>
+                                <th class='thSummary' style='text-align:right;padding-right:5px;'>6,680.00</th>
+                                <th class='thSummary' style='text-align:right;padding-right:5px;'>12,876.00</th>
+                                <th class='thSummary' style='text-align:right;padding-right:5px;'>61,316.00</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="divSpace10"></div>
+                <div class="divValidation" style="border: none;">
+                    NOTES:
+                <br/>
+                    <ul>
+                        <li>
+                            Deadline for FULL assessment conversion is on
+                        <label id="lblConversionDate">Aug 15, 2026</label>
+                            . FULL assessments with outstanding balances beyond this date is automatically converted to INSTALLMENT basis.
+                        </li>
+                        <li id="liTutorial">
+                            For all off-term courses with only one section that starts with "E",  the tuition fee for such courses shall be recomputed if the total number of enrolled students in said courses is below 15.  The recomputed tuition fee shall be 1.5 x the regular tuition fee. If you are not amenable to this, please proceed to the Registrar's Office for a change in the course/s. If you fail to change the course/s on or before 
+                        <label id="lblAssessmentDate">Aug 15, 2026</label>
+                            you are deemed to have accepted enrollment in said course/s and the recomputation of tuition fees in case the total number of students falls below 15.
+                        </li>
+                        <li>
+                            <strong>CANCELLATION OF ENROLLMENT</strong>
+                            Any student may cancel his enrolment during the term for any valid reason but he must pay the corresponding charges billed by the school.  Please refer to the Student’s Handbook for details.
+                        </li>
+                        <li>
+                            <strong>REFUND POLICY</strong>
+                            The school follows the Refund Policy issued by CHED under Sec.100 of the 2008 MORPHE. Please refer to the Student’s Handbook for details. Excess payments made during enrolment may be refunded or credited to the succeeding enrolment.  Refunds must be requested.  Applications for refund must be submitted to the Treasury Dept. starting the 3rd week after the start of classes.
+                        </li>
+                        <li>
+                            <strong>PENALTY</strong>
+                            - A penalty of 1% per month will be charged to all outstanding balances, computed starting from the end of each term until full settlement of the account.
+                        </li>
+                    </ul>
+                    <ul></ul>
+                </div>
+            </div>
+        </form>
+        <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"6b3bdc68b4fd4ea0a3a3c1e5963ab154","spa":2}' crossorigin="anonymous"></script>
+        <script>
+            (function() {
+                function c() {
+                    var b = a.contentDocument || (a.contentWindow && a.contentWindow.document);
+                    if (b) {
+                        var d = b.createElement('script');
+                        d.innerHTML = "window.__CF$cv$params={r:'a35e3405adea8321',t:'MTc4ODUzNzU4NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                        b.getElementsByTagName('head')[0].appendChild(d)
+                    }
+                }
+                if (document.body) {
+                    var a = document.createElement('iframe');
+                    a.height = 1;
+                    a.width = 1;
+                    a.style.position = 'absolute';
+                    a.style.top = 0;
+                    a.style.left = 0;
+                    a.style.border = 'none';
+                    a.style.visibility = 'hidden';
+                    document.body.appendChild(a);
+                    if ('loading' !== document.readyState)
+                        c();
+                    else if (window.addEventListener)
+                        document.addEventListener('DOMContentLoaded', c);
+                    else {
+                        var e = document.onreadystatechange || function() {}
+                        ;
+                        document.onreadystatechange = function(b) {
+                            e(b);
+                            'loading' !== document.readyState && (document.onreadystatechange = e,
+                            c())
+                        }
+                    }
+                }
+            }
+            )();
+        </script>
+    </body>
+</html>

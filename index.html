@@ -7,19 +7,22 @@
   <title>myMapúa | Student Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <div class="brand-block">
-        <div class="brand-mark">M</div>
-        <div><div class="brand-name">my<span>MAPÚA</span></div><div class="brand-subtitle">Student portal</div></div>
+        <img class="mapua-logo" src="mapua-logo.png" alt="Mapúa University" />
+        <div class="brand-caption">myMAPÚA <span>/</span> student portal</div>
         <button class="close-menu" id="closeMenu" aria-label="Close navigation">×</button>
       </div>
       <nav class="main-nav" aria-label="Main navigation">
         <a class="nav-link active" href="#dashboard" data-page="My Home"><span class="nav-icon">⌂</span>My Home</a>
+        <div class="nav-group"><div class="nav-label"><span class="nav-icon">◎</span>Profile<span class="chevron">⌃</span></div>
+          <a class="nav-link" href="#contact" data-page="My Contact Info"><span class="nav-icon">◉</span>My Contact Info</a>
+        </div>
         <div class="nav-group"><div class="nav-label"><span class="nav-icon">▣</span>Academics<span class="chevron">⌃</span></div>
           <a class="nav-link" href="#grades" data-page="My Grades"><span class="nav-icon">▤</span>My Grades</a><a class="nav-link" href="#schedule" data-page="My Schedule"><span class="nav-icon">▦</span>My Schedule</a><a class="nav-link" href="#curriculum" data-page="My Curriculum"><span class="nav-icon">◫</span>My Curriculum</a><a class="nav-link" href="#gsa" data-page="Print GSA"><span class="nav-icon">▧</span>Print GSA</a>
         </div>
@@ -27,7 +30,7 @@
           <a class="nav-link" href="#soa" data-page="Statement of Account"><span class="nav-icon">▤</span>Statement of Account</a><a class="nav-link" href="#payments" data-page="Payment History"><span class="nav-icon">↔</span>Payment History</a>
         </div>
         <div class="nav-group"><div class="nav-label"><span class="nav-icon">□</span>Student Services<span class="chevron">⌃</span></div>
-          <a class="nav-link" href="#documents" data-page="Academic Documents"><span class="nav-icon">▤</span>Academic Documents</a><a class="nav-link" href="#forms" data-page="Downloadable Forms"><span class="nav-icon">⇩</span>Downloadable Forms / E-CM</a>
+          <a class="nav-link" href="#documents" data-page="Academic Documents"><span class="nav-icon">▤</span>Academic Documents</a><a class="nav-link" href="#forms" data-page="Downloadable Forms"><span class="nav-icon">⇩</span>Downloadable Forms</a><a class="nav-link" href="#ecm" data-page="E-CM"><span class="nav-icon">▧</span>E-CM</a>
         </div>
         <div class="nav-group"><div class="nav-label"><span class="nav-icon">◌</span>Support &amp; Help<span class="chevron">⌃</span></div>
           <a class="nav-link" href="#counselor" data-page="Counselor / Feedback"><span class="nav-icon">◌</span>Counselor / Feedback</a><a class="nav-link" href="#faqs" data-page="User Manuals & FAQs"><span class="nav-icon">?</span>User Manuals &amp; FAQs</a>

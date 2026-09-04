@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+        <title>
+	PaymentHistory
+</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <link href="../Css/csStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="../Css/csStructure.css" rel="stylesheet" type="text/css"/>
+        <link href="../Css/cssAlert.css" rel="stylesheet" type="text/css"/>
+        <link href="../Css/jquery-ui-1.12.1-blitzer/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="../Jscript/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jquery-migrate-1.4.1.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jquery-migrate-3.0.0.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jquery-ui-1.12.1.min.js"></script>
+        <script type="text/javascript" src="../Jscript/jsNav.js"></script>
+        <script type="text/javascript" src="../Jscript/jsAlert.js"></script>
+    </head>
+    <body>
+        <form method="post" action="./PaymentHistory.aspx" id="aspnetForm">
+            <div class="aspNetHidden">
+                <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value=""/>
+                <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value=""/>
+                <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="dP7ILnY8QYJJw+Z+mpAegu32asYjjC/bAwC1QHE4Di5J9tpk/mkgSWZcENthwxucmdip2+1RE/9e3rWxiYXD2ZWt5AHz88fs+ghU7oD8rKAlZyV4d9vGFncU9QLe9yr8TAzsUKGZAI3fS1VTu44GNQIK0MK6zbeu5H0MXpttZyWq7iDMyB0eBdEbG8hesc7HRKUyMLD9t7qFqdrroddWnTDRekbnXDA2zUwICijpTPs2lLdDuzNOg9dAz0Kn28wyVH3uRzXb5O2yNa2XZyUpzTeY7ViJqSlKZPZ+gAUcDXvvKO7G"/>
+            </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                var theForm = document.forms['aspnetForm'];
+                if (!theForm) {
+                    theForm = document.aspnetForm;
+                }
+                function __doPostBack(eventTarget, eventArgument) {
+                    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                        theForm.__EVENTTARGET.value = eventTarget;
+                        theForm.__EVENTARGUMENT.value = eventArgument;
+                        theForm.submit();
+                    }
+                }
+                //]]>
+            </script>
+            <script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZMk18vvGtvsDYCNRqRvIKtoppgd-fBXxCoU1JgrO6SrrIScXMw2&amp;t=638628495619783110" type="text/javascript"></script>
+            <script src="../Scripts/WebForms/MsAjax/MicrosoftAjax.js" type="text/javascript"></script>
+            <script src="../Scripts/WebForms/MsAjax/MicrosoftAjaxWebForms.js" type="text/javascript"></script>
+            <div class="aspNetHidden">
+                <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="634809C6"/>
+            </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
+                //]]>
+            </script>
+            <div id="header">
+                <span id="header2"></span>
+            </div>
+            <div id="placeHolderBody">
+                <div id="topNavigation">
+                    <input type="submit" name="ctl00$cphMain$StudentNavigation1$btnToEmployee" value="..." id="ctl00_cphMain_StudentNavigation1_btnToEmployee" style="display:none"/>
+                    <div id='home'>
+                        <a href='Default.aspx'>My Home</a>
+                    </div>
+                    <div id='profile' class='show'>
+                        <span class='first'>Profile</span>
+                        <span id='pro' class='excol'>&nbsp</span>
+                    </div>
+                    <ul class='subUl toggle'>
+                        <li>
+                            <a id='contactinfo' href='ContactInfo.aspx'>My Contact Info</a>
+                        </li>
+                        <li>
+                            <a id='datasheet' href='StudentDataSheet.aspx'>My Personal Data</a>
+                        </li>
+                        <li>
+                            <a id='grades' href='Grades.aspx'>My Grades</a>
+                        </li>
+                        <li id='schedule'>
+                            <a href='Schedule.aspx'>My Schedule</a>
+                        </li>
+                        <li id='curriculum'>
+                            <a href='Curriculum.aspx'>My Curriculum</a>
+                        </li>
+                        <li id='mail'>
+                            <a href='http://portal.office.com' target='_blank'>My Office 365</a>
+                        </li>
+                        <li id='changepassword'>
+                            <a href="https://aka.ms/sspr" target='_blank'>Reset My Password</a>
+                        </li>
+                        <li id='registerpassword'>
+                            <a href="https://aka.ms/ssprsetup" target='_blank'>Reset Info Update</a>
+                        </li>
+                    </ul>
+                    <ul class='subUl toggle'>
+                        <li id='GSmanual'>
+                            <a href='https://my.mapua.edu.ph/Student/Online Enrollment User Manual.pdf' target='_blank'>Online Enrollment User Manual</a>
+                        </li>
+                        <li id='gsa'>
+                            <a href='GSA.aspx'>Print GSA</a>
+                        </li>
+                        <li id='courserequest'>
+                            <a href='CourseRequest.aspx'>Course Request Forms</a>
+                        </li>
+                    </ul>
+                    <div id='payments' class='show'>
+                        <span class='first'>Bills &amp Payments</span>
+                        <span id='pays' class='excol'>&nbsp</span>
+                    </div>
+                    <ul class='subUl toggle'>
+                        <li id='bukaslogo'>
+                            <a href='MyMapuaBukasPDF.pdf' target='_blank'>Guidelines for Bukas Installment Plan</a>
+                        </li>
+                        <li id='charges'>
+                            <a href='Payment.aspx'>Statement of account</a>
+                        </li>
+                        <li id='paymenthistory' class='selected'>Payment History</li>
+                    </ul>
+                    <div id='services' class='show'>
+                        <span class='first'>Services</span>
+                        <span id='ser' class='excol'>&nbsp</span>
+                    </div>
+                    <ul class='subUl toggle'>
+                        <li id='academicdocuments'>
+                            <a href='AcademicDocuments.aspx'>Academic Documents</a>
+                        </li>
+                        <li id='downloadableforms'>
+                            <a href='DownloadableForms.aspx'>Downloadable Forms</a>
+                        </li>
+                        <li id='ecm'>
+                            <a href='ECM.aspx' target='_blank'>E-CM</a>
+                        </li>
+                        <li id='linkedin'>
+                            <a href='LinkedinLearning.aspx'>LinkedIn Learning</a>
+                        </li>
+                    </ul>
+                    <div id='feedbackParent' class='show'>
+                        <span class='first'>Concern/Feedback</span>
+                        <span id='feedb' class='excol'>&nbsp</span>
+                    </div>
+                    <ul class='subUl toggle'>
+                        <li id='counselor'>
+                            <a href="/cdn-cgi/l/email-protection#fc9588a39f9b9fbc9185919d9590d2919d8c899dd2999889d28c94">Email myCounselor</a>
+                        </li>
+                        <li id='feedback'>
+                            <a href='/Auth/Feedback.aspx' target='_blank'>Service Feedback</a>
+                        </li>
+                    </ul>
+                    <div id='feedback'>
+                        <a href='https://support.mapua.edu.ph/' target='_blank'>Help</a>
+                    </div>
+                    <div id='logoff'>
+                        <a href='/LogOff.aspx'>Sign Out</a>
+                    </div>
+                    <br/>
+                </div>
+                <div id="contentBody">
+                    <p class="title2">Payment History</p>
+                    <br/>
+                    <table class='tableStyle2'>
+                        <tr class='title'>
+                            <td width='5%'>SY-Term</td>
+                            <td width='20%'>Description</td>
+                            <td width='10%'>Payment Date</td>
+                            <td width='10%'>OR Number</td>
+                            <td width='10%'>Amount (Php)</td>
+                        </tr>
+                        <td>2026 - 1</td>
+                        <td>MATRICULATION FEE</td>
+                        <td>08/18/2026</td>
+                        <td>06-2621527-01</td>
+                        <td style='text-align:right; padding-right:20px'>15,329.00</td>
+</ tr><td>2026 - 1</td>
+<td>MATRICULATION FEE</td>
+<td>08/18/2026</td>
+<td>06-2621527-01</td>
+<td style='text-align:right; padding-right:20px'>15,329.00</td>
+</ tr><td>2026 - 1</td>
+<td>MATRICULATION FEE</td>
+<td>08/03/2026</td>
+<td>06-2608603-01</td>
+<td style='text-align:right; padding-right:20px'>15,329.00</td>
+</ tr><td>2026 - 1</td>
+<td>BACK ACCOUNT</td>
+<td>07/16/2026</td>
+<td>06-2592815-01</td>
+<td style='text-align:right; padding-right:20px'>14,648.00</td>
+</ tr><td>2025 - 3</td>
+<td>MATRICULATION FEE</td>
+<td>06/30/2026</td>
+<td>06-2584723-01</td>
+<td style='text-align:right; padding-right:20px'>14,648.00</td>
+</ tr><td>2025 - 3</td>
+<td>MATRICULATION FEE</td>
+<td>05/22/2026</td>
+<td>06-2567966-01</td>
+<td style='text-align:right; padding-right:20px'>14,648.00</td>
+</ tr><td>2025 - 3</td>
+<td>MATRICULATION FEE</td>
+<td>04/23/2026</td>
+<td>06-2558562-01</td>
+<td style='text-align:right; padding-right:20px'>14,648.00</td>
+</ tr><td>2025 - 3</td>
+<td>MATRICULATION FEE</td>
+<td>04/06/2026</td>
+<td>06-2545947-01</td>
+<td style='text-align:right; padding-right:20px'>14,648.00</td>
+</ tr><td>2025 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>03/20/2026</td>
+<td>06-2526405-01</td>
+<td style='text-align:right; padding-right:20px'>16,040.00</td>
+</ tr><td>2025 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>03/20/2026</td>
+<td>06-2526405-01</td>
+<td style='text-align:right; padding-right:20px'>16,040.00</td>
+</ tr><td>2025 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>02/01/2026</td>
+<td>06-2507812-01</td>
+<td style='text-align:right; padding-right:20px'>16,040.00</td>
+</ tr><td>2025 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>01/11/2026</td>
+<td>06-2500641-01</td>
+<td style='text-align:right; padding-right:20px'>16,040.00</td>
+</ tr><td>2025 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>12/01/2025</td>
+<td>06-2485038-01</td>
+<td style='text-align:right; padding-right:20px'>16,040.00</td>
+</ tr><td>2025 - 1</td>
+<td>MATRICULATION FEE</td>
+<td>11/17/2025</td>
+<td>06-2465119-01</td>
+<td style='text-align:right; padding-right:20px'>10,986.00</td>
+</ tr><td>2025 - 1</td>
+<td>MATRICULATION FEE</td>
+<td>10/29/2025</td>
+<td>06-2456209-01</td>
+<td style='text-align:right; padding-right:20px'>10,986.00</td>
+</ tr><td>2025 - 1</td>
+<td>MATRICULATION FEE</td>
+<td>09/26/2025</td>
+<td>06-2444327-01</td>
+<td style='text-align:right; padding-right:20px'>10,986.00</td>
+</ tr><td>2025 - 1</td>
+<td>MATRICULATION FEE</td>
+<td>08/29/2025</td>
+<td>06-2437028-01</td>
+<td style='text-align:right; padding-right:20px'>10,986.00</td>
+</ tr><td>2025 - 1</td>
+<td>MATRICULATION FEE</td>
+<td>08/11/2025</td>
+<td>06-2422721-01</td>
+<td style='text-align:right; padding-right:20px'>29,296.00</td>
+</ tr><td>2024 - 3</td>
+<td>MATRICULATION FEE</td>
+<td>07/30/2025</td>
+<td>06-2402454-01</td>
+<td style='text-align:right; padding-right:20px'>10,624.00</td>
+</ tr><td>2024 - 3</td>
+<td>MATRICULATION FEE</td>
+<td>07/25/2025</td>
+<td>06-2400367-01</td>
+<td style='text-align:right; padding-right:20px'>10,624.00</td>
+</ tr><td>2024 - 3</td>
+<td>MATRICULATION FEE</td>
+<td>06/25/2025</td>
+<td>06-2388288-01</td>
+<td style='text-align:right; padding-right:20px'>10,624.00</td>
+</ tr><td>2024 - 3</td>
+<td>MATRICULATION FEE</td>
+<td>05/26/2025</td>
+<td>06-2380187-01</td>
+<td style='text-align:right; padding-right:20px'>10,624.00</td>
+</ tr><td>2024 - 3</td>
+<td>MATRICULATION FEE</td>
+<td>05/07/2025</td>
+<td>06-2374674-01</td>
+<td style='text-align:right; padding-right:20px'>28,333.00</td>
+</ tr><td>2024 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>03/13/2025</td>
+<td>06-2334764-01</td>
+<td style='text-align:right; padding-right:20px'>13,703.00</td>
+</ tr><td>2024 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>03/13/2025</td>
+<td>06-2334764-01</td>
+<td style='text-align:right; padding-right:20px'>13,710.00</td>
+</ tr><td>2024 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>02/24/2025</td>
+<td>06-2328967-01</td>
+<td style='text-align:right; padding-right:20px'>7.00</td>
+</ tr><td>2024 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>02/24/2025</td>
+<td>06-2328967-01</td>
+<td style='text-align:right; padding-right:20px'>13,710.00</td>
+</ tr><td>2024 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>01/13/2025</td>
+<td>06-2319548-01</td>
+<td style='text-align:right; padding-right:20px'>13,710.00</td>
+</ tr><td>2024 - 2</td>
+<td>MATRICULATION FEE</td>
+<td>11/30/2024</td>
+<td>06-2302473-01</td>
+<td style='text-align:right; padding-right:20px'>13,714.00</td>
+</ tr><td>2024 - 2</td>
+<td>ID REPLACEMENT FEE</td>
+<td>11/30/2024</td>
+<td>06-2302473-01</td>
+<td style='text-align:right; padding-right:20px'>300.00</td>
+</ tr><td>2024 - 1</td>
+<td>MATRICULATION FEE</td>
+<td>07/31/2024</td>
+<td>06-2240298-01</td>
+<td style='text-align:right; padding-right:20px'>56,236.00</td>
+</ tr><td>2023 - 3</td>
+<td>APPLICATION FEE</td>
+<td>04/05/2024</td>
+<td>06-2186349-01</td>
+<td style='text-align:right; padding-right:20px'>300.00</td>
+</ tr>
+<tr class='special'>
+    <td colspan='5' style='text-align:right; padding-right:20px; font-weight:bold'>Total: Php 468,886.00</td>
+</tr>
+</ table></ div></ div><div class="hairLine"></div>
+<div class="wideLine"></div>
+<div class="hairLine"></div>
+<div id="footer">
+    <span>
+        Copyright © 2001-2017. All rights reserved. <a href="http://www.mapua.edu.ph" target="_blank" class="white noDecor">Map &uacute;a University</a>
+    </span>
+    <br/>
+    <a href="https://my.mapua.edu.ph/Public/TermsOfService.aspx" id="ctl00_aTerms" class="white boldContent" target="_blank">Terms of Service</a>
+    | <a href="https://my.mapua.edu.ph/Public/PrivacyPolicy.aspx" id="ctl00_aPrivacy" class="white boldContent" target="_blank">Privacy Policy</a>
+    <br/>
+    <a href="/cdn-cgi/l/email-protection#2a424f465a4e4f59416a474b5a5f4b044f4e5f045a42" class="white noDecor">
+        <span class="__cf_email__" data-cfemail="f59d9099859190869eb59894858094db909180db859d">[email &#160;protected]</span>
+    </a>
+    <br/>
+    <noscript>
+        <meta http-equiv="refresh" content="0; URL=https://my.mapua.edu.ph/Error/DisabledJavaScript.html"/>
+    </noscript>
+</div>
+</ form><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"6b3bdc68b4fd4ea0a3a3c1e5963ab154","spa":2}' crossorigin="anonymous"></script>
+</ body></ html>
