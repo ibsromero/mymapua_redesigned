@@ -178,11 +178,22 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 .contact-form fieldset{margin:0 0 22px;padding:18px 20px;border:1px solid var(--rule);background:var(--paper)}
 .contact-form legend{padding:0 7px;color:var(--ink);font:400 18px Georgia,"Times New Roman",serif}
 .contact-form .form-grid{margin:0}
+.contact-form .phone-grid,.contact-form .name-grid{display:grid;grid-template-columns:minmax(120px,.7fr) minmax(120px,.7fr) minmax(180px,1.4fr);gap:14px;margin-top:16px}
+.contact-form .name-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:0}
+.contact-form .phone-number{min-width:0}
+.contact-person{padding:5px 0 20px;border-bottom:1px solid var(--rule)}
+.contact-person+.contact-person{padding-top:20px}
+.contact-person:last-child{padding-bottom:0;border-bottom:0}
+.contact-person h3{margin:0 0 12px;font-size:12px}
+.contact-choice{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 18px;color:var(--muted);font-size:11px}
+.contact-choice span{font-weight:700;color:var(--ink)}
+.contact-choice label{display:inline-flex;align-items:center;gap:5px}
+.contact-choice input{width:auto;min-height:0;accent-color:var(--red)}
 .contact-form .form-actions{padding-top:0}
 .service-section + .service-section{margin-top:44px}
 .service-section .document-list,.service-section .download-list{max-width:900px}
 .curriculum-panel{min-width:0}
-@media(max-width:800px){.overview-grid{grid-template-columns:minmax(0,1fr)}.contact-form fieldset{padding:15px 13px}.contact-form legend{font-size:16px}.service-section + .service-section{margin-top:32px}}
+@media(max-width:800px){.overview-grid{grid-template-columns:minmax(0,1fr)}.contact-form fieldset{padding:15px 13px}.contact-form legend{font-size:16px}.contact-form .phone-grid,.contact-form .name-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.contact-form .phone-number{grid-column:span 2}.contact-choice{align-items:flex-start;flex-direction:column;gap:9px}.service-section + .service-section{margin-top:32px}}
 
 /* Theme control and shared dark-mode surfaces. */
 .theme-toggle{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:7px 10px;color:var(--ink);border:1px solid var(--rule);background:var(--paper);font-size:10px;font-weight:700;cursor:pointer}
