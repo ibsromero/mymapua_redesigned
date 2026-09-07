@@ -173,6 +173,17 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 	.overview-grid > .metric-card .text-link { grid-row: 4; margin-top: 8px; }
 }
 
+/* Keep the overview banner aligned to the two cards it contains. */
+.overview-grid{grid-template-columns:minmax(0,1.6fr) minmax(280px,.9fr)}
+.contact-form fieldset{margin:0 0 22px;padding:18px 20px;border:1px solid var(--rule);background:var(--paper)}
+.contact-form legend{padding:0 7px;color:var(--ink);font:400 18px Georgia,"Times New Roman",serif}
+.contact-form .form-grid{margin:0}
+.contact-form .form-actions{padding-top:0}
+.service-section + .service-section{margin-top:44px}
+.service-section .document-list,.service-section .download-list{max-width:900px}
+.curriculum-panel{min-width:0}
+@media(max-width:800px){.overview-grid{grid-template-columns:minmax(0,1fr)}.contact-form fieldset{padding:15px 13px}.contact-form legend{font-size:16px}.service-section + .service-section{margin-top:32px}}
+
 /* Theme control and shared dark-mode surfaces. */
 .theme-toggle{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:7px 10px;color:var(--ink);border:1px solid var(--rule);background:var(--paper);font-size:10px;font-weight:700;cursor:pointer}
 .theme-toggle:hover{color:var(--red);border-color:var(--red)}
