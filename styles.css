@@ -172,3 +172,20 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 	.overview-grid > .metric-card .metric-note { grid-row: 3; margin-top: 7px; }
 	.overview-grid > .metric-card .text-link { grid-row: 4; margin-top: 8px; }
 }
+
+/* Theme control and shared dark-mode surfaces. */
+.theme-toggle{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:7px 10px;color:var(--ink);border:1px solid var(--rule);background:var(--paper);font-size:10px;font-weight:700;cursor:pointer}
+.theme-toggle:hover{color:var(--red);border-color:var(--red)}
+.theme-icon{position:relative;width:15px;height:15px;border:1px solid currentColor;border-radius:50%}
+.theme-icon::after{position:absolute;top:-2px;right:-2px;width:8px;height:8px;border-radius:50%;background:var(--paper);content:""}
+html[data-theme="dark"]{--cream:#17191d;--paper:#202329;--ink:#f3efe8;--muted:#adb0b8;--rule:#3a3e47;--red-soft:#49272b}
+html[data-theme="dark"] body,html[data-theme="dark"] .app-shell,html[data-theme="dark"] .main-wrap{background:var(--cream);color:var(--ink)}
+html[data-theme="dark"] .topbar{background:rgba(23,25,29,.96);border-color:var(--rule)}
+html[data-theme="dark"] .theme-toggle,html[data-theme="dark"] .metric-card,html[data-theme="dark"] .data-card,html[data-theme="dark"] .table-card,html[data-theme="dark"] .form-card,html[data-theme="dark"] .payment-options,html[data-theme="dark"] .schedule-board,html[data-theme="dark"] .faq-list,html[data-theme="dark"] .document-card,html[data-theme="dark"] .download-list,html[data-theme="dark"] .support-panel,html[data-theme="dark"] .signout-card,html[data-theme="dark"] .schedule-card,html[data-theme="dark"] .announcement-list,html[data-theme="dark"] .account-summary,html[data-theme="dark"] .document-row,html[data-theme="dark"] .quick-card{background:var(--paper);border-color:var(--rule)}
+html[data-theme="dark"] .table-title,html[data-theme="dark"] .term-heading,html[data-theme="dark"] .curriculum-summary,html[data-theme="dark"] .curriculum-tabs button,html[data-theme="dark"] .schedule-table thead th,html[data-theme="dark"] .schedule-table tbody th{background:#2b2f36}
+html[data-theme="dark"] .table-card td,html[data-theme="dark"] .schedule-table td,html[data-theme="dark"] .schedule-table th,html[data-theme="dark"] .curriculum-summary>div{border-color:var(--rule)}
+html[data-theme="dark"] .table-card td,html[data-theme="dark"] .schedule-table tbody td,html[data-theme="dark"] .curriculum-table td{background:var(--paper)}
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{color:var(--ink);border-color:var(--rule);background:#2b2f36}
+html[data-theme="dark"] .outline-button{color:var(--ink);border-color:var(--rule);background:var(--paper)}
+html[data-theme="dark"] .footer{background:#0f1012}
+@media(max-width:520px){.theme-toggle{width:36px;justify-content:center;padding:7px}.theme-label{display:none}}
