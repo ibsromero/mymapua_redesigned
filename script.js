@@ -102,7 +102,7 @@ function bindActions() {
     group.querySelectorAll('button').forEach((item) => item.classList.remove('active'));
     button.classList.add('active');
     if (button.closest('.curriculum-tabs')) {
-      const curriculum = button.closest('.page-heading').parentElement;
+      const curriculum = button.closest('main');
       const panel = curriculum.querySelector('#curriculumPanel');
       const tabName = button.textContent.trim();
       group.querySelectorAll('button').forEach((item) => item.setAttribute('aria-selected', String(item === button)));
