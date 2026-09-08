@@ -1052,6 +1052,134 @@ html[data-theme="dark"] .content .schedule-table .class-block strong {
 	}
 }
 
+/* Authoritative Home and Profile fixes. Keep these last so legacy layers cannot undo them. */
+.content .announcement-item,
+.content .quick-card {
+	position: relative;
+	min-width: 0;
+}
+
+.content .announcement-item > div:nth-child(2) {
+	min-width: 0;
+}
+
+.content .announcement-item h3,
+.content .announcement-item p,
+.content .quick-card strong,
+.content .quick-card small {
+	margin-right: 28px;
+	line-height: 1.35;
+}
+
+.content .announcement-item h3 {
+	margin-top: 7px;
+	margin-bottom: 4px;
+}
+
+.content .announcement-item p,
+.content .quick-card small {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.content .quick-card {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 24px;
+	grid-template-rows: auto auto;
+	column-gap: 12px;
+	align-items: center;
+}
+
+.content .quick-card strong {
+	grid-column: 1;
+	grid-row: 1;
+	color: var(--ink);
+}
+
+.content .quick-card small {
+	grid-column: 1;
+	grid-row: 2;
+	color: var(--muted);
+}
+
+.content .quick-card .quick-arrow {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	justify-self: end;
+	margin: 0;
+}
+
+.content .item-arrow {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin: 0;
+	transform: translateY(-50%);
+}
+
+.content .announcement-item h3 {
+	color: var(--ink);
+}
+
+.content .contact-form {
+	border-top: 0 !important;
+}
+
+.content .contact-form > .form-section-heading {
+	margin-bottom: 0;
+	border-top: 1px solid var(--rule);
+	border-bottom: 1px solid var(--rule);
+}
+
+.content .contact-form > .form-section-heading p {
+	line-height: 1.35;
+}
+
+.content .contact-form legend {
+	padding: 0;
+	line-height: 1.2;
+}
+
+html[data-theme="dark"] .content .announcement-item:hover,
+html[data-theme="dark"] .content .quick-card:hover {
+	color: var(--ink);
+	background: #2b2f36 !important;
+	background-color: #2b2f36 !important;
+	background-image: none !important;
+}
+
+html[data-theme="dark"] .content .announcement-item:hover h3,
+html[data-theme="dark"] .content .quick-card:hover strong {
+	color: #fff;
+}
+
+html[data-theme="dark"] .content .quick-card strong,
+html[data-theme="dark"] .content .announcement-item h3 {
+	color: var(--ink);
+}
+
+@media(max-width:800px) {
+	.content .quick-card {
+		grid-template-columns: minmax(0, 1fr) 22px;
+	}
+
+	.content .announcement-item h3,
+	.content .announcement-item p,
+	.content .quick-card strong,
+	.content .quick-card small {
+		margin-right: 20px;
+	}
+
+	.content .contact-form > .form-section-heading {
+		border-top: 0;
+	}
+}
+
+html[data-theme="dark"] .content .announcement-item:hover {
+	background-color: #2b2f36 !important;
+	background-image: none !important;
+}
+
 /* Shared final contract: one rhythm for every routed view. */
 .content {
 	width: min(1180px, calc(100% - 64px));
@@ -1066,6 +1194,24 @@ html[data-theme="dark"] .content .schedule-table .class-block strong {
 .welcome-row h1 {
 	max-width: 100%;
 	line-height: 1.05;
+}
+
+.overview-grid {
+	grid-template-columns: minmax(0, 1.6fr) minmax(280px, .9fr);
+	align-items: stretch;
+}
+
+.overview-grid > * {
+	min-width: 0;
+}
+
+.overview-grid .metric-card,
+.overview-grid .welcome-card {
+	min-height: 208px;
+}
+
+.overview-grid .metric-card {
+	padding: 28px 24px;
 }
 
 .section-heading,
@@ -1105,6 +1251,54 @@ html[data-theme="dark"] .content .schedule-table .class-block strong {
 .content .contact-form input,
 .content .contact-form select {
 	width: 100%;
+}
+
+.content .contact-form {
+	width: min(100%, 900px);
+}
+
+.content .contact-form > .form-section-heading {
+	align-items: flex-end;
+	min-height: 72px;
+	padding: 0 0 16px;
+}
+
+.content .contact-form > .form-section-heading h2 {
+	margin: 0;
+}
+
+.content .contact-form > .form-section-heading p {
+	max-width: 430px;
+	margin: 0;
+	text-align: right;
+}
+
+.content .contact-form fieldset {
+	min-width: 0;
+	margin: 0;
+	padding: 24px 0 26px;
+}
+
+.content .contact-form fieldset > .form-grid,
+.content .contact-form .name-grid,
+.content .contact-form .phone-grid {
+	margin-top: 0;
+	row-gap: 18px;
+}
+
+.content .contact-form fieldset > .form-grid + .phone-grid,
+.content .contact-form .phone-grid + .phone-grid,
+.content .contact-form .contact-person + .contact-person {
+	margin-top: 18px;
+}
+
+.content .contact-form legend {
+	margin: 0 0 18px;
+	line-height: 1.2;
+}
+
+.content .contact-form .contact-person h3 {
+	margin: 0 0 14px;
 }
 
 .content .schedule-table {
@@ -1235,6 +1429,35 @@ html[data-theme="dark"] .status-credited { color: #a9cbed !important; background
 		max-width: none;
 	}
 
+	.overview-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.overview-grid .metric-card,
+	.overview-grid .welcome-card {
+		min-height: 0;
+	}
+
+	.overview-grid .metric-card {
+		padding: 17px 0;
+	}
+
+	.content .contact-form > .form-section-heading {
+		align-items: flex-start;
+		min-height: 0;
+		gap: 8px;
+		padding: 18px 0 16px;
+	}
+
+	.content .contact-form > .form-section-heading p {
+		max-width: none;
+		text-align: left;
+	}
+
+	.content .contact-form fieldset {
+		padding: 20px 0 22px;
+	}
+
 	.content .schedule-table {
 		border-radius: 4px;
 	}
@@ -1251,5 +1474,235 @@ html[data-theme="dark"] .status-credited { color: #a9cbed !important; background
 	.curriculum-legend span {
 		white-space: normal;
 		text-align: center;
+	}
+}
+
+/* Final Home and Profile alignment corrections. */
+.announcement-item,
+.quick-card {
+	position: relative;
+	min-width: 0;
+}
+
+.announcement-item > div:nth-child(2) {
+	min-width: 0;
+}
+
+.announcement-item h3,
+.announcement-item p,
+.quick-card strong,
+.quick-card small {
+	margin-right: 28px;
+	line-height: 1.35;
+}
+
+.announcement-item h3 {
+	margin-top: 7px;
+	margin-bottom: 4px;
+}
+
+.announcement-item p,
+.quick-card small {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.quick-card {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 24px;
+	grid-template-rows: auto auto;
+	column-gap: 12px;
+	align-items: center;
+}
+
+.quick-card strong {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.quick-card small {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+.content .quick-card .quick-arrow {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	justify-self: end;
+	margin: 0;
+}
+
+.content .item-arrow {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin: 0;
+	transform: translateY(-50%);
+}
+
+html[data-theme="dark"] .announcement-item:hover,
+html[data-theme="dark"] .quick-card:hover {
+	color: var(--ink);
+	background: #2b2f36 !important;
+}
+
+html[data-theme="dark"] .announcement-item:hover h3,
+html[data-theme="dark"] .quick-card:hover strong {
+	color: #fff;
+}
+
+.content .contact-form > .form-section-heading,
+.content .contact-form fieldset {
+	border-color: var(--rule);
+}
+
+.content .contact-form > .form-section-heading {
+	margin-bottom: 0;
+}
+
+.content .contact-form > .form-section-heading p {
+	line-height: 1.35;
+}
+
+.content .contact-form legend {
+	padding: 0;
+}
+
+.content .contact-form fieldset > .form-grid {
+	margin: 0;
+}
+
+@media(max-width:800px) {
+	.quick-card {
+		grid-template-columns: minmax(0, 1fr) 22px;
+	}
+
+	.announcement-item h3,
+	.announcement-item p,
+	.quick-card strong,
+	.quick-card small {
+		margin-right: 20px;
+	}
+
+	.content .contact-form > .form-section-heading p {
+		line-height: 1.45;
+	}
+}
+
+/* True final overrides for Home and Profile. */
+.content .announcement-item,
+.content .quick-card {
+	position: relative;
+	min-width: 0;
+}
+
+.content .announcement-item > div:nth-child(2) {
+	min-width: 0;
+}
+
+.content .announcement-item h3,
+.content .announcement-item p,
+.content .quick-card strong,
+.content .quick-card small {
+	margin-right: 28px;
+	line-height: 1.35;
+}
+
+.content .announcement-item h3 {
+	margin-top: 7px;
+	margin-bottom: 4px;
+	color: var(--ink);
+}
+
+.content .announcement-item p,
+.content .quick-card small {
+	margin-top: 0;
+	margin-bottom: 0;
+	color: var(--muted);
+}
+
+.content .quick-card {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 24px;
+	grid-template-rows: auto auto;
+	column-gap: 12px;
+	align-items: center;
+}
+
+.content .quick-card strong {
+	grid-column: 1;
+	grid-row: 1;
+	color: var(--ink);
+}
+
+.content .quick-card small {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+.content .quick-card .quick-arrow {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	justify-self: end;
+	margin: 0;
+}
+
+.content .item-arrow {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin: 0;
+	transform: translateY(-50%);
+}
+
+.content .contact-form {
+	border-top: 0 !important;
+}
+
+.content .contact-form > .form-section-heading {
+	margin-bottom: 0;
+	border-top: 1px solid var(--rule);
+	border-bottom: 1px solid var(--rule);
+}
+
+.content .contact-form > .form-section-heading p {
+	line-height: 1.35;
+}
+
+.content .contact-form legend {
+	padding: 0;
+	line-height: 1.2;
+}
+
+html[data-theme="dark"] .content .announcement-item:hover,
+html[data-theme="dark"] .content .quick-card:hover {
+	color: var(--ink);
+	background: #2b2f36 !important;
+}
+
+html[data-theme="dark"] .content .announcement-item:hover h3,
+html[data-theme="dark"] .content .quick-card:hover strong {
+	color: #fff;
+}
+
+html[data-theme="dark"] .content .quick-card strong,
+html[data-theme="dark"] .content .announcement-item h3 {
+	color: var(--ink);
+}
+
+@media(max-width:800px) {
+	.content .quick-card {
+		grid-template-columns: minmax(0, 1fr) 22px;
+	}
+
+	.content .announcement-item h3,
+	.content .announcement-item p,
+	.content .quick-card strong,
+	.content .quick-card small {
+		margin-right: 20px;
+	}
+
+	.content .contact-form > .form-section-heading {
+		border-top: 0;
 	}
 }
