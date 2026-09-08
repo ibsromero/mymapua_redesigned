@@ -214,3 +214,27 @@ html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="da
 html[data-theme="dark"] .outline-button{color:var(--ink);border-color:var(--rule);background:var(--paper)}
 html[data-theme="dark"] .footer{background:#0f1012}
 @media(max-width:520px){.theme-toggle{width:36px;justify-content:center;padding:7px}.theme-label{display:none}}
+
+/* Shared visual contract for every routed page. */
+button,a,input,select,textarea{transition:color .18s ease,background-color .18s ease,border-color .18s ease,box-shadow .18s ease}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.primary-button,.quiet-button,.outline-button,.term-switch button,.curriculum-tabs button,.year-links button{min-height:40px;border-radius:0}
+.primary-button,.quiet-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;cursor:pointer}
+.primary-button{color:#fff;border:1px solid var(--red);background:var(--red)}
+.primary-button:hover{background:var(--red-deep)}
+.quiet-button{color:var(--red);border:1px solid var(--rule);background:var(--paper)}
+.quiet-button:hover{border-color:var(--red);background:var(--red-soft)}
+.form-grid label{display:flex;flex-direction:column;gap:7px;color:var(--muted);font-size:10px;font-weight:700;line-height:1.25}
+.form-grid input,.form-grid select,.personal-form input,.personal-form select,.contact-form input,.contact-form select{min-height:40px;padding:9px 10px;border:1px solid var(--rule);border-radius:0;color:var(--ink);background:var(--paper);font:inherit;font-size:12px}
+.form-grid input:focus,.form-grid select:focus,.personal-form input:focus,.personal-form select:focus,.contact-form input:focus,.contact-form select:focus{border-color:var(--red);box-shadow:0 0 0 2px var(--red-soft)}
+.table-card,.faq-list,.download-list,.document-list,.support-panel,.signout-card{border-top:1px solid var(--ink)}
+.download-list>div{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.download-list>div section{display:flex;min-width:0;flex-direction:column;gap:5px}.download-list strong{font-size:12px}.download-list small{color:var(--muted);font-size:10px}.download-list .quiet-button{flex:0 0 auto}
+.faq-list details{padding:17px 0;border-bottom:1px solid var(--rule)}.faq-list details:last-child{border-bottom:0}.faq-list summary{cursor:pointer;font-weight:700}.faq-list p{max-width:650px;margin:9px 0 0;color:var(--muted);font-size:11px;line-height:1.6}
+@media(max-width:800px){
+	.nav-link,.nav-label{min-height:42px}
+	.primary-button,.quiet-button,.outline-button,.term-switch button,.curriculum-tabs button{min-height:44px}
+	.download-list>div{align-items:stretch;flex-direction:column;gap:12px}
+	.download-list .quiet-button{width:100%}
+	.form-grid input,.form-grid select,.personal-form input,.personal-form select,.contact-form input,.contact-form select{font-size:16px}
+}
