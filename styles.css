@@ -1175,6 +1175,79 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Statement link and payment provider marks. */
+.content .metric-card .text-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+}
+
+.content .metric-card .link-chevron {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin: 0;
+	border-top: 1.5px solid currentColor;
+	border-right: 1.5px solid currentColor;
+	font-size: 0;
+	transform: rotate(45deg);
+}
+
+.content .payment-method-grid button {
+	position: relative;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 3px;
+	padding-left: 64px;
+}
+
+.content .payment-method-grid .payment-logo {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	display: grid;
+	width: 32px;
+	height: 32px;
+	place-items: center;
+	border: 1px solid currentColor;
+	border-radius: 8px;
+	font-family: "IBM Plex Sans", "Trebuchet MS", sans-serif;
+	font-size: 10px;
+	font-weight: 800;
+	line-height: 1;
+	transform: translateY(-50%);
+}
+
+.content .payment-method-grid button {
+	padding-left: 64px !important;
+}
+
+.content .payment-method-grid .logo-rcbc { color: #b21e2b; background: #fff1f1; }
+.content .payment-method-grid .logo-landbank { color: #006d50; background: #e7f5ef; }
+.content .payment-method-grid .logo-maya { color: #111; background: #b9f34b; border-radius: 50%; font-size: 18px; }
+.content .payment-method-grid .logo-cebuana { color: #1264a3; background: #e5f2ff; border-radius: 50%; font-size: 18px; }
+.content .payment-method-grid .logo-gcash { color: #0071ce; background: #e4f3ff; border-radius: 50%; font-size: 18px; }
+.content .payment-method-grid .logo-bukas { color: #fff; background: #f26c3d; border-radius: 50%; font-size: 18px; }
+
+html[data-theme="dark"] .content .payment-method-grid .logo-rcbc { color: #ff9da5; background: #512d32; }
+html[data-theme="dark"] .content .payment-method-grid .logo-landbank { color: #8de0bf; background: #244b3c; }
+html[data-theme="dark"] .content .payment-method-grid .logo-maya { color: #151515; background: #b9f34b; }
+html[data-theme="dark"] .content .payment-method-grid .logo-cebuana { color: #a9cbed; background: #263e59; }
+html[data-theme="dark"] .content .payment-method-grid .logo-gcash { color: #a9d8ff; background: #263e59; }
+html[data-theme="dark"] .content .payment-method-grid .logo-bukas { color: #fff; background: #b84f2e; }
+
+@media(max-width:800px) {
+	.content .payment-method-grid button {
+		padding-left: 54px !important;
+	}
+
+	.content .payment-method-grid .payment-logo {
+		left: 14px;
+		width: 28px;
+		height: 28px;
+	}
+}
+
 @media(max-width:800px) {
 	.footer {
 		height: auto !important;
