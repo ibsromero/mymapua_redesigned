@@ -937,3 +937,113 @@ html[data-theme="dark"] .content .service-section .download-list > div {
 		background: transparent;
 	}
 }
+
+/* Final visual corrections for tables, profile forms, and status colors. */
+.content table thead tr {
+	background: color-mix(in srgb, var(--rule) 28%, var(--paper)) !important;
+}
+
+.content table tbody tr,
+.content table tbody tr:nth-child(even) {
+	background: var(--paper) !important;
+}
+
+.content .table-total td {
+	background: color-mix(in srgb, var(--rule) 42%, var(--paper)) !important;
+}
+
+.content .schedule-table thead th,
+.content .schedule-table thead th:first-child,
+.content .schedule-table tbody th,
+.content .schedule-table tbody td,
+.content .schedule-table tbody td:has(.class-block) {
+	background: var(--paper) !important;
+}
+
+.content .schedule-table thead th,
+.content .schedule-table tbody th {
+	color: var(--ink);
+}
+
+.content .schedule-table tbody td:has(.class-block) {
+	box-shadow: inset 3px 0 var(--red);
+}
+
+.content .schedule-table tbody tr:hover td,
+.content .schedule-table tbody tr:hover th {
+	background: var(--red-soft) !important;
+}
+
+.content .contact-form .form-grid,
+.content .personal-form .form-grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	column-gap: 24px;
+	row-gap: 18px;
+}
+
+.content .contact-form .name-grid,
+.content .contact-form .phone-grid {
+	column-gap: 16px;
+}
+
+.content .contact-form label,
+.content .personal-form label {
+	min-width: 0;
+}
+
+.content .item-arrow,
+.content .quick-arrow {
+	flex: 0 0 18px;
+	align-self: center;
+	margin-left: auto;
+}
+
+.content .text-link span {
+	vertical-align: middle;
+}
+
+.curriculum-legend span {
+	border-color: var(--rule);
+}
+
+.curriculum-legend span:nth-child(1) { color: #27634f; background: #e2f1e8; }
+.curriculum-legend span:nth-child(2) { color: #8b6510; background: #fff0bd; }
+.curriculum-legend span:nth-child(3) { color: #666b73; background: #eceef1; }
+.curriculum-legend span:nth-child(4) { color: #a0443b; background: #f8e1de; }
+.curriculum-legend span:nth-child(5) { color: #315e91; background: #e1edf9; }
+
+html[data-theme="dark"] .content table thead tr {
+	background: #2b2f36 !important;
+}
+
+html[data-theme="dark"] .content table tbody tr,
+html[data-theme="dark"] .content table tbody tr:nth-child(even),
+html[data-theme="dark"] .content .schedule-table thead th,
+html[data-theme="dark"] .content .schedule-table thead th:first-child,
+html[data-theme="dark"] .content .schedule-table tbody th,
+html[data-theme="dark"] .content .schedule-table tbody td,
+html[data-theme="dark"] .content .schedule-table tbody td:has(.class-block) {
+	background: var(--paper) !important;
+}
+
+html[data-theme="dark"] .content .table-total td {
+	background: #2b2f36 !important;
+}
+
+html[data-theme="dark"] .curriculum-legend span:nth-child(1) { color: #a8e4c3; background: #244b3c; }
+html[data-theme="dark"] .curriculum-legend span:nth-child(2) { color: #f3d47a; background: #55461f; }
+html[data-theme="dark"] .curriculum-legend span:nth-child(3) { color: #d0d5dd; background: #343941; }
+html[data-theme="dark"] .curriculum-legend span:nth-child(4) { color: #f0aaa2; background: #512d2d; }
+html[data-theme="dark"] .curriculum-legend span:nth-child(5) { color: #a9cbed; background: #263e59; }
+
+@media(max-width:800px) {
+	.content .contact-form .form-grid,
+	.content .personal-form .form-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.content .contact-form .name-grid,
+	.content .contact-form .phone-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
