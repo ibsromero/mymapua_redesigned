@@ -788,3 +788,8 @@ html[data-theme="dark"] .content .service-section .download-list > div {
 	.content .schedule-table .class-block { background: transparent; }
 	.content .service-section .download-list strong { font-size: 16px; }
 }
+
+/* The My Home banner should begin cleanly without the legacy dark cap line. */
+.overview-grid {
+	border-top: 0 !important;
+}
