@@ -310,13 +310,14 @@ html[data-theme="dark"] .status-pill{color:#b9edcf;background:#24513f}
 .service-section .form-section-heading{min-height:72px;margin:0;padding:0 0 14px;border-bottom:1px solid var(--ink)}
 .service-section .form-section-heading h2{font-size:23px}
 .service-section .form-section-heading p{align-self:flex-end;text-align:right}
-.service-section .document-list,.service-section .download-list{max-width:none;border-top:0}
-.service-section .document-row{min-height:96px;padding:18px 0}
+.service-section .document-list,.service-section .download-list{max-width:none;border:1px solid var(--rule);border-top:1px solid var(--ink);background:var(--paper)}
+.service-section .document-row{min-height:76px;padding:14px 14px;border-bottom:1px solid var(--rule);background:var(--paper)}
+.service-section .document-row:last-child{border-bottom:0}
 .service-section .document-row .quiet-button{min-width:116px}
-.service-section .download-list>div{min-height:72px;padding:13px 14px;border:1px solid var(--rule);border-top:0;background:var(--paper)}
-.service-section .download-list>div:first-child{border-top:1px solid var(--rule)}
+.service-section .download-list>div{min-height:76px;padding:14px;border:0;border-bottom:1px solid var(--rule);background:var(--paper)}
+.service-section .download-list>div:last-child{border-bottom:0}
 .service-section .download-list .quiet-button{min-width:72px}
 html[data-theme="dark"] .soa-table .table-title,html[data-theme="dark"] .payment-options .table-title,html[data-theme="dark"] .service-section .download-list>div{background:#2b2f36;border-color:var(--rule)}
 html[data-theme="dark"] .payment-method-grid button{background:var(--paper);border-color:var(--rule)}
 html[data-theme="dark"] .payment-method-grid button:hover{background:var(--red-soft)}
-@media(max-width:700px){.soa-table .table-title,.payment-options .table-title{min-height:0;padding:16px}.payment-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.payment-method-grid button:nth-child(4n){border-right:1px solid var(--rule)}.payment-method-grid button:nth-child(2n){border-right:0}.service-section .form-section-heading{display:block;min-height:0;padding-bottom:12px}.service-section .form-section-heading p{margin-top:7px;text-align:left}.service-section .document-row{min-height:0;padding:17px 0}.service-section .document-row .quiet-button{width:100%}.service-section .download-list>div{padding:14px 12px}}
+@media(max-width:700px){.soa-table .table-title,.payment-options .table-title{min-height:0;padding:16px}.payment-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.payment-method-grid button:nth-child(4n){border-right:1px solid var(--rule)}.payment-method-grid button:nth-child(2n){border-right:0}.service-section .form-section-heading{display:block;min-height:0;padding-bottom:12px}.service-section .form-section-heading p{margin-top:7px;text-align:left}.service-section .document-row{min-height:0;padding:14px 12px}.service-section .document-row .quiet-button{width:100%}.service-section .download-list>div{padding:14px 12px}}
