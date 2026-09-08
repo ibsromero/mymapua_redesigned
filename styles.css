@@ -289,3 +289,34 @@ html[data-theme="dark"] .status-pill{color:#b9edcf;background:#24513f}
 .form-section-heading p{max-width:420px;line-height:1.5}
 .form-actions{align-items:flex-end}
 @media(max-width:800px){.page-heading{max-width:none}.form-actions{align-items:stretch}.form-section-heading p{max-width:none}}
+
+/* Finance and services share the same quiet, rule-led document treatment. */
+.account-summary,.soa-table,.payment-options,.service-sections{width:100%;max-width:900px}
+.account-summary{margin:26px 0 24px}
+.account-summary>div{min-height:112px;padding:20px 22px}
+.soa-table,.payment-options{border:1px solid var(--rule);border-top:1px solid var(--ink);background:var(--paper)}
+.soa-table .table-title,.payment-options .table-title{min-height:94px;padding:18px 20px;background:#eee9e2;border-bottom:1px solid var(--rule)}
+.soa-table .table-title h2,.payment-options .table-title h2{margin:4px 0 0}
+.soa-table table{table-layout:fixed}
+.soa-table th,.soa-table td{vertical-align:middle}
+.soa-table th:last-child,.soa-table td:last-child{width:78px;text-align:center}
+.soa-table .amount{width:140px}
+.payment-options{margin-top:24px}
+.payment-method-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:0}
+.payment-method-grid button{min-height:84px;padding:16px 14px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.payment-method-grid button:nth-child(4n){border-right:0}
+.payment-method-grid button:hover{background:var(--red-soft)}
+.service-section{max-width:900px}
+.service-section .form-section-heading{min-height:72px;margin:0;padding:0 0 14px;border-bottom:1px solid var(--ink)}
+.service-section .form-section-heading h2{font-size:23px}
+.service-section .form-section-heading p{align-self:flex-end;text-align:right}
+.service-section .document-list,.service-section .download-list{max-width:none;border-top:0}
+.service-section .document-row{min-height:96px;padding:18px 0}
+.service-section .document-row .quiet-button{min-width:116px}
+.service-section .download-list>div{min-height:72px;padding:13px 14px;border:1px solid var(--rule);border-top:0;background:var(--paper)}
+.service-section .download-list>div:first-child{border-top:1px solid var(--rule)}
+.service-section .download-list .quiet-button{min-width:72px}
+html[data-theme="dark"] .soa-table .table-title,html[data-theme="dark"] .payment-options .table-title,html[data-theme="dark"] .service-section .download-list>div{background:#2b2f36;border-color:var(--rule)}
+html[data-theme="dark"] .payment-method-grid button{background:var(--paper);border-color:var(--rule)}
+html[data-theme="dark"] .payment-method-grid button:hover{background:var(--red-soft)}
+@media(max-width:700px){.soa-table .table-title,.payment-options .table-title{min-height:0;padding:16px}.payment-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.payment-method-grid button:nth-child(4n){border-right:1px solid var(--rule)}.payment-method-grid button:nth-child(2n){border-right:0}.service-section .form-section-heading{display:block;min-height:0;padding-bottom:12px}.service-section .form-section-heading p{margin-top:7px;text-align:left}.service-section .document-row{min-height:0;padding:17px 0}.service-section .document-row .quiet-button{width:100%}.service-section .download-list>div{padding:14px 12px}}
