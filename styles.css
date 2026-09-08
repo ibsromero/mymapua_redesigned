@@ -321,3 +321,24 @@ html[data-theme="dark"] .soa-table .table-title,html[data-theme="dark"] .payment
 html[data-theme="dark"] .payment-method-grid button{background:var(--paper);border-color:var(--rule)}
 html[data-theme="dark"] .payment-method-grid button:hover{background:var(--red-soft)}
 @media(max-width:700px){.soa-table .table-title,.payment-options .table-title{min-height:0;padding:16px}.payment-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.payment-method-grid button:nth-child(4n){border-right:1px solid var(--rule)}.payment-method-grid button:nth-child(2n){border-right:0}.service-section .form-section-heading{display:block;min-height:0;padding-bottom:12px}.service-section .form-section-heading p{margin-top:7px;text-align:left}.service-section .document-row{min-height:0;padding:14px 12px}.service-section .document-row .quiet-button{width:100%}.service-section .download-list>div{padding:14px 12px}}
+
+/* Final visual cleanup: use soft dividers and keep dense content readable. */
+.account-summary,.soa-table,.payment-options,.service-section .form-section-heading,.service-section .document-list,.service-section .download-list,.table-card,.faq-list,.document-list,.download-list,.support-panel,.signout-card{border-top-color:var(--rule)}
+.contact-form{border-top-color:var(--rule)}
+.service-section .form-section-heading{border-bottom-color:var(--rule)}
+.announcement-list,.quick-grid,.portal-list,.curriculum-toolbar{border-top-color:var(--rule)}
+.curriculum-summary,.term-heading{border-top-color:var(--rule)}
+.announcement-item h3,.announcement-item p,.document-row h2,.document-row p,.download-list strong,.download-list small,.payment-method-grid strong,.payment-method-grid span{overflow-wrap:anywhere}
+.soa-table{overflow-x:auto;overscroll-behavior-x:contain}
+.soa-table table{min-width:720px}
+.soa-table th,.soa-table td{white-space:normal;overflow-wrap:anywhere}
+.table-card table{max-width:100%}
+.service-section .document-row>div,.service-section .download-list section{min-width:0}
+.service-section .document-row h2{line-height:1.25}
+.service-section .document-row p,.service-section .download-list small{line-height:1.4}
+html[data-theme="dark"] .table-card th,html[data-theme="dark"] .table-card td,html[data-theme="dark"] .soa-table th,html[data-theme="dark"] .soa-table td{color:var(--ink);border-color:var(--rule)}
+html[data-theme="dark"] .table-card th,html[data-theme="dark"] .soa-table th{color:#d4d7df;background:#2b2f36}
+html[data-theme="dark"] .table-total td{color:var(--ink);background:#2b2f36!important}
+html[data-theme="dark"] .pending{color:#c1c4cc!important}
+html[data-theme="dark"] .document-row h2,html[data-theme="dark"] .download-list strong,html[data-theme="dark"] .payment-method-grid strong{color:var(--ink)}
+@media(max-width:800px){.soa-table{padding-bottom:3px}.soa-table::after{display:block;padding:8px 12px 0;color:var(--muted);font-size:10px;content:"Swipe horizontally to view all columns"}.service-section .document-row h2{font-size:18px}.service-section .form-section-heading h2{font-size:21px}}
