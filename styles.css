@@ -241,6 +241,90 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 	.nav-link,.nav-label{min-height:42px}
 	.primary-button,.quiet-button,.outline-button,.term-switch button,.curriculum-tabs button{min-height:44px}
 	.download-list>div{align-items:stretch;flex-direction:column;gap:12px}
+
+/* Mobile schedule: current-day list by default, desktop-equivalent full view on demand. */
+.mobile-schedule-controls {
+	display: none;
+}
+
+.schedule-full-view-toggle {
+	display: inline-flex;
+	min-height: 40px;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 9px 12px;
+	color: var(--red);
+	border: 1px solid var(--rule);
+	background: var(--paper);
+	font-size: 10px;
+	font-weight: 700;
+}
+
+.schedule-full-view-toggle:hover,
+.schedule-full-view-toggle[aria-expanded="true"] {
+	color: #fff;
+	border-color: var(--red);
+	background: var(--red);
+}
+
+.full-view-icon {
+	display: inline-block;
+	width: 14px;
+	height: 12px;
+	border: 1px solid currentColor;
+	background: linear-gradient(currentColor, currentColor) 4px 0 / 1px 100% no-repeat, linear-gradient(currentColor, currentColor) 8px 0 / 1px 100% no-repeat;
+}
+
+html[data-theme="dark"] .schedule-full-view-toggle {
+	color: var(--ink);
+	border-color: var(--rule);
+	background: var(--paper);
+}
+
+html[data-theme="dark"] .schedule-full-view-toggle:hover,
+html[data-theme="dark"] .schedule-full-view-toggle[aria-expanded="true"] {
+	color: #fff;
+	border-color: var(--red);
+	background: var(--red);
+}
+
+@media(max-width:800px) {
+	.mobile-schedule-controls {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin: 4px 0 12px;
+	}
+
+	.mobile-schedule-controls .schedule-mobile-days {
+		flex: 1 1 auto;
+		margin: 0;
+	}
+
+	.mobile-schedule-controls .schedule-full-view-toggle {
+		flex: 0 0 auto;
+		min-height: 44px;
+	}
+
+	.content.schedule-full-view .schedule-mobile-list {
+		display: none;
+	}
+
+	.content.schedule-full-view .weekly-schedule {
+		display: block !important;
+		width: 100% !important;
+		max-width: 100%;
+		overflow-x: auto;
+	}
+
+	.content.schedule-full-view .schedule-table {
+		display: table !important;
+		width: 780px !important;
+		min-width: 780px;
+	}
+}
 	.download-list .quiet-button{width:100%}
 
 /* Keep every payment method visibly framed, including the final row. */

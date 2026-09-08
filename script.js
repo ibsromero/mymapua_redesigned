@@ -105,11 +105,12 @@ const scheduleRows = [
 function scheduleCell(course) { return course ? `<div class="class-block"><strong>${course.code}</strong><span>${course.section}</span><small>${course.room}</small></div>` : ''; }
 function scheduleView() {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const currentDay = days[new Date().getDay()];
   const mobileDays = days.map((day, dayIndex) => {
     const classes = scheduleRows.flatMap((row) => row[1][dayIndex] ? [`<article class="mobile-class"><span class="mobile-class-time">${row[0]}</span>${scheduleCell(row[1][dayIndex])}</article>`] : []);
-    return `<section class="mobile-day${dayIndex === 1 ? ' active' : ''}" data-day="${day}"><h2>${day}</h2>${classes.join('') || '<p class="mobile-empty">No classes scheduled.</p>'}</section>`;
+    return `<section class="mobile-day${day === currentDay ? ' active' : ''}" data-day="${day}"><h2>${day}</h2>${classes.join('') || '<p class="mobile-empty">No classes scheduled.</p>'}</section>`;
   }).join('');
-  return `<div class="schedule-toolbar"><label>School year<select><option>2026-2027</option></select></label><div class="term-switch"><button class="active" type="button">Term 1</button><button type="button">Term 2</button></div></div><div class="schedule-mobile-days" role="tablist" aria-label="Schedule day"><button class="mobile-day-button" type="button" data-day="Sunday">Sun</button>${days.slice(1, 6).map((day) => `<button class="mobile-day-button${day === 'Monday' ? ' active' : ''}" type="button" data-day="${day}">${day.slice(0, 3)}</button>`).join('')}<button class="mobile-day-button" type="button" data-day="Saturday">Sat</button></div><div class="schedule-mobile-list">${mobileDays}</div><div class="weekly-schedule"><table class="schedule-table"><thead><tr><th>Time</th>${days.map((day) => `<th>${day}</th>`).join('')}</tr></thead><tbody>${scheduleRows.map((row) => `<tr><th scope="row">${row[0]}</th>${row[1].map((course) => `<td>${scheduleCell(course)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  return `<div class="schedule-toolbar"><label>School year<select><option>2026-2027</option></select></label><div class="term-switch"><button class="active" type="button">Term 1</button><button type="button">Term 2</button></div></div><div class="mobile-schedule-controls"><div class="schedule-mobile-days" role="tablist" aria-label="Schedule day"><button class="mobile-day-button${currentDay === 'Sunday' ? ' active' : ''}" type="button" data-day="Sunday">Sun</button>${days.slice(1, 6).map((day) => `<button class="mobile-day-button${day === currentDay ? ' active' : ''}" type="button" data-day="${day}">${day.slice(0, 3)}</button>`).join('')}<button class="mobile-day-button${currentDay === 'Saturday' ? ' active' : ''}" type="button" data-day="Saturday">Sat</button></div><button class="schedule-full-view-toggle" type="button" aria-expanded="false"><span class="full-view-icon" aria-hidden="true"></span><span>Full view</span></button></div><div class="schedule-mobile-list">${mobileDays}</div><div class="weekly-schedule"><table class="schedule-table"><thead><tr><th>Time</th>${days.map((day) => `<th>${day}</th>`).join('')}</tr></thead><tbody>${scheduleRows.map((row) => `<tr><th scope="row">${row[0]}</th>${row[1].map((course) => `<td>${scheduleCell(course)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
 pageData['#schedule'][2] = scheduleView();
 function historyTable() { return `<table><thead><tr><th>Term</th><th>Description</th><th>Payment date</th><th>OR number</th><th class="amount">Amount</th></tr></thead><tbody>${paymentRows.map((row) => `<tr>${row.slice(0, 4).map((cell) => `<td>${cell}</td>`).join('')}<td class="amount">₱ ${row[4]}</td></tr>`).join('')}</tbody></table>`; }
@@ -169,6 +170,13 @@ function bindActions() {
     const day = button.dataset.day;
     schedule.querySelectorAll('.mobile-day-button').forEach((item) => item.classList.toggle('active', item === button));
     schedule.querySelectorAll('.mobile-day').forEach((item) => item.classList.toggle('active', item.dataset.day === day));
+  }));
+  document.querySelectorAll('.schedule-full-view-toggle').forEach((button) => button.addEventListener('click', () => {
+    const schedule = button.closest('.page-heading')?.nextElementSibling?.parentElement || button.closest('main');
+    const shell = button.closest('.content');
+    const fullView = shell?.classList.toggle('schedule-full-view');
+    button.setAttribute('aria-expanded', String(Boolean(fullView)));
+    button.querySelector('span:last-child').textContent = fullView ? 'Day view' : 'Full view';
   }));
   const statement = document.querySelector('.soa-table');
   if (statement) {
