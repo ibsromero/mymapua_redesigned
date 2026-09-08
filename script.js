@@ -114,8 +114,31 @@ function scheduleView() {
 pageData['#schedule'][2] = scheduleView();
 function historyTable() { return `<table><thead><tr><th>Term</th><th>Description</th><th>Payment date</th><th>OR number</th><th class="amount">Amount</th></tr></thead><tbody>${paymentRows.map((row) => `<tr>${row.slice(0, 4).map((cell) => `<td>${cell}</td>`).join('')}<td class="amount">₱ ${row[4]}</td></tr>`).join('')}</tbody></table>`; }
 
+const paymentLogoUrls = {
+  'logo-rcbc': 'https://www.google.com/s2/favicons?domain=rcbc.com&sz=64',
+  'logo-landbank': 'https://www.google.com/s2/favicons?domain=landbank.com&sz=64',
+  'logo-maya': 'https://www.google.com/s2/favicons?domain=maya.ph&sz=64',
+  'logo-cebuana': 'https://www.google.com/s2/favicons?domain=cebuanalhuillier.com&sz=64',
+  'logo-gcash': 'https://www.google.com/s2/favicons?domain=gcash.com&sz=64',
+  'logo-bukas': 'https://www.google.com/s2/favicons?domain=bukas.ph&sz=64',
+};
+
+function enhancePaymentLogos() {
+  document.querySelectorAll('.payment-logo').forEach((logo) => {
+    const logoClass = Object.keys(paymentLogoUrls).find((className) => logo.classList.contains(className));
+    if (!logoClass || logo.querySelector('img')) return;
+    const image = document.createElement('img');
+    image.src = paymentLogoUrls[logoClass];
+    image.alt = '';
+    image.loading = 'lazy';
+    image.onerror = () => image.remove();
+    logo.replaceChildren(image);
+  });
+}
+
 function showToast(message) { toast.textContent = message; toast.classList.add('show'); window.clearTimeout(showToast.timeout); showToast.timeout = window.setTimeout(() => toast.classList.remove('show'), 2600); }
 function bindActions() {
+  enhancePaymentLogos();
   document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => showToast(button.dataset.toast)));
   const helpButton = document.querySelector('#helpButton');
   if (helpButton) helpButton.addEventListener('click', () => showToast('Help Center is coming right up.'));
