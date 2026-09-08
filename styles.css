@@ -627,3 +627,164 @@ html[data-theme="dark"] .content .table-card td,html[data-theme="dark"] .content
 	.content .payment-method-grid button { min-height: 70px; }
 	.content .payment-method-grid button:last-child { grid-column: auto; }
 }
+
+/* Seamless tables and explicit schedule colors keep both themes readable. */
+.content .table-card,
+.content .soa-table,
+.content .payment-options,
+.content .weekly-schedule,
+.content .schedule-table,
+.content .curriculum-table-wrap {
+	border-color: var(--rule) !important;
+	background: transparent !important;
+}
+
+.content .table-card table,
+.content .soa-table table,
+.content .schedule-table,
+.content .curriculum-table {
+	background: transparent !important;
+}
+
+.content .table-card th,
+.content .soa-table th,
+.content .schedule-table thead th,
+.content .curriculum-table th {
+	color: var(--muted);
+	background: transparent;
+}
+
+.content .table-card td,
+.content .soa-table td,
+.content .schedule-table tbody td,
+.content .schedule-table tbody th,
+.content .curriculum-table td {
+	color: var(--ink);
+	background: transparent;
+}
+
+.content .schedule-table th,
+.content .schedule-table td {
+	border-color: var(--rule);
+}
+
+.content .schedule-table thead th {
+	color: var(--ink);
+	background: color-mix(in srgb, var(--gold) 24%, transparent);
+}
+
+.content .schedule-table thead th:first-child,
+.content .schedule-table tbody th {
+	background: color-mix(in srgb, var(--rule) 38%, transparent);
+}
+
+.content .schedule-table tbody td:has(.class-block) {
+	background: color-mix(in srgb, var(--gold) 9%, transparent);
+}
+
+.content .schedule-table .class-block strong {
+	color: var(--red);
+}
+
+.content .schedule-table .class-block span,
+.content .schedule-table .class-block small {
+	color: var(--ink);
+}
+
+.content .schedule-table .class-block small {
+	color: var(--muted);
+}
+
+.content .schedule-table tbody tr:hover td,
+.content .schedule-table tbody tr:hover th {
+	background: var(--red-soft);
+}
+
+.content .payment-method-grid {
+	border-color: var(--rule);
+	background: transparent;
+}
+
+.content .payment-method-grid button {
+	border-color: var(--rule);
+	background: transparent;
+}
+
+.content .payment-method-grid strong {
+	color: var(--ink);
+	font: 400 17px/1.2 Georgia, "Times New Roman", serif;
+}
+
+.content .payment-method-grid span {
+	color: var(--muted);
+	font: 10px/1.35 "Trebuchet MS", "DejaVu Sans", sans-serif;
+}
+
+.content .service-section .form-section-heading h2,
+.content .service-section .download-list strong {
+	color: var(--ink);
+	font-family: Georgia, "Times New Roman", serif;
+	font-weight: 400;
+}
+
+.content .service-section .download-list strong {
+	font-size: 17px;
+	line-height: 1.25;
+}
+
+.content .service-section .download-list small {
+	color: var(--muted);
+	font: 11px/1.4 "Trebuchet MS", "DejaVu Sans", sans-serif;
+}
+
+.content .service-section .download-list > div {
+	background: transparent;
+}
+
+html[data-theme="dark"] .content .table-card th,
+html[data-theme="dark"] .content .soa-table th,
+html[data-theme="dark"] .content .schedule-table thead th,
+html[data-theme="dark"] .content .curriculum-table th {
+	color: var(--muted);
+}
+
+html[data-theme="dark"] .content .schedule-table thead th {
+	background: color-mix(in srgb, var(--gold) 22%, transparent);
+}
+
+html[data-theme="dark"] .content .schedule-table thead th:first-child,
+html[data-theme="dark"] .content .schedule-table tbody th {
+	background: color-mix(in srgb, var(--rule) 70%, transparent);
+}
+
+html[data-theme="dark"] .content .schedule-table tbody td:has(.class-block) {
+	background: color-mix(in srgb, var(--gold) 12%, transparent);
+}
+
+html[data-theme="dark"] .content .schedule-table .class-block strong {
+	color: #f0c65a;
+}
+
+html[data-theme="dark"] .content .schedule-table .class-block span {
+	color: var(--ink);
+}
+
+html[data-theme="dark"] .content .schedule-table .class-block small {
+	color: var(--muted);
+}
+
+html[data-theme="dark"] .content .table-total td {
+	color: var(--ink);
+	background: color-mix(in srgb, var(--rule) 65%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .payment-method-grid button,
+html[data-theme="dark"] .content .service-section .download-list > div {
+	background: transparent;
+}
+
+@media(max-width:800px){
+	.content .schedule-table tbody td:has(.class-block) { background: transparent; }
+	.content .schedule-table .class-block { background: transparent; }
+	.content .service-section .download-list strong { font-size: 16px; }
+}
