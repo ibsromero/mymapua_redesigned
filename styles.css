@@ -342,3 +342,11 @@ html[data-theme="dark"] .table-total td{color:var(--ink);background:#2b2f36!impo
 html[data-theme="dark"] .pending{color:#c1c4cc!important}
 html[data-theme="dark"] .document-row h2,html[data-theme="dark"] .download-list strong,html[data-theme="dark"] .payment-method-grid strong{color:var(--ink)}
 @media(max-width:800px){.soa-table{padding-bottom:3px}.soa-table::after{display:block;padding:8px 12px 0;color:var(--muted);font-size:10px;content:"Swipe horizontally to view all columns"}.service-section .document-row h2{font-size:18px}.service-section .form-section-heading h2{font-size:21px}}
+
+/* Last-in-file tokens intentionally win over the legacy rules above. */
+.account-summary,.soa-table,.payment-options,.service-section .form-section-heading,.service-section .document-list,.service-section .download-list,.table-card,.faq-list,.document-list,.download-list,.support-panel,.signout-card,.contact-form{border-top-color:var(--rule)!important}
+.service-section .form-section-heading{border-bottom-color:var(--rule)!important}
+.service-section .document-row,.service-section .download-list>div{border-color:var(--rule);background:var(--paper)}
+.service-section .document-row h2,.service-section .download-list strong,.payment-method-grid strong{color:var(--ink)}
+html[data-theme="dark"] .service-section .document-row,html[data-theme="dark"] .service-section .download-list>div,html[data-theme="dark"] .payment-method-grid button{background:var(--paper);color:var(--ink)}
+html[data-theme="dark"] .service-section .document-row p,html[data-theme="dark"] .service-section .download-list small,html[data-theme="dark"] .payment-method-grid span{color:#c1c4cc}
