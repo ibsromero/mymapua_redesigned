@@ -392,6 +392,7 @@ html[data-theme="dark"] .content .data-card,html[data-theme="dark"] .content .ta
 html[data-theme="dark"] .content .table-card th,html[data-theme="dark"] .content .soa-table th{color:#d4d7df}
 html[data-theme="dark"] .content .table-card td,html[data-theme="dark"] .content .soa-table td,html[data-theme="dark"] .content .document-row h2,html[data-theme="dark"] .content .download-list strong{color:var(--ink)}
 html[data-theme="dark"] .content .document-row p,html[data-theme="dark"] .content .download-list small{color:#c1c4cc}
+html[data-theme="dark"] .content .contact-form input[readonly]{color:#c1c4cc;background:#2b2f36;border-color:var(--rule)}
 @media(max-width:800px){
 	.content{width:calc(100% - 32px);max-width:none;padding-top:30px}
 	.content>.page-heading{margin-bottom:28px}
@@ -407,6 +408,7 @@ html[data-theme="dark"] .content .document-row p,html[data-theme="dark"] .conten
 	.content .payment-method-grid button{min-height:78px;padding:14px 12px}
 	.content .payment-method-grid button:nth-child(4n){border-right:1px solid var(--rule)}
 	.content .payment-method-grid button:nth-child(2n){border-right:0}
+	.content .payment-method-grid button:last-child{grid-column:span 2}
 	.content .service-section{margin-bottom:36px}
 	.content .service-section .form-section-heading{display:block;margin-bottom:12px}
 	.content .service-section .form-section-heading p{margin-top:7px;text-align:left}
