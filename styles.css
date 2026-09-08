@@ -1036,6 +1036,10 @@ html[data-theme="dark"] .curriculum-legend span:nth-child(3) { color: #d0d5dd; b
 html[data-theme="dark"] .curriculum-legend span:nth-child(4) { color: #f0aaa2; background: #512d2d; }
 html[data-theme="dark"] .curriculum-legend span:nth-child(5) { color: #a9cbed; background: #263e59; }
 
+html[data-theme="dark"] .content .schedule-table .class-block strong {
+	color: #f0aaa2;
+}
+
 @media(max-width:800px) {
 	.content .contact-form .form-grid,
 	.content .personal-form .form-grid {

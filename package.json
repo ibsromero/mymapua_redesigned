@@ -1,0 +1,25 @@
+{
+  "name": "mymapua_redesigned",
+  "version": "1.0.0",
+  "description": "This is a static site, so it does not require a build command or environment variables.",
+  "main": "script.js",
+  "scripts": {
+    "preview": "python3 -m http.server 4173",
+    "visual-check": "node visual-check.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibsromero/mymapua_redesigned.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ibsromero/mymapua_redesigned/issues"
+  },
+  "homepage": "https://github.com/ibsromero/mymapua_redesigned#readme",
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}
