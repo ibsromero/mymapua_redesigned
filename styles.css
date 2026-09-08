@@ -350,3 +350,18 @@ html[data-theme="dark"] .document-row h2,html[data-theme="dark"] .download-list 
 .service-section .document-row h2,.service-section .download-list strong,.payment-method-grid strong{color:var(--ink)}
 html[data-theme="dark"] .service-section .document-row,html[data-theme="dark"] .service-section .download-list>div,html[data-theme="dark"] .payment-method-grid button{background:var(--paper);color:var(--ink)}
 html[data-theme="dark"] .service-section .document-row p,html[data-theme="dark"] .service-section .download-list small,html[data-theme="dark"] .payment-method-grid span{color:#c1c4cc}
+
+/* Seamless routed surfaces: sections sit on the page instead of becoming nested cards. */
+.content .data-card,.content .table-card,.content .form-card,.content .payment-options,.content .schedule-board,.content .faq-list,.content .document-card,.content .download-list,.content .support-panel,.content .signout-card,.content .account-summary,.content .soa-table,.content .service-section .document-list{border:0;border-top:0!important;border-radius:0;box-shadow:none;background:transparent}
+.content .table-title,.content .service-section .form-section-heading{background:transparent;border-color:var(--rule)}
+.content .table-card table,.content .soa-table table{background:transparent}
+.content .service-section .document-row,.content .service-section .download-list>div{background:transparent;border-color:var(--rule)}
+.content .payment-method-grid{background:transparent;border-top:1px solid var(--rule)}
+.content .payment-method-grid button{background:transparent;border-color:var(--rule)}
+.content .account-summary{border-bottom:1px solid var(--rule)}
+.content .soa-table{overflow-x:auto}
+html[data-theme="dark"] .content .table-title,html[data-theme="dark"] .content .service-section .form-section-heading{background:transparent;color:var(--ink)}
+html[data-theme="dark"] .content .table-card,html[data-theme="dark"] .content .soa-table,html[data-theme="dark"] .content .payment-options,html[data-theme="dark"] .content .download-list,html[data-theme="dark"] .content .service-section .document-list{background:transparent}
+html[data-theme="dark"] .content .payment-method-grid button{background:transparent;color:var(--ink)}
+html[data-theme="dark"] .content .table-card tbody tr:hover td,html[data-theme="dark"] .content .payment-method-grid button:hover{background:#2b2f36}
+@media(max-width:800px){.content .table-card,.content .soa-table,.content .weekly-schedule,.content .curriculum-table-wrap{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}.content .data-card,.content .table-card,.content .form-card,.content .payment-options,.content .faq-list,.content .support-panel{padding-inline:0}.content .payment-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content .payment-method-grid button{min-height:72px;padding:13px 11px}.content .service-section .document-row,.content .service-section .download-list>div{padding-inline:12px}}
