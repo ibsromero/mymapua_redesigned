@@ -238,3 +238,48 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 	.download-list .quiet-button{width:100%}
 	.form-grid input,.form-grid select,.personal-form input,.personal-form select,.contact-form input,.contact-form select{font-size:16px}
 }
+
+/* Keep dark mode readable across legacy surfaces that use explicit light colors. */
+html[data-theme="dark"] .topbar,
+html[data-theme="dark"] .data-card,
+html[data-theme="dark"] .table-card,
+html[data-theme="dark"] .form-card,
+html[data-theme="dark"] .payment-options,
+html[data-theme="dark"] .schedule-card,
+html[data-theme="dark"] .schedule-table,
+html[data-theme="dark"] .schedule-table tbody td,
+html[data-theme="dark"] .schedule-table tbody th,
+html[data-theme="dark"] .curriculum-table td,
+html[data-theme="dark"] .personal-form input[readonly]{color:var(--ink);background:var(--paper);border-color:var(--rule)}
+html[data-theme="dark"] .table-title,
+html[data-theme="dark"] .curriculum-table th,
+html[data-theme="dark"] .term-heading,
+html[data-theme="dark"] .schedule-table thead th,
+html[data-theme="dark"] .schedule-table tbody th{color:var(--ink);background:#2b2f36;border-color:var(--rule)}
+html[data-theme="dark"] .table-card th,
+html[data-theme="dark"] .item-meta,
+html[data-theme="dark"] .section-kicker,
+html[data-theme="dark"] .mini-label{color:#c5c8d0}
+html[data-theme="dark"] .intro,
+html[data-theme="dark"] .form-section-heading p,
+html[data-theme="dark"] .document-row p,
+html[data-theme="dark"] .faq-list p,
+html[data-theme="dark"] .muted{color:#c1c4cc}
+html[data-theme="dark"] .quick-card:hover,
+html[data-theme="dark"] .announcement-item:hover,
+html[data-theme="dark"] .table-card tbody tr:hover td{background:#2b2f36}
+html[data-theme="dark"] .curriculum-legend span,
+html[data-theme="dark"] .curriculum-tabs button,
+html[data-theme="dark"] .year-links button{color:var(--ink);border-color:var(--rule);background:#2b2f36}
+html[data-theme="dark"] .curriculum-tabs button.active,
+html[data-theme="dark"] .term-switch button.active{color:#fff;background:var(--red);border-color:var(--red)}
+html[data-theme="dark"] .status-pill{color:#b9edcf;background:#24513f}
+
+/* Align page content and controls to the same reading measure. */
+.page-heading{max-width:900px}
+.page-heading + .contact-form,.page-heading + .personal-form,.page-heading + .form-card,.page-heading + .document-list,.page-heading + .service-sections{max-width:900px}
+.form-section-heading{align-items:flex-start}
+.form-section-heading h2{line-height:1.2}
+.form-section-heading p{max-width:420px;line-height:1.5}
+.form-actions{align-items:flex-end}
+@media(max-width:800px){.page-heading{max-width:none}.form-actions{align-items:stretch}.form-section-heading p{max-width:none}}
