@@ -4,12 +4,27 @@
 
 This is a static site, so it does not require a build command or environment variables.
 
-### Project structure
+## Project structure
 
 - `index.html`, `styles.css`, and `script.js` are the Vercel entrypoint and frontend.
 - `assets/` contains deployable visual assets.
 - `data/mds/` contains the legacy source records used for the prototype content.
 - `reference/` contains design reference material and is excluded from deployment.
+- `scripts/` contains development-only tooling such as the Playwright visual checker.
+
+## Local development
+
+Start the static preview server:
+
+```sh
+npm run preview
+```
+
+Generate desktop and mobile screenshots for every route in both themes:
+
+```sh
+npm run visual-check
+```
 
 ### Vercel dashboard
 
