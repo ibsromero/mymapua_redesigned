@@ -274,6 +274,27 @@ html[data-theme="dark"] .content .payment-method-grid button:hover {
 		padding: 1px 0 0 1px;
 	}
 }
+
+/* The banner uses a dedicated chevron, separate from legacy text-link arrows. */
+.content .metric-card .text-link .link-chevron {
+	display: inline-block !important;
+	flex: 0 0 8px;
+	width: 8px !important;
+	height: 8px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	border-top: 1.5px solid currentColor;
+	border-right: 1.5px solid currentColor;
+	font-size: 0 !important;
+	line-height: 0;
+	transform: rotate(45deg);
+}
+
+.content .metric-card .text-link .link-chevron::before,
+.content .metric-card .text-link .link-chevron::after {
+	display: none !important;
+	content: none !important;
+}
 	.form-grid input,.form-grid select,.personal-form input,.personal-form select,.contact-form input,.contact-form select{font-size:16px}
 }
 
@@ -1205,6 +1226,28 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	.content .contact-form > .form-section-heading {
 		border-top: 0;
 	}
+}
+
+/* Definitive banner chevron reset. */
+.content .metric-card .text-link .link-chevron {
+	display: inline-block !important;
+	flex: 0 0 8px !important;
+	width: 8px !important;
+	height: 8px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	border: 0 !important;
+	border-top: 1.5px solid currentColor !important;
+	border-right: 1.5px solid currentColor !important;
+	font-size: 0 !important;
+	line-height: 0 !important;
+	transform: rotate(45deg) !important;
+}
+
+.content .metric-card .text-link .link-chevron::before,
+.content .metric-card .text-link .link-chevron::after {
+	display: none !important;
+	content: none !important;
 }
 
 /* Statement link and payment provider marks. */
