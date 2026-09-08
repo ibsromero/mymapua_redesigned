@@ -166,7 +166,7 @@ function bindActions() {
     }
   }));
   document.querySelectorAll('.mobile-day-button').forEach((button) => button.addEventListener('click', () => {
-    const schedule = button.closest('.schedule-mobile-days').parentElement;
+    const schedule = button.closest('.content');
     const day = button.dataset.day;
     schedule.querySelectorAll('.mobile-day-button').forEach((item) => item.classList.toggle('active', item === button));
     schedule.querySelectorAll('.mobile-day').forEach((item) => item.classList.toggle('active', item.dataset.day === day));
