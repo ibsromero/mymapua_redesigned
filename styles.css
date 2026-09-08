@@ -1051,3 +1051,205 @@ html[data-theme="dark"] .content .schedule-table .class-block strong {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
+
+/* Shared final contract: one rhythm for every routed view. */
+.content {
+	width: min(1180px, calc(100% - 64px));
+	max-width: 1180px;
+}
+
+.page-heading {
+	max-width: 900px;
+}
+
+.page-heading h1,
+.welcome-row h1 {
+	max-width: 100%;
+	line-height: 1.05;
+}
+
+.section-heading,
+.table-title,
+.form-section-heading,
+.service-section .form-section-heading {
+	min-height: 0;
+}
+
+.section-heading > div,
+.table-title > div,
+.form-section-heading > * {
+	min-width: 0;
+}
+
+.section-heading h2,
+.table-title h2,
+.form-section-heading h2,
+.service-section .form-section-heading h2 {
+	line-height: 1.2;
+}
+
+.content .form-grid,
+.content .contact-form .name-grid,
+.content .contact-form .phone-grid {
+	align-items: start;
+}
+
+.content .form-grid label,
+.content .contact-form .name-grid label,
+.content .contact-form .phone-grid label {
+	min-width: 0;
+}
+
+.content .form-grid input,
+.content .form-grid select,
+.content .contact-form input,
+.content .contact-form select {
+	width: 100%;
+}
+
+.content .schedule-table {
+	border-collapse: separate !important;
+	border-spacing: 0;
+	border: 1px solid var(--rule) !important;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.content .schedule-table th,
+.content .schedule-table td {
+	border-right: 1px solid color-mix(in srgb, var(--rule) 88%, transparent) !important;
+	border-bottom: 1px solid color-mix(in srgb, var(--rule) 88%, transparent) !important;
+	background: var(--paper) !important;
+}
+
+.content .schedule-table tr > *:last-child {
+	border-right: 0 !important;
+}
+
+.content .schedule-table tbody tr:last-child > * {
+	border-bottom: 0 !important;
+}
+
+.content .schedule-table thead th {
+	background: color-mix(in srgb, var(--rule) 32%, var(--paper)) !important;
+}
+
+.content .schedule-table tbody th {
+	background: color-mix(in srgb, var(--rule) 20%, var(--paper)) !important;
+}
+
+.content .schedule-table tbody td:has(.class-block) {
+	background: color-mix(in srgb, var(--red-soft) 32%, var(--paper)) !important;
+	box-shadow: none !important;
+}
+
+.content .schedule-table .class-block {
+	width: 100%;
+	min-height: 60px;
+	padding: 8px 5px 8px 8px;
+	border-left: 3px solid var(--red);
+}
+
+.content .schedule-table .class-block strong,
+.content .schedule-table .class-block span,
+.content .schedule-table .class-block small {
+	display: block;
+	text-align: center;
+}
+
+.content .curriculum-table {
+	border-collapse: separate !important;
+	border-spacing: 0;
+	border: 1px solid var(--rule) !important;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.content .curriculum-table th,
+.content .curriculum-table td {
+	border-right: 1px solid var(--rule) !important;
+	border-bottom: 1px solid var(--rule) !important;
+}
+
+.content .curriculum-table tr > *:last-child {
+	border-right: 0 !important;
+}
+
+.content .curriculum-table tbody tr:last-child > * {
+	border-bottom: 0 !important;
+}
+
+.curriculum-legend {
+	align-items: center;
+}
+
+.curriculum-legend span {
+	display: inline-flex;
+	min-height: 26px;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid currentColor;
+	border-radius: 999px;
+	font-size: 9px;
+	font-weight: 700;
+	line-height: 1.1;
+	white-space: nowrap;
+}
+
+.status-taken,
+.status-current,
+.status-pending,
+.status-incomplete,
+.status-credited {
+	border-radius: 999px;
+	font-weight: 700;
+}
+
+.status-taken { color: #27634f !important; background: #e2f1e8 !important; }
+.status-current { color: #8b6510 !important; background: #fff0bd !important; }
+.status-pending { color: #666b73 !important; background: #eceef1 !important; }
+.status-incomplete { color: #a0443b !important; background: #f8e1de !important; }
+.status-credited { color: #315e91 !important; background: #e1edf9 !important; }
+
+html[data-theme="dark"] .content .schedule-table thead th {
+	background: #2b2f36 !important;
+}
+
+html[data-theme="dark"] .content .schedule-table tbody th {
+	background: #262a30 !important;
+}
+
+html[data-theme="dark"] .content .curriculum-table th {
+	background: #2b2f36 !important;
+}
+
+html[data-theme="dark"] .status-taken { color: #a8e4c3 !important; background: #244b3c !important; }
+html[data-theme="dark"] .status-current { color: #f3d47a !important; background: #55461f !important; }
+html[data-theme="dark"] .status-pending { color: #d0d5dd !important; background: #343941 !important; }
+html[data-theme="dark"] .status-incomplete { color: #f0aaa2 !important; background: #512d2d !important; }
+html[data-theme="dark"] .status-credited { color: #a9cbed !important; background: #263e59 !important; }
+
+@media(max-width:800px) {
+	.content {
+		width: calc(100% - 32px);
+		max-width: none;
+	}
+
+	.content .schedule-table {
+		border-radius: 4px;
+	}
+
+	.content .schedule-table .class-block {
+		min-height: 66px;
+		padding: 6px 3px;
+	}
+
+	.curriculum-legend {
+		align-items: flex-start;
+	}
+
+	.curriculum-legend span {
+		white-space: normal;
+		text-align: center;
+	}
+}
