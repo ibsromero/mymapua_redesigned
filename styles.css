@@ -183,8 +183,9 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 .contact-form fieldset>.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:16px 20px}
 .contact-form fieldset>.form-grid label{min-width:0}
 .contact-form input[readonly]{color:var(--muted);background:#ebe7e1}
-.contact-form .phone-grid,.contact-form .name-grid{display:grid;grid-template-columns:minmax(96px,.7fr) minmax(96px,.7fr) minmax(180px,1.4fr);gap:14px;margin-top:16px}
+.contact-form .phone-grid,.contact-form .name-grid{display:grid;grid-template-columns:minmax(108px,.75fr) minmax(108px,.75fr) minmax(220px,1.5fr);gap:14px;margin-top:16px}
 .contact-form .name-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:0}
+.contact-form label>input,.contact-form label>select{width:100%;min-width:0}
 .contact-form .phone-number{min-width:0}
 .contact-person{padding:5px 0 20px;border-bottom:1px solid var(--rule)}
 .contact-person+.contact-person{padding-top:20px}
@@ -204,8 +205,10 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 /* Theme control and shared dark-mode surfaces. */
 .theme-toggle{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:7px 10px;color:var(--ink);border:1px solid var(--rule);background:var(--paper);font-size:10px;font-weight:700;cursor:pointer}
 .theme-toggle:hover{color:var(--red);border-color:var(--red)}
-.theme-icon{position:relative;width:15px;height:15px;border:1px solid currentColor;border-radius:50%}
-.theme-icon::after{position:absolute;top:-2px;right:-2px;width:8px;height:8px;border-radius:50%;background:var(--paper);content:""}
+.theme-icon{display:grid;place-items:center;width:15px;height:15px;font-size:16px;line-height:1}
+.theme-icon::before{content:"☾"}
+.theme-icon::after{display:none}
+html[data-theme="dark"] .theme-icon::before{content:"☀"}
 html[data-theme="dark"]{--cream:#17191d;--paper:#202329;--ink:#f3efe8;--muted:#adb0b8;--rule:#3a3e47;--red-soft:#49272b}
 html[data-theme="dark"] body,html[data-theme="dark"] .app-shell,html[data-theme="dark"] .main-wrap{background:var(--cream);color:var(--ink)}
 html[data-theme="dark"] .topbar{background:rgba(23,25,29,.96);border-color:var(--rule)}
