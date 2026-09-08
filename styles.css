@@ -1180,6 +1180,83 @@ html[data-theme="dark"] .content .announcement-item:hover {
 	background-image: none !important;
 }
 
+/* Mobile usability and theme parity. */
+html {
+	color-scheme: light;
+}
+
+html[data-theme="dark"] {
+	color-scheme: dark;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+	color: #9da2ad;
+}
+
+html[data-theme="dark"] .theme-toggle,
+html[data-theme="dark"] .outline-button,
+html[data-theme="dark"] .quiet-button,
+html[data-theme="dark"] select,
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea {
+	color: var(--ink);
+	border-color: var(--rule);
+	background-color: #2b2f36;
+}
+
+html[data-theme="dark"] .theme-toggle:hover,
+html[data-theme="dark"] .outline-button:hover,
+html[data-theme="dark"] .quiet-button:hover {
+	color: #fff;
+	border-color: #8f96a3;
+	background-color: #343941;
+}
+
+html[data-theme="dark"] option {
+	color: var(--ink);
+	background: #2b2f36;
+}
+
+html[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: invert(1) opacity(.8);
+}
+
+@media(max-width:800px) {
+	.menu-toggle,
+	.close-menu,
+	.theme-toggle {
+		min-width: 44px;
+		min-height: 44px;
+	}
+
+	.theme-toggle {
+		width: 44px;
+		padding: 7px;
+	}
+
+	.curriculum .year-links button,
+	.year-links button {
+		display: inline-flex;
+		min-width: 44px;
+		min-height: 40px;
+		align-items: center;
+		justify-content: center;
+		padding: 8px 10px;
+	}
+
+	.soa-table input[type="checkbox"] {
+		width: 20px;
+		height: 20px;
+		margin: 0;
+		vertical-align: middle;
+	}
+
+	.mobile-day-button {
+		min-height: 44px;
+	}
+}
+
 /* Shared final contract: one rhythm for every routed view. */
 .content {
 	width: min(1180px, calc(100% - 64px));
@@ -1338,10 +1415,12 @@ html[data-theme="dark"] .content .announcement-item:hover {
 }
 
 .content .schedule-table .class-block {
-	width: 100%;
+	width: calc(100% - 10px);
 	min-height: 60px;
-	padding: 8px 5px 8px 8px;
-	border-left: 3px solid var(--red);
+	padding: 8px 5px;
+	border: 1px solid color-mix(in srgb, var(--red) 58%, var(--rule));
+	border-radius: 4px;
+	background: color-mix(in srgb, var(--red-soft) 42%, var(--paper));
 }
 
 .content .schedule-table .class-block strong,
@@ -1414,6 +1493,11 @@ html[data-theme="dark"] .content .schedule-table tbody th {
 }
 
 html[data-theme="dark"] .content .curriculum-table th {
+	background: #2b2f36 !important;
+}
+
+html[data-theme="dark"] .content .curriculum-table .total-row td {
+	color: var(--ink) !important;
 	background: #2b2f36 !important;
 }
 
