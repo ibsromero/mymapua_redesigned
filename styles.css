@@ -180,6 +180,9 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 .contact-form fieldset{margin:0;padding:23px 0 25px;border:0;border-bottom:1px solid var(--rule);background:transparent}
 .contact-form legend{padding:0;margin:0 0 14px;color:var(--ink);font:400 21px/1.15 Georgia,"Times New Roman",serif}
 .contact-form .form-grid{margin:0}
+.contact-form fieldset>.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:16px 20px}
+.contact-form fieldset>.form-grid label{min-width:0}
+.contact-form input[readonly]{color:var(--muted);background:#ebe7e1}
 .contact-form .phone-grid,.contact-form .name-grid{display:grid;grid-template-columns:minmax(96px,.7fr) minmax(96px,.7fr) minmax(180px,1.4fr);gap:14px;margin-top:16px}
 .contact-form .name-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:0}
 .contact-form .phone-number{min-width:0}
@@ -196,7 +199,7 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 .service-section + .service-section{margin-top:44px}
 .service-section .document-list,.service-section .download-list{max-width:900px}
 .curriculum-panel{min-width:0}
-@media(max-width:800px){.overview-grid{grid-template-columns:minmax(0,1fr)}.contact-form>.form-section-heading{padding:18px 0 16px}.contact-form fieldset{padding:20px 0}.contact-form legend{font-size:18px}.contact-form .phone-grid,.contact-form .name-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.contact-form .phone-number{grid-column:span 2}.contact-choice{align-items:flex-start;flex-direction:column;gap:9px}.contact-form .form-actions{padding-top:18px}.service-section + .service-section{margin-top:32px}}
+@media(max-width:800px){.overview-grid{grid-template-columns:minmax(0,1fr)}.contact-form>.form-section-heading{padding:18px 0 16px}.contact-form fieldset{padding:20px 0}.contact-form legend{font-size:18px}.contact-form fieldset>.form-grid{grid-template-columns:minmax(0,1fr);gap:14px}.contact-form .phone-grid,.contact-form .name-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.contact-form .phone-number{grid-column:span 2}.contact-choice{align-items:flex-start;flex-direction:column;gap:9px}.contact-form .form-actions{padding-top:18px}.service-section + .service-section{margin-top:32px}}
 
 /* Theme control and shared dark-mode surfaces. */
 .theme-toggle{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:7px 10px;color:var(--ink);border:1px solid var(--rule);background:var(--paper);font-size:10px;font-weight:700;cursor:pointer}
