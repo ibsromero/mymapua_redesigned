@@ -242,6 +242,38 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 	.primary-button,.quiet-button,.outline-button,.term-switch button,.curriculum-tabs button{min-height:44px}
 	.download-list>div{align-items:stretch;flex-direction:column;gap:12px}
 	.download-list .quiet-button{width:100%}
+
+/* Keep every payment method visibly framed, including the final row. */
+.content .payment-method-grid {
+	gap: 1px !important;
+	padding: 1px 0 0 1px;
+	border: 1px solid var(--rule) !important;
+	background: var(--rule) !important;
+}
+
+.content .payment-method-grid button,
+.content .payment-method-grid button:nth-child(2n),
+.content .payment-method-grid button:nth-child(3n),
+.content .payment-method-grid button:nth-child(4n),
+.content .payment-method-grid button:nth-last-child(-n + 3) {
+	border: 0 !important;
+	background: var(--paper);
+}
+
+html[data-theme="dark"] .content .payment-method-grid {
+	background: var(--rule) !important;
+}
+
+html[data-theme="dark"] .content .payment-method-grid button,
+html[data-theme="dark"] .content .payment-method-grid button:hover {
+	background: var(--paper);
+}
+
+@media(max-width:800px) {
+	.content .payment-method-grid {
+		padding: 1px 0 0 1px;
+	}
+}
 	.form-grid input,.form-grid select,.personal-form input,.personal-form select,.contact-form input,.contact-form select{font-size:16px}
 }
 
