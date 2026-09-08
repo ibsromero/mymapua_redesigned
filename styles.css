@@ -351,6 +351,69 @@ html[data-theme="dark"] .document-row h2,html[data-theme="dark"] .download-list 
 html[data-theme="dark"] .service-section .document-row,html[data-theme="dark"] .service-section .download-list>div,html[data-theme="dark"] .payment-method-grid button{background:var(--paper);color:var(--ink)}
 html[data-theme="dark"] .service-section .document-row p,html[data-theme="dark"] .service-section .download-list small,html[data-theme="dark"] .payment-method-grid span{color:#c1c4cc}
 
+/* Final cascade contract. These rules intentionally override the legacy layers above. */
+.content{width:min(1180px,calc(100% - 64px));max-width:1180px;margin-inline:auto}
+.content>.page-heading{max-width:900px;margin:0 0 36px}
+.content>.page-heading+h1,.content>.page-heading+*{min-width:0}
+.content .data-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:0 0 32px}
+.content .data-card,.content .table-card,.content .form-card,.content .account-summary,.content .soa-table,.content .payment-options,.content .schedule-board,.content .faq-list,.content .download-list,.content .document-list,.content .support-panel,.content .signout-card{border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important}
+.content .data-card{min-height:116px;padding:18px 0;border-top:1px solid var(--rule)!important;border-bottom:1px solid var(--rule)!important}
+.content .table-title{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:0 0 15px;border-bottom:1px solid var(--rule);background:transparent!important}
+.content .table-title>div{min-width:0}
+.content .table-title h2,.content .payment-options h2{margin:4px 0 0;font-size:22px;line-height:1.2}
+.content .table-card table,.content .soa-table table{width:100%;margin:0;border-collapse:collapse;background:transparent;table-layout:auto}
+.content .table-card th,.content .table-card td,.content .soa-table th,.content .soa-table td{padding:15px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:middle;line-height:1.4}
+.content .table-card th:first-child,.content .table-card td:first-child,.content .soa-table th:first-child,.content .soa-table td:first-child{padding-left:0}
+.content .table-card th:last-child,.content .table-card td:last-child,.content .soa-table th:last-child,.content .soa-table td:last-child{padding-right:0}
+.content .table-card th,.content .soa-table th{color:var(--muted);font-size:9px;letter-spacing:1px;text-transform:uppercase}
+.content .table-card tr:last-child td,.content .soa-table tr:last-child td{border-bottom:0}
+.content .account-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0 0 28px;border-top:1px solid var(--rule)!important;border-bottom:1px solid var(--rule)!important}
+.content .account-summary>div{min-height:112px;padding:20px 22px;border-right:1px solid var(--rule)}
+.content .account-summary>div:last-child{border-right:0}
+.content .soa-table,.content .payment-options{margin:0 0 28px;overflow-x:auto;overscroll-behavior-x:contain}
+.content .soa-table .table-title,.content .payment-options .table-title{padding:0 0 15px}
+.content .soa-table table{min-width:720px}
+.content .payment-method-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:0;border-top:1px solid var(--rule);background:transparent}
+.content .payment-method-grid button{min-height:92px;padding:18px 16px;border:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:transparent;color:var(--ink);text-align:left}
+.content .payment-method-grid button:nth-child(4n){border-right:0}
+.content .payment-method-grid button:hover{background:var(--red-soft);color:var(--red)}
+.content .service-sections{max-width:900px}
+.content .service-section{max-width:900px;margin:0 0 46px}
+.content .service-section .form-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;min-height:0;margin:0 0 14px;padding:0 0 14px;border-bottom:1px solid var(--rule)!important;background:transparent!important}
+.content .service-section .form-section-heading h2{margin:0;font-size:23px;line-height:1.2}
+.content .service-section .form-section-heading p{margin:0;text-align:right}
+.content .service-section .document-list,.content .service-section .download-list{margin:0;border:1px solid var(--rule)!important;border-top:1px solid var(--rule)!important;background:transparent!important}
+.content .service-section .document-row,.content .service-section .download-list>div{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px;padding:15px 16px;border:0;border-bottom:1px solid var(--rule);background:transparent}
+.content .service-section .document-row:last-child,.content .service-section .download-list>div:last-child{border-bottom:0}
+.content .service-section .document-row>div,.content .service-section .download-list section{min-width:0}
+.content .service-section .document-row h2{margin:0 0 5px;font-size:19px;line-height:1.25}
+.content .service-section .document-row p,.content .service-section .download-list small{margin:0;color:var(--muted);line-height:1.4}
+html[data-theme="dark"] .content .data-card,html[data-theme="dark"] .content .table-card,html[data-theme="dark"] .content .form-card,html[data-theme="dark"] .content .account-summary,html[data-theme="dark"] .content .soa-table,html[data-theme="dark"] .content .payment-options,html[data-theme="dark"] .content .service-section .document-list,html[data-theme="dark"] .content .service-section .download-list{color:var(--ink);background:transparent!important}
+html[data-theme="dark"] .content .table-card th,html[data-theme="dark"] .content .soa-table th{color:#d4d7df}
+html[data-theme="dark"] .content .table-card td,html[data-theme="dark"] .content .soa-table td,html[data-theme="dark"] .content .document-row h2,html[data-theme="dark"] .content .download-list strong{color:var(--ink)}
+html[data-theme="dark"] .content .document-row p,html[data-theme="dark"] .content .download-list small{color:#c1c4cc}
+@media(max-width:800px){
+	.content{width:calc(100% - 32px);max-width:none;padding-top:30px}
+	.content>.page-heading{margin-bottom:28px}
+	.content .data-grid{grid-template-columns:minmax(0,1fr);gap:0}
+	.content .data-card{min-height:96px;padding:16px 0}
+	.content .table-card,.content .soa-table,.content .payment-options{margin-bottom:24px}
+	.content .table-title{align-items:flex-start;flex-direction:column;gap:8px}
+	.content .table-title h2,.content .payment-options h2{font-size:20px}
+	.content .account-summary{grid-template-columns:minmax(0,1fr)}
+	.content .account-summary>div{border-right:0;border-bottom:1px solid var(--rule)}
+	.content .account-summary>div:last-child{border-bottom:0}
+	.content .payment-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+	.content .payment-method-grid button{min-height:78px;padding:14px 12px}
+	.content .payment-method-grid button:nth-child(4n){border-right:1px solid var(--rule)}
+	.content .payment-method-grid button:nth-child(2n){border-right:0}
+	.content .service-section{margin-bottom:36px}
+	.content .service-section .form-section-heading{display:block;margin-bottom:12px}
+	.content .service-section .form-section-heading p{margin-top:7px;text-align:left}
+	.content .service-section .document-row,.content .service-section .download-list>div{align-items:stretch;flex-direction:column;gap:12px;min-height:0;padding:14px 12px}
+	.content .service-section .document-row .quiet-button,.content .service-section .download-list .quiet-button{width:100%}
+}
+
 /* Seamless routed surfaces: sections sit on the page instead of becoming nested cards. */
 .content .data-card,.content .table-card,.content .form-card,.content .payment-options,.content .schedule-board,.content .faq-list,.content .document-card,.content .download-list,.content .support-panel,.content .signout-card,.content .account-summary,.content .soa-table,.content .service-section .document-list{border:0;border-top:0!important;border-radius:0;box-shadow:none;background:transparent}
 .content .table-title,.content .service-section .form-section-heading{background:transparent;border-color:var(--rule)}
