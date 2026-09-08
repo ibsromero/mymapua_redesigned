@@ -1175,6 +1175,172 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Final authoritative route fixes. */
+.main-wrap { min-height: 100vh; }
+.footer { width: 100%; min-height: 64px; margin-top: auto; box-sizing: border-box; }
+
+.content .schedule-table tbody tr:hover td,
+.content .schedule-table tbody tr:hover th,
+.content .schedule-table tbody td:hover {
+	background: color-mix(in srgb, var(--red-soft) 62%, var(--paper)) !important;
+}
+
+.content .schedule-table tbody tr:hover .class-block,
+.content .schedule-table tbody td:hover .class-block {
+	border-color: var(--red) !important;
+	background: color-mix(in srgb, var(--red-soft) 72%, var(--paper)) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table tbody tr:hover td,
+html[data-theme="dark"] .content .schedule-table tbody tr:hover th,
+html[data-theme="dark"] .content .schedule-table tbody td:hover {
+	background: #343941 !important;
+}
+
+html[data-theme="dark"] .content .schedule-table tbody tr:hover .class-block,
+html[data-theme="dark"] .content .schedule-table tbody td:hover .class-block {
+	background: #512d2d !important;
+}
+
+.content .curriculum-table .course-status-cell {
+	font-weight: 700;
+	background: color-mix(in srgb, currentColor 7%, var(--paper)) !important;
+}
+
+.content .curriculum-table .course-status-cell.status-taken { color: #27634f !important; }
+.content .curriculum-table .course-status-cell.status-current { color: #8b6510 !important; }
+.content .curriculum-table .course-status-cell.status-pending { color: #666b73 !important; }
+.content .curriculum-table .course-status-cell.status-incomplete { color: #a0443b !important; }
+.content .curriculum-table .course-status-cell.status-credited { color: #315e91 !important; }
+.course-status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: currentColor; vertical-align: middle; }
+
+html[data-theme="dark"] .content .curriculum-table .course-status-cell { background: color-mix(in srgb, currentColor 14%, var(--paper)) !important; }
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-taken { color: #a8e4c3 !important; }
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-current { color: #f3d47a !important; }
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-pending { color: #d0d5dd !important; }
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-incomplete { color: #f0aaa2 !important; }
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-credited { color: #a9cbed !important; }
+
+.content .contact-form > .form-section-heading,
+.content .contact-form fieldset { margin-top: 0; }
+.content .contact-form fieldset + fieldset { margin-top: 0; }
+.content .contact-form legend { margin-bottom: 16px; }
+.content .contact-form .form-grid,
+.content .contact-form .name-grid,
+.content .contact-form .phone-grid { row-gap: 16px; }
+
+.content .payment-method-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media(max-width:800px) {
+	.content .payment-method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.content .payment-method-grid button:last-child { grid-column: span 2; }
+	.footer { min-height: 88px; padding: 18px 16px; }
+}
+
+/* Final route fixes. */
+.main-wrap {
+	min-height: 100vh;
+}
+
+.footer {
+	width: 100%;
+	min-height: 64px;
+	margin-top: auto;
+	box-sizing: border-box;
+}
+
+.content .schedule-table tbody tr:hover td,
+.content .schedule-table tbody tr:hover th,
+.content .schedule-table tbody td:hover {
+	background: color-mix(in srgb, var(--red-soft) 62%, var(--paper)) !important;
+}
+
+.content .schedule-table tbody tr:hover .class-block,
+.content .schedule-table tbody td:hover .class-block {
+	border-color: var(--red) !important;
+	background: color-mix(in srgb, var(--red-soft) 72%, var(--paper)) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table tbody tr:hover td,
+html[data-theme="dark"] .content .schedule-table tbody tr:hover th,
+html[data-theme="dark"] .content .schedule-table tbody td:hover {
+	background: #343941 !important;
+}
+
+html[data-theme="dark"] .content .schedule-table tbody tr:hover .class-block,
+html[data-theme="dark"] .content .schedule-table tbody td:hover .class-block {
+	background: #512d2d !important;
+}
+
+.content .curriculum-table .course-status-cell {
+	font-weight: 700;
+	background: color-mix(in srgb, currentColor 7%, var(--paper)) !important;
+}
+
+.content .curriculum-table .course-status-cell.status-taken { color: #27634f !important; }
+.content .curriculum-table .course-status-cell.status-current { color: #8b6510 !important; }
+.content .curriculum-table .course-status-cell.status-pending { color: #666b73 !important; }
+.content .curriculum-table .course-status-cell.status-incomplete { color: #a0443b !important; }
+.content .curriculum-table .course-status-cell.status-credited { color: #315e91 !important; }
+
+.course-status-dot {
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	margin-right: 6px;
+	border-radius: 50%;
+	background: currentColor;
+	vertical-align: middle;
+}
+
+html[data-theme="dark"] .content .curriculum-table .course-status-cell {
+	background: color-mix(in srgb, currentColor 14%, var(--paper)) !important;
+}
+
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-taken { color: #a8e4c3 !important; }
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-current { color: #f3d47a !important; }
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-pending { color: #d0d5dd !important; }
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-incomplete { color: #f0aaa2 !important; }
+html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-credited { color: #a9cbed !important; }
+
+.content .contact-form > .form-section-heading,
+.content .contact-form fieldset {
+	margin-top: 0;
+}
+
+.content .contact-form fieldset + fieldset {
+	margin-top: 0;
+}
+
+.content .contact-form legend {
+	margin-bottom: 16px;
+}
+
+.content .contact-form .form-grid,
+.content .contact-form .name-grid,
+.content .contact-form .phone-grid {
+	row-gap: 16px;
+}
+
+.content .payment-method-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media(max-width:800px) {
+	.content .payment-method-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.content .payment-method-grid button:last-child {
+		grid-column: span 2;
+	}
+
+	.footer {
+		min-height: 88px;
+		padding: 18px 16px;
+	}
+}
+
 html[data-theme="dark"] .content .announcement-item:hover {
 	background-color: #2b2f36 !important;
 	background-image: none !important;
