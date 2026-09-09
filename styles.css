@@ -1450,6 +1450,51 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Grade-history controls need an explicit dark surface and a quieter hierarchy. */
+.content .grade-history-card .table-title h2 {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 24px;
+	font-weight: 400;
+}
+.content .grade-summary strong {
+	font-family: "IBM Plex Sans", "Trebuchet MS", sans-serif;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: .6px;
+	text-transform: uppercase;
+}
+.content .grade-summary span {
+	font-family: "IBM Plex Sans", "Trebuchet MS", sans-serif;
+	font-size: 15px;
+	font-weight: 500;
+}
+html[data-theme="dark"] .content .history-controls select,
+html[data-theme="dark"] .content .curriculum-history-controls select {
+	color: var(--ink);
+	border-color: #59616d;
+	background: #24282e;
+	color-scheme: dark;
+}
+html[data-theme="dark"] .content .history-tabs button {
+	color: #d5dae2;
+	border-color: #59616d;
+	background: #24282e;
+}
+html[data-theme="dark"] .content .history-tabs button.active {
+	color: #fff;
+	border-color: var(--red);
+	background: var(--red);
+}
+html[data-theme="dark"] .content .grade-summary {
+	border-color: var(--rule);
+}
+html[data-theme="dark"] .content .grade-summary strong {
+	color: #c5cbd4;
+}
+html[data-theme="dark"] .content .grade-summary span {
+	color: var(--ink);
+}
+
 /* Final visual contract for controls and payment logos. */
 .content .history-controls,
 .content .history-controls label,
