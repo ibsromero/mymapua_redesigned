@@ -325,6 +325,144 @@ html[data-theme="dark"] .schedule-full-view-toggle[aria-expanded="true"] {
 		min-width: 780px;
 	}
 }
+
+/* Final fixes for profile, academic history, and compact curriculum status markers. */
+.history-controls {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 18px;
+	margin: 22px 0 14px;
+}
+.history-controls label {
+	display: flex;
+	min-width: 220px;
+	flex-direction: column;
+	gap: 7px;
+	color: var(--muted);
+	font-size: 10px;
+	font-weight: 700;
+}
+.history-controls select {
+	min-height: 40px;
+	padding: 9px 10px;
+	border: 1px solid var(--rule);
+	border-radius: 0;
+	color: var(--ink);
+	background: var(--paper);
+	font: inherit;
+}
+.history-tabs {
+	display: flex;
+	gap: 5px;
+}
+.history-tabs button {
+	min-height: 40px;
+	padding: 9px 18px;
+	color: var(--red);
+	border: 1px solid var(--rule);
+	background: var(--paper);
+	font-size: 10px;
+	font-weight: 700;
+}
+.history-tabs button.active {
+	color: #fff;
+	border-color: var(--red);
+	background: var(--red);
+}
+.grade-history-card {
+	max-width: 900px;
+}
+.grade-history-table {
+	width: 100%;
+	min-width: 520px;
+	border-collapse: collapse;
+}
+.grade-history-table th,
+.grade-history-table td {
+	padding: 11px 16px;
+	border-bottom: 1px solid var(--rule);
+	text-align: left;
+	font-size: 11px;
+}
+.grade-history-table th {
+	color: var(--muted);
+	background: #eee9e2;
+	font-size: 9px;
+	letter-spacing: .7px;
+	text-transform: uppercase;
+}
+.grade-summary {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	border-top: 1px solid var(--rule);
+}
+.grade-summary div {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	gap: 4px;
+	padding: 14px 16px;
+	border-right: 1px solid var(--rule);
+}
+.grade-summary div:last-child { border-right: 0; }
+.grade-summary strong { color: var(--muted); font-size: 9px; text-transform: uppercase; }
+.grade-summary span { font-size: 11px; overflow-wrap: anywhere; }
+.history-empty { margin: 0; padding: 20px; color: var(--muted); font-size: 11px; }
+.history-note { max-width: 520px; color: var(--muted); font-size: 10px; }
+.curriculum-history-controls { align-items: center; }
+.curriculum-history-controls label { min-width: 240px; }
+.curriculum-table .course-status-cell { position: relative; }
+.curriculum-table .course-status-dot {
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin-right: 5px;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.curriculum-table .course-status-cell.status-current .course-status-dot { background: #31745d; }
+.curriculum-table .course-status-cell.status-taken .course-status-dot { background: #4a7aa5; }
+.curriculum-table .course-status-cell.status-pending .course-status-dot { background: #999; }
+.curriculum-table .course-status-cell.status-incomplete .course-status-dot { background: #c26b3b; }
+.curriculum-table .course-status-cell.status-credited .course-status-dot { background: #b28a22; }
+.curriculum-table .course-status-cell { font-size: 10px; }
+.payment-logo img {
+	display: block;
+	width: 28px;
+	height: 28px;
+	object-fit: contain;
+	filter: saturate(1.2) contrast(1.15);
+}
+.payment-logo.logo-cebuana {
+	padding: 3px;
+	background: #f2c438;
+}
+html[data-theme="dark"] .payment-logo img { filter: brightness(1.45) saturate(1.25) contrast(1.1); }
+html[data-theme="dark"] .payment-logo.logo-cebuana { background: #f2c438; }
+.footer { justify-content: center; text-align: center; }
+.footer div { justify-content: center; }
+
+@media(max-width:800px) {
+	.history-controls,
+	.curriculum-history-controls { align-items: stretch; flex-direction: column; gap: 12px; }
+	.history-controls label,
+	.curriculum-history-controls label { min-width: 0; }
+	.history-tabs { width: 100%; }
+	.history-tabs button { flex: 1; padding-inline: 8px; }
+	.grade-history-card { overflow-x: auto; }
+	.grade-history-card .table-title,
+	.grade-history-card .grade-summary { min-width: 520px; }
+	.grade-summary { grid-template-columns: repeat(3, minmax(160px, 1fr)); }
+	.contact-form { width: 100%; }
+	.contact-form fieldset { padding-block: 22px; }
+	.contact-form .name-grid,
+	.contact-form .phone-grid { gap: 12px; }
+	.contact-form .form-actions { gap: 12px; }
+	.contact-form .form-actions .primary-button { align-self: stretch; }
+	.curriculum-table .course-status-cell { white-space: nowrap; }
+	.footer { align-items: center; }
+}
 	.download-list .quiet-button{width:100%}
 
 /* Keep every payment method visibly framed, including the final row. */
