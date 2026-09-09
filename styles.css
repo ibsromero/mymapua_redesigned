@@ -2188,6 +2188,31 @@ html[data-theme="dark"] .status-pending { color: #d0d5dd !important; background:
 html[data-theme="dark"] .status-incomplete { color: #f0aaa2 !important; background: #512d2d !important; }
 html[data-theme="dark"] .status-credited { color: #a9cbed !important; background: #263e59 !important; }
 
+/* Subject status colors stay compact inside curriculum cells instead of becoming pills. */
+.content .curriculum-table td.course-status-cell {
+	border-radius: 0 !important;
+	font-weight: 700;
+}
+.content .curriculum-table td.course-status-cell.status-taken { color: #27634f !important; background: #e2f1e8 !important; }
+.content .curriculum-table td.course-status-cell.status-current { color: #8b6510 !important; background: #fff0bd !important; }
+.content .curriculum-table td.course-status-cell.status-pending { color: #666b73 !important; background: #eceef1 !important; }
+.content .curriculum-table td.course-status-cell.status-incomplete { color: #a0443b !important; background: #f8e1de !important; }
+.content .curriculum-table td.course-status-cell.status-credited { color: #315e91 !important; background: #e1edf9 !important; }
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-taken { color: #a8e4c3 !important; background: #244b3c !important; }
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-current { color: #f3d47a !important; background: #55461f !important; }
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-pending { color: #d0d5dd !important; background: #343941 !important; }
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-incomplete { color: #f0aaa2 !important; background: #512d2d !important; }
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-credited { color: #a9cbed !important; background: #263e59 !important; }
+.content .payment-method-grid .payment-logo.logo-cebuana,
+html[data-theme="dark"] .content .payment-method-grid .payment-logo.logo-cebuana {
+	color: #173c67 !important;
+	background: #f2c438 !important;
+	border-color: #f2c438 !important;
+	font-size: 18px;
+	font-weight: 900;
+	box-shadow: 0 0 0 2px #fff, 0 0 0 3px #f2c438;
+}
+
 @media(max-width:800px) {
 	.content {
 		width: calc(100% - 32px);

@@ -168,7 +168,7 @@ const paymentLogoUrls = {
 function enhancePaymentLogos() {
   document.querySelectorAll('.payment-logo').forEach((logo) => {
     const logoClass = Object.keys(paymentLogoUrls).find((className) => logo.classList.contains(className));
-    if (!logoClass || logo.querySelector('img')) return;
+    if (!logoClass || logoClass === 'logo-cebuana' || logo.querySelector('img')) return;
     const image = document.createElement('img');
     image.src = paymentLogoUrls[logoClass];
     image.alt = '';
