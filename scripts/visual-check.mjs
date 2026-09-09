@@ -30,22 +30,50 @@ for (const viewport of viewports) {
       if (horizontalOverflow) {
         throw new Error(`${viewport.name}/${theme}/${route}: unexpected page-level horizontal overflow`);
       }
+      const responsiveState = await page.evaluate(() => {
+        const sidebar = document.querySelector('.sidebar');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const control = document.querySelector('.history-controls select, .curriculum-history-controls select');
+        const controlStyles = control ? getComputedStyle(control) : null;
+        return {
+          sidebarTransform: sidebar ? getComputedStyle(sidebar).transform : null,
+          menuToggleDisplay: menuToggle ? getComputedStyle(menuToggle).display : null,
+          controlBorder: controlStyles?.borderStyle || null,
+          controlMinHeight: controlStyles?.minHeight || null,
+        };
+      });
+      const isMobile = viewport.width <= 800;
+      if (isMobile !== (responsiveState.menuToggleDisplay !== 'none')) {
+        throw new Error(`${viewport.name}/${theme}/${route}: navigation mode mismatch`);
+      }
+      if (responsiveState.controlBorder && (responsiveState.controlBorder === 'none' || responsiveState.controlMinHeight === '0px')) {
+        throw new Error(`${viewport.name}/${theme}/${route}: shared control lost its visual contract`);
+      }
       if (route === '#schedule') {
         const mobileControls = page.locator('.mobile-schedule-controls');
         const weeklySchedule = page.locator('.weekly-schedule');
-        const isMobile = viewport.width <= 800;
         if (await mobileControls.isVisible() !== isMobile) {
           throw new Error(`${viewport.name}/${theme}: mobile schedule controls visibility mismatch`);
         }
         if (await weeklySchedule.isVisible() !== !isMobile) {
           throw new Error(`${viewport.name}/${theme}: weekly schedule visibility mismatch`);
         }
+        await page.screenshot({
+          path: `.visual-checks/${theme}-${viewport.name}-${route.slice(1)}.png`,
+          fullPage: true,
+        });
         if (isMobile) {
           await page.locator('.schedule-full-view-toggle').click();
           if (!(await weeklySchedule.isVisible())) {
             throw new Error(`${viewport.name}/${theme}: mobile full-view toggle did not reveal weekly schedule`);
           }
+          await page.screenshot({
+            path: `.visual-checks/${theme}-${viewport.name}-${route.slice(1)}-full.png`,
+            fullPage: true,
+          });
         }
+        await page.close();
+        continue;
       }
       await page.screenshot({
         path: `.visual-checks/${theme}-${viewport.name}-${route.slice(1)}.png`,
