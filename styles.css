@@ -2221,6 +2221,28 @@ html[data-theme="dark"] .content .payment-method-grid .payment-logo.logo-cebuana
 	object-fit: contain;
 }
 
+/* Keep the full wordmark readable without taking space from the payment label. */
+.content .payment-method-grid button:has(.logo-cebuana) {
+	padding-left: 64px !important;
+}
+.content .payment-method-grid .payment-logo.logo-cebuana {
+	left: 12px;
+	width: 42px;
+	height: 22px;
+	padding: 2px;
+}
+
+@media(max-width:800px) {
+	.content .payment-method-grid button:has(.logo-cebuana) {
+		padding-left: 54px !important;
+	}
+	.content .payment-method-grid .payment-logo.logo-cebuana {
+		left: 10px;
+		width: 38px;
+		height: 20px;
+	}
+}
+
 @media(max-width:800px) {
 	.content {
 		width: calc(100% - 32px);
