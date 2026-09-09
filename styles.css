@@ -1450,6 +1450,83 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Final visual contract for controls and payment logos. */
+.content .history-controls,
+.content .history-controls label,
+.content .history-controls select,
+.content .history-tabs button,
+.content .curriculum-history-controls,
+.content .curriculum-history-controls label,
+.content .curriculum-history-controls select,
+.content .curriculum-history-controls .history-note {
+	font-family: "IBM Plex Sans", "Trebuchet MS", sans-serif !important;
+}
+.content .history-controls label,
+.content .curriculum-history-controls label {
+	font-size: 11px;
+	font-weight: 600;
+}
+.content .history-controls select,
+.content .curriculum-history-controls select {
+	font-size: 12px;
+	font-weight: 500;
+}
+.content .history-tabs button {
+	font-size: 11px;
+	letter-spacing: .1px;
+}
+.content .curriculum-history-controls .history-note {
+	font-size: 11px;
+}
+.content .payment-method-grid .payment-logo,
+html[data-theme="dark"] .content .payment-method-grid .payment-logo {
+	width: 40px !important;
+	height: 40px !important;
+	min-width: 40px !important;
+	max-width: 40px !important;
+	padding: 5px !important;
+	border-radius: 10px !important;
+	overflow: hidden;
+}
+.content .payment-method-grid .payment-logo img,
+html[data-theme="dark"] .content .payment-method-grid .payment-logo img {
+	width: 100% !important;
+	height: 100% !important;
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 4px;
+	object-fit: contain !important;
+}
+.content .payment-method-grid .payment-logo.logo-cebuana,
+html[data-theme="dark"] .content .payment-method-grid .payment-logo.logo-cebuana {
+	width: 40px !important;
+	height: 40px !important;
+	padding: 7px !important;
+	background: #fff !important;
+	border: 1px solid #b8b8b8 !important;
+	border-radius: 10px !important;
+}
+.content .payment-method-grid .payment-logo.logo-cebuana img,
+html[data-theme="dark"] .content .payment-method-grid .payment-logo.logo-cebuana img {
+	width: 100% !important;
+	height: auto !important;
+	max-height: 100%;
+	object-fit: contain !important;
+}
+@media(max-width:800px) {
+	.content .payment-method-grid .payment-logo,
+	html[data-theme="dark"] .content .payment-method-grid .payment-logo,
+	.content .payment-method-grid .payment-logo.logo-cebuana,
+	html[data-theme="dark"] .content .payment-method-grid .payment-logo.logo-cebuana {
+		width: 36px !important;
+		height: 36px !important;
+		min-width: 36px !important;
+		max-width: 36px !important;
+		padding: 5px !important;
+		border-radius: 9px !important;
+	}
+}
+
 /* Keep profile density intentional on desktop while preserving the mobile stack. */
 @media(min-width:801px) {
 	.content .contact-form {
