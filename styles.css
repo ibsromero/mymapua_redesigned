@@ -2479,6 +2479,29 @@ html[data-theme="dark"] .quick-card:hover strong {
 }
 
 /* True final overrides for Home and Profile. */
+.content .curriculum-table td.course-status-cell {
+	border-radius: 0 !important;
+	background: var(--paper) !important;
+	font-weight: 700;
+}
+.content .curriculum-table td.course-status-cell.status-taken,
+.content .curriculum-table td.course-status-cell.status-current,
+.content .curriculum-table td.course-status-cell.status-pending,
+.content .curriculum-table td.course-status-cell.status-incomplete,
+.content .curriculum-table td.course-status-cell.status-credited,
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-taken,
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-current,
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-pending,
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-incomplete,
+html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-credited {
+	background: var(--paper) !important;
+}
+.content .curriculum-table td.course-status-cell .course-status-dot {
+	width: 6px;
+	height: 6px;
+	margin-right: 5px;
+}
+
 @media(min-width:801px) {
 	.content .contact-form > .form-section-heading { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(260px, .8fr) !important; align-items: end; gap: 32px; padding: 18px 0 15px !important; }
 	.content .contact-form > .form-section-heading p { margin: 0 0 2px; max-width: none; text-align: right; }
