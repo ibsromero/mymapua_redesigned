@@ -2479,6 +2479,42 @@ html[data-theme="dark"] .quick-card:hover strong {
 }
 
 /* True final overrides for Home and Profile. */
+.content .payment-method-grid .payment-logo,
+html[data-theme="dark"] .content .payment-method-grid .payment-logo {
+	display: grid;
+	width: 40px !important;
+	height: 40px !important;
+	min-width: 40px;
+	place-items: center;
+	padding: 5px !important;
+	border: 1px solid currentColor;
+	border-radius: 10px !important;
+	background: var(--paper);
+	box-shadow: none;
+}
+.content .payment-method-grid .payment-logo img {
+	width: 100% !important;
+	height: 100% !important;
+	border-radius: 4px;
+	object-fit: contain;
+}
+.content .payment-method-grid .payment-logo.logo-cebuana,
+html[data-theme="dark"] .content .payment-method-grid .payment-logo.logo-cebuana {
+	background: #fff !important;
+	border-color: #b8b8b8 !important;
+}
+.content .payment-method-grid button:has(.payment-logo) { padding-left: 64px !important; }
+.content .grade-summary { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; column-gap: 0; }
+.content .grade-summary div { min-width: 0; padding: 16px 18px; }
+.content .grade-summary strong { min-height: 24px; line-height: 1.25; }
+.content .grade-summary span { line-height: 1.35; }
+.content .history-controls { align-items: flex-end; justify-content: flex-start; gap: 16px; }
+.content .grade-term-tabs { flex: 0 0 auto; }
+.content .curriculum-history-controls { grid-template-columns: minmax(220px, 280px) minmax(0, 1fr) !important; column-gap: 28px; row-gap: 8px; align-items: end; }
+.content .curriculum-history-controls label { min-width: 0; }
+.content .curriculum-history-controls .history-note { margin: 0; padding-bottom: 10px; line-height: 1.4; }
+.mobile-schedule-controls { display: none !important; }
+
 .content .curriculum-table td.course-status-cell {
 	border-radius: 0 !important;
 	background: var(--paper) !important;
@@ -2549,6 +2585,23 @@ html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-
 	.content .contact-form .form-actions { padding-top: 16px; }
 }
 @media(max-width:800px) {
+	.content .payment-method-grid .payment-logo,
+	html[data-theme="dark"] .content .payment-method-grid .payment-logo {
+		width: 36px !important;
+		height: 36px !important;
+		min-width: 36px;
+		padding: 4px !important;
+		border-radius: 9px !important;
+	}
+	.content .payment-method-grid button:has(.payment-logo) { padding-left: 54px !important; }
+	.content .grade-summary { grid-template-columns: minmax(0, 1fr) !important; }
+	.content .grade-summary div { padding: 13px 16px; }
+	.content .history-controls { align-items: stretch; flex-direction: column; gap: 12px; }
+	.content .grade-term-tabs { width: 100%; }
+	.content .curriculum-history-controls { grid-template-columns: minmax(0, 1fr) !important; gap: 12px; }
+	.content .curriculum-history-controls .history-note { padding-bottom: 0; }
+	.mobile-schedule-controls { display: flex !important; }
+
 	.content .history-controls { max-width: none; }
 	.content .grade-history-card { max-width: 100%; overflow-x: auto; }
 	.content .grade-history-card .table-title { min-width: 0; }
