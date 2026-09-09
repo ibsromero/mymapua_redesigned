@@ -219,7 +219,9 @@ function bindActions() {
   document.querySelectorAll('.grade-year-select').forEach((select) => select.addEventListener('change', () => {
     const page = select.closest('.content');
     const panel = page.querySelector('.grade-history-panel');
-    const activeTerm = page.querySelector('.grade-term-tabs button.active')?.dataset.term || 'Term 1';
+    const selectedTerm = page.querySelector('.grade-term-tabs button.active')?.dataset.term || 'Term 1';
+    const activeTerm = gradeHistory[select.value]?.[selectedTerm] ? selectedTerm : Object.keys(gradeHistory[select.value] || {})[0] || 'Term 1';
+    page.querySelectorAll('.grade-term-tabs button').forEach((item) => item.classList.toggle('active', item.dataset.term === activeTerm));
     if (panel) panel.innerHTML = gradeTermView(select.value, activeTerm);
   }));
   document.querySelectorAll('.grade-term-tabs button').forEach((button) => button.addEventListener('click', () => {
