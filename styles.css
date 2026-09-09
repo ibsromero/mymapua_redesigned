@@ -2508,6 +2508,35 @@ html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-
 }
 .content .grade-history-card { margin-top: 0; }
 .content .grade-history-table { min-width: 560px; }
+.content .grade-summary {
+	display: grid !important;
+	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	align-items: stretch;
+}
+.content .grade-summary div {
+	display: flex !important;
+	min-width: 0;
+	flex-direction: column !important;
+	align-items: flex-start;
+	gap: 5px !important;
+}
+.content .grade-summary strong,
+.content .grade-summary span {
+	display: block;
+	line-height: 1.35;
+}
+.content .curriculum-history-controls {
+	display: grid;
+	grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+	align-items: end;
+	gap: 24px;
+	max-width: 900px;
+}
+.content .curriculum-history-controls .history-note {
+	max-width: none;
+	padding-bottom: 10px;
+	line-height: 1.4;
+}
 
 @media(min-width:801px) {
 	.content .contact-form > .form-section-heading { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(260px, .8fr) !important; align-items: end; gap: 32px; padding: 18px 0 15px !important; }
@@ -2532,6 +2561,12 @@ html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-
 		border-bottom: 1px solid var(--rule);
 	}
 	.content .grade-history-card .grade-summary div:last-child { border-bottom: 0; }
+	.content .grade-summary { grid-template-columns: minmax(0, 1fr) !important; }
+	.content .curriculum-history-controls {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 12px;
+	}
+	.content .curriculum-history-controls .history-note { padding-bottom: 0; }
 
 	.content .contact-form > .form-section-heading { display: block !important; padding: 18px 0 15px !important; }
 	.content .contact-form > .form-section-heading p { margin-top: 7px !important; text-align: left !important; }

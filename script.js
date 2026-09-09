@@ -99,6 +99,10 @@ const curriculumTabs = {
   Electives: curriculumTermTable('Electives', [['CSS171-1','Graphics and Visual Computing','4.5','-','3','CSS123P'],['CSS172-1','Pattern Recognition','4.5','-','3','CSS123P'],['ECE176-1','Introduction to Game Programming','4.5','-','3','CSS123P'],['ITS171-1','Fundamentals of SAP','4.5','-','3','ITS131P'],['ITS175-1','Cloud Computing','4.5','-','3','CSS123P']], ['22.5','0','15']),
   Specialization: curriculumTermTable('Cybersecurity', [['ITS183-01','Cybersecurity 1','4.5','-','3','ITS163-1L'],['ITS183-02','Cybersecurity 2','4.5','-','3','ITS183-01'],['ITS183-03','Cybersecurity 3','4.5','-','3','ITS183-02'],['ITS183-04','Cybersecurity 4','4.5','-','3','ITS183-03']], ['18','0','12']),
 };
+const curriculumCategoryRows = {
+  Electives: [['CSS171-1','Graphics and Visual Computing','4.5','-','3','CSS123P'],['CSS172-1','Pattern Recognition','4.5','-','3','CSS123P'],['ECE176-1','Introduction to Game Programming','4.5','-','3','CSS123P'],['ITS171-1','Fundamentals of SAP','4.5','-','3','ITS131P'],['ITS175-1','Cloud Computing','4.5','-','3','CSS123P']],
+  Specialization: [['ITS183-01','Cybersecurity 1','4.5','-','3','ITS163-1L'],['ITS183-02','Cybersecurity 2','4.5','-','3','ITS183-01'],['ITS183-03','Cybersecurity 3','4.5','-','3','ITS183-02'],['ITS183-04','Cybersecurity 4','4.5','-','3','ITS183-03']],
+};
 pageData['#curriculum'][2] = pageData['#curriculum'][2].replace(/<div class="curriculum-tabs">.*?<\/div>/, '<div class="curriculum-tabs" role="tablist" aria-label="Curriculum category"><button class="active" type="button" role="tab" aria-selected="true">Core Courses</button><button type="button" role="tab" aria-selected="false">Electives</button><button type="button" role="tab" aria-selected="false">Specialization</button></div>').replace(/<div class="year-links">[\s\S]*$/, '<div class="curriculum-panel" id="curriculumPanel">$&</div>');
 
 function courseTable(rows) { return `<table><thead><tr><th>Course code</th><th>Course title</th><th>Credit units</th></tr></thead><tbody>${rows.map((row) => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`).join('')}</tbody></table>`; }
@@ -130,7 +134,12 @@ const previousCurriculum = {
     { rows: [['FW04-2', 'Physical Activities Toward Health and Fitness 4', '3', '-', '2', 'FW03-2'], ['ITS112P', 'Web Systems and Technologies 2', '3', '4.5', '3', 'ITS121-1L'], ['ITS132P', 'Data Warehousing and Data Mining', '3', '4.5', '3', 'DSS110']], totals: ['16.5', '13.5', '14'] },
   ],
 };
-function curriculumYearView(year) { const terms = previousCurriculum[year]; return terms ? terms.map((term, index) => curriculumTermTable(`Term ${index + 1}`, term.rows, term.totals, year === '2025 - 2026' ? 1 : 2)).join('') : coreCourseTerms(); }
+function curriculumYearView(year, category = 'Core Courses') {
+  if (year === '2026 - 2027' && curriculumTabs[category]) return curriculumTabs[category];
+  if (category !== 'Core Courses' && curriculumCategoryRows[category]) return curriculumTermTable(category, curriculumCategoryRows[category], category === 'Electives' ? ['22.5', '0', '15'] : ['18', '0', '12'], year === '2025 - 2026' ? 1 : 2);
+  const terms = previousCurriculum[year];
+  return terms ? terms.map((term, index) => curriculumTermTable(`Term ${index + 1}`, term.rows, term.totals, year === '2025 - 2026' ? 1 : 2)).join('') : coreCourseTerms();
+}
 pageData['#curriculum'][2] = `<div class="curriculum-summary"><div><span class="mini-label">PROGRAM</span><strong>Information Technology</strong></div><div><span class="mini-label">YEAR LEVEL</span><strong>3</strong></div><div><span class="mini-label">CURRICULUM YEAR</span><strong>2024</strong></div><div><span class="mini-label">SPECIALIZATION</span><strong>Cybersecurity</strong></div><div class="units-summary"><span class="mini-label">UNITS</span><strong>187</strong><span>Required</span><strong>117</strong><span>Credited</span><strong>70</strong><span>Left</span></div></div><div class="curriculum-toolbar"><div class="curriculum-tabs" role="tablist" aria-label="Curriculum category"><button class="active" type="button" role="tab" aria-selected="true">Core Courses</button><button type="button" role="tab" aria-selected="false">Electives</button><button type="button" role="tab" aria-selected="false">Specialization</button></div><div class="curriculum-legend"><span>Taken</span><span>In Current Load</span><span>Not Yet Taken</span><span>Incomplete</span><span>Exempted / Credited</span></div></div><div class="history-controls curriculum-history-controls"><label>Academic year<select class="curriculum-year-select"><option>2026 - 2027</option><option>2025 - 2026</option><option>2024 - 2025</option></select></label><span class="history-note">Current curriculum uses four terms. Previous years retain their original three-term structure.</span></div><div class="curriculum-panel" id="curriculumPanel">${coreCourseTerms()}</div>`;
 const scheduleRows = [
   ['07:30 AM<br />09:00 AM', [null, null, null, null, { code: 'ITS152P', section: 'BM14', room: 'MPO409' }, null, { code: 'ISS160', section: 'BM10', room: 'MPO604' }]],
@@ -204,7 +213,7 @@ function bindActions() {
       const tabName = button.textContent.trim();
       const selectedYear = curriculum.querySelector('.curriculum-year-select')?.value || '2026 - 2027';
       group.querySelectorAll('button').forEach((item) => item.setAttribute('aria-selected', String(item === button)));
-      if (panel) panel.innerHTML = selectedYear === '2026 - 2027' && curriculumTabs[tabName] ? curriculumTabs[tabName] : curriculumYearView(selectedYear);
+      if (panel) panel.innerHTML = curriculumYearView(selectedYear, tabName);
     }
   }));
   document.querySelectorAll('.grade-year-select').forEach((select) => select.addEventListener('change', () => {
@@ -223,7 +232,8 @@ function bindActions() {
   document.querySelectorAll('.curriculum-year-select').forEach((select) => select.addEventListener('change', () => {
     const page = select.closest('.content');
     const panel = page.querySelector('#curriculumPanel');
-    if (panel) panel.innerHTML = curriculumYearView(select.value);
+    const activeCategory = page.querySelector('.curriculum-tabs button.active')?.textContent.trim() || 'Core Courses';
+    if (panel) panel.innerHTML = curriculumYearView(select.value, activeCategory);
   }));
   document.querySelectorAll('.mobile-day-button').forEach((button) => button.addEventListener('click', () => {
     const schedule = button.closest('.content');
