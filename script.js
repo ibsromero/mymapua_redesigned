@@ -160,7 +160,7 @@ const paymentLogoUrls = {
   'logo-rcbc': 'https://www.google.com/s2/favicons?domain=rcbc.com&sz=64',
   'logo-landbank': 'https://www.google.com/s2/favicons?domain=landbank.com&sz=64',
   'logo-maya': 'https://www.google.com/s2/favicons?domain=maya.ph&sz=64',
-  'logo-cebuana': 'https://www.google.com/s2/favicons?domain=cebuanalhuillier.com&sz=64',
+  'logo-cebuana': 'assets/cebuana-lhuillier-logo.png',
   'logo-gcash': 'https://www.google.com/s2/favicons?domain=gcash.com&sz=64',
   'logo-bukas': 'https://www.google.com/s2/favicons?domain=bukas.ph&sz=64',
 };
@@ -168,10 +168,10 @@ const paymentLogoUrls = {
 function enhancePaymentLogos() {
   document.querySelectorAll('.payment-logo').forEach((logo) => {
     const logoClass = Object.keys(paymentLogoUrls).find((className) => logo.classList.contains(className));
-    if (!logoClass || logoClass === 'logo-cebuana' || logo.querySelector('img')) return;
+    if (!logoClass || logo.querySelector('img')) return;
     const image = document.createElement('img');
     image.src = paymentLogoUrls[logoClass];
-    image.alt = '';
+    image.alt = logoClass === 'logo-cebuana' ? 'Cebuana Lhuillier' : '';
     image.loading = 'lazy';
     image.onerror = () => image.remove();
     logo.replaceChildren(image);
