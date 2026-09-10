@@ -7,11 +7,8 @@ const routes = [
   '#soa', '#payments', '#forms', '#ecm', '#counselor', '#faqs', '#signout', '#terms', '#privacy',
 ];
 const viewports = [
-  { name: 'wide', width: 1440, height: 1000 },
-  { name: 'laptop', width: 1200, height: 900 },
-  { name: 'tablet', width: 768, height: 1024 },
+  { name: 'desktop', width: 1440, height: 1000 },
   { name: 'mobile', width: 390, height: 844 },
-  { name: 'narrow', width: 320, height: 800 },
 ];
 
 await mkdir('.visual-checks', { recursive: true });
@@ -19,6 +16,8 @@ const browser = await chromium.launch({ headless: true });
 
 for (const viewport of viewports) {
   for (const theme of ['light', 'dark']) {
+    const screenshotGroup = `${theme}-${viewport.name}`;
+    await mkdir(`.visual-checks/${screenshotGroup}`, { recursive: true });
     const context = await browser.newContext({ viewport });
     await context.addInitScript((selectedTheme) => {
       localStorage.setItem('mymapua-theme', selectedTheme);
@@ -59,7 +58,7 @@ for (const viewport of viewports) {
           throw new Error(`${viewport.name}/${theme}: weekly schedule visibility mismatch`);
         }
         await page.screenshot({
-          path: `.visual-checks/${theme}-${viewport.name}-${route.slice(1)}.png`,
+          path: `.visual-checks/${screenshotGroup}/${route.slice(1)}.png`,
           fullPage: true,
         });
         if (isMobile) {
@@ -68,7 +67,7 @@ for (const viewport of viewports) {
             throw new Error(`${viewport.name}/${theme}: mobile full-view toggle did not reveal weekly schedule`);
           }
           await page.screenshot({
-            path: `.visual-checks/${theme}-${viewport.name}-${route.slice(1)}-full.png`,
+            path: `.visual-checks/${screenshotGroup}/${route.slice(1)}-full.png`,
             fullPage: true,
           });
         }
@@ -76,7 +75,7 @@ for (const viewport of viewports) {
         continue;
       }
       await page.screenshot({
-        path: `.visual-checks/${theme}-${viewport.name}-${route.slice(1)}.png`,
+        path: `.visual-checks/${screenshotGroup}/${route.slice(1)}.png`,
         fullPage: true,
       });
       await page.close();

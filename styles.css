@@ -450,10 +450,25 @@ html[data-theme="dark"] .payment-logo.logo-cebuana { background: #f2c438; }
 	.curriculum-history-controls label { min-width: 0; }
 	.history-tabs { width: 100%; }
 	.history-tabs button { flex: 1; padding-inline: 8px; }
-	.grade-history-card { overflow-x: auto; }
+	.grade-history-card { overflow: visible; }
 	.grade-history-card .table-title,
-	.grade-history-card .grade-summary { min-width: 520px; }
-	.grade-summary { grid-template-columns: repeat(3, minmax(160px, 1fr)); }
+	.grade-history-card .grade-summary { min-width: 0; }
+	.grade-history-table { width: 100%; min-width: 0; table-layout: fixed; }
+	.grade-history-table th,
+	.grade-history-table td { padding: 10px 8px; overflow-wrap: anywhere; }
+	.grade-history-table th:nth-child(1),
+	.grade-history-table td:nth-child(1) { width: 34%; }
+	.grade-history-table th:nth-child(2),
+	.grade-history-table td:nth-child(2) { width: 23%; }
+	.grade-history-table th:nth-child(3),
+	.grade-history-table td:nth-child(3) { width: 18%; }
+	.grade-history-table th:nth-child(4),
+	.grade-history-table td:nth-child(4) { width: 15%; }
+	.grade-history-table th:nth-child(5),
+	.grade-history-table td:nth-child(5) { display: none; }
+	.grade-summary { grid-template-columns: 1fr; }
+	.grade-summary div { padding: 12px 14px; border-right: 0; border-bottom: 1px solid var(--rule); }
+	.grade-summary div:last-child { border-bottom: 0; }
 	.contact-form { width: 100%; }
 	.contact-form fieldset { padding-block: 22px; }
 	.contact-form .name-grid,
@@ -3063,7 +3078,20 @@ html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-
 	.mobile-schedule-controls { display: flex !important; }
 
 	.content .history-controls { max-width: none; }
-	.content .grade-history-card { max-width: 100%; overflow-x: auto; }
+	.content .grade-history-card { max-width: 100%; overflow: visible; }
+	.content .grade-history-table { width: 100%; min-width: 0; table-layout: fixed; }
+	.content .grade-history-table th,
+	.content .grade-history-table td { padding: 10px 8px; overflow-wrap: anywhere; }
+	.content .grade-history-table th:nth-child(1),
+	.content .grade-history-table td:nth-child(1) { width: 34%; }
+	.content .grade-history-table th:nth-child(2),
+	.content .grade-history-table td:nth-child(2) { width: 23%; }
+	.content .grade-history-table th:nth-child(3),
+	.content .grade-history-table td:nth-child(3) { width: 18%; }
+	.content .grade-history-table th:nth-child(4),
+	.content .grade-history-table td:nth-child(4) { width: 15%; }
+	.content .grade-history-table th:nth-child(5),
+	.content .grade-history-table td:nth-child(5) { display: none; }
 	.content .grade-history-card .table-title { min-width: 0; }
 	.content .grade-history-card .grade-summary {
 		min-width: 0;
