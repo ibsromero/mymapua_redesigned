@@ -1569,6 +1569,278 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Last-pass shared layout rules. */
+.content .payment-method-grid {
+	grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.content .payment-method-grid button {
+	border-right: 1px solid var(--rule);
+	border-bottom: 1px solid var(--rule);
+}
+
+.content .payment-method-grid button:nth-child(4n) {
+	border-right: 0;
+}
+
+.content .payment-method-grid button:last-child {
+	grid-column: span 2;
+	border-right: 0;
+	border-bottom: 0;
+}
+
+@media (min-width: 801px) {
+	.footer {
+		height: 57px !important;
+		min-height: 57px !important;
+	}
+}
+
+@media (max-width: 800px) {
+	.content .payment-method-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+
+	.content .payment-method-grid button:nth-child(4n) {
+		border-right: 1px solid var(--rule);
+	}
+
+	.content .payment-method-grid button:nth-child(2n) {
+		border-right: 0;
+	}
+
+	.content .payment-method-grid button:last-child {
+		grid-column: span 2;
+	}
+
+	.footer {
+		height: auto !important;
+		min-height: 88px !important;
+	}
+}
+
+/* Shared visual system: keep every route aligned after the legacy route layers. */
+:root {
+	--content-max: 1180px;
+	--surface-gap: 24px;
+	--control-height: 40px;
+}
+
+body {
+	line-height: 1.45;
+}
+
+.content {
+	width: min(var(--content-max), calc(100% - 64px));
+	max-width: var(--content-max);
+}
+
+.page-heading {
+	max-width: 900px;
+	margin-bottom: 30px;
+}
+
+.page-heading h1 {
+	line-height: 1.05;
+}
+
+.page-heading .intro {
+	max-width: 680px;
+	line-height: 1.5;
+}
+
+.data-card,
+.table-card,
+.form-card,
+.payment-options,
+.schedule-board,
+.faq-list,
+.document-card,
+.download-list,
+.support-panel,
+.signout-card,
+.schedule-card {
+	border-color: var(--rule);
+	box-shadow: none;
+}
+
+.primary-button,
+.quiet-button,
+.outline-button,
+.term-switch button,
+.curriculum-tabs button,
+.history-tabs button,
+.schedule-full-view-toggle,
+.mobile-day-button,
+.theme-toggle {
+	min-height: var(--control-height);
+	border-radius: 2px;
+	font-family: "IBM Plex Sans", "Trebuchet MS", sans-serif;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: .1px;
+}
+
+.primary-button,
+.quiet-button,
+.outline-button {
+	padding: 10px 14px;
+}
+
+.form-grid input,
+.form-grid select,
+.personal-form input,
+.personal-form select,
+.contact-form input,
+.contact-form select,
+.history-controls select,
+.schedule-toolbar select {
+	min-height: var(--control-height);
+	border-radius: 2px;
+}
+
+.table-title {
+	min-height: 64px;
+	padding: 16px 20px;
+}
+
+.table-title h2,
+.payment-options h2,
+.form-card h2,
+.support-panel h2,
+.signout-card h2 {
+	line-height: 1.2;
+}
+
+.table-card th,
+.table-card td {
+	padding: 13px 20px;
+}
+
+.content .payment-method-grid {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 0;
+	border-color: var(--rule);
+}
+
+.content .payment-method-grid button {
+	min-height: 104px;
+	border-right: 1px solid var(--rule);
+	border-bottom: 1px solid var(--rule);
+}
+
+.content .payment-method-grid button:nth-child(4n) {
+	border-right: 0;
+}
+
+.content .payment-method-grid button:nth-last-child(-n + 4) {
+	border-bottom: 0;
+}
+
+.content .payment-method-grid button:last-child:nth-child(4n + 1) {
+	grid-column: span 4;
+}
+
+.footer {
+	font-size: 9px;
+}
+
+@media (min-width: 801px) {
+	.footer {
+		height: 57px;
+		min-height: 57px !important;
+	}
+
+	.content .payment-method-grid button:last-child:nth-child(4n + 1) {
+		grid-column: span 1;
+	}
+}
+
+@media (max-width: 800px) {
+	.content {
+		width: calc(100% - 32px);
+		padding-top: 30px;
+	}
+
+	.page-heading {
+		margin-bottom: 24px;
+	}
+
+	.page-heading h1 {
+		font-size: clamp(30px, 9vw, 42px);
+	}
+
+	.page-heading .intro {
+		line-height: 1.45;
+	}
+
+	.data-grid {
+		gap: 0;
+	}
+
+	.data-card {
+		min-height: 0;
+		padding: 18px 0;
+		border-width: 1px 0 0;
+		border-radius: 0;
+	}
+
+	.data-card:last-child {
+		border-bottom: 1px solid var(--rule);
+	}
+
+	.table-title {
+		min-height: 0;
+		padding: 15px 16px;
+	}
+
+	.table-card th,
+	.table-card td {
+		padding: 11px 10px;
+	}
+
+	.content .payment-method-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.content .payment-method-grid button:nth-child(4n) {
+		border-right: 1px solid var(--rule);
+	}
+
+	.content .payment-method-grid button:nth-child(2n) {
+		border-right: 0;
+	}
+
+	.content .payment-method-grid button:nth-last-child(-n + 4) {
+		border-bottom: 1px solid var(--rule);
+	}
+
+	.content .payment-method-grid button:last-child {
+		grid-column: span 2;
+		border-right: 0;
+		border-bottom: 0;
+	}
+
+	.footer {
+		height: auto !important;
+		min-height: 88px !important;
+	}
+}
+
+@media (max-width: 520px) {
+	.content {
+		width: calc(100% - 24px);
+	}
+
+	.primary-button,
+	.quiet-button,
+	.outline-button,
+	.term-switch button,
+	.schedule-full-view-toggle {
+		min-height: 42px;
+	}
+}
+
 /* Definitive final grade history styling. */
 .content .grade-history-panel .history-controls { display:flex !important; align-items:flex-end !important; justify-content:flex-start !important; gap:18px !important; margin:20px 0 18px !important; font-family:"IBM Plex Sans", "Trebuchet MS", sans-serif !important; }
 .content .grade-history-panel .history-controls label { display:flex !important; min-width:210px !important; flex-direction:column !important; gap:6px !important; color:var(--muted) !important; font:600 10px/1.2 "IBM Plex Sans", "Trebuchet MS", sans-serif !important; }
