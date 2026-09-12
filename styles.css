@@ -1646,6 +1646,16 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	text-align: center;
 }
 
+.content .grade-summary {
+	grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+@media (max-width: 800px) {
+	.content .grade-summary {
+		grid-template-columns: minmax(0, 1fr) !important;
+	}
+}
+
 @media (min-width: 801px) {
 	.content .contact-form .phone-grid label:nth-child(1) input,
 	.content .contact-form .phone-grid label:nth-child(2) input {
