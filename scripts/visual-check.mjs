@@ -55,7 +55,10 @@ for (const viewport of viewports) {
           const fieldsets = [...(form?.querySelectorAll(':scope > fieldset') || [])];
           const standardGrid = fieldsets[0]?.querySelector(':scope > .form-grid');
           const phoneGrid = form?.querySelector('.phone-grid');
+          const nameGrid = form?.querySelector('.name-grid');
           const phoneNumber = phoneGrid?.querySelector('.phone-number');
+          const middleName = nameGrid?.querySelector('label:last-child');
+          const email = fieldsets[2]?.querySelector(':scope > .form-grid label:first-child');
           const box = (element) => {
             const rect = element?.getBoundingClientRect();
             return rect ? { left: rect.left, right: rect.right, width: rect.width } : null;
@@ -67,6 +70,11 @@ for (const viewport of viewports) {
             standardColumns: standardGrid ? getComputedStyle(standardGrid).gridTemplateColumns.split(' ').length : 0,
             phoneColumns: phoneGrid ? getComputedStyle(phoneGrid).gridTemplateColumns.split(' ').length : 0,
             phoneNumberColumn: phoneNumber ? getComputedStyle(phoneNumber).gridColumn : '',
+            nameColumns: nameGrid ? getComputedStyle(nameGrid).gridTemplateColumns.split(' ').length : 0,
+            nameBoxes: nameGrid ? [...nameGrid.children].map(box) : [],
+            phoneBoxes: phoneGrid ? [...phoneGrid.children].map(box) : [],
+            middleNameColumn: middleName ? getComputedStyle(middleName).gridColumn : '',
+            emailBox: box(email),
           };
         });
         const aligned = [profileLayout.heading, ...profileLayout.fieldsets].every((element) => element
@@ -76,10 +84,14 @@ for (const viewport of viewports) {
           throw new Error(`${viewport.name}/${theme}/${route}: profile sections are not aligned to the form edges`);
         }
         if (isMobile) {
-          if (profileLayout.standardColumns !== 1 || profileLayout.phoneColumns !== 2 || !profileLayout.phoneNumberColumn.includes('span 2')) {
+          if (profileLayout.standardColumns !== 1 || profileLayout.phoneColumns !== 2 || profileLayout.nameColumns !== 2
+            || !profileLayout.phoneNumberColumn.includes('span 2') || !profileLayout.middleNameColumn.includes('span 2')
+            || Math.abs(profileLayout.emailBox.width - profileLayout.form.width) >= 1) {
             throw new Error(`${viewport.name}/${theme}/${route}: mobile profile field grid contract changed`);
           }
-        } else if (profileLayout.standardColumns !== 2 || profileLayout.phoneColumns !== 3) {
+        } else if (profileLayout.standardColumns !== 2 || profileLayout.phoneColumns !== 3 || profileLayout.nameColumns !== 3
+          || profileLayout.nameBoxes.some((item, index) => Math.abs(item.left - profileLayout.phoneBoxes[index].left) >= 1
+            || Math.abs(item.right - profileLayout.phoneBoxes[index].right) >= 1)) {
           throw new Error(`${viewport.name}/${theme}/${route}: desktop profile field grid contract changed`);
         }
       }
