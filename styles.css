@@ -2333,6 +2333,13 @@ html[data-theme="dark"] .content .payment-method-grid button:hover {
 	background: color-mix(in srgb, var(--red-soft) 72%, var(--paper)) !important;
 }
 
+@media (min-width: 801px) {
+	.footer {
+		height: 57px;
+		min-height: 57px !important;
+	}
+}
+
 html[data-theme="dark"] .content .schedule-table tbody tr:hover td,
 html[data-theme="dark"] .content .schedule-table tbody tr:hover th,
 html[data-theme="dark"] .content .schedule-table tbody td:hover {
