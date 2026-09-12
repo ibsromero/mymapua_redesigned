@@ -119,8 +119,8 @@ const gradeHistory = {
   },
 };
 const gradeSummary = {
-  '2026 - 2027': { 'Term 1': { units: '18', quarterly: '0.0000', running: '', status: 'NOT AVAILABLE', remarks: '' } },
-  '2025 - 2026': { 'Term 3': { units: '18', quarterly: '1.8333', running: '2.0896', status: 'OK', remarks: 'OK' } },
+  '2026 - 2027': { 'Term 1': { units: '18', quarterly: '0.0000', running: '', status: 'ONGOING', remarks: '' } },
+  '2025 - 2026': { 'Term 3': { units: '18', quarterly: '1.8333', running: '2.0896', status: 'COMPLETED', remarks: 'COMPLETED' } },
 };
 function gradeTable(rows) { return `<table class="grade-history-table"><thead><tr><th>Course</th><th>Section</th><th>Grade</th><th>Units</th><th>Completion</th></tr></thead><tbody>${rows.map((row) => `<tr><td>${row[0]}</td><td>${row[1]}</td><td class="${row[2] === '--' ? 'pending' : ''}">${row[2]}</td><td>${row[3]}</td><td></td></tr>`).join('')}</tbody></table>`; }
 function gradeTermView(year, term) {
@@ -129,10 +129,11 @@ function gradeTermView(year, term) {
     units: String(rows.reduce((sum, row) => sum + (Number.isFinite(Number(row[2])) ? Number(row[3] || 0) : 0), 0)),
     quarterly: rows.length ? '1.64' : '0.0000',
     running: '',
-    status: rows.length ? 'OK' : 'NOT AVAILABLE',
-    remarks: rows.length ? 'OK' : '',
+    status: rows.length ? 'COMPLETED' : year === '2026 - 2027' ? 'ONGOING' : 'NOT STARTED',
+    remarks: rows.length ? 'COMPLETED' : '',
   };
-  return `<div class="table-card grade-history-card"><div class="table-title"><div><span class="mini-label">${year}</span><h2>${term}</h2></div><span class="status-pill${summary.status === 'OK' ? ' warm' : ''}">${summary.status}</span></div>${rows.length ? gradeTable(rows) : '<p class="history-empty">No grades are recorded for this term.</p>'}<div class="grade-summary"><div><strong>Units considered</strong><span>${summary.units}</span></div><div><strong>Quarterly weighted average</strong><span>${summary.quarterly}</span></div><div><strong>Running average</strong><span>${summary.running || '--'}</span></div><div><strong>Academic remarks</strong><span>${summary.remarks || '--'}</span></div></div></div>`;
+  const statusClass = summary.status.toLowerCase().replace(/\s+/g, '-');
+  return `<div class="table-card grade-history-card"><div class="table-title"><div><span class="mini-label">${year}</span><h2>${term}</h2></div><span class="status-pill grade-status-pill grade-status-${statusClass}">${summary.status}</span></div>${rows.length ? gradeTable(rows) : '<p class="history-empty">No grades are recorded for this term.</p>'}<div class="grade-summary"><div><strong>Units considered</strong><span>${summary.units}</span></div><div><strong>Quarterly weighted average</strong><span>${summary.quarterly}</span></div><div><strong>Running average</strong><span>${summary.running || '--'}</span></div><div><strong>Academic remarks</strong><span>${summary.remarks || '--'}</span></div></div></div>`;
 }
 function gradeHistoryView() { return `<div class="history-controls"><label>School year<select class="grade-year-select">${Object.keys(gradeHistory).map((year) => `<option>${year}</option>`).join('')}</select></label><div class="history-tabs grade-term-tabs" role="tablist" aria-label="Grade term"><button class="active" type="button" data-term="Term 1">Term 1</button><button type="button" data-term="Term 2">Term 2</button><button type="button" data-term="Term 3">Term 3</button></div></div><div class="grade-history-panel">${gradeTermView('2026 - 2027', 'Term 1')}</div>`; }
 pageData['#grades'][2] = gradeHistoryView();

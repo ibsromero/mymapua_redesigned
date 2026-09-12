@@ -2187,6 +2187,40 @@ html[data-theme="dark"] .content .grade-summary span {
 	color: var(--ink);
 }
 
+.content .grade-status-pill {
+	border: 1px solid transparent;
+}
+.content .grade-status-completed {
+	color: #276749;
+	background: #e2f1e7;
+	border-color: #b8dcc4;
+}
+.content .grade-status-ongoing {
+	color: #8a5a13;
+	background: #fff1cf;
+	border-color: #efd391;
+}
+.content .grade-status-not-started {
+	color: #5f6670;
+	background: #edf0f2;
+	border-color: #d5dbe0;
+}
+html[data-theme="dark"] .content .grade-status-completed {
+	color: #b9edcf;
+	background: #24513f;
+	border-color: #39745a;
+}
+html[data-theme="dark"] .content .grade-status-ongoing {
+	color: #f5d58a;
+	background: #594416;
+	border-color: #806423;
+}
+html[data-theme="dark"] .content .grade-status-not-started {
+	color: #c5cbd4;
+	background: #343a42;
+	border-color: #59616d;
+}
+
 /* Final visual contract for controls and payment logos. */
 .content .history-controls,
 .content .history-controls label,
