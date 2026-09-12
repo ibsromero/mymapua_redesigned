@@ -2232,6 +2232,29 @@ html[data-theme="dark"] .content .payment-method-grid .payment-logo.logo-cebuana
 	width: 40px !important;
 	height: 40px !important;
 	padding: 7px !important;
+
+.content .schedule-table .class-block {
+	display: flex;
+	width: calc(100% - 8px);
+	min-width: 0;
+	min-height: 60px;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 8px 4px;
+	gap: 2px;
+	line-height: 1.25;
+	text-align: center;
+}
+
+.content .schedule-table .class-block strong,
+.content .schedule-table .class-block span,
+.content .schedule-table .class-block small {
+	width: 100%;
+	margin: 0;
+	text-align: center;
+	white-space: nowrap;
+}
 	background: #fff !important;
 	border: 1px solid #b8b8b8 !important;
 	border-radius: 10px !important;
@@ -3288,6 +3311,24 @@ html[data-theme="dark"] .content .payment-method-grid .payment-logo.logo-cebuana
 	.content .schedule-table .class-block {
 		min-height: 66px;
 		padding: 6px 3px;
+	}
+
+	.content .mobile-class-time {
+		align-self: center;
+	}
+
+	.content .mobile-class .class-block {
+		width: 100%;
+		margin: 0;
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	.content .mobile-class .class-block strong,
+	.content .mobile-class .class-block span,
+	.content .mobile-class .class-block small {
+		width: auto;
+		text-align: left;
 	}
 
 	.curriculum-legend {
