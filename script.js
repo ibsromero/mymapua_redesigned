@@ -16,9 +16,9 @@ function updateCurrentDate() {
   const firstWeek = new Date(2026, 7, 3);
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const elapsedWeeks = Math.floor((today - firstWeek) / (7 * 24 * 60 * 60 * 1000));
-  const week = Math.min(18, Math.max(1, elapsedWeeks + 1));
+  const week = Math.min(12, Math.max(1, elapsedWeeks + 1));
   weekLabel.textContent = `Week ${String(week).padStart(2, '0')}`;
-  progress.style.width = `${(week / 18) * 100}%`;
+  progress.style.width = `${(week / 12) * 100}%`;
 }
 
 const paymentRows = [

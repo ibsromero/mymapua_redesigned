@@ -658,6 +658,100 @@ html[data-theme="dark"] .document-row h2,html[data-theme="dark"] .download-list 
 
 /* Last-in-file tokens intentionally win over the legacy rules above. */
 .account-summary,.soa-table,.payment-options,.service-section .form-section-heading,.service-section .document-list,.service-section .download-list,.table-card,.faq-list,.document-list,.download-list,.support-panel,.signout-card,.contact-form{border-top-color:var(--rule)!important}
+
+@media (max-width: 800px) {
+	.content .curriculum-table-wrap {
+		max-width: 100%;
+		overflow-x: auto;
+	}
+	.content .curriculum-table {
+		width: 980px !important;
+		min-width: 980px !important;
+		table-layout: fixed;
+	}
+	.content .curriculum-table th:nth-child(1),
+	.content .curriculum-table td:nth-child(1),
+	.content .curriculum-table th:nth-child(2),
+	.content .curriculum-table td:nth-child(2) { width: 48px; }
+	.content .curriculum-table th:nth-child(3),
+	.content .curriculum-table td:nth-child(3) { width: 100px; }
+	.content .curriculum-table th:nth-child(4),
+	.content .curriculum-table td:nth-child(4) { width: 240px; }
+	.content .curriculum-table th:nth-child(5),
+	.content .curriculum-table td:nth-child(5),
+	.content .curriculum-table th:nth-child(6),
+	.content .curriculum-table td:nth-child(6) { width: 48px; }
+	.content .curriculum-table th:nth-child(7),
+	.content .curriculum-table td:nth-child(7) { width: 72px; }
+	.content .curriculum-table th:nth-child(8),
+	.content .curriculum-table td:nth-child(8),
+	.content .curriculum-table th:nth-child(9),
+	.content .curriculum-table td:nth-child(9),
+	.content .curriculum-table th:nth-child(10),
+	.content .curriculum-table td:nth-child(10) { width: 130px; }
+}
+
+/* Final desktop alignment for the dense academic and finance surfaces. */
+@media (min-width: 801px) {
+	.content .contact-form {
+		max-width: 900px;
+	}
+	.content .contact-form .name-grid,
+	.content .contact-form .phone-grid {
+		width: min(100%, 650px);
+		grid-template-columns: 140px 140px 225px !important;
+		column-gap: 12px !important;
+		row-gap: 10px !important;
+		justify-content: start !important;
+	}
+	.content .contact-form .contact-person + .contact-person {
+		padding-top: 18px;
+	}
+	.content .soa-table table {
+		width: 100%;
+		min-width: 0;
+		table-layout: fixed;
+	}
+	.content .soa-table th,
+	.content .soa-table td {
+		padding-inline: 12px;
+	}
+	.content .soa-table th:nth-child(1),
+	.content .soa-table td:nth-child(1) { width: 13%; }
+	.content .soa-table th:nth-child(2),
+	.content .soa-table td:nth-child(2) { width: 22%; }
+	.content .soa-table th:nth-child(3),
+	.content .soa-table td:nth-child(3) { width: 15%; }
+	.content .soa-table th:nth-child(4),
+	.content .soa-table td:nth-child(4) { width: 19%; }
+	.content .soa-table th:nth-child(5),
+	.content .soa-table td:nth-child(5) { width: 19%; }
+	.content .soa-table th:last-child,
+	.content .soa-table td:last-child { width: 12%; }
+	.content .curriculum-table {
+		table-layout: fixed;
+	}
+	.content .curriculum-table th:nth-child(1),
+	.content .curriculum-table td:nth-child(1),
+	.content .curriculum-table th:nth-child(2),
+	.content .curriculum-table td:nth-child(2) { width: 48px; }
+	.content .curriculum-table th:nth-child(3),
+	.content .curriculum-table td:nth-child(3) { width: 100px; }
+	.content .curriculum-table th:nth-child(4),
+	.content .curriculum-table td:nth-child(4) { width: 240px; }
+	.content .curriculum-table th:nth-child(5),
+	.content .curriculum-table td:nth-child(5),
+	.content .curriculum-table th:nth-child(6),
+	.content .curriculum-table td:nth-child(6) { width: 48px; }
+	.content .curriculum-table th:nth-child(7),
+	.content .curriculum-table td:nth-child(7) { width: 72px; }
+	.content .curriculum-table th:nth-child(8),
+	.content .curriculum-table td:nth-child(8),
+	.content .curriculum-table th:nth-child(9),
+	.content .curriculum-table td:nth-child(9),
+	.content .curriculum-table th:nth-child(10),
+	.content .curriculum-table td:nth-child(10) { width: 130px; }
+}
 .service-section .form-section-heading{border-bottom-color:var(--rule)!important}
 .service-section .document-row,.service-section .download-list>div{border-color:var(--rule);background:var(--paper)}
 .service-section .document-row h2,.service-section .download-list strong,.payment-method-grid strong{color:var(--ink)}
@@ -1567,6 +1661,39 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	.content .contact-form > .form-section-heading {
 		border-top: 0;
 	}
+}
+
+@media (max-width: 800px) {
+	.content .curriculum-table {
+		width: 1480px !important;
+		min-width: 1480px !important;
+		table-layout: fixed !important;
+	}
+	.content .curriculum-table th,
+	.content .curriculum-table td {
+		white-space: normal;
+		vertical-align: middle;
+	}
+	.content .curriculum-table th:nth-child(1),
+	.content .curriculum-table td:nth-child(1) { width: 70px !important; }
+	.content .curriculum-table th:nth-child(2),
+	.content .curriculum-table td:nth-child(2) { width: 70px !important; }
+	.content .curriculum-table th:nth-child(3),
+	.content .curriculum-table td:nth-child(3) { width: 150px !important; }
+	.content .curriculum-table th:nth-child(4),
+	.content .curriculum-table td:nth-child(4) { width: 300px !important; }
+	.content .curriculum-table th:nth-child(5),
+	.content .curriculum-table td:nth-child(5),
+	.content .curriculum-table th:nth-child(6),
+	.content .curriculum-table td:nth-child(6) { width: 80px !important; }
+	.content .curriculum-table th:nth-child(7),
+	.content .curriculum-table td:nth-child(7) { width: 95px !important; }
+	.content .curriculum-table th:nth-child(8),
+	.content .curriculum-table td:nth-child(8),
+	.content .curriculum-table th:nth-child(9),
+	.content .curriculum-table td:nth-child(9),
+	.content .curriculum-table th:nth-child(10),
+	.content .curriculum-table td:nth-child(10) { width: 185px !important; }
 }
 
 @media(min-width:801px) {
