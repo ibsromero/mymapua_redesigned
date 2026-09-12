@@ -1646,6 +1646,13 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	text-align: center;
 }
 
+@media (min-width: 801px) {
+	.content .contact-form .name-grid,
+	.content .contact-form .phone-grid {
+		width: min(100%, 770px);
+	}
+}
+
 .content .grade-summary {
 	grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
 }
