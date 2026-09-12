@@ -1656,7 +1656,7 @@ html[data-theme="dark"] .content .announcement-item h3 {
 @media (min-width: 801px) {
 	.content .contact-form .name-grid,
 	.content .contact-form .phone-grid {
-		width: min(100%, 770px);
+		width: min(100%, 650px);
 	}
 }
 
