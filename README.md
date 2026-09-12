@@ -12,6 +12,8 @@ Create a **Static Site** connected to `ibsromero/mymapua_redesigned`:
 - Build command: leave empty
 - Publish directory: `.`
 
+For Blueprint deployment, use **New > Blueprint** in Render and select the repository. Render reads `render.yaml` from the `main` branch. An existing Web Service will not change type automatically; create a new Static Site or configure that service separately.
+
 If the Render service was created as a **Web Service** instead, use `npm start` as the start command and leave the build command empty. The included start script listens on Render's `$PORT`.
 
 ## Project structure

@@ -1,7 +1,6 @@
 services:
-  - type: web
+  - type: static_site
     name: mymapua-redesigned
-    env: static
     branch: main
     buildCommand: ""
     staticPublishPath: .
