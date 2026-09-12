@@ -3075,6 +3075,24 @@ html[data-theme="dark"] .quick-card:hover strong {
 		font-size: 17px;
 	}
 }
+
+.content .contact-form .contact-person label {
+	font-family: "Trebuchet MS", "DejaVu Sans", sans-serif !important;
+	color: var(--muted);
+	font-size: 10px;
+	font-weight: 700;
+}
+
+.content .contact-form .contact-person input,
+.content .contact-form .contact-person select {
+	font-family: "Trebuchet MS", "DejaVu Sans", sans-serif !important;
+	color: var(--ink);
+	background: var(--paper);
+}
+
+.content .contact-form .contact-person input::placeholder {
+	color: #aaa39c;
+}
 .content .payment-method-grid .payment-logo,
 html[data-theme="dark"] .content .payment-method-grid .payment-logo {
 	display: grid;
