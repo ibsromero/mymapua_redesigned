@@ -4,6 +4,7 @@
   "description": "This is a static site, so it does not require a build command or environment variables.",
   "main": "script.js",
   "scripts": {
+    "start": "python3 -m http.server ${PORT:-4173}",
     "preview": "python3 -m http.server 4173",
     "visual-check": "node scripts/visual-check.mjs"
   },

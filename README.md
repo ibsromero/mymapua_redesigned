@@ -1,8 +1,18 @@
 # mymapua_redesigned
 
-## Deploy on Vercel
+## Deploy on Vercel or Render
 
 This is a static site, so it does not require a build command or environment variables.
+
+### Render dashboard
+
+Create a **Static Site** connected to `ibsromero/mymapua_redesigned`:
+
+- Branch: `main`
+- Build command: leave empty
+- Publish directory: `.`
+
+If the Render service was created as a **Web Service** instead, use `npm start` as the start command and leave the build command empty. The included start script listens on Render's `$PORT`.
 
 ## Project structure
 
