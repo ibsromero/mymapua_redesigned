@@ -1569,6 +1569,13 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Payment methods stay evenly sized on desktop; only mobile uses a full-width final tile. */
+@media (min-width: 801px) {
+	.content .payment-method-grid button:last-child {
+		grid-column: auto !important;
+	}
+}
+
 /* Last-pass shared layout rules. */
 .content .payment-method-grid {
 	grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
