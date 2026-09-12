@@ -2354,6 +2354,10 @@ html[data-theme="dark"] .content .curriculum-table .course-status-cell.status-cr
 	margin-bottom: 16px;
 }
 
+.content .contact-form .contact-person:last-of-type {
+	border-bottom: 0;
+}
+
 .content .contact-form .form-grid,
 .content .contact-form .name-grid,
 .content .contact-form .phone-grid {
