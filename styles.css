@@ -173,6 +173,29 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 	.overview-grid > .metric-card .text-link { grid-row: 4; margin-top: 8px; }
 }
 
+/* Final profile cleanup: no decorative rules between the form sections. */
+.content .contact-form,
+.content .contact-form > .form-section-heading,
+.content .contact-form fieldset,
+.content .contact-form .contact-person {
+	border-top: 0 !important;
+	border-right: 0 !important;
+	border-bottom: 0 !important;
+	border-left: 0 !important;
+}
+
+.content .contact-form .contact-person h3,
+.content .contact-form label {
+	font-weight: 400;
+}
+
+.content .contact-form .contact-person h3 {
+	font-family: "Trebuchet MS", "DejaVu Sans", sans-serif;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
 /* Keep the overview banner aligned to the two cards it contains. */
 .overview-grid{grid-template-columns:minmax(0,1.6fr) minmax(280px,.9fr)}
 .contact-form{max-width:900px;padding:0;border-top:1px solid var(--ink);border-right:0;border-bottom:0;border-left:0;background:transparent}
@@ -1339,6 +1362,87 @@ html[data-theme="dark"] .content .schedule-table .class-block strong {
 	.content .contact-form .name-grid,
 	.content .contact-form .phone-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+/* Keep every profile section on the same field rhythm as Student details and Home address. */
+.content .contact-form,
+.content .contact-form fieldset,
+.content .contact-form .contact-person {
+		border: 0;
+}
+
+.content .contact-form > .form-section-heading,
+.content .contact-form fieldset {
+		padding: 20px 0;
+}
+
+.content .contact-form > .form-section-heading {
+		border-bottom: 0;
+}
+
+.content .contact-form fieldset + fieldset {
+		padding-top: 4px;
+}
+
+.content .contact-form legend,
+.content .contact-form .contact-person h3 {
+		font-family: Georgia, "Times New Roman", serif;
+		font-size: 23px;
+		font-weight: 400;
+		line-height: 1.2;
+}
+
+.content .contact-form .contact-person h3 {
+		margin: 0 0 16px;
+}
+
+.content .contact-form .contact-person + .contact-person {
+		padding-top: 24px;
+}
+
+.content .contact-form label {
+		font-family: "Trebuchet MS", "DejaVu Sans", sans-serif;
+		font-size: 10px;
+		font-weight: 700;
+		line-height: 1.25;
+}
+
+.content .contact-form input,
+.content .contact-form select {
+		font-family: "Trebuchet MS", "DejaVu Sans", sans-serif;
+		font-size: 12px;
+		font-weight: 400;
+}
+
+.content .contact-form input[readonly],
+.content .contact-form select {
+		font-weight: 700;
+}
+
+.content .contact-form .phone-grid,
+.content .contact-form .name-grid {
+		margin-top: 16px;
+		row-gap: 14px;
+}
+
+@media(max-width:800px) {
+	.content .contact-form > .form-section-heading,
+	.content .contact-form fieldset {
+		padding: 18px 0;
+	}
+
+	.content .contact-form fieldset + fieldset {
+		padding-top: 2px;
+	}
+
+	.content .contact-form legend,
+	.content .contact-form .contact-person h3 {
+		font-size: 19px;
+	}
+
+	.content .contact-form .contact-person + .contact-person {
+		padding-top: 20px;
 	}
 }
 
@@ -3061,8 +3165,9 @@ html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-
 	.content .contact-form fieldset > .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; column-gap: 20px; row-gap: 14px; }
 	.content .contact-form .name-grid, .content .contact-form .phone-grid { column-gap: 14px; row-gap: 14px; margin-top: 14px; }
 	.content .contact-form .phone-grid { grid-template-columns: minmax(96px, .65fr) minmax(112px, .8fr) minmax(0, 1.55fr); }
-	.content .contact-form .name-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 0; }
+	.content .contact-form .name-grid { grid-template-columns: minmax(96px, .65fr) minmax(112px, .8fr) minmax(0, 1.55fr); margin-top: 0; }
 	.content .contact-form .address-grid label:first-child { grid-column: span 2; }
+	.content .contact-form > fieldset:nth-of-type(3) > .form-grid > label:first-child { grid-column: span 2; }
 	.content .contact-form .contact-person + .contact-person { padding-top: 18px; }
 	.content .contact-form .form-actions { padding-top: 16px; }
 }
@@ -3121,6 +3226,7 @@ html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-
 	.content .contact-form fieldset { padding: 20px 0 22px !important; }
 	.content .contact-form fieldset > .form-grid { grid-template-columns: minmax(0, 1fr) !important; row-gap: 14px; }
 	.content .contact-form .name-grid, .content .contact-form .phone-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1fr); column-gap: 12px; row-gap: 12px; margin-top: 13px; }
+	.content .contact-form .name-grid label:last-child { grid-column: span 2; }
 	.content .contact-form .phone-number { grid-column: span 2; }
 	.content .contact-form .address-grid label:first-child { grid-column: auto; }
 }
