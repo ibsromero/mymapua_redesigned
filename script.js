@@ -187,9 +187,34 @@ function enhancePaymentLogos() {
   });
 }
 
+function applyReferenceFieldConstraints() {
+  const profileForm = document.querySelector('.contact-form');
+  if (!profileForm) return;
+  profileForm.querySelectorAll('label').forEach((label) => {
+    const fieldName = label.firstChild?.textContent?.trim().toLowerCase() || '';
+    const input = label.querySelector('input');
+    if (!input) return;
+    const maxLength = fieldName.includes('last name') || fieldName.includes('given name') || fieldName.includes('middle name')
+      ? 50
+      : fieldName.includes('country code') || fieldName.includes('area code')
+        ? 4
+        : fieldName.includes('mobile code')
+          ? 3
+          : fieldName.includes('mobile number')
+            ? 7
+            : fieldName.includes('landline number')
+              ? 9
+              : 0;
+    if (!maxLength) return;
+    input.maxLength = maxLength;
+    if (maxLength < 50) input.inputMode = 'numeric';
+  });
+}
+
 function showToast(message) { toast.textContent = message; toast.classList.add('show'); window.clearTimeout(showToast.timeout); showToast.timeout = window.setTimeout(() => toast.classList.remove('show'), 2600); }
 function bindActions() {
   enhancePaymentLogos();
+  applyReferenceFieldConstraints();
   document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => showToast(button.dataset.toast)));
   const helpButton = document.querySelector('#helpButton');
   if (helpButton) helpButton.addEventListener('click', () => showToast('Help Center is coming right up.'));

@@ -1619,6 +1619,82 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Match the reference contact layout: balanced names and compact phone segments. */
+@media (min-width: 801px) {
+	.content .contact-form .name-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	}
+
+	.content .contact-form .phone-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	}
+}
+
+.content .contact-form .phone-grid input {
+	text-align: left;
+}
+
+.content .contact-form .phone-grid label {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 7px;
+}
+
+.content .contact-form .phone-grid label:first-child input,
+.content .contact-form .phone-grid label:nth-child(2) input {
+	text-align: center;
+}
+
+@media (min-width: 801px) {
+	.content .contact-form .phone-grid label:nth-child(1) input,
+	.content .contact-form .phone-grid label:nth-child(2) input {
+		max-width: 112px;
+	}
+
+	.content .contact-form .phone-grid label:nth-child(3) input {
+		max-width: 180px;
+	}
+}
+
+/* Keep reference-length academic and finance values readable without widening the page. */
+.content .table-card td,
+.content .table-card th,
+.content .soa-table td,
+.content .soa-table th,
+.content .curriculum-table td,
+.content .curriculum-table th {
+	overflow-wrap: anywhere;
+	word-break: normal;
+}
+
+.content .curriculum-table td:nth-child(8),
+.content .curriculum-table td:nth-child(9),
+.content .curriculum-table td:nth-child(10) {
+	white-space: normal;
+}
+
+.content .certificate-card > div,
+.content .assessment-number {
+	min-width: 0;
+}
+
+.content .certificate-card h2,
+.content .certificate-card p,
+.content .assessment-number strong {
+	overflow-wrap: anywhere;
+}
+
+@media (max-width: 800px) {
+	.content .certificate-card {
+		width: 100%;
+	}
+
+	.content .certificate-card h2 {
+		font-size: 20px;
+	}
+}
+
 /* Shared visual system: keep every route aligned after the legacy route layers. */
 :root {
 	--content-max: 1180px;
