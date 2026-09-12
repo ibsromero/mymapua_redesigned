@@ -129,7 +129,7 @@ function gradeTermView(year, term) {
     units: String(rows.reduce((sum, row) => sum + (Number.isFinite(Number(row[2])) ? Number(row[3] || 0) : 0), 0)),
     quarterly: rows.length ? '1.64' : '0.0000',
     running: '',
-    status: rows.length ? 'COMPLETED' : year === '2026 - 2027' ? 'ONGOING' : 'NOT STARTED',
+    status: rows.length ? 'COMPLETED' : 'NOT STARTED',
     remarks: rows.length ? 'COMPLETED' : '',
   };
   const statusClass = summary.status.toLowerCase().replace(/\s+/g, '-');
