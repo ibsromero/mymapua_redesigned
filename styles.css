@@ -3050,12 +3050,15 @@ html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-
 }
 
 @media(min-width:801px) {
-	.content .contact-form > .form-section-heading { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(260px, .8fr) !important; align-items: end; gap: 32px; padding: 18px 0 15px !important; }
+	.content .contact-form > .form-section-heading { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr) !important; align-items: end; gap: 32px; padding: 18px 0 15px !important; }
 	.content .contact-form > .form-section-heading p { margin: 0 0 2px; max-width: none; text-align: right; }
-	.content .contact-form fieldset { padding: 19px 0 21px !important; }
-	.content .contact-form legend { margin-bottom: 13px; }
-	.content .contact-form fieldset > .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; column-gap: 20px; row-gap: 13px; }
-	.content .contact-form .name-grid, .content .contact-form .phone-grid { column-gap: 14px; row-gap: 13px; margin-top: 13px; }
+	.content .contact-form fieldset { padding: 22px 0 24px !important; }
+	.content .contact-form legend { margin-bottom: 14px; }
+	.content .contact-form fieldset > .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; column-gap: 20px; row-gap: 14px; }
+	.content .contact-form .name-grid, .content .contact-form .phone-grid { column-gap: 14px; row-gap: 14px; margin-top: 14px; }
+	.content .contact-form .phone-grid { grid-template-columns: minmax(96px, .65fr) minmax(112px, .8fr) minmax(0, 1.55fr); }
+	.content .contact-form .name-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 0; }
+	.content .contact-form .address-grid label:first-child { grid-column: span 2; }
 	.content .contact-form .contact-person + .contact-person { padding-top: 18px; }
 	.content .contact-form .form-actions { padding-top: 16px; }
 }
@@ -3111,10 +3114,11 @@ html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-
 
 	.content .contact-form > .form-section-heading { display: block !important; padding: 18px 0 15px !important; }
 	.content .contact-form > .form-section-heading p { margin-top: 7px !important; text-align: left !important; }
-	.content .contact-form fieldset { padding: 19px 0 21px !important; }
-	.content .contact-form fieldset > .form-grid { grid-template-columns: minmax(0, 1fr) !important; row-gap: 13px; }
-	.content .contact-form .name-grid, .content .contact-form .phone-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 12px; row-gap: 12px; margin-top: 13px; }
+	.content .contact-form fieldset { padding: 20px 0 22px !important; }
+	.content .contact-form fieldset > .form-grid { grid-template-columns: minmax(0, 1fr) !important; row-gap: 14px; }
+	.content .contact-form .name-grid, .content .contact-form .phone-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1fr); column-gap: 12px; row-gap: 12px; margin-top: 13px; }
 	.content .contact-form .phone-number { grid-column: span 2; }
+	.content .contact-form .address-grid label:first-child { grid-column: auto; }
 }
 
 .content .announcement-item,

@@ -48,6 +48,41 @@ for (const viewport of viewports) {
       if (responsiveState.controlBorder && (responsiveState.controlBorder === 'none' || responsiveState.controlMinHeight === '0px')) {
         throw new Error(`${viewport.name}/${theme}/${route}: shared control lost its visual contract`);
       }
+      if (route === '#contact') {
+        const profileLayout = await page.evaluate(() => {
+          const form = document.querySelector('.contact-form');
+          const heading = form?.querySelector(':scope > .form-section-heading');
+          const fieldsets = [...(form?.querySelectorAll(':scope > fieldset') || [])];
+          const standardGrid = fieldsets[0]?.querySelector(':scope > .form-grid');
+          const phoneGrid = form?.querySelector('.phone-grid');
+          const phoneNumber = phoneGrid?.querySelector('.phone-number');
+          const box = (element) => {
+            const rect = element?.getBoundingClientRect();
+            return rect ? { left: rect.left, right: rect.right, width: rect.width } : null;
+          };
+          return {
+            form: box(form),
+            heading: box(heading),
+            fieldsets: fieldsets.map(box),
+            standardColumns: standardGrid ? getComputedStyle(standardGrid).gridTemplateColumns.split(' ').length : 0,
+            phoneColumns: phoneGrid ? getComputedStyle(phoneGrid).gridTemplateColumns.split(' ').length : 0,
+            phoneNumberColumn: phoneNumber ? getComputedStyle(phoneNumber).gridColumn : '',
+          };
+        });
+        const aligned = [profileLayout.heading, ...profileLayout.fieldsets].every((element) => element
+          && Math.abs(element.left - profileLayout.form.left) < 1
+          && Math.abs(element.right - profileLayout.form.right) < 1);
+        if (!aligned) {
+          throw new Error(`${viewport.name}/${theme}/${route}: profile sections are not aligned to the form edges`);
+        }
+        if (isMobile) {
+          if (profileLayout.standardColumns !== 1 || profileLayout.phoneColumns !== 2 || !profileLayout.phoneNumberColumn.includes('span 2')) {
+            throw new Error(`${viewport.name}/${theme}/${route}: mobile profile field grid contract changed`);
+          }
+        } else if (profileLayout.standardColumns !== 2 || profileLayout.phoneColumns !== 3) {
+          throw new Error(`${viewport.name}/${theme}/${route}: desktop profile field grid contract changed`);
+        }
+      }
       if (route === '#schedule') {
         const mobileControls = page.locator('.mobile-schedule-controls');
         const weeklySchedule = page.locator('.weekly-schedule');
