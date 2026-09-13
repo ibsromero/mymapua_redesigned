@@ -3616,19 +3616,9 @@ html[data-theme="dark"] .quick-card:hover strong {
 	text-align: center !important;
 	white-space: nowrap;
 }
-.content .schedule-table .class-block .schedule-slot-time {
-	color: var(--red);
-	font-size: 8.5px;
-	font-weight: 700;
-	letter-spacing: 0;
-	text-transform: uppercase;
-}
 .content .schedule-table .class-block .schedule-room {
 	color: var(--muted);
 	font-size: 9px;
-}
-.content .mobile-class .class-block .schedule-slot-time {
-	display: none;
 }
 .content .mobile-class .class-block .schedule-room {
 	font-size: 10px;
@@ -3637,9 +3627,6 @@ html[data-theme="dark"] .quick-card:hover strong {
 	.content .schedule-table .class-block {
 		min-height: 64px !important;
 		padding-inline: 3px !important;
-	}
-	.content .schedule-table .class-block .schedule-slot-time {
-		font-size: 8px;
 	}
 }
 

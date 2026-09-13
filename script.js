@@ -169,8 +169,7 @@ const scheduleRows = [
 ];
 function scheduleCell(course, time = '', day = '') {
   if (!course) return '';
-  const timeLabel = time.replace(/<br\s*\/?>(\s*)/i, ' - ').replace(/\s+/g, ' ').trim();
-  return `<div class="class-block"><strong>${course.code}</strong><span>${course.section}</span><small class="schedule-slot-time">${day} · ${timeLabel}</small><small class="schedule-room">${course.room}</small></div>`;
+  return `<div class="class-block"><strong>${course.code}</strong><span>${course.section}</span><small class="schedule-room">${course.room}</small></div>`;
 }
 function scheduleView() {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
