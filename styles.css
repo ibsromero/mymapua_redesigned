@@ -1886,46 +1886,6 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	text-align: center;
 }
 
-/* Carry the sidebar's red and gold structure into the light content surface. */
-.main-wrap {
-	border-left: 1px solid color-mix(in srgb, var(--red) 28%, var(--cream));
-}
-
-.content .page-heading,
-.content .welcome-row {
-	padding-left: 16px;
-	border-left: 3px solid var(--red);
-}
-
-.content .section-heading h2,
-.content .page-heading h1,
-.content .welcome-row h1 {
-	color: var(--red);
-}
-
-.content .table-title,
-.content .term-heading,
-.content .form-section-heading {
-	border-top: 2px solid var(--red);
-}
-
-.content .curriculum-toolbar,
-.content .schedule-toolbar,
-.content .history-controls {
-	border-bottom-color: var(--gold);
-}
-
-.content .table-card,
-.content .form-card,
-.content .payment-options,
-.content .weekly-schedule,
-.content .curriculum-table-wrap,
-.content .faq-list,
-.content .support-panel,
-.content .signout-card {
-	border-color: color-mix(in srgb, var(--red) 24%, var(--rule));
-}
-
 .content .certificate-card > div,
 .content .assessment-number {
 	min-width: 0;
