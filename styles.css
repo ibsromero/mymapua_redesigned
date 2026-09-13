@@ -1841,6 +1841,51 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	white-space: normal;
 }
 
+.content .curriculum-table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.content .curriculum-table th,
+.content .curriculum-table td {
+	padding: 12px 10px;
+	vertical-align: middle;
+	line-height: 1.25;
+}
+
+.content .curriculum-table th:nth-child(1),
+.content .curriculum-table td:nth-child(1) { width: 5%; text-align: center; }
+.content .curriculum-table th:nth-child(2),
+.content .curriculum-table td:nth-child(2) { width: 7%; text-align: center; }
+.content .curriculum-table th:nth-child(3),
+.content .curriculum-table td:nth-child(3) { width: 12%; }
+.content .curriculum-table th:nth-child(4),
+.content .curriculum-table td:nth-child(4) { width: 24%; }
+.content .curriculum-table th:nth-child(5),
+.content .curriculum-table td:nth-child(5),
+.content .curriculum-table th:nth-child(6),
+.content .curriculum-table td:nth-child(6),
+.content .curriculum-table th:nth-child(7),
+.content .curriculum-table td:nth-child(7) { width: 7%; text-align: center; }
+.content .curriculum-table th:nth-child(8),
+.content .curriculum-table td:nth-child(8),
+.content .curriculum-table th:nth-child(9),
+.content .curriculum-table td:nth-child(9),
+.content .curriculum-table th:nth-child(10),
+.content .curriculum-table td:nth-child(10) { width: 10%; }
+
+.content .curriculum-table th {
+	text-align: left;
+}
+
+.content .curriculum-table th:nth-child(1),
+.content .curriculum-table th:nth-child(2),
+.content .curriculum-table th:nth-child(5),
+.content .curriculum-table th:nth-child(6),
+.content .curriculum-table th:nth-child(7) {
+	text-align: center;
+}
+
 .content .certificate-card > div,
 .content .assessment-number {
 	min-width: 0;
