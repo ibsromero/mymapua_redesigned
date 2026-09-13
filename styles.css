@@ -1669,6 +1669,96 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Certificate banners use the same red-and-gold language in both themes. */
+.content .certificate-card {
+	align-items: stretch;
+	gap: 30px;
+	min-width: 0;
+	padding: 30px 32px;
+	color: #fff8ef;
+	background: var(--red);
+}
+
+.content .certificate-card > div:first-child {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.content .certificate-card .mini-label,
+.content .certificate-card h2,
+.content .certificate-card p {
+	color: inherit;
+}
+
+.content .certificate-card .mini-label {
+	color: #f3c9a8;
+}
+
+.content .certificate-card h2 {
+	margin: 9px 0 8px;
+	font-size: clamp(20px, 2.2vw, 27px);
+	line-height: 1.15;
+}
+
+.content .certificate-card p {
+	color: #f6ddd2;
+	line-height: 1.45;
+}
+
+.content .certificate-card .assessment-number {
+	flex: 0 0 auto;
+	justify-content: center;
+	min-width: 150px;
+	padding: 4px 0 4px 28px;
+	border-left-color: #ffffff55;
+}
+
+.content .certificate-card .assessment-number span {
+	color: #f3c9a8;
+}
+
+.content .certificate-card .assessment-number strong {
+	color: #fff8ef;
+}
+
+html[data-theme="dark"] .content .certificate-card {
+	color: var(--ink);
+	border: 1px solid var(--rule);
+	background: #2b2f36;
+}
+
+html[data-theme="dark"] .content .certificate-card .mini-label,
+html[data-theme="dark"] .content .certificate-card .assessment-number span {
+	color: #f0c65a;
+}
+
+html[data-theme="dark"] .content .certificate-card p {
+	color: #d7d9de;
+}
+
+html[data-theme="dark"] .content .certificate-card .assessment-number {
+	border-left-color: #ffffff35;
+}
+
+@media (max-width: 800px) {
+	.content .certificate-card {
+		gap: 20px;
+		padding: 24px 22px;
+	}
+
+	.content .certificate-card .assessment-number {
+		min-width: 0;
+		width: 100%;
+		padding: 16px 0 0;
+		border-top: 1px solid #ffffff55;
+		border-left: 0;
+	}
+
+	html[data-theme="dark"] .content .certificate-card .assessment-number {
+		border-top-color: #ffffff35;
+	}
+}
+
 @media (max-width: 800px) {
 	.content .curriculum-table {
 		width: 1480px !important;
