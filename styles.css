@@ -1,4 +1,6 @@
-:root{--red:#991f2b;--ink:#23242a;--muted:#767984;--line:#e9e7e5;--paper:#fbfaf8;--gold:#e7b842}
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root{--font-sans:"IBM Plex Sans",sans-serif;--font-display:"DM Serif Display",serif;--red:#991f2b;--ink:#23242a;--muted:#767984;--line:#e9e7e5;--paper:#fbfaf8;--gold:#e7b842}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;color:var(--ink);background:var(--paper);font-family:"DM Sans",sans-serif;font-size:14px}button,a{font:inherit}a{color:inherit;text-decoration:none}button{border:0;cursor:pointer}.app-shell{display:flex;min-height:100vh}.sidebar{z-index:5;display:flex;flex-direction:column;width:254px;flex:0 0 254px;min-height:100vh;color:#f9ece9;background:var(--red)}.brand-block{display:flex;align-items:center;gap:12px;height:104px;padding:22px 26px;border-bottom:1px solid #ffffff29;background:linear-gradient(155deg,#a7212c,#8b1924)}.brand-mark{display:grid;place-items:center;width:41px;height:41px;color:var(--red);background:var(--gold);border-radius:50% 50% 50% 7px;font-family:Manrope,sans-serif;font-size:23px;font-weight:800;transform:rotate(-8deg)}.brand-name{color:#fff;font-family:Manrope,sans-serif;font-size:20px;font-weight:800;letter-spacing:-.8px}.brand-name span{color:#f1c64e}.brand-subtitle{margin-top:2px;color:#eab8b5;font-size:10px;letter-spacing:1px;text-transform:uppercase}.main-nav{flex:1;padding:25px 15px;overflow-y:auto}.nav-group{margin-top:25px}.nav-group:first-of-type{margin-top:8px}.nav-label,.nav-link{display:flex;align-items:center;min-height:37px;border-radius:6px}.nav-label{padding:0 12px;color:#e8adab;font-size:10px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase}.nav-label .nav-icon{color:var(--gold);font-size:14px}.chevron{margin-left:auto;font-size:13px}.nav-link{gap:11px;padding:0 12px;color:#f8dedb;font-size:12.5px;transition:.2s ease}.nav-link:hover{color:#fff;background:#ffffff1a}.nav-link.active{color:#fff;font-weight:700;background:#280a0e4d;box-shadow:inset 3px 0 var(--gold)}.nav-icon{display:inline-grid;place-items:center;width:17px;color:#eec3bb;font-size:16px}.sidebar-bottom{padding:15px;border-top:1px solid #ffffff24}.sign-out{color:#edb3b0}.close-menu,.menu-toggle{display:none}
 .main-wrap{display:flex;flex:1;min-width:0;flex-direction:column}.topbar{display:flex;align-items:center;justify-content:space-between;height:87px;padding:0 6.2%;border-bottom:1px solid var(--line);background:#fff}.topbar-title{display:flex;flex-direction:column;gap:4px}.eyebrow,.section-kicker,.mini-label{color:#a09b95;font-size:10px;font-weight:700;letter-spacing:1.2px}.topbar-title strong{color:var(--red);font-family:Manrope,sans-serif;font-size:17px}.topbar-actions{display:flex;align-items:center;gap:25px}.icon-button{position:relative;display:grid;place-items:center;width:31px;height:31px;color:#66656a;background:transparent;font-size:21px}.notification i{position:absolute;top:3px;right:2px;width:7px;height:7px;border:2px solid #fff;border-radius:50%;background:var(--red)}.profile-chip{display:flex;align-items:center;gap:10px}.avatar{display:grid;place-items:center;width:37px;height:37px;color:#fff;border-radius:50%;background:#4c6b66;font-size:11px;font-weight:700}.profile-copy{display:flex;flex-direction:column;gap:2px}.profile-copy strong{font-size:12px}.profile-copy span{color:var(--muted);font-size:10px}.profile-arrow{margin-left:6px;color:var(--muted);font-size:17px}
 .content{width:min(1250px,87%);margin:0 auto;padding:45px 0 70px}.welcome-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:30px}.welcome-row h1{margin:8px 0 7px;color:#24252a;font-family:Manrope,sans-serif;font-size:clamp(24px,3vw,34px);letter-spacing:-1.4px}.welcome-row h1 span{color:var(--gold);font-size:.65em;vertical-align:top}.intro{margin:0;color:var(--muted)}.outline-button{display:flex;align-items:center;gap:8px;padding:10px 15px;color:var(--red);border:1px solid #ead3d0;border-radius:5px;background:#fff;font-size:12px;font-weight:700}.outline-button span{display:grid;place-items:center;width:18px;height:18px;color:#fff;border-radius:50%;background:var(--red);font-size:11px}.overview-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr;gap:16px}.welcome-card,.metric-card,.quick-card,.support-card,.announcement-list,.schedule-card{border:1px solid var(--line);background:#fff;border-radius:8px}.welcome-card{position:relative;min-height:193px;overflow:hidden;padding:25px 26px;color:#fff;background:linear-gradient(130deg,#8d1925,#b42f36)}.welcome-card:after{position:absolute;right:-20px;bottom:-75px;width:190px;height:190px;border:1px solid #ffffff2e;border-radius:50%;box-shadow:0 0 0 25px #ffffff0a,0 0 0 50px #ffffff0a;content:""}.card-orbit{position:absolute;top:22px;right:28px;color:#f3ca55;font-size:21px}.welcome-card-copy{position:relative;z-index:1}.welcome-card .mini-label{color:#e9babb}.welcome-card h2{margin:9px 0 8px;font-family:Manrope,sans-serif;font-size:20px;line-height:1.25;letter-spacing:-.5px}.welcome-card p{margin:0;color:#eac4c2;font-size:11px}.term-progress{position:absolute;z-index:2;right:25px;bottom:25px;display:flex;align-items:center;gap:12px}.progress-track{width:80px;height:4px;overflow:hidden;border-radius:5px;background:#ffffff45}.progress-track span{display:block;width:25%;height:100%;background:var(--gold)}.term-progress div:last-child{display:flex;gap:5px;color:#fff;font-size:10px}.term-progress small{color:#e6b8b9}.metric-card{display:flex;flex-direction:column;align-items:flex-start;min-height:193px;padding:23px 24px}.metric-icon{display:grid;place-items:center;width:31px;height:31px;margin-bottom:20px;border-radius:6px;font-size:15px;font-weight:700}.coral{color:#ae3943;background:#fbe4e2}.gold{color:#9f7616;background:#fcf0cf}.metric-value{margin-top:9px;font-family:Manrope,sans-serif;font-size:18px}.metric-note{margin-top:6px;color:var(--muted);font-size:10px}.positive{color:#438066}.metric-card .text-link{margin-top:auto}
@@ -1667,6 +1669,38 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	.content .contact-form > .form-section-heading {
 		border-top: 0;
 	}
+}
+
+/* Final typography contract: one readable sans family and one display family. */
+body,
+body * {
+	font-family: var(--font-sans) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.welcome-row h1,
+.page-heading h1,
+.welcome-card h2,
+.metric-value,
+.section-heading h2,
+.table-title h2,
+.payment-options h2,
+.form-card h2,
+.support-panel h2,
+.signout-card h2,
+.payment-method-grid strong,
+.document-row h2,
+.curriculum-summary strong,
+.term-heading h2,
+.content .contact-form legend,
+.content .contact-form .contact-person h3 {
+	font-family: var(--font-display) !important;
+	font-weight: 400;
 }
 
 /* Certificate banners use the same red-and-gold language in both themes. */
