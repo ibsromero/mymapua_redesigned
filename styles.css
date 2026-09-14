@@ -55,130 +55,6 @@ body{background:var(--cream);color:var(--ink);font-family:"Trebuchet MS","DejaVu
 @media(max-width:800px){.weekly-schedule{display:grid;grid-template-columns:58px repeat(7,minmax(72px,1fr));overflow-x:auto;border-left:1px solid #c8c2bb;background:#fff}.weekly-schedule::before{display:none}.schedule-day-label{display:block}.schedule-time-slot{display:flex}.weekly-schedule>div:not(.schedule-day-label):not(.schedule-time-slot){display:block}.class-block{display:flex;align-items:center;justify-content:center;min-height:79px;margin:0;padding:6px 3px;border:0;border-right:1px solid #c8c2bb;border-bottom:1px solid #c8c2bb;background:#fffaf1;text-align:center}.class-block strong{font-size:9px}.class-block span,.class-block small{font-size:8px}.class-block small{text-align:center}}
 
 /* Final responsive layout rules. Keep mobile content usable without shrinking dense data tables. */
-@media (max-width: 800px) {
-	html, body { min-width: 0; overflow-x: hidden; }
-	.app-shell { display: block; min-height: 100svh; overflow: visible; }
-	.sidebar { position: fixed; inset: 0 auto 0 0; width: min(312px, 88vw); height: 100svh; min-height: 100svh; transform: translateX(-105%); transition: transform .25s ease; overflow: hidden; }
-	.sidebar.open { transform: translateX(0); }
-	.main-wrap { width: 100%; min-width: 0; }
-	.main-nav { min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
-	.sidebar-bottom { position: absolute; }
-	.topbar { position: sticky; top: 0; z-index: 3; width: 100%; height: 70px; padding: 0 16px; }
-	.topbar-title { min-width: 0; }
-	.topbar-title strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-	.portal-session { display: none; }
-	.content { width: calc(100% - 32px); max-width: none; margin: 0 auto; padding: 30px 0 56px; overflow: visible; }
-	.welcome-row { align-items: flex-start; gap: 18px; margin-bottom: 28px; }
-	.welcome-row > div { min-width: 0; }
-	.welcome-row h1 { overflow-wrap: anywhere; }
-	.outline-button { min-height: 42px; }
-	.overview-grid, .dashboard-grid, .data-grid, .support-panels { grid-template-columns: minmax(0, 1fr); }
-	.overview-grid { width: 100%; }
-	.welcome-card { min-height: 190px; padding: 24px 20px; }
-	.welcome-card-copy { min-width: 0; }
-	.welcome-card h2 { font-size: 25px; }
-	.metric-card { min-height: 0; padding: 17px 0; }
-	.dashboard-grid { gap: 40px; margin-top: 42px; }
-	.primary-column, .secondary-column { min-width: 0; }
-	.section-heading { gap: 12px; }
-	.section-heading > * { min-width: 0; }
-	.section-heading h2 { overflow-wrap: anywhere; }
-	.announcement-item { min-width: 0; padding: 18px 0; }
-	.announcement-item > div:nth-child(2) { min-width: 0; }
-	.announcement-item h3, .announcement-item p { overflow-wrap: anywhere; }
-	.quick-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; }
-	.quick-card { min-width: 0; padding: 14px 0; }
-	.quick-card strong, .quick-card small { overflow-wrap: anywhere; }
-	.support-card { min-width: 0; }
-	.page-heading { min-width: 0; margin-bottom: 26px; }
-	.page-heading h1 { overflow-wrap: anywhere; }
-	.data-card { min-width: 0; }
-	.table-card, .weekly-schedule { width: 100%; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
-	.table-card table { min-width: 600px; }
-	.schedule-toolbar { align-items: stretch; flex-direction: column; gap: 12px; }
-	.schedule-toolbar select { width: 100%; min-width: 0; }
-	.term-switch { width: 100%; }
-	.term-switch button { flex: 1; min-height: 42px; }
-	.schedule-table { width: 780px !important; min-width: 780px; table-layout: fixed; }
-	.schedule-table th, .schedule-table td { height: 74px; }
-	.schedule-table thead th:first-child, .schedule-table tbody th { width: 66px; }
-	.curriculum-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-	.curriculum-summary > div { min-width: 0; padding: 14px 12px; }
-	.curriculum-summary strong { overflow-wrap: anywhere; }
-	.curriculum-toolbar { align-items: stretch; flex-direction: column; }
-	.curriculum-tabs { max-width: 100%; overflow-x: auto; }
-	.curriculum-tabs button { flex: 0 0 auto; min-height: 40px; white-space: nowrap; }
-	.curriculum-legend { justify-content: flex-start; }
-	.year-links { max-width: 100%; overflow-x: auto; white-space: nowrap; }
-	.account-summary { grid-template-columns: minmax(0, 1fr); }
-	.account-summary > div { min-width: 0; border-right: 0; border-bottom: 1px solid var(--rule); }
-	.account-summary > div:last-child { border-bottom: 0; }
-	.payment-method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-	.payment-method-grid button { min-width: 0; min-height: 78px; padding: 13px 12px; }
-	.payment-method-grid strong, .payment-method-grid span { overflow-wrap: anywhere; }
-	.document-row { align-items: stretch; flex-direction: column; gap: 14px; }
-	.document-row .quiet-button { width: 100%; }
-	.form-card, .support-panel { min-width: 0; padding: 20px 16px; }
-	.form-grid { grid-template-columns: minmax(0, 1fr); }
-	.form-grid label, .form-section-heading > * { min-width: 0; overflow-wrap: anywhere; }
-	.form-grid input, .form-grid select, .support-panel textarea { width: 100%; max-width: 100%; font-size: 16px; }
-	.form-section-heading { display: block; }
-	.form-section-heading p { margin-top: 7px; }
-	.address-grid label:first-child { grid-column: auto; }
-	.form-actions { align-items: stretch; flex-direction: column; }
-	.form-actions .primary-button { width: 100%; }
-	.footer { align-items: flex-start; flex-direction: column; gap: 12px; padding: 17px 16px; }
-	.footer div { display: flex; flex-wrap: wrap; gap: 10px 15px; }
-	.footer a { overflow-wrap: anywhere; }
-	.toast { right: 12px; bottom: 12px; left: 12px; max-width: none; text-align: center; }
-	.schedule-mobile-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; margin: 4px 0 12px; }
-	.mobile-day-button { min-height: 38px; padding: 7px 2px; color: var(--red); border: 1px solid var(--rule); background: var(--paper); font-size: 10px; font-weight: 700; }
-	.mobile-day-button.active { color: #fff; border-color: var(--red); background: var(--red); }
-	.schedule-mobile-list { display: block; }
-	.mobile-day { display: none; }
-	.mobile-day.active { display: block; }
-	.mobile-day > h2 { margin: 0 0 9px; font: 400 21px/1.2 Georgia, "Times New Roman", serif; }
-	.mobile-class { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 13px; align-items: center; min-height: 78px; padding: 13px 12px; border: 1px solid var(--rule); border-bottom: 0; background: var(--paper); }
-	.mobile-class:last-child { border-bottom: 1px solid var(--rule); }
-	.mobile-class-time { color: var(--muted); font-size: 10px; line-height: 1.35; }
-	.mobile-class .class-block { min-height: 0; padding: 0; border: 0; background: transparent; text-align: left; align-items: flex-start; }
-	.mobile-class .class-block strong { font-size: 11px; }
-	.mobile-class .class-block span, .mobile-class .class-block small { font-size: 10px; }
-	.mobile-empty { margin: 0; padding: 18px 12px; border: 1px solid var(--rule); color: var(--muted); font-size: 11px; }
-	.weekly-schedule { display: none !important; }
-	.quick-card { min-height: 86px; padding: 12px 0; }
-	.quick-card small { line-height: 1.35; }
-	.soa-table { border-left: 1px solid var(--rule); border-right: 1px solid var(--rule); }
-	.soa-table .table-title { padding: 17px 15px; }
-}
-
-@media (min-width: 801px) {
-	.schedule-mobile-days, .schedule-mobile-list { display: none; }
-}
-
-@media (max-width: 420px) {
-	.content { width: calc(100% - 24px); padding-top: 24px; }
-	.welcome-card { padding-inline: 17px; }
-	.welcome-card h2 { font-size: 23px; }
-	.quick-grid { column-gap: 12px; }
-	.quick-card { font-size: 11px; }
-	.payment-method-grid { grid-template-columns: minmax(0, 1fr); }
-	.payment-method-grid button { min-height: 64px; }
-	.table-title { padding-inline: 15px; }
-}
-
-@media (max-width: 800px) {
-	.overview-grid > .metric-card { grid-auto-rows: auto; }
-	.overview-grid > .metric-card .mini-label { grid-row: 1; }
-	.overview-grid > .metric-card .metric-value { grid-row: 2; margin-top: 7px; }
-	.overview-grid > .metric-card .metric-note { grid-row: 3; margin-top: 7px; }
-	.overview-grid > .metric-card .text-link { grid-row: 4; margin-top: 8px; }
-}
-
-/* Final profile cleanup: no decorative rules between the form sections. */
-.content .contact-form,
-.content .contact-form > .form-section-heading,
-.content .contact-form fieldset,
 .content .contact-form .contact-person {
 	border-top: 0 !important;
 	border-right: 0 !important;
@@ -645,7 +521,7 @@ html[data-theme="dark"] .payment-method-grid button:hover{background:var(--red-s
 .curriculum-summary,.term-heading{border-top-color:var(--rule)}
 .announcement-item h3,.announcement-item p,.document-row h2,.document-row p,.download-list strong,.download-list small,.payment-method-grid strong,.payment-method-grid span{overflow-wrap:anywhere}
 .soa-table{overflow-x:auto;overscroll-behavior-x:contain}
-.soa-table table{min-width:720px}
+.soa-table table{min-width:0}
 .soa-table th,.soa-table td{white-space:normal;overflow-wrap:anywhere}
 .table-card table{max-width:100%}
 .service-section .document-row>div,.service-section .download-list section{min-width:0}
@@ -667,8 +543,8 @@ html[data-theme="dark"] .document-row h2,html[data-theme="dark"] .download-list 
 		overflow-x: auto;
 	}
 	.content .curriculum-table {
-		width: 980px !important;
-		min-width: 980px !important;
+		width: 100% !important;
+		min-width: 0 !important;
 		table-layout: fixed;
 	}
 	.content .curriculum-table th:nth-child(1),
@@ -710,20 +586,20 @@ html[data-theme="dark"] .document-row h2,html[data-theme="dark"] .download-list 
 		padding-top: 18px;
 	}
 	.content .soa-table table {
-		width: 100%;
-		min-width: 0;
-		table-layout: fixed;
-	}
-	.content .soa-table th,
-	.content .soa-table td {
-		padding-inline: 12px;
-	}
-	.content .soa-table th:nth-child(1),
-	.content .soa-table td:nth-child(1) { width: 13%; }
-	.content .soa-table th:nth-child(2),
-	.content .soa-table td:nth-child(2) { width: 22%; }
-	.content .soa-table th:nth-child(3),
-	.content .soa-table td:nth-child(3) { width: 15%; }
+	.content .soa-table table th,
+	.content .soa-table table td,
+	.content .soa-table table th:nth-child(1),
+	.content .soa-table table td:nth-child(1) { width: 16%; }
+	.content .soa-table table th:nth-child(2),
+	.content .soa-table table td:nth-child(2) { width: 27%; }
+	.content .soa-table table th:nth-child(3),
+	.content .soa-table table td:nth-child(3) { width: 18%; }
+	.content .soa-table table th:nth-child(4),
+	.content .soa-table table td:nth-child(4) { width: 15%; }
+	.content .soa-table table th:nth-child(5),
+	.content .soa-table table td:nth-child(5) { width: 17%; }
+	.content .soa-table table th:nth-child(6),
+	.content .soa-table table td:nth-child(6) { width: 7%; text-align: center; }
 	.content .soa-table th:nth-child(4),
 	.content .soa-table td:nth-child(4) { width: 19%; }
 	.content .soa-table th:nth-child(5),
@@ -781,7 +657,7 @@ html[data-theme="dark"] .service-section .document-row p,html[data-theme="dark"]
 .content .account-summary>div:last-child{border-right:0}
 .content .soa-table,.content .payment-options{margin:0 0 28px;overflow-x:auto;overscroll-behavior-x:contain}
 .content .soa-table .table-title,.content .payment-options .table-title{padding:0 0 15px}
-.content .soa-table table{min-width:720px}
+.content .soa-table table{min-width:0}
 .content .payment-method-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:0;border-top:1px solid var(--rule);background:transparent}
 .content .payment-method-grid button{min-height:92px;padding:18px 16px;border:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:transparent;color:var(--ink);text-align:left}
 .content .payment-method-grid button:nth-child(4n){border-right:0}
@@ -1671,6 +1547,192 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+@media (max-width: 800px) {
+	.content .curriculum-table-wrap,
+	.content .soa-table,
+	.content .table-card {
+		width: 100% !important;
+		max-width: 100% !important;
+		overflow-x: hidden !important;
+	}
+
+	.content .curriculum-table,
+	.content .soa-table table,
+	.content .payment-history-table {
+		width: 100% !important;
+		min-width: 0 !important;
+		max-width: 100% !important;
+		table-layout: fixed !important;
+	}
+
+	.content .curriculum-table th:nth-child(n + 8),
+	.content .curriculum-table td:nth-child(n + 8) {
+		display: none !important;
+	}
+}
+
+@media (max-width: 800px) {
+	.content .curriculum-table-wrap,
+	.content .soa-table,
+	.content .table-card {
+		width: 100% !important;
+		max-width: 100% !important;
+		overflow-x: hidden !important;
+	}
+
+	.content .curriculum-table,
+	.content .soa-table table,
+	.content .payment-history-table {
+		width: 100% !important;
+		min-width: 0 !important;
+		max-width: 100% !important;
+		table-layout: fixed !important;
+	}
+
+	.content .curriculum-table th:nth-child(n + 8),
+	.content .curriculum-table td:nth-child(n + 8) {
+		display: none !important;
+	}
+}
+
+@media (max-width: 800px) {
+	.content .curriculum-table-wrap,
+	.content .soa-table,
+	.content .table-card {
+		width: 100% !important;
+		max-width: 100% !important;
+		overflow-x: hidden !important;
+	}
+
+	.content .curriculum-table,
+	.content .soa-table table,
+	.content .payment-history-table {
+		width: 100% !important;
+		min-width: 0 !important;
+		max-width: 100% !important;
+		table-layout: fixed !important;
+	}
+
+	.content .curriculum-table th:nth-child(n + 8),
+	.content .curriculum-table td:nth-child(n + 8) {
+		display: none !important;
+	}
+}
+
+@media (max-width: 800px) {
+	.content .curriculum-table-wrap,
+	.content .soa-table,
+	.content .table-card {
+		width: 100% !important;
+		max-width: 100% !important;
+		overflow-x: hidden !important;
+	}
+
+	.content .curriculum-table,
+	.content .soa-table table,
+	.content .payment-history-table {
+		width: 100% !important;
+		min-width: 0 !important;
+		max-width: 100% !important;
+		table-layout: fixed !important;
+	}
+
+	.content .curriculum-table th:nth-child(n + 8),
+	.content .curriculum-table td:nth-child(n + 8) {
+		display: none !important;
+	}
+}
+
+.schedule-toolbar {
+	align-items: end;
+	flex-wrap: wrap;
+}
+
+.schedule-export {
+	margin-left: auto;
+}
+
+@media (max-width: 800px) {
+	.content .schedule-toolbar {
+		align-items: stretch;
+		gap: 12px;
+	}
+
+	.content .schedule-toolbar > label {
+		flex: 1 1 100%;
+	}
+
+	.content .schedule-toolbar .term-switch {
+		flex: 1 1 auto;
+	}
+
+	.content .schedule-toolbar .schedule-export {
+		margin-left: 0;
+	}
+
+	.content .curriculum-table,
+	.content .soa-detail-table,
+	.content .payment-history-table {
+		width: 100% !important;
+		min-width: 0 !important;
+		table-layout: fixed !important;
+	}
+
+	.content .curriculum-table th,
+	.content .curriculum-table td,
+	.content .soa-detail-table th,
+	.content .soa-detail-table td,
+	.content .payment-history-table th,
+	.content .payment-history-table td {
+		padding: 9px 5px;
+		font-size: 9px;
+		line-height: 1.25;
+		word-break: normal;
+		overflow-wrap: anywhere;
+	}
+
+	.content .curriculum-table th:nth-child(1),
+	.content .curriculum-table td:nth-child(1) { width: 7% !important; }
+	.content .curriculum-table th:nth-child(2),
+	.content .curriculum-table td:nth-child(2) { width: 8% !important; }
+	.content .curriculum-table th:nth-child(3),
+	.content .curriculum-table td:nth-child(3) { width: 19% !important; }
+	.content .curriculum-table th:nth-child(4),
+	.content .curriculum-table td:nth-child(4) { width: 36% !important; }
+	.content .curriculum-table th:nth-child(5),
+	.content .curriculum-table td:nth-child(5),
+	.content .curriculum-table th:nth-child(6),
+	.content .curriculum-table td:nth-child(6),
+	.content .curriculum-table th:nth-child(7),
+	.content .curriculum-table td:nth-child(7) { width: 10% !important; }
+	.content .curriculum-table th:nth-child(n + 8),
+	.content .curriculum-table td:nth-child(n + 8) { display: none; }
+
+	.content .soa-detail-table th:nth-child(1),
+	.content .soa-detail-table td:nth-child(1) { width: 16%; }
+	.content .soa-detail-table th:nth-child(2),
+	.content .soa-detail-table td:nth-child(2) { width: 27%; }
+	.content .soa-detail-table th:nth-child(3),
+	.content .soa-detail-table td:nth-child(3) { width: 18%; }
+	.content .soa-detail-table th:nth-child(4),
+	.content .soa-detail-table td:nth-child(4) { width: 15%; }
+	.content .soa-detail-table th:nth-child(5),
+	.content .soa-detail-table td:nth-child(5) { width: 17%; }
+	.content .soa-detail-table th:nth-child(6),
+	.content .soa-detail-table td:nth-child(6) { width: 7%; text-align: center; }
+
+	.content .payment-history-table th:nth-child(1),
+	.content .payment-history-table td:nth-child(1) { width: 18%; }
+	.content .payment-history-table th:nth-child(2),
+	.content .payment-history-table td:nth-child(2) { width: 30%; }
+	.content .payment-history-table th:nth-child(3),
+	.content .payment-history-table td:nth-child(3) { width: 20%; }
+	.content .payment-history-table th:nth-child(4),
+	.content .payment-history-table td:nth-child(4) { width: 15%; }
+	.content .payment-history-table th:nth-child(5),
+	.content .payment-history-table td:nth-child(5) { width: 17%; }
+}
+
 /* Final typography contract: one readable sans family and one display family. */
 body,
 body * {
@@ -1795,8 +1857,8 @@ html[data-theme="dark"] .content .certificate-card .assessment-number {
 
 @media (max-width: 800px) {
 	.content .curriculum-table {
-		width: 1480px !important;
-		min-width: 1480px !important;
+		width: 100% !important;
+		min-width: 0 !important;
 		table-layout: fixed !important;
 	}
 	.content .curriculum-table th,
@@ -1805,25 +1867,37 @@ html[data-theme="dark"] .content .certificate-card .assessment-number {
 		vertical-align: middle;
 	}
 	.content .curriculum-table th:nth-child(1),
-	.content .curriculum-table td:nth-child(1) { width: 70px !important; }
+	.content .curriculum-table td:nth-child(1) { width: 7% !important; }
 	.content .curriculum-table th:nth-child(2),
-	.content .curriculum-table td:nth-child(2) { width: 70px !important; }
+	.content .curriculum-table td:nth-child(2) { width: 8% !important; }
 	.content .curriculum-table th:nth-child(3),
-	.content .curriculum-table td:nth-child(3) { width: 150px !important; }
+	.content .curriculum-table td:nth-child(3) { width: 19% !important; }
 	.content .curriculum-table th:nth-child(4),
-	.content .curriculum-table td:nth-child(4) { width: 300px !important; }
+	.content .curriculum-table td:nth-child(4) { width: 36% !important; }
 	.content .curriculum-table th:nth-child(5),
 	.content .curriculum-table td:nth-child(5),
 	.content .curriculum-table th:nth-child(6),
-	.content .curriculum-table td:nth-child(6) { width: 80px !important; }
+	.content .curriculum-table td:nth-child(6) { width: 10% !important; }
 	.content .curriculum-table th:nth-child(7),
-	.content .curriculum-table td:nth-child(7) { width: 95px !important; }
+	.content .curriculum-table td:nth-child(7) { width: 10% !important; }
 	.content .curriculum-table th:nth-child(8),
 	.content .curriculum-table td:nth-child(8),
 	.content .curriculum-table th:nth-child(9),
 	.content .curriculum-table td:nth-child(9),
 	.content .curriculum-table th:nth-child(10),
-	.content .curriculum-table td:nth-child(10) { width: 185px !important; }
+	.content .curriculum-table td:nth-child(10) { display: none !important; }
+	.content .curriculum-table th:nth-child(n + 8),
+	.content .curriculum-table td:nth-child(n + 8) { display: none !important; }
+	.content .payment-history-table {
+		width: 100% !important;
+		min-width: 0 !important;
+		table-layout: fixed !important;
+	}
+	.content .soa-table table {
+		width: 100% !important;
+		min-width: 0 !important;
+		table-layout: fixed !important;
+	}
 }
 
 @media(min-width:801px) {

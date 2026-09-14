@@ -1,0 +1,99 @@
+@media (max-width: 800px) {
+  .content .curriculum-table-wrap,
+  .content .soa-table,
+  .content .table-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .content .curriculum-table,
+  .content .soa-table table,
+  .content .payment-history-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  .content .curriculum-table th,
+  .content .curriculum-table td,
+  .content .soa-table table th,
+  .content .soa-table table td,
+  .content .payment-history-table th,
+  .content .payment-history-table td {
+    padding: 8px 4px !important;
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .content .curriculum-table th:nth-child(1),
+  .content .curriculum-table td:nth-child(1) { width: 7% !important; }
+  .content .curriculum-table th:nth-child(2),
+  .content .curriculum-table td:nth-child(2) { width: 8% !important; }
+  .content .curriculum-table th:nth-child(3),
+  .content .curriculum-table td:nth-child(3) { width: 19% !important; }
+  .content .curriculum-table th:nth-child(4),
+  .content .curriculum-table td:nth-child(4) { width: 36% !important; }
+  .content .curriculum-table th:nth-child(5),
+  .content .curriculum-table td:nth-child(5),
+  .content .curriculum-table th:nth-child(6),
+  .content .curriculum-table td:nth-child(6),
+  .content .curriculum-table th:nth-child(7),
+  .content .curriculum-table td:nth-child(7) { width: 10% !important; text-align: center; }
+  .content .curriculum-table th:nth-child(n + 8),
+  .content .curriculum-table td:nth-child(n + 8) { display: none !important; }
+
+  .content .soa-table table th:nth-child(1),
+  .content .soa-table table td:nth-child(1) { width: 16% !important; }
+  .content .soa-table table th:nth-child(2),
+  .content .soa-table table td:nth-child(2) { width: 27% !important; }
+  .content .soa-table table th:nth-child(3),
+  .content .soa-table table td:nth-child(3) { width: 18% !important; }
+  .content .soa-table table th:nth-child(4),
+  .content .soa-table table td:nth-child(4) { width: 15% !important; }
+  .content .soa-table table th:nth-child(5),
+  .content .soa-table table td:nth-child(5) { width: 17% !important; }
+  .content .soa-table table th:nth-child(6),
+  .content .soa-table table td:nth-child(6) { width: 7% !important; text-align: center; }
+
+  .content .payment-history-table th:nth-child(1),
+  .content .payment-history-table td:nth-child(1) { width: 18% !important; }
+  .content .payment-history-table th:nth-child(2),
+  .content .payment-history-table td:nth-child(2) { width: 30% !important; }
+  .content .payment-history-table th:nth-child(3),
+  .content .payment-history-table td:nth-child(3) { width: 20% !important; }
+  .content .payment-history-table th:nth-child(4),
+  .content .payment-history-table td:nth-child(4) { width: 15% !important; }
+  .content .payment-history-table th:nth-child(5),
+  .content .payment-history-table td:nth-child(5) { width: 17% !important; }
+}
+
+.schedule-toolbar {
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.schedule-export {
+  margin-left: auto;
+}
+
+@media (max-width: 800px) {
+  .content .schedule-toolbar {
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .content .schedule-toolbar > label {
+    flex: 1 1 100%;
+  }
+
+  .content .schedule-toolbar .term-switch {
+    flex: 1 1 auto;
+  }
+
+  .content .schedule-toolbar .schedule-export {
+    margin-left: 0;
+  }
+}
