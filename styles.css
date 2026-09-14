@@ -727,9 +727,9 @@ html[data-theme="dark"] .content .table-card tbody tr:hover td,html[data-theme="
 .content .table-card,.content .soa-table,.content .payment-options,.content .download-list,.content .service-section .document-list{margin:24px 0 0}
 .content .table-title{padding:16px 0;border-bottom:1px solid var(--rule)}
 .content .table-title h2,.content .payment-options h2{font-size:22px;line-height:1.2}
-.content .table-card th,.content .table-card td,.content .soa-table th,.content .soa-table td{padding:14px 12px}
-.content .table-card th:first-child,.content .table-card td:first-child,.content .soa-table th:first-child,.content .soa-table td:first-child{padding-left:0}
-.content .table-card th:last-child,.content .table-card td:last-child,.content .soa-table th:last-child,.content .soa-table td:last-child{padding-right:0}
+.content .table-card th,.content .table-card td,.content .soa-table th,.content .soa-table td{padding:14px 16px}
+.content .table-card th:first-child,.content .table-card td:first-child,.content .soa-table th:first-child,.content .soa-table td:first-child{padding-left:12px}
+.content .table-card th:last-child,.content .table-card td:last-child,.content .soa-table th:last-child,.content .soa-table td:last-child{padding-right:12px}
 .content .payment-options .table-title{padding:0 0 16px}
 .content .payment-method-grid{margin-top:0;border-top:1px solid var(--rule)}
 .content .payment-method-grid button{min-height:92px;padding:18px 16px;text-align:left}
@@ -739,7 +739,7 @@ html[data-theme="dark"] .content .table-card tbody tr:hover td,html[data-theme="
 html[data-theme="dark"] .content .data-card{border-color:var(--rule);color:var(--ink)}
 html[data-theme="dark"] .content .table-title,html[data-theme="dark"] .content .payment-options .table-title{color:var(--ink);border-color:var(--rule)}
 html[data-theme="dark"] .content .table-card td,html[data-theme="dark"] .content .soa-table td{color:var(--ink)}
-@media(max-width:800px){.content .data-grid{gap:0;margin:18px 0 28px}.content .data-card{min-height:96px;padding:16px 0}.content .table-card,.content .soa-table,.content .payment-options,.content .download-list,.content .service-section .document-list{margin-top:20px}.content .table-title{padding:14px 0}.content .table-title h2,.content .payment-options h2{font-size:20px}.content .payment-method-grid button{min-height:80px;padding:14px 12px}.content .service-section + .service-section{margin-top:36px}.content .service-section .document-row,.content .service-section .download-list>div{min-height:76px;padding:14px 12px}}
+@media(max-width:800px){.content .data-grid{gap:0;margin:18px 0 28px}.content .data-card{min-height:96px;padding:16px 0}.content .table-card,.content .soa-table,.content .payment-options,.content .download-list,.content .service-section .document-list{margin-top:20px}.content .table-title{padding:14px 0}.content .table-title h2,.content .payment-options h2{font-size:20px}.content .table-card th,.content .table-card td,.content .soa-table th,.content .soa-table td{padding:12px 14px}.content .table-card th:first-child,.content .table-card td:first-child,.content .soa-table th:first-child,.content .soa-table td:first-child{padding-left:10px}.content .table-card th:last-child,.content .table-card td:last-child,.content .soa-table th:last-child,.content .soa-table td:last-child{padding-right:10px}.content .payment-method-grid button{min-height:80px;padding:14px 12px}.content .service-section + .service-section{margin-top:36px}.content .service-section .document-row,.content .service-section .download-list>div{min-height:76px;padding:14px 12px}}
 
 /* Stable surface rules for finance, forms, documents, and action controls. */
 .content .account-summary,
