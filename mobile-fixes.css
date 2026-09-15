@@ -523,3 +523,136 @@
     line-height: 1.15;
   }
 }
+
+/* Match the compact day-view baseline used by the earlier mobile schedule. */
+@media (max-width: 800px) {
+  .mobile-schedule-controls {
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+    margin: 4px 0 12px;
+  }
+
+  .schedule-mobile-days {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .mobile-day-button {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 40px;
+    padding: 8px 2px;
+    color: var(--red);
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    background: var(--paper);
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .mobile-day-button.active,
+  .mobile-day-button[aria-selected="true"] {
+    color: #fff;
+    border-color: var(--red);
+    background: var(--red);
+  }
+
+  .schedule-full-view-toggle {
+    flex: 0 0 auto;
+    align-self: stretch;
+    min-height: 40px;
+    padding: 8px 10px;
+  }
+
+  .schedule-mobile-list {
+    border-top: 0;
+  }
+
+  .schedule-mobile-list .mobile-day {
+    padding: 0;
+  }
+
+  .schedule-mobile-list .mobile-day h2 {
+    margin: 0 0 10px;
+    color: var(--ink);
+    font: 400 22px/1.15 Georgia, "Times New Roman", serif;
+  }
+
+  .mobile-class {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 12px;
+    align-items: center;
+    margin: 0;
+    padding: 16px 12px;
+    border: 1px solid var(--rule);
+    border-bottom: 0;
+    background: var(--paper);
+  }
+
+  .mobile-class:first-of-type {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+
+  .mobile-class:last-of-type {
+    border-bottom: 1px solid var(--rule);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+
+  .mobile-class-time {
+    align-self: center;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .mobile-class .class-block {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    text-align: left !important;
+  }
+
+  .mobile-class .class-block strong,
+  .mobile-class .class-block span,
+  .mobile-class .class-block small {
+    width: 100% !important;
+    color: var(--ink);
+    text-align: left !important;
+    white-space: normal;
+  }
+
+  .mobile-class .class-block strong { color: var(--red); font-size: 12px; }
+  .mobile-class .class-block span { font-size: 10px; }
+  .mobile-class .class-block small { color: var(--muted); font-size: 10px; }
+
+  html[data-theme="dark"] .mobile-day-button {
+    color: var(--ink);
+    border-color: var(--rule);
+    background: var(--paper);
+  }
+
+  html[data-theme="dark"] .mobile-day-button.active,
+  html[data-theme="dark"] .mobile-day-button[aria-selected="true"] {
+    color: #fff;
+    border-color: var(--red);
+    background: var(--red);
+  }
+
+  html[data-theme="dark"] .mobile-class {
+    background: var(--paper);
+    border-color: var(--rule);
+  }
+}
