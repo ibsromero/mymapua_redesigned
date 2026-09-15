@@ -201,6 +201,131 @@
   .content .payment-history-table th:nth-child(5),
   .content .payment-history-table td:nth-child(5) { width: 15% !important; }
 
+  .mobile-schedule-controls {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    margin: 6px 0 16px;
+  }
+
+  .schedule-mobile-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+    width: 100%;
+  }
+
+  .mobile-day-button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 8px 2px;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: var(--paper);
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .mobile-day-button.active,
+  .mobile-day-button[aria-selected="true"] {
+    color: #fff;
+    border-color: var(--red);
+    background: var(--red);
+  }
+
+  .schedule-full-view-toggle { align-self: flex-end; }
+  .schedule-mobile-list { border-top: 1px solid var(--ink); }
+  .schedule-mobile-list .mobile-day { padding-top: 14px; }
+  .schedule-mobile-list .mobile-day h2 {
+    margin: 0 0 12px;
+    color: var(--ink);
+    font: 400 24px/1.15 Georgia, "Times New Roman", serif;
+  }
+
+  .mobile-class {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 12px;
+    align-items: stretch;
+    margin-bottom: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .mobile-class-time {
+    align-self: center;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .mobile-class .class-block {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 68px !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    border: 1px solid color-mix(in srgb, var(--red) 55%, var(--rule)) !important;
+    border-radius: 2px;
+    background: color-mix(in srgb, var(--red-soft) 45%, var(--paper)) !important;
+    text-align: left !important;
+  }
+
+  .mobile-class .class-block strong,
+  .mobile-class .class-block span,
+  .mobile-class .class-block small {
+    width: 100% !important;
+    color: var(--ink);
+    text-align: left !important;
+    white-space: normal;
+  }
+
+  .mobile-class .class-block strong { color: var(--red); font-size: 12px; }
+  .mobile-class .class-block span { font-size: 10px; }
+  .mobile-class .class-block small { color: var(--muted); font-size: 10px; }
+  .mobile-empty { margin: 0; padding: 18px 0; color: var(--muted); font-size: 11px; }
+
+  .content .curriculum-table-wrap,
+  .content .soa-table,
+  .content .table-card {
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain;
+  }
+
+  .content .curriculum-table { width: 1020px !important; min-width: 1020px !important; table-layout: auto !important; }
+  .content .soa-table table { width: 720px !important; min-width: 720px !important; table-layout: auto !important; }
+  .content .payment-history-table { width: 650px !important; min-width: 650px !important; table-layout: auto !important; }
+
+  .content .curriculum-table th,
+  .content .curriculum-table td,
+  .content .soa-table table th,
+  .content .soa-table table td,
+  .content .payment-history-table th,
+  .content .payment-history-table td {
+    padding: 12px 10px !important;
+    font-size: 10px !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    vertical-align: middle;
+  }
+
+  .content .curriculum-table th:nth-child(n + 8),
+  .content .curriculum-table td:nth-child(n + 8) { display: table-cell !important; }
+
+  html[data-theme="dark"] .mobile-day-button { color: var(--ink); border-color: var(--rule); background: var(--paper); }
+  html[data-theme="dark"] .mobile-day-button.active,
+  html[data-theme="dark"] .mobile-day-button[aria-selected="true"] { color: #fff; background: var(--red); }
+  html[data-theme="dark"] .mobile-class .class-block { background: #2b2f36 !important; border-color: #8f5960 !important; }
+  html[data-theme="dark"] .mobile-class .class-block strong { color: #f3d47a; }
+  html[data-theme="dark"] .mobile-class .class-block span { color: var(--ink); }
+  html[data-theme="dark"] .mobile-class .class-block small { color: var(--muted); }
+
   .content .grade-history-table th:nth-child(1),
   .content .grade-history-table td:nth-child(1) { width: 34% !important; }
   .content .grade-history-table th:nth-child(2),

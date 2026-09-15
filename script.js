@@ -177,10 +177,10 @@ function scheduleView() {
   const currentDay = days[new Date().getDay()];
   const mobileDays = days.map((day, dayIndex) => {
     const classes = scheduleRows.flatMap((row) => row[1][dayIndex] ? [`<article class="mobile-class"><span class="mobile-class-time">${row[0]}</span>${scheduleCell(row[1][dayIndex], row[0], day)}</article>`] : []);
-    return `<section class="mobile-day${day === currentDay ? ' active' : ''}" data-day="${day}"><h2>${day}</h2>${classes.join('') || '<p class="mobile-empty">No classes scheduled.</p>'}</section>`;
+    return `<section class="mobile-day${day === currentDay ? ' active' : ''}" data-day="${day}" aria-hidden="${day !== currentDay}"><h2>${day}</h2>${classes.join('') || '<p class="mobile-empty">No classes scheduled.</p>'}</section>`;
   }).join('');
   const scheduleTable = scheduleRows.map((row) => `<tr><th scope="row">${row[0]}</th>${row[1].map((course, dayIndex) => `<td>${scheduleCell(course, row[0], days[dayIndex])}</td>`).join('')}</tr>`).join('');
-  return `<div class="schedule-toolbar"><label>School year<select><option>2026-2027</option></select></label><div class="term-switch"><button class="active" type="button">Term 1</button><button type="button">Term 2</button></div><button class="quiet-button schedule-export" type="button">Export schedule</button></div><div class="mobile-schedule-controls"><div class="schedule-mobile-days" role="tablist" aria-label="Schedule day"><button class="mobile-day-button${currentDay === 'Sunday' ? ' active' : ''}" type="button" data-day="Sunday">Sun</button>${days.slice(1, 6).map((day) => `<button class="mobile-day-button${day === currentDay ? ' active' : ''}" type="button" data-day="${day}">${day.slice(0, 3)}</button>`).join('')}<button class="mobile-day-button${currentDay === 'Saturday' ? ' active' : ''}" type="button" data-day="Saturday">Sat</button></div><button class="schedule-full-view-toggle" type="button" aria-expanded="false"><span class="full-view-icon" aria-hidden="true"></span><span>Full view</span></button></div><div class="schedule-mobile-list">${mobileDays}</div><div class="weekly-schedule"><table class="schedule-table"><thead><tr><th>Time</th>${days.map((day) => `<th>${day}</th>`).join('')}</tr></thead><tbody>${scheduleTable}</tbody></table></div>`;
+  return `<div class="schedule-toolbar"><label>School year<select><option>2026-2027</option></select></label><div class="term-switch"><button class="active" type="button">Term 1</button><button type="button">Term 2</button></div><button class="quiet-button schedule-export" type="button">Export schedule</button></div><div class="mobile-schedule-controls"><div class="schedule-mobile-days" role="tablist" aria-label="Schedule day"><button class="mobile-day-button${currentDay === 'Sunday' ? ' active' : ''}" type="button" role="tab" aria-selected="${currentDay === 'Sunday'}" data-day="Sunday">Sun</button>${days.slice(1, 6).map((day) => `<button class="mobile-day-button${day === currentDay ? ' active' : ''}" type="button" role="tab" aria-selected="${day === currentDay}" data-day="${day}">${day.slice(0, 3)}</button>`).join('')}<button class="mobile-day-button${currentDay === 'Saturday' ? ' active' : ''}" type="button" role="tab" aria-selected="${currentDay === 'Saturday'}" data-day="Saturday">Sat</button></div><button class="schedule-full-view-toggle" type="button" aria-expanded="false"><span class="full-view-icon" aria-hidden="true"></span><span>Full view</span></button></div><div class="schedule-mobile-list">${mobileDays}</div><div class="weekly-schedule"><table class="schedule-table"><thead><tr><th>Time</th>${days.map((day) => `<th>${day}</th>`).join('')}</tr></thead><tbody>${scheduleTable}</tbody></table></div>`;
 }
 pageData['#schedule'][2] = scheduleView();
 function historyTable() { return `<table class="payment-history-table"><thead><tr><th>Term</th><th>Description</th><th>Payment date</th><th>OR number</th><th class="amount">Amount</th></tr></thead><tbody>${paymentRows.map((row) => `<tr>${row.slice(0, 4).map((cell) => `<td>${cell}</td>`).join('')}<td class="amount">₱ ${row[4]}</td></tr>`).join('')}</tbody></table>`; }
@@ -363,8 +363,16 @@ function bindActions() {
   document.querySelectorAll('.mobile-day-button').forEach((button) => button.addEventListener('click', () => {
     const schedule = button.closest('.content');
     const day = button.dataset.day;
-    schedule.querySelectorAll('.mobile-day-button').forEach((item) => item.classList.toggle('active', item === button));
-    schedule.querySelectorAll('.mobile-day').forEach((item) => item.classList.toggle('active', item.dataset.day === day));
+    schedule.querySelectorAll('.mobile-day-button').forEach((item) => {
+      const isActive = item === button;
+      item.classList.toggle('active', isActive);
+      item.setAttribute('aria-selected', String(isActive));
+    });
+    schedule.querySelectorAll('.mobile-day').forEach((item) => {
+      const isActive = item.dataset.day === day;
+      item.classList.toggle('active', isActive);
+      item.setAttribute('aria-hidden', String(!isActive));
+    });
   }));
   document.querySelectorAll('.schedule-full-view-toggle').forEach((button) => button.addEventListener('click', () => {
     const schedule = button.closest('.page-heading')?.nextElementSibling?.parentElement || button.closest('main');
