@@ -97,3 +97,122 @@
     margin-left: 0;
   }
 }
+
+/* Final mobile layout contract for routed content. */
+@media (max-width: 800px) {
+  .content .dashboard-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 38px !important;
+    margin-top: 38px !important;
+  }
+
+  .content .primary-column,
+  .content .secondary-column {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .content .section-heading {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .content .announcement-item,
+  .content .quick-card,
+  .content .support-card,
+  .content .schedule-card {
+    min-width: 0;
+  }
+
+  .content .schedule-mobile-list {
+    min-width: 0;
+  }
+
+  .content .schedule-mobile-list .mobile-day {
+    display: none;
+  }
+
+  .content .schedule-mobile-list .mobile-day.active {
+    display: block;
+  }
+
+  .content .grade-history-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+  }
+
+  .content .grade-history-table th,
+  .content .grade-history-table td {
+    padding-inline: 8px !important;
+    overflow-wrap: anywhere;
+  }
+
+  .content .grade-history-table th:nth-child(1),
+  .content .grade-history-table td:nth-child(1) { width: 34% !important; }
+  .content .grade-history-table th:nth-child(2),
+  .content .grade-history-table td:nth-child(2) { width: 23% !important; }
+  .content .grade-history-table th:nth-child(3),
+  .content .grade-history-table td:nth-child(3) { width: 18% !important; }
+  .content .grade-history-table th:nth-child(4),
+  .content .grade-history-table td:nth-child(4) { width: 15% !important; }
+  .content .grade-history-table th:nth-child(5),
+  .content .grade-history-table td:nth-child(5) { display: none !important; }
+
+  .content .curriculum-table-wrap,
+  .content .soa-table {
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain;
+  }
+
+  .content .curriculum-table {
+    width: 820px !important;
+    min-width: 820px !important;
+    table-layout: fixed !important;
+  }
+
+  .content .curriculum-table th,
+  .content .curriculum-table td {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .content .soa-table table {
+    width: 680px !important;
+    min-width: 680px !important;
+    table-layout: fixed !important;
+  }
+
+  .content .soa-table .table-title {
+    position: sticky;
+    left: 0;
+  }
+
+  .content .payment-history-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+  }
+
+  .content .payment-history-table th,
+  .content .payment-history-table td {
+    padding-inline: 6px !important;
+    overflow-wrap: anywhere;
+  }
+
+  .content .certificate-card {
+    width: 100% !important;
+    padding: 24px 22px !important;
+  }
+
+  .content .certificate-card h2 {
+    max-width: 100%;
+    font-size: 20px;
+  }
+
+  .content .certificate-card p {
+    max-width: 100%;
+    font-size: 11px;
+  }
+}
