@@ -216,3 +216,140 @@
     font-size: 11px;
   }
 }
+
+@media (max-width: 800px) {
+  .content .contact-form,
+  .content .contact-form > .form-section-heading,
+  .content .contact-form > fieldset,
+  .content .contact-form .contact-person {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  .content .metric-card .statement-link {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 4px;
+  }
+
+  .content .curriculum-table-wrap,
+  .content .soa-table,
+  .content .table-card {
+    overflow-x: hidden !important;
+  }
+
+  .content .curriculum-table,
+  .content .soa-table table,
+  .content .payment-history-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  .content .curriculum-table th,
+  .content .curriculum-table td,
+  .content .soa-table table th,
+  .content .soa-table table td,
+  .content .payment-history-table th,
+  .content .payment-history-table td {
+    padding: 9px 5px !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+    vertical-align: top;
+  }
+
+  .content .curriculum-table th:nth-child(1),
+  .content .curriculum-table td:nth-child(1) { width: 7% !important; }
+  .content .curriculum-table th:nth-child(2),
+  .content .curriculum-table td:nth-child(2) { width: 7% !important; }
+  .content .curriculum-table th:nth-child(3),
+  .content .curriculum-table td:nth-child(3) { width: 19% !important; }
+  .content .curriculum-table th:nth-child(4),
+  .content .curriculum-table td:nth-child(4) { width: 37% !important; }
+  .content .curriculum-table th:nth-child(5),
+  .content .curriculum-table td:nth-child(5),
+  .content .curriculum-table th:nth-child(6),
+  .content .curriculum-table td:nth-child(6),
+  .content .curriculum-table th:nth-child(7),
+  .content .curriculum-table td:nth-child(7) { width: 10% !important; text-align: center; }
+  .content .curriculum-table th:nth-child(n + 8),
+  .content .curriculum-table td:nth-child(n + 8) { display: none !important; }
+
+  .content .soa-table table th:nth-child(1),
+  .content .soa-table table td:nth-child(1) { width: 15% !important; }
+  .content .soa-table table th:nth-child(2),
+  .content .soa-table table td:nth-child(2) { width: 28% !important; }
+  .content .soa-table table th:nth-child(3),
+  .content .soa-table table td:nth-child(3) { width: 19% !important; }
+  .content .soa-table table th:nth-child(4),
+  .content .soa-table table td:nth-child(4) { width: 17% !important; }
+  .content .soa-table table th:nth-child(5),
+  .content .soa-table table td:nth-child(5) { width: 14% !important; }
+  .content .soa-table table th:nth-child(6),
+  .content .soa-table table td:nth-child(6) { width: 7% !important; text-align: center; }
+
+  .content .payment-history-table th:nth-child(1),
+  .content .payment-history-table td:nth-child(1) { width: 17% !important; }
+  .content .payment-history-table th:nth-child(2),
+  .content .payment-history-table td:nth-child(2) { width: 30% !important; }
+  .content .payment-history-table th:nth-child(3),
+  .content .payment-history-table td:nth-child(3) { width: 20% !important; }
+  .content .payment-history-table th:nth-child(4),
+  .content .payment-history-table td:nth-child(4) { width: 18% !important; }
+  .content .payment-history-table th:nth-child(5),
+  .content .payment-history-table td:nth-child(5) { width: 15% !important; }
+
+  .content .schedule-toolbar {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .content .schedule-toolbar .term-switch,
+  .content .schedule-toolbar .schedule-export {
+    flex: 1 1 0;
+  }
+
+  .schedule-export-menu {
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    display: grid;
+    min-width: 160px;
+    margin-top: 4px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    box-shadow: 0 8px 18px rgba(25, 25, 25, .12);
+  }
+}
+
+.schedule-toolbar { position: relative; }
+.schedule-export-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 5;
+  display: grid;
+  min-width: 170px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  box-shadow: 0 8px 18px rgba(25, 25, 25, .12);
+}
+.schedule-export-menu button {
+  min-height: 40px;
+  padding: 9px 12px;
+  color: var(--ink);
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+.schedule-export-menu button:last-child { border-bottom: 0; }
+.schedule-export-menu button:hover { color: var(--red); background: var(--red-soft); }

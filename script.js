@@ -232,7 +232,69 @@ function applyReferenceFieldConstraints() {
 }
 
 function showToast(message) { toast.textContent = message; toast.classList.add('show'); window.clearTimeout(showToast.timeout); showToast.timeout = window.setTimeout(() => toast.classList.remove('show'), 2600); }
-function exportSchedule() {
+function downloadBlob(blob, filename) {
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+}
+
+async function renderScheduleCanvas() {
+  const source = document.querySelector('.weekly-schedule');
+  if (!source || typeof window.html2canvas !== 'function') throw new Error('Schedule export is unavailable.');
+  const exportSurface = source.cloneNode(true);
+  exportSurface.classList.add('schedule-export-surface');
+  exportSurface.style.cssText = 'position:fixed;left:-10000px;top:0;display:block;width:1120px;max-width:none;min-width:1120px;overflow:visible;padding:24px;background:#fff;z-index:-1;';
+  const table = exportSurface.querySelector('.schedule-table');
+  if (table) table.style.cssText = 'display:table;width:1072px;min-width:1072px;table-layout:fixed;';
+  document.body.appendChild(exportSurface);
+  try {
+    return await window.html2canvas(exportSurface, { scale: 2, backgroundColor: '#ffffff', logging: false });
+  } finally {
+    exportSurface.remove();
+  }
+}
+
+async function exportSchedule(format) {
+  try {
+    const canvas = await renderScheduleCanvas();
+    if (format === 'pdf') {
+      if (!window.jspdf?.jsPDF) throw new Error('PDF export is unavailable.');
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({ orientation: 'landscape', unit: 'px', format: [canvas.width, canvas.height] });
+      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, canvas.width, canvas.height);
+      pdf.save('mymapua-schedule.pdf');
+    } else {
+      const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+      downloadBlob(blob, 'mymapua-schedule.png');
+    }
+    showToast(`Schedule exported as ${format === 'pdf' ? 'PDF' : 'PNG'}.`);
+  } catch (error) {
+    showToast(error.message || 'The schedule could not be exported.');
+  }
+}
+
+function openScheduleExportMenu(button) {
+  const existingMenu = button.parentElement.querySelector('.schedule-export-menu');
+  if (existingMenu) {
+    existingMenu.remove();
+    return;
+  }
+  const menu = document.createElement('div');
+  menu.className = 'schedule-export-menu';
+  menu.setAttribute('role', 'menu');
+  menu.innerHTML = '<button type="button" role="menuitem" data-export-format="pdf">Download PDF</button><button type="button" role="menuitem" data-export-format="png">Download image</button>';
+  menu.addEventListener('click', (event) => {
+    const item = event.target.closest('[data-export-format]');
+    if (!item) return;
+    menu.remove();
+    exportSchedule(item.dataset.exportFormat);
+  });
+  button.parentElement.appendChild(menu);
+}
+
+function exportScheduleCsv() {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const rows = [['Time', ...days]];
   scheduleRows.forEach(([time, courses]) => rows.push([time.replace(/<br\s*\/?>(\s*)/i, ' - ').replace(/\s+/g, ' ').trim(), ...courses.map((course) => course ? `${course.code} (${course.section}) - ${course.room}` : '')]));
@@ -242,7 +304,6 @@ function exportSchedule() {
   link.download = 'mymapua-schedule.csv';
   link.click();
   URL.revokeObjectURL(link.href);
-  showToast('Schedule exported successfully.');
 }
 function bindActions() {
   enhancePaymentLogos();
@@ -250,7 +311,7 @@ function bindActions() {
   document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => showToast(button.dataset.toast)));
   const helpButton = document.querySelector('#helpButton');
   if (helpButton) helpButton.addEventListener('click', () => { window.location.hash = '#faqs'; });
-  document.querySelectorAll('.schedule-export').forEach((button) => button.addEventListener('click', exportSchedule));
+  document.querySelectorAll('.schedule-export').forEach((button) => button.addEventListener('click', () => openScheduleExportMenu(button)));
   document.querySelectorAll('form').forEach((form) => form.addEventListener('submit', (event) => {
     event.preventDefault();
     showToast('Changes saved successfully.');
