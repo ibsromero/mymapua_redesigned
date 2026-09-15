@@ -1,105 +1,9 @@
 @media (max-width: 800px) {
-  .content .curriculum-table-wrap,
-  .content .soa-table,
-  .content .table-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
+  .content {
+    width: calc(100% - 32px);
+    min-width: 0;
   }
 
-  .content .curriculum-table,
-  .content .soa-table table,
-  .content .payment-history-table {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    table-layout: fixed !important;
-  }
-
-  .content .curriculum-table th,
-  .content .curriculum-table td,
-  .content .soa-table table th,
-  .content .soa-table table td,
-  .content .payment-history-table th,
-  .content .payment-history-table td {
-    padding: 8px 4px !important;
-    font-size: 9px !important;
-    line-height: 1.25 !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  .content .curriculum-table th:nth-child(1),
-  .content .curriculum-table td:nth-child(1) { width: 7% !important; }
-  .content .curriculum-table th:nth-child(2),
-  .content .curriculum-table td:nth-child(2) { width: 8% !important; }
-  .content .curriculum-table th:nth-child(3),
-  .content .curriculum-table td:nth-child(3) { width: 19% !important; }
-  .content .curriculum-table th:nth-child(4),
-  .content .curriculum-table td:nth-child(4) { width: 36% !important; }
-  .content .curriculum-table th:nth-child(5),
-  .content .curriculum-table td:nth-child(5),
-  .content .curriculum-table th:nth-child(6),
-  .content .curriculum-table td:nth-child(6),
-  .content .curriculum-table th:nth-child(7),
-  .content .curriculum-table td:nth-child(7) { width: 10% !important; text-align: center; }
-  .content .curriculum-table th:nth-child(n + 8),
-  .content .curriculum-table td:nth-child(n + 8) { display: none !important; }
-
-  .content .soa-table table th:nth-child(1),
-  .content .soa-table table td:nth-child(1) { width: 16% !important; }
-  .content .soa-table table th:nth-child(2),
-  .content .soa-table table td:nth-child(2) { width: 27% !important; }
-  .content .soa-table table th:nth-child(3),
-  .content .soa-table table td:nth-child(3) { width: 18% !important; }
-  .content .soa-table table th:nth-child(4),
-  .content .soa-table table td:nth-child(4) { width: 15% !important; }
-  .content .soa-table table th:nth-child(5),
-  .content .soa-table table td:nth-child(5) { width: 17% !important; }
-  .content .soa-table table th:nth-child(6),
-  .content .soa-table table td:nth-child(6) { width: 7% !important; text-align: center; }
-
-  .content .payment-history-table th:nth-child(1),
-  .content .payment-history-table td:nth-child(1) { width: 18% !important; }
-  .content .payment-history-table th:nth-child(2),
-  .content .payment-history-table td:nth-child(2) { width: 30% !important; }
-  .content .payment-history-table th:nth-child(3),
-  .content .payment-history-table td:nth-child(3) { width: 20% !important; }
-  .content .payment-history-table th:nth-child(4),
-  .content .payment-history-table td:nth-child(4) { width: 15% !important; }
-  .content .payment-history-table th:nth-child(5),
-  .content .payment-history-table td:nth-child(5) { width: 17% !important; }
-}
-
-.schedule-toolbar {
-  align-items: end;
-  flex-wrap: wrap;
-}
-
-.schedule-export {
-  margin-left: auto;
-}
-
-@media (max-width: 800px) {
-  .content .schedule-toolbar {
-    align-items: stretch;
-    gap: 12px;
-  }
-
-  .content .schedule-toolbar > label {
-    flex: 1 1 100%;
-  }
-
-  .content .schedule-toolbar .term-switch {
-    flex: 1 1 auto;
-  }
-
-  .content .schedule-toolbar .schedule-export {
-    margin-left: 0;
-  }
-}
-
-/* Final mobile layout contract for routed content. */
-@media (max-width: 800px) {
   .content .dashboard-grid {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) !important;
@@ -108,21 +12,99 @@
   }
 
   .content .primary-column,
-  .content .secondary-column {
-    width: 100% !important;
-    min-width: 0 !important;
-  }
-
-  .content .section-heading {
-    width: 100%;
-    min-width: 0;
-  }
-
+  .content .secondary-column,
+  .content .section-heading,
   .content .announcement-item,
   .content .quick-card,
   .content .support-card,
   .content .schedule-card {
+    width: 100%;
     min-width: 0;
+  }
+
+  .content .metric-card .statement-link {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 4px;
+  }
+
+  .content .contact-form,
+  .content .contact-form > .form-section-heading,
+  .content .contact-form > fieldset,
+  .content .contact-form .contact-person {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  .content .contact-form fieldset > .form-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .content .contact-form .name-grid,
+  .content .contact-form .phone-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px;
+  }
+
+  .content .contact-form .name-grid label:last-child,
+  .content .contact-form .phone-number {
+    grid-column: span 2;
+  }
+
+  .content .schedule-toolbar {
+    width: 100%;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .content .schedule-toolbar > label {
+    flex: 1 1 100%;
+  }
+
+  .content .schedule-toolbar .term-switch,
+  .content .schedule-toolbar .schedule-export {
+    flex: 1 1 0;
+    margin-left: 0;
+  }
+
+  .mobile-schedule-controls {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 12px;
+  }
+
+  .mobile-schedule-controls .schedule-mobile-days {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .mobile-schedule-controls .schedule-full-view-toggle {
+    flex: 0 0 auto;
+    min-height: 44px;
+  }
+
+  .content .weekly-schedule {
+    display: none !important;
+  }
+
+  .content.schedule-full-view .schedule-mobile-list {
+    display: none;
+  }
+
+  .content.schedule-full-view .weekly-schedule {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .content.schedule-full-view .schedule-table {
+    display: table !important;
+    width: 780px !important;
+    min-width: 780px !important;
   }
 
   .content .schedule-mobile-list {
@@ -137,111 +119,19 @@
     display: block;
   }
 
-  .content .grade-history-table {
-    width: 100% !important;
-    min-width: 0 !important;
-    table-layout: fixed !important;
-  }
-
-  .content .grade-history-table th,
-  .content .grade-history-table td {
-    padding-inline: 8px !important;
-    overflow-wrap: anywhere;
-  }
-
-  .content .grade-history-table th:nth-child(1),
-  .content .grade-history-table td:nth-child(1) { width: 34% !important; }
-  .content .grade-history-table th:nth-child(2),
-  .content .grade-history-table td:nth-child(2) { width: 23% !important; }
-  .content .grade-history-table th:nth-child(3),
-  .content .grade-history-table td:nth-child(3) { width: 18% !important; }
-  .content .grade-history-table th:nth-child(4),
-  .content .grade-history-table td:nth-child(4) { width: 15% !important; }
-  .content .grade-history-table th:nth-child(5),
-  .content .grade-history-table td:nth-child(5) { display: none !important; }
-
-  .content .curriculum-table-wrap,
-  .content .soa-table {
-    overflow-x: auto !important;
-    overscroll-behavior-x: contain;
-  }
-
-  .content .curriculum-table {
-    width: 820px !important;
-    min-width: 820px !important;
-    table-layout: fixed !important;
-  }
-
-  .content .curriculum-table th,
-  .content .curriculum-table td {
-    white-space: normal;
-    overflow-wrap: break-word;
-  }
-
-  .content .soa-table table {
-    width: 680px !important;
-    min-width: 680px !important;
-    table-layout: fixed !important;
-  }
-
-  .content .soa-table .table-title {
-    position: sticky;
-    left: 0;
-  }
-
-  .content .payment-history-table {
-    width: 100% !important;
-    min-width: 0 !important;
-    table-layout: fixed !important;
-  }
-
-  .content .payment-history-table th,
-  .content .payment-history-table td {
-    padding-inline: 6px !important;
-    overflow-wrap: anywhere;
-  }
-
-  .content .certificate-card {
-    width: 100% !important;
-    padding: 24px 22px !important;
-  }
-
-  .content .certificate-card h2 {
-    max-width: 100%;
-    font-size: 20px;
-  }
-
-  .content .certificate-card p {
-    max-width: 100%;
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 800px) {
-  .content .contact-form,
-  .content .contact-form > .form-section-heading,
-  .content .contact-form > fieldset,
-  .content .contact-form .contact-person {
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-  }
-
-  .content .metric-card .statement-link {
-    display: inline-flex;
-    width: fit-content;
-    margin-top: 4px;
-  }
-
   .content .curriculum-table-wrap,
   .content .soa-table,
   .content .table-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
     overflow-x: hidden !important;
   }
 
   .content .curriculum-table,
   .content .soa-table table,
-  .content .payment-history-table {
+  .content .payment-history-table,
+  .content .grade-history-table {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
@@ -253,7 +143,9 @@
   .content .soa-table table th,
   .content .soa-table table td,
   .content .payment-history-table th,
-  .content .payment-history-table td {
+  .content .payment-history-table td,
+  .content .grade-history-table th,
+  .content .grade-history-table td {
     padding: 9px 5px !important;
     font-size: 10px !important;
     line-height: 1.3 !important;
@@ -304,34 +196,76 @@
   .content .payment-history-table th:nth-child(5),
   .content .payment-history-table td:nth-child(5) { width: 15% !important; }
 
-  .content .schedule-toolbar {
-    width: 100%;
-    gap: 10px;
+  .content .grade-history-table th:nth-child(1),
+  .content .grade-history-table td:nth-child(1) { width: 34% !important; }
+  .content .grade-history-table th:nth-child(2),
+  .content .grade-history-table td:nth-child(2) { width: 23% !important; }
+  .content .grade-history-table th:nth-child(3),
+  .content .grade-history-table td:nth-child(3) { width: 18% !important; }
+  .content .grade-history-table th:nth-child(4),
+  .content .grade-history-table td:nth-child(4) { width: 15% !important; }
+  .content .grade-history-table th:nth-child(5),
+  .content .grade-history-table td:nth-child(5) { display: none !important; }
+
+  .content .grade-history-panel .history-controls,
+  .content .curriculum-history-controls {
+    align-items: stretch !important;
+    flex-direction: column !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
   }
 
-  .content .schedule-toolbar .term-switch,
-  .content .schedule-toolbar .schedule-export {
+  .content .grade-history-panel .history-controls label,
+  .content .grade-history-panel .history-controls select,
+  .content .curriculum-history-controls label,
+  .content .curriculum-history-controls select {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .content .grade-history-panel .grade-term-tabs {
+    width: 100% !important;
+  }
+
+  .content .grade-history-panel .grade-term-tabs button {
     flex: 1 1 0;
+    min-width: 0 !important;
   }
 
-  .schedule-export-menu {
-    position: absolute;
-    z-index: 5;
-    right: 0;
-    display: grid;
-    min-width: 160px;
-    margin-top: 4px;
-    border: 1px solid var(--rule);
-    background: var(--paper);
-    box-shadow: 0 8px 18px rgba(25, 25, 25, .12);
+  .content .grade-history-card .grade-summary {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .content .grade-history-card .grade-summary div {
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--rule) !important;
+  }
+
+  .content .grade-history-card .grade-summary div:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .content .certificate-card {
+    width: 100% !important;
+    padding: 24px 22px !important;
+  }
+
+  .content .certificate-card h2 {
+    max-width: 100%;
+    font-size: 20px;
+  }
+
+  .content .certificate-card p {
+    max-width: 100%;
+    font-size: 11px;
   }
 }
 
 .schedule-toolbar { position: relative; }
 .schedule-export-menu {
   position: absolute;
-  right: 0;
   top: 100%;
+  right: 0;
   z-index: 5;
   display: grid;
   min-width: 170px;
