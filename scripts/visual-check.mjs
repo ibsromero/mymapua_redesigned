@@ -12,7 +12,15 @@ const viewports = [
 ];
 
 await mkdir('.visual-checks', { recursive: true });
-const browser = await chromium.launch({ headless: true });
+let browser;
+try {
+  browser = await chromium.launch({ headless: true });
+} catch (error) {
+  const detail = error.message.includes('libatk-1.0.so.0')
+    ? 'Chromium is missing Linux GUI libraries. Run `npx playwright install-deps chromium` in a privileged container, then rerun.'
+    : error.message;
+  throw new Error(`Visual checks could not start: ${detail}`);
+}
 
 for (const viewport of viewports) {
   for (const theme of ['light', 'dark']) {
@@ -47,6 +55,27 @@ for (const viewport of viewports) {
       }
       if (responsiveState.controlBorder && (responsiveState.controlBorder === 'none' || responsiveState.controlMinHeight === '0px')) {
         throw new Error(`${viewport.name}/${theme}/${route}: shared control lost its visual contract`);
+      }
+      if (isMobile && route === '#curriculum') {
+        const curriculumState = await page.evaluate(() => {
+          const tables = [...document.querySelectorAll('.curriculum-table-wrap')];
+          return {
+            termCount: tables.length,
+            metadataCount: document.querySelectorAll('.curriculum-mobile-meta').length,
+            overflowingTables: tables.filter((wrap) => wrap.scrollWidth > wrap.clientWidth + 1).length,
+          };
+        });
+        if (curriculumState.termCount === 0 || curriculumState.metadataCount === 0 || curriculumState.overflowingTables > 0) {
+          throw new Error(`${viewport.name}/${theme}/${route}: mobile curriculum content is missing or horizontally clipped`);
+        }
+      }
+      if (isMobile && (route === '#soa' || route === '#payments')) {
+        const tableState = await page.evaluate(() => [...document.querySelectorAll('.soa-table, .table-card')]
+          .filter((card) => card.querySelector('table'))
+          .map((card) => ({ overflow: card.scrollWidth > card.clientWidth + 1 })));
+        if (tableState.some((table) => table.overflow)) {
+          throw new Error(`${viewport.name}/${theme}/${route}: mobile finance table overflows its card`);
+        }
       }
       if (route === '#contact') {
         const profileLayout = await page.evaluate(() => {
@@ -112,6 +141,17 @@ for (const viewport of viewports) {
           await page.locator('.schedule-full-view-toggle').click();
           if (!(await weeklySchedule.isVisible())) {
             throw new Error(`${viewport.name}/${theme}: mobile full-view toggle did not reveal weekly schedule`);
+          }
+          const scheduleColors = await page.evaluate(() => {
+            const header = document.querySelector('.schedule-table thead th');
+            const occupied = document.querySelector('.schedule-table tbody td:has(.class-block)');
+            return {
+              header: header ? getComputedStyle(header).backgroundColor : '',
+              occupied: occupied ? getComputedStyle(occupied).backgroundColor : '',
+            };
+          });
+          if (!scheduleColors.header || !scheduleColors.occupied || scheduleColors.header === 'rgb(241, 210, 140)') {
+            throw new Error(`${viewport.name}/${theme}: full-view schedule is using the legacy yellow palette`);
           }
           await page.screenshot({
             path: `.visual-checks/${screenshotGroup}/${route.slice(1)}-full.png`,
