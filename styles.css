@@ -380,7 +380,11 @@ html[data-theme="dark"] .payment-logo.logo-cebuana { background: #f2c438; }
 	.contact-form .phone-grid { gap: 12px; }
 	.contact-form .form-actions { gap: 12px; }
 	.contact-form .form-actions .primary-button { align-self: stretch; }
-	.curriculum-table .course-status-cell { white-space: nowrap; }
+	.curriculum-table .course-status-cell {
+	white-space: normal;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
 	.footer { align-items: center; }
 }
 	.download-list .quiet-button{width:100%}
