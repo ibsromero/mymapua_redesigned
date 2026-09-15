@@ -309,6 +309,10 @@ function bindActions() {
   enhancePaymentLogos();
   applyReferenceFieldConstraints();
   document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => showToast(button.dataset.toast)));
+  document.querySelectorAll('[data-view-statement]').forEach((link) => link.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.location.hash = '#soa';
+  }));
   const helpButton = document.querySelector('#helpButton');
   if (helpButton) helpButton.addEventListener('click', () => { window.location.hash = '#faqs'; });
   document.querySelectorAll('.schedule-export').forEach((button) => button.addEventListener('click', () => openScheduleExportMenu(button)));
