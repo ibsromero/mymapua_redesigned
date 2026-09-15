@@ -418,6 +418,25 @@
 .schedule-export-menu button:last-child { border-bottom: 0; }
 .schedule-export-menu button:hover { color: var(--red); background: var(--red-soft); }
 
+/* Full-view schedule text must stay readable after the dark table surface overrides. */
+html[data-theme="dark"] .content.schedule-full-view .schedule-table thead th,
+html[data-theme="dark"] .content.schedule-full-view .schedule-table tbody th,
+html[data-theme="dark"] .content.schedule-full-view .schedule-table tbody td {
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block strong {
+  color: #f3d47a !important;
+}
+
+html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block span {
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block small {
+  color: var(--muted) !important;
+}
+
 /* Keep dense portal data readable at phone widths without widening the page. */
 @media (max-width: 800px) {
   .content .metric-card {
@@ -656,3 +675,168 @@
     border-color: var(--rule);
   }
 }
+
+  /* Curriculum tables use the useful mobile fields instead of forcing the full desktop grid sideways. */
+  @media (max-width: 800px) {
+    .content .curriculum-table-wrap {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .content .curriculum-table {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      table-layout: fixed !important;
+    }
+
+    .content .curriculum-table th,
+    .content .curriculum-table td {
+      padding: 10px 8px !important;
+      font-size: 10px !important;
+      line-height: 1.35 !important;
+      vertical-align: middle;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    /* Keep course code, title, and credit units visible at useful widths. */
+    .content .curriculum-table th:nth-child(1),
+    .content .curriculum-table td:nth-child(1),
+    .content .curriculum-table th:nth-child(2),
+    .content .curriculum-table td:nth-child(2),
+    .content .curriculum-table th:nth-child(5),
+    .content .curriculum-table td:nth-child(5),
+    .content .curriculum-table th:nth-child(6),
+    .content .curriculum-table td:nth-child(6),
+    .content .curriculum-table th:nth-child(n + 8),
+    .content .curriculum-table td:nth-child(n + 8) {
+      display: none !important;
+    }
+
+    .content .curriculum-table th:nth-child(3),
+    .content .curriculum-table td:nth-child(3) {
+      width: 31% !important;
+    }
+
+    .content .curriculum-table th:nth-child(4),
+    .content .curriculum-table td:nth-child(4) {
+      width: 55% !important;
+    }
+
+    .content .curriculum-table th:nth-child(7),
+    .content .curriculum-table td:nth-child(7) {
+      width: 14% !important;
+      text-align: center;
+    }
+
+    .content .curriculum-table th:nth-child(3) {
+      font-size: 9px !important;
+    }
+
+    .content .curriculum-table td:nth-child(3) {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .content .curriculum-table .total-row td:first-child {
+      display: table-cell !important;
+      width: 86% !important;
+      text-align: right;
+    }
+
+    .content .curriculum-table .total-row td:nth-child(2),
+    .content .curriculum-table .total-row td:nth-child(3),
+    .content .curriculum-table .total-row td:nth-child(4) {
+      display: table-cell !important;
+    }
+  }
+
+  /* Keep statement details readable without clipping the amount or checkbox. */
+  @media (max-width: 800px) {
+    .content .soa-table {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .content .soa-table table {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      table-layout: fixed !important;
+    }
+
+    .content .soa-table table th,
+    .content .soa-table table td {
+      padding: 10px 6px !important;
+      font-size: 9px !important;
+      line-height: 1.35 !important;
+      vertical-align: middle;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    /* Reference numbers are secondary on a phone; keep the actionable fields visible. */
+    .content .soa-table table th:nth-child(4),
+    .content .soa-table table td:nth-child(4) {
+      display: none !important;
+    }
+
+    .content .soa-table table th:nth-child(1),
+    .content .soa-table table td:nth-child(1) { width: 17% !important; }
+    .content .soa-table table th:nth-child(2),
+    .content .soa-table table td:nth-child(2) { width: 35% !important; }
+    .content .soa-table table th:nth-child(3),
+    .content .soa-table table td:nth-child(3) { width: 20% !important; white-space: nowrap !important; }
+    .content .soa-table table th:nth-child(5),
+    .content .soa-table table td:nth-child(5) { width: 21% !important; white-space: nowrap !important; }
+    .content .soa-table table th:nth-child(6),
+    .content .soa-table table td:nth-child(6) { width: 7% !important; text-align: center; }
+
+    .content .soa-table table .table-total td:first-child {
+      display: table-cell !important;
+      text-align: right;
+    }
+
+    .content .soa-table table .table-total td:nth-child(5),
+    .content .soa-table table .table-total td:nth-child(6) {
+      display: table-cell !important;
+    }
+  }
+
+  /* Keep transaction history focused on the fields students scan most. */
+  @media (max-width: 800px) {
+    .content .payment-history-table {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      table-layout: fixed !important;
+    }
+
+    .content .payment-history-table th,
+    .content .payment-history-table td {
+      padding: 10px 6px !important;
+      font-size: 9px !important;
+      line-height: 1.35 !important;
+      vertical-align: middle;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    /* OR numbers are secondary on a phone and otherwise dominate the narrow grid. */
+    .content .payment-history-table th:nth-child(4),
+    .content .payment-history-table td:nth-child(4) {
+      display: none !important;
+    }
+
+    .content .payment-history-table th:nth-child(1),
+    .content .payment-history-table td:nth-child(1) { width: 19% !important; }
+    .content .payment-history-table th:nth-child(2),
+    .content .payment-history-table td:nth-child(2) { width: 36% !important; }
+    .content .payment-history-table th:nth-child(3),
+    .content .payment-history-table td:nth-child(3) { width: 23% !important; white-space: nowrap !important; }
+    .content .payment-history-table th:nth-child(5),
+    .content .payment-history-table td:nth-child(5) { width: 22% !important; white-space: nowrap !important; }
+  }

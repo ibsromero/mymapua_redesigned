@@ -95,6 +95,19 @@ pageData['#forms'][0] = 'Documents & Forms';
 pageData['#forms'][1] = '<span class="section-kicker">SERVICES</span><h1>Documents &amp; Forms</h1><p class="intro">Request official records, download useful forms, or open your current certificate of matriculation from one place.</p>';
 pageData['#forms'][2] = '<div class="service-sections"><section class="service-section"><div class="form-section-heading"><h2>Request an academic document</h2><p>Official records prepared by the university.</p></div><div class="document-list"><div class="document-row"><div><h2>Certificate of enrollment</h2><p>Proof of your current enrollment.</p></div><button class="quiet-button" data-toast="Certificate of enrollment request started.">Request document</button></div><div class="document-row"><div><h2>Transcript of records</h2><p>Official academic record for applications.</p></div><button class="quiet-button" data-toast="Transcript request started.">Request document</button></div><div class="document-row"><div><h2>Certificate of good moral</h2><p>For scholarship and employment needs.</p></div><button class="quiet-button" data-toast="Good moral certificate request started.">Request document</button></div></div></section><section class="service-section"><div class="form-section-heading"><h2>Download forms and certificates</h2><p>Files you can access immediately.</p></div><div class="download-list"><div><section><strong>Electronic Certificate of Matriculation</strong><small>Current term · PDF document</small></section><button class="quiet-button" data-toast="Download prepared.">Download</button></div><div><section><strong>Course request form</strong><small>Academic services · PDF document</small></section><button class="quiet-button" data-toast="Download prepared.">Download</button></div><div><section><strong>Online enrollment user manual</strong><small>Student guide · PDF document</small></section><button class="quiet-button" data-toast="Download prepared.">Download</button></div></div></section></div>';
 
+const downloadableFormRows = [
+  ['myMapúa Primer', 'Frequently asked questions and guidance for using myMapúa.'],
+  ['Academic Honesty Agreement', 'Binding statements about student conduct and submission to the Registrar\'s Office.'],
+  ['Payment Channels', 'Available payment channels for transactions with Mapúa Treasury.'],
+  ['Student Discipline Handbooks', 'Student discipline policies and handbooks.'],
+  ['Data Privacy Manual', 'Guidance for protecting and processing personal information.'],
+  ['Commitment to Settle Enrollment Dues Form', 'Undertaking to settle enrollment dues, including back accounts.'],
+  ['Course request form', 'Academic services form for requesting a course.'],
+  ['Online enrollment user manual', 'Student guide for completing online enrollment.'],
+];
+const downloadableFormsMarkup = `<div class="download-list">${downloadableFormRows.map(([title, description]) => `<div><section><strong>${title}</strong><small>${description}</small></section><button class="quiet-button" data-toast="Download prepared.">Download</button></div>`).join('')}</div>`;
+pageData['#forms'][2] = pageData['#forms'][2].replace(/<div class="download-list">[\s\S]*?<\/div><\/section><\/div>$/, `${downloadableFormsMarkup}</section></div>`);
+
 const curriculumTabs = {
   'Core Courses': coreCourseTerms(),
   Electives: curriculumTermTable('Electives', [['CSS171-1','Graphics and Visual Computing','4.5','-','3','CSS123P'],['CSS172-1','Pattern Recognition','4.5','-','3','CSS123P'],['ECE176-1','Introduction to Game Programming','4.5','-','3','CSS123P'],['ITS171-1','Fundamentals of SAP','4.5','-','3','ITS131P'],['ITS175-1','Cloud Computing','4.5','-','3','CSS123P']], ['22.5','0','15'], 3, '1', 'Electives'),
@@ -284,12 +297,16 @@ function openScheduleExportMenu(button) {
   const menu = document.createElement('div');
   menu.className = 'schedule-export-menu';
   menu.setAttribute('role', 'menu');
-  menu.innerHTML = '<button type="button" role="menuitem" data-export-format="pdf">Download PDF</button><button type="button" role="menuitem" data-export-format="png">Download image</button>';
+  menu.innerHTML = '<button type="button" role="menuitem" data-export-format="pdf">Download PDF</button><button type="button" role="menuitem" data-export-format="png">Download image</button><button type="button" role="menuitem" data-export-format="csv">Download CSV</button>';
   menu.addEventListener('click', (event) => {
     const item = event.target.closest('[data-export-format]');
     if (!item) return;
     menu.remove();
-    exportSchedule(item.dataset.exportFormat);
+    if (item.dataset.exportFormat === 'csv') {
+      exportScheduleCsv();
+    } else {
+      exportSchedule(item.dataset.exportFormat);
+    }
   });
   button.parentElement.appendChild(menu);
 }
