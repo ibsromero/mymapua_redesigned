@@ -391,6 +391,184 @@
   }
 }
 
+/* Let data tables flow into the page instead of reading as separate white cards. */
+.content .table-card,
+.content .soa-table,
+.content .curriculum-table-wrap,
+.content .weekly-schedule {
+  border-color: var(--rule) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.content .table-card .table-title,
+.content .soa-table .table-title {
+  border-color: var(--rule) !important;
+  background: transparent !important;
+}
+
+.content .table-card table,
+.content .soa-table table,
+.content .curriculum-table,
+.content .schedule-table {
+  background: transparent !important;
+}
+
+.content .table-card th,
+.content .table-card td,
+.content .soa-table th,
+.content .soa-table td,
+.content .curriculum-table th,
+.content .curriculum-table td,
+.content .schedule-table th,
+.content .schedule-table td {
+  border-color: color-mix(in srgb, var(--rule) 78%, transparent) !important;
+}
+
+.content .table-card th,
+.content .soa-table th,
+.content .curriculum-table th,
+.content .schedule-table thead th {
+  background: color-mix(in srgb, var(--rule) 24%, transparent) !important;
+}
+
+.content .table-card td,
+.content .soa-table td,
+.content .curriculum-table td,
+.content .schedule-table tbody td,
+.content .schedule-table tbody th {
+  background: transparent !important;
+}
+
+.content .table-card tbody tr:hover td,
+.content .soa-table tbody tr:hover td,
+.content .curriculum-table tbody tr:hover td,
+.content .schedule-table tbody tr:hover td,
+.content .schedule-table tbody tr:hover th {
+  background: color-mix(in srgb, var(--red-soft) 45%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .table-card th,
+html[data-theme="dark"] .content .soa-table th,
+html[data-theme="dark"] .content .curriculum-table th,
+html[data-theme="dark"] .content .schedule-table thead th {
+  background: color-mix(in srgb, var(--rule) 55%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .table-card td,
+html[data-theme="dark"] .content .soa-table td,
+html[data-theme="dark"] .content .curriculum-table td,
+html[data-theme="dark"] .content .schedule-table tbody td,
+html[data-theme="dark"] .content .schedule-table tbody th {
+  background: transparent !important;
+}
+
+html[data-theme="dark"] .content .table-card tbody tr:hover td,
+html[data-theme="dark"] .content .soa-table tbody tr:hover td,
+html[data-theme="dark"] .content .curriculum-table tbody tr:hover td,
+html[data-theme="dark"] .content .schedule-table tbody tr:hover td,
+html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
+  background: color-mix(in srgb, var(--red-soft) 60%, transparent) !important;
+}
+
+/* Final schedule accent: red headers and red-tinted occupied cells. */
+.content .schedule-table thead th,
+.content .schedule-mobile-list .mobile-day h2 {
+  color: #fff !important;
+  background: var(--red) !important;
+}
+
+.content .schedule-table tbody td:has(.class-block),
+.content .mobile-class .class-block {
+  background: color-mix(in srgb, var(--red-soft) 55%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table thead th,
+html[data-theme="dark"] .content .schedule-mobile-list .mobile-day h2 {
+  color: #fff !important;
+  background: var(--red) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table tbody td:has(.class-block),
+html[data-theme="dark"] .content .mobile-class .class-block {
+  background: color-mix(in srgb, var(--red-soft) 70%, transparent) !important;
+}
+
+/* Schedule red accent must win over the generic seamless table surface rules. */
+.content .schedule-table thead th,
+.content .schedule-mobile-list .mobile-day h2 {
+  color: #fff !important;
+  background: var(--red) !important;
+}
+
+.content .schedule-table tbody td:has(.class-block),
+.content .mobile-class .class-block {
+  background: color-mix(in srgb, var(--red-soft) 55%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table thead th,
+html[data-theme="dark"] .content .schedule-mobile-list .mobile-day h2 {
+  color: #fff !important;
+  background: var(--red) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table tbody td:has(.class-block),
+html[data-theme="dark"] .content .mobile-class .class-block {
+  background: color-mix(in srgb, var(--red-soft) 70%, transparent) !important;
+}
+
+/* Mobile curriculum rows keep the full course context in a readable stack. */
+.curriculum-mobile-meta {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .content .curriculum-table td:nth-child(4) {
+    width: 55% !important;
+    color: var(--ink) !important;
+    background: transparent !important;
+  }
+
+  .content .curriculum-mobile-meta {
+    display: grid;
+    gap: 3px;
+    margin-top: 6px;
+    color: var(--muted) !important;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  .content .curriculum-mobile-meta span {
+    color: inherit !important;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+}
+
+/* Schedule uses the portal red accent instead of the legacy yellow header. */
+.content .schedule-table thead th,
+.content .schedule-mobile-list .mobile-day h2 {
+  color: #fff !important;
+  background: var(--red) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table thead th,
+html[data-theme="dark"] .content .schedule-mobile-list .mobile-day h2 {
+  color: #fff !important;
+  background: var(--red) !important;
+}
+
+.content .schedule-table tbody td:has(.class-block),
+.content .mobile-class .class-block {
+  background: color-mix(in srgb, var(--red-soft) 55%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table tbody td:has(.class-block),
+html[data-theme="dark"] .content .mobile-class .class-block {
+  background: color-mix(in srgb, var(--red-soft) 70%, transparent) !important;
+}
+
 .schedule-toolbar { position: relative; }
 .schedule-export-menu {
   position: absolute;
@@ -1031,3 +1209,97 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
       background: #292d2b !important;
     }
   }
+
+/* Final seamless table surfaces. Status fills remain intentionally distinct. */
+.content .table-card,
+.content .soa-table,
+.content .curriculum-table-wrap,
+.content .weekly-schedule,
+.content .table-card table,
+.content .soa-table table,
+.content .curriculum-table,
+.content .schedule-table {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.content .table-card .table-title,
+.content .soa-table .table-title,
+.content .table-card th,
+.content .table-card td,
+.content .soa-table th,
+.content .soa-table td,
+.content .curriculum-table th,
+.content .curriculum-table td,
+.content .schedule-table th,
+.content .schedule-table td {
+  border-color: color-mix(in srgb, var(--rule) 78%, transparent) !important;
+}
+
+.content .table-card .table-title,
+.content .soa-table .table-title,
+.content .table-card th,
+.content .soa-table th,
+.content .curriculum-table th {
+  background: color-mix(in srgb, var(--rule) 24%, transparent) !important;
+}
+
+.content .table-card td,
+.content .soa-table td,
+.content .curriculum-table td,
+.content .schedule-table tbody th {
+  background: transparent !important;
+}
+
+.content .table-card tbody tr:hover td,
+.content .soa-table tbody tr:hover td,
+.content .curriculum-table tbody tr:hover td,
+.content .schedule-table tbody tr:hover td,
+.content .schedule-table tbody tr:hover th {
+  background: color-mix(in srgb, var(--red-soft) 45%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .table-card .table-title,
+html[data-theme="dark"] .content .soa-table .table-title,
+html[data-theme="dark"] .content .table-card th,
+html[data-theme="dark"] .content .soa-table th,
+html[data-theme="dark"] .content .curriculum-table th {
+  background: color-mix(in srgb, var(--rule) 55%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .table-card td,
+html[data-theme="dark"] .content .soa-table td,
+html[data-theme="dark"] .content .curriculum-table td,
+html[data-theme="dark"] .content .schedule-table tbody th {
+  background: transparent !important;
+}
+
+.content .schedule-table thead th,
+.content .schedule-mobile-list .mobile-day h2 {
+  color: #fff !important;
+  background: var(--red) !important;
+}
+
+.content .schedule-table tbody td:has(.class-block),
+.content .mobile-class .class-block {
+  background: color-mix(in srgb, var(--red-soft) 55%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table thead th,
+html[data-theme="dark"] .content .schedule-mobile-list .mobile-day h2 {
+  color: #fff !important;
+  background: var(--red) !important;
+}
+
+html[data-theme="dark"] .content .schedule-table tbody td:has(.class-block),
+html[data-theme="dark"] .content .mobile-class .class-block {
+  background: color-mix(in srgb, var(--red-soft) 70%, transparent) !important;
+}
+
+html[data-theme="dark"] .content .table-card tbody tr:hover td,
+html[data-theme="dark"] .content .soa-table tbody tr:hover td,
+html[data-theme="dark"] .content .curriculum-table tbody tr:hover td,
+html[data-theme="dark"] .content .schedule-table tbody tr:hover td,
+html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
+  background: color-mix(in srgb, var(--red-soft) 60%, transparent) !important;
+}
