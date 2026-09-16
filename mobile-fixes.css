@@ -1187,26 +1187,6 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
       text-align: right !important;
     }
 
-    .content .soa-table table .table-total {
-      display: grid !important;
-      grid-template-columns: minmax(0, 1fr) 96px !important;
-      width: 100% !important;
-    }
-
-    .content .soa-table table .table-total td:first-child {
-      grid-column: 1;
-      width: auto !important;
-    }
-
-    .content .soa-table table .table-total td.amount {
-      grid-column: 2;
-      width: auto !important;
-    }
-
-    .content .soa-table table .table-total td:nth-child(3) {
-      display: none !important;
-    }
-
     .content .payment-options .table-title {
       padding-bottom: 10px;
     }
@@ -1272,6 +1252,29 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
       background: transparent;
       color: var(--ink);
       border-color: var(--rule);
+    }
+  }
+
+  @media (max-width: 360px) {
+    .content .soa-table table thead th:nth-child(3),
+    .content .soa-table table tbody td:nth-child(3) {
+      display: none !important;
+    }
+
+    .content .soa-table table th:nth-child(1),
+    .content .soa-table table td:nth-child(1) { width: 55px !important; }
+    .content .soa-table table th:nth-child(2),
+    .content .soa-table table td:nth-child(2) { width: auto !important; }
+    .content .soa-table table th:nth-child(5),
+    .content .soa-table table td:nth-child(5) {
+      width: 80px !important;
+      min-width: 80px !important;
+    }
+    .content .soa-table table th:nth-child(6),
+    .content .soa-table table td:nth-child(6) {
+      width: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
     }
   }
 

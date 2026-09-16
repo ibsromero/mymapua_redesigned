@@ -412,6 +412,10 @@ function bindActions() {
   const statement = document.querySelector('.soa-table');
   if (statement) {
     const total = statement.querySelector('.table-total .amount');
+    if (total) {
+      total.colSpan = 2;
+      total.nextElementSibling?.remove();
+    }
     statement.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => checkbox.addEventListener('change', () => {
       const selectedAmount = [...statement.querySelectorAll('input[type="checkbox"]:checked')].reduce((sum, item) => {
         const amount = item.closest('tr').querySelector('.amount').textContent.replace(/[^0-9.]/g, '');
