@@ -587,7 +587,8 @@ html[data-theme="dark"] .content .mobile-class .class-block {
     color: var(--ink) !important;
     font-weight: 700;
     line-height: 1.35;
-    overflow-wrap: anywhere;
+    word-break: normal;
+    overflow-wrap: break-word;
   }
 
   html[data-theme="dark"] .content .curriculum-table td:nth-child(4),
@@ -1117,18 +1118,22 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
     }
 
     .content .soa-table table th:nth-child(1),
-    .content .soa-table table td:nth-child(1) { width: 20% !important; }
+    .content .soa-table table td:nth-child(1) { width: 15% !important; }
     .content .soa-table table th:nth-child(2),
-    .content .soa-table table td:nth-child(2) { width: 31% !important; }
+    .content .soa-table table td:nth-child(2) { width: 27% !important; }
     .content .soa-table table th:nth-child(3),
-    .content .soa-table table td:nth-child(3) { width: 19% !important; white-space: nowrap !important; }
+    .content .soa-table table td:nth-child(3) { width: 18% !important; white-space: nowrap !important; }
     .content .soa-table table th:nth-child(5),
-    .content .soa-table table td:nth-child(5) { width: 23% !important; white-space: nowrap !important; }
+    .content .soa-table table td:nth-child(5) {
+      width: 76px !important;
+      min-width: 76px !important;
+      white-space: nowrap !important;
+    }
     .content .soa-table table th:nth-child(6),
     .content .soa-table table td:nth-child(6) {
-      width: 42px !important;
-      min-width: 42px !important;
-      max-width: 42px !important;
+      width: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
       padding-inline: 2px !important;
       text-align: center;
     }
@@ -1171,6 +1176,35 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
     html[data-theme="dark"] .content .soa-table table th,
     html[data-theme="dark"] .content .soa-table table td {
       color: var(--ink) !important;
+    }
+
+    .content .soa-table table .table-total td.amount {
+      min-width: 0 !important;
+      width: auto !important;
+      white-space: nowrap !important;
+      word-break: normal !important;
+      overflow-wrap: normal !important;
+      text-align: right !important;
+    }
+
+    .content .soa-table table .table-total {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) 96px !important;
+      width: 100% !important;
+    }
+
+    .content .soa-table table .table-total td:first-child {
+      grid-column: 1;
+      width: auto !important;
+    }
+
+    .content .soa-table table .table-total td.amount {
+      grid-column: 2;
+      width: auto !important;
+    }
+
+    .content .soa-table table .table-total td:nth-child(3) {
+      display: none !important;
     }
 
     .content .payment-options .table-title {
