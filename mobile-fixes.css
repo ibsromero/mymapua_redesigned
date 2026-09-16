@@ -573,6 +573,57 @@ html[data-theme="dark"] .content .mobile-class .class-block {
   }
 }
 
+@media (max-width: 390px) {
+  .content .curriculum-table th,
+  .content .curriculum-table td {
+    padding: 8px 4px !important;
+    font-size: 8.5px !important;
+    line-height: 1.25 !important;
+  }
+
+  .content .curriculum-table th:nth-child(3),
+  .content .curriculum-table td:nth-child(3) {
+    width: 24% !important;
+  }
+
+  .content .curriculum-table th:nth-child(4),
+  .content .curriculum-table td:nth-child(4) {
+    width: 58% !important;
+  }
+
+  .content .curriculum-table th:nth-child(7),
+  .content .curriculum-table td:nth-child(7) {
+    width: 18% !important;
+  }
+
+  .content .curriculum-course-title {
+    font-size: 9px !important;
+  }
+
+  .content .curriculum-mobile-meta {
+    gap: 2px;
+    font-size: 8px !important;
+  }
+
+  .content .soa-table table th,
+  .content .soa-table table td {
+    padding: 8px 3px !important;
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+  }
+
+  .content .soa-table table th:nth-child(1),
+  .content .soa-table table td:nth-child(1) { width: 18% !important; }
+  .content .soa-table table th:nth-child(2),
+  .content .soa-table table td:nth-child(2) { width: 33% !important; }
+  .content .soa-table table th:nth-child(3),
+  .content .soa-table table td:nth-child(3) { width: 19% !important; }
+  .content .soa-table table th:nth-child(5),
+  .content .soa-table table td:nth-child(5) { width: 24% !important; }
+  .content .soa-table table th:nth-child(6),
+  .content .soa-table table td:nth-child(6) { width: 6% !important; }
+}
+
 /* Schedule uses the portal red accent instead of the legacy yellow header. */
 .content .schedule-table thead th,
 .content .schedule-mobile-list .mobile-day h2 {
