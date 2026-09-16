@@ -522,6 +522,15 @@ html[data-theme="dark"] .content .mobile-class .class-block {
   display: none;
 }
 
+.curriculum-table .total-label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.curriculum-table .mobile-total-values {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .content .curriculum-table td:nth-child(4) {
     width: 55% !important;
@@ -553,6 +562,14 @@ html[data-theme="dark"] .content .mobile-class .class-block {
   html[data-theme="dark"] .content .curriculum-table tbody tr:nth-child(even) td,
   html[data-theme="dark"] .content .curriculum-table tbody tr:nth-child(odd) td {
     background: transparent !important;
+  }
+
+  html[data-theme="dark"] .content .curriculum-table tbody tr {
+    background: transparent !important;
+  }
+
+  html[data-theme="dark"] .content .curriculum-table tbody tr.total-row {
+    background: color-mix(in srgb, var(--rule) 55%, transparent) !important;
   }
 
   .content .curriculum-mobile-meta {
@@ -986,18 +1003,22 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
 
     .content .curriculum-table th:nth-child(3),
     .content .curriculum-table td:nth-child(3) {
-      width: 27% !important;
+      width: 30% !important;
     }
 
     .content .curriculum-table th:nth-child(4),
     .content .curriculum-table td:nth-child(4) {
-      width: 46% !important;
+      width: 55% !important;
     }
 
     .content .curriculum-table th:nth-child(7),
     .content .curriculum-table td:nth-child(7) {
-      width: 12% !important;
+      width: 15% !important;
       text-align: center;
+    }
+
+    .content .curriculum-table th:nth-child(7) br {
+      display: none;
     }
 
     .content .curriculum-table th:nth-child(3) {
@@ -1011,14 +1032,27 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
 
     .content .curriculum-table .total-row td:first-child {
       display: table-cell !important;
-      width: 86% !important;
+      width: 100% !important;
+      box-sizing: border-box;
+      padding: 11px 8px !important;
       text-align: right;
     }
 
-    .content .curriculum-table .total-row td:nth-child(2),
-    .content .curriculum-table .total-row td:nth-child(3),
-    .content .curriculum-table .total-row td:nth-child(4) {
-      display: table-cell !important;
+    .content .curriculum-table .total-row td:nth-child(n + 2) {
+      display: none !important;
+    }
+
+    .content .curriculum-table .total-label {
+      display: inline-block;
+      margin-right: 10px;
+      font-weight: 700;
+    }
+
+    .content .curriculum-table .mobile-total-values {
+      display: inline-block;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 400;
     }
   }
 
