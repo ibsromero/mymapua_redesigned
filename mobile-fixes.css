@@ -1080,6 +1080,7 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
       vertical-align: middle;
       white-space: normal !important;
       overflow-wrap: anywhere !important;
+      color: var(--ink) !important;
     }
 
     .content .soa-table table thead th:nth-child(4),
@@ -1098,6 +1099,25 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
     .content .soa-table table th:nth-child(6),
     .content .soa-table table td:nth-child(6) { width: 7% !important; text-align: center; }
 
+    .content .soa-table table input[type="checkbox"] {
+      display: block !important;
+      width: 15px !important;
+      height: 15px !important;
+      margin: 0 auto !important;
+      accent-color: var(--red) !important;
+      cursor: pointer;
+    }
+
+    html[data-theme="dark"] .content .soa-table table input[type="checkbox"] {
+      accent-color: #f3d47a !important;
+    }
+
+    .content .soa-table table .table-total td {
+      background: color-mix(in srgb, var(--rule) 40%, transparent) !important;
+      color: var(--ink) !important;
+      font-weight: 700;
+    }
+
     .content .soa-table table .table-total td:first-child {
       display: table-cell !important;
       text-align: right;
@@ -1106,6 +1126,16 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
     .content .soa-table table .table-total td:nth-child(5),
     .content .soa-table table .table-total td:nth-child(6) {
       display: table-cell !important;
+    }
+
+    html[data-theme="dark"] .content .soa-table table .table-total td {
+      background: #2b2f36 !important;
+      color: var(--ink) !important;
+    }
+
+    html[data-theme="dark"] .content .soa-table table th,
+    html[data-theme="dark"] .content .soa-table table td {
+      color: var(--ink) !important;
     }
 
     .content .payment-options .table-title {
