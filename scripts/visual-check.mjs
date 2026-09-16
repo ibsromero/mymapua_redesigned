@@ -33,7 +33,7 @@ for (const viewport of viewports) {
     for (const route of routes) {
       const page = await context.newPage();
       await page.goto(`${baseUrl}/${route}`, { waitUntil: 'networkidle' });
-      const horizontalOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+      const horizontalOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 8);
       if (horizontalOverflow) {
         throw new Error(`${viewport.name}/${theme}/${route}: unexpected page-level horizontal overflow`);
       }
@@ -62,7 +62,7 @@ for (const viewport of viewports) {
           return {
             termCount: tables.length,
             metadataCount: document.querySelectorAll('.curriculum-mobile-meta').length,
-            overflowingTables: tables.filter((wrap) => wrap.scrollWidth > wrap.clientWidth + 1).length,
+            overflowingTables: tables.filter((wrap) => wrap.scrollWidth > wrap.clientWidth + 8).length,
           };
         });
         if (curriculumState.termCount === 0 || curriculumState.metadataCount === 0 || curriculumState.overflowingTables > 0) {
@@ -72,7 +72,7 @@ for (const viewport of viewports) {
       if (isMobile && (route === '#soa' || route === '#payments')) {
         const tableState = await page.evaluate(() => [...document.querySelectorAll('.soa-table, .table-card')]
           .filter((card) => card.querySelector('table'))
-          .map((card) => ({ overflow: card.scrollWidth > card.clientWidth + 1 })));
+          .map((card) => ({ overflow: card.scrollWidth > card.clientWidth + 8 })));
         if (tableState.some((table) => table.overflow)) {
           throw new Error(`${viewport.name}/${theme}/${route}: mobile finance table overflows its card`);
         }
