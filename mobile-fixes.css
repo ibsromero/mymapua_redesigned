@@ -511,6 +511,38 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
   background: color-mix(in srgb, var(--red-soft) 60%, transparent) !important;
 }
 
+/* Final arrow contract across desktop, tablet, and phone widths. */
+.content .text-link span,
+.content .item-arrow,
+.content .quick-arrow {
+  display: inline-grid !important;
+  width: 18px !important;
+  height: 18px !important;
+  place-items: center;
+  margin: 0 0 0 4px !important;
+  padding: 0 !important;
+  font-size: 0 !important;
+  line-height: 0;
+}
+
+.content .item-arrow,
+.content .quick-arrow {
+  margin-left: 0 !important;
+}
+
+.content .text-link span::before,
+.content .item-arrow::before,
+.content .quick-arrow::before {
+  display: block !important;
+  width: 7px !important;
+  height: 7px !important;
+  border: 0 !important;
+  border-top: 1.5px solid currentColor !important;
+  border-right: 1.5px solid currentColor !important;
+  content: "" !important;
+  transform: rotate(45deg) !important;
+}
+
 /* Mobile navigation should not leave an accent line at the viewport edge. */
 @media (max-width: 800px) {
   .sidebar {
@@ -522,66 +554,104 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
   }
 }
 
-/* Phones use stacked curriculum rows; the full comparison table stays on larger screens. */
+/* Curriculum uses a term roadmap; the dense table remains available as a structural fallback. */
 .curriculum-mobile-list {
   display: none;
 }
 
-@media (max-width: 800px) {
-  .content .curriculum-table-wrap {
-    display: none !important;
-  }
+/* Keep the subject cards as the primary view at every device width. */
+.content .curriculum-table-wrap {
+  display: none !important;
+}
 
+.content .curriculum-mobile-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.content .curriculum-term-summary {
+  max-width: 55%;
+  color: var(--muted);
+  font: 500 10px/1.3 "IBM Plex Sans", "Trebuchet MS", sans-serif;
+  text-align: right;
+}
+
+.content .curriculum-mobile-course,
+.content .curriculum-mobile-total {
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.content .curriculum-mobile-course {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px 12px;
+  align-items: start;
+}
+
+.content .curriculum-mobile-code {
+  min-width: 0;
+  color: var(--red);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.content .curriculum-mobile-status {
+  justify-self: end;
+  padding: 4px 7px;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  font: 600 9px/1 "IBM Plex Sans", "Trebuchet MS", sans-serif;
+  white-space: nowrap;
+}
+
+.content .curriculum-mobile-status.status-taken { color: #27634f; background: #e2f1e7; }
+.content .curriculum-mobile-status.status-current { color: #8b6510; background: #fff1cf; }
+.content .curriculum-mobile-status.status-incomplete { color: #a0443b; background: #f8e3df; }
+.content .curriculum-mobile-status.status-credited { color: #315e91; background: #e5f0f8; }
+
+.content .curriculum-mobile-course h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--ink);
+  font: 700 14px/1.25 "IBM Plex Sans", "Trebuchet MS", sans-serif;
+}
+
+.content .curriculum-mobile-meta {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  color: var(--muted) !important;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.content .curriculum-mobile-total {
+  grid-column: 1 / -1;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--rule) 42%, var(--paper));
+  font-size: 10px;
+  font-weight: 700;
+  text-align: right;
+}
+
+html[data-theme="dark"] .content .curriculum-mobile-status.status-taken { color: #b9edcf; background: #24513f; }
+html[data-theme="dark"] .content .curriculum-mobile-status.status-current { color: #f5d58a; background: #594416; }
+html[data-theme="dark"] .content .curriculum-mobile-status.status-incomplete { color: #f0aaa2; background: #512d32; }
+html[data-theme="dark"] .content .curriculum-mobile-status.status-credited { color: #a9cbed; background: #263e59; }
+
+@media (max-width: 800px) {
   .content .curriculum-mobile-list {
-    display: grid;
-    gap: 8px;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .content .curriculum-mobile-course,
   .content .curriculum-mobile-total {
-    min-width: 0;
     padding: 13px 14px;
-    border: 1px solid var(--rule);
-    background: var(--paper);
-  }
-
-  .content .curriculum-mobile-course {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 5px 12px;
-    align-items: start;
-  }
-
-  .content .curriculum-mobile-code {
-    min-width: 0;
-    color: var(--red);
-    font-size: 11px;
-    overflow-wrap: anywhere;
-  }
-
-  .content .curriculum-mobile-course h3 {
-    grid-column: 1 / -1;
-    margin: 0;
-    color: var(--ink);
-    font: 700 14px/1.25 "IBM Plex Sans", "Trebuchet MS", sans-serif;
-  }
-
-  .content .curriculum-mobile-meta {
-    grid-column: 1 / -1;
-    display: grid;
-    gap: 3px;
-    margin: 0;
-    color: var(--muted) !important;
-    font-size: 10px;
-    line-height: 1.35;
-  }
-
-  .content .curriculum-mobile-total {
-    color: var(--ink);
-    background: color-mix(in srgb, var(--rule) 42%, var(--paper));
-    font-size: 10px;
-    font-weight: 700;
-    text-align: right;
   }
 }
 

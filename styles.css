@@ -1556,6 +1556,39 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Authoritative Home arrow treatment: one geometric chevron, no text fallback. */
+.content .text-link span,
+.content .item-arrow,
+.content .quick-arrow {
+	display: inline-grid !important;
+	width: 18px !important;
+	height: 18px !important;
+	place-items: center;
+	margin: 0 0 0 4px !important;
+	padding: 0 !important;
+	color: currentColor;
+	font-size: 0 !important;
+	line-height: 0;
+}
+
+.content .item-arrow,
+.content .quick-arrow {
+	margin-left: 0 !important;
+}
+
+.content .text-link span::before,
+.content .item-arrow::before,
+.content .quick-arrow::before {
+	display: block !important;
+	width: 7px !important;
+	height: 7px !important;
+	border: 0 !important;
+	border-top: 1.5px solid currentColor !important;
+	border-right: 1.5px solid currentColor !important;
+	content: "" !important;
+	transform: rotate(45deg) !important;
+}
+
 /* Use one geometric icon language instead of text-glyph fallbacks. */
 .theme-icon::before {
 	width: 10px;

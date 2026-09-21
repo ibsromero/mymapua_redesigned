@@ -341,7 +341,15 @@ function enhanceCurriculumMobileLayout(panel) {
     if (!table || term.querySelector('.curriculum-mobile-list')) return;
     const list = document.createElement('div');
     list.className = 'curriculum-mobile-list';
-    table.querySelectorAll('tbody tr').forEach((row) => {
+    const rows = [...table.querySelectorAll('tbody tr')];
+    const subjectRows = rows.filter((row) => !row.classList.contains('total-row'));
+    const completedCount = subjectRows.filter((row) => row.cells[2]?.className.includes('status-taken') || row.cells[2]?.className.includes('status-credited')).length;
+    const currentCount = subjectRows.filter((row) => row.cells[2]?.className.includes('status-current')).length;
+    const termSummary = document.createElement('span');
+    termSummary.className = 'curriculum-term-summary';
+    termSummary.textContent = `${subjectRows.length} subject${subjectRows.length === 1 ? '' : 's'} · ${completedCount} completed · ${currentCount} in progress`;
+    term.querySelector('.term-heading')?.append(termSummary);
+    rows.forEach((row) => {
       const cells = [...row.cells];
       if (row.classList.contains('total-row')) {
         const total = document.createElement('div');
@@ -355,9 +363,20 @@ function enhanceCurriculumMobileLayout(panel) {
       const code = document.createElement('strong');
       code.className = `curriculum-mobile-code ${cells[2]?.className || ''}`;
       code.textContent = cells[2]?.textContent.trim() || '';
+      const status = document.createElement('span');
+      status.className = 'curriculum-mobile-status';
+      const statusClass = cells[2]?.className.match(/status-(?:taken|current|pending|incomplete|credited)/)?.[0] || 'status-pending';
+      status.classList.add(statusClass);
+      status.textContent = ({
+        'status-taken': 'Completed',
+        'status-current': 'In current load',
+        'status-pending': 'Not yet taken',
+        'status-incomplete': 'Incomplete',
+        'status-credited': 'Credited',
+      })[statusClass] || 'Not yet taken';
       const title = document.createElement('h3');
       title.textContent = cells[3]?.querySelector('.curriculum-course-title')?.textContent.trim() || cells[3]?.textContent.trim() || '';
-      card.append(code, title);
+      card.append(code, status, title);
       const meta = cells[3]?.querySelector('.curriculum-mobile-meta');
       if (meta) card.append(meta.cloneNode(true));
       list.append(card);
