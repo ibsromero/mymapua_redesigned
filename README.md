@@ -1,63 +1,31 @@
-# mymapua_redesigned
+# myMapúa Redesign
 
-## Deploy on Vercel or Render
+A responsive static student portal prototype inspired by Mapúa's myMapúa experience. The app recreates a dashboard-style interface for common student tasks such as profile management, grades, schedule, payment history, curriculum tracking, and support pages.
 
-This is a static site, so it does not require a build command or environment variables.
+## Overview
 
-### Render dashboard
+This project is built as a front-end-only web app using plain HTML, CSS, and JavaScript. It includes:
 
-Create a **Static Site** connected to `ibsromero/mymapua_redesigned`:
-
-- Branch: `main`
-- Build command: leave empty
-- Publish directory: `.`
-
-For Blueprint deployment, use **New > Blueprint** in Render and select the repository. Render reads `render.yaml` from the `main` branch. An existing Web Service will not change type automatically; create a new Static Site or configure that service separately.
-
-If the Render service was created as a **Web Service** instead, use `npm start` as the start command and leave the build command empty. The included start script listens on Render's `$PORT`.
+- A sidebar navigation with hash-based route views
+- Dashboard and profile flows
+- Grades and curriculum tracking views
+- Schedule and payment/finance sections
+- Light/dark theme toggle
+- Mobile-friendly layout and print/export interactions
 
 ## Project structure
 
-- `index.html`, `styles.css`, and `script.js` are the Vercel entrypoint and frontend.
-- `assets/` contains deployable visual assets.
-- `data/mds/` contains the legacy source records used for the prototype content.
-- `reference/` contains design reference material and is excluded from deployment.
-- `scripts/` contains development-only tooling such as the Playwright visual checker.
+- `index.html` — app shell and route entry
+- `styles.css` — main UI styling
+- `mobile-fixes.css` — responsive overrides for smaller screens
+- `script.js` — page rendering, route logic, and interactions
+- `assets/` — logos and static visual assets
+- `data/mds/` — source content used for prototype records
+- `reference/` — reference materials and design inspiration
+- `scripts/visual-check.mjs` — visual regression tooling for desktop/mobile previews
 
-## Local development
+## Notes
 
-Start the static preview server:
-
-```sh
-npm run preview
-```
-
-Generate desktop and mobile screenshots for every route in both themes:
-
-```sh
-npm run visual-check
-```
-
-### Vercel dashboard
-
-1. Open [vercel.com/new](https://vercel.com/new).
-2. Import the `ibsromero/mymapua_redesigned` repository.
-3. Leave Framework Preset as `Other`.
-4. Leave Build Command and Output Directory empty.
-5. Select **Deploy**.
-
-The project entrypoint is `index.html`. Navigation uses URL hash routes, so no server-side route configuration is needed.
-
-### Vercel CLI
-
-From the project directory:
-
-```sh
-npx vercel
-```
-
-For a production deployment:
-
-```sh
-npx vercel --prod
-```
+- The app is intentionally static and front-end focused.
+- It is designed to demo a polished student portal experience rather than function as a production backend system.
+- The `scripts/visual-check.mjs` workflow is intended for design validation and route coverage.
