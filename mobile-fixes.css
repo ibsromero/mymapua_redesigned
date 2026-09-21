@@ -511,6 +511,80 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
   background: color-mix(in srgb, var(--red-soft) 60%, transparent) !important;
 }
 
+/* Mobile navigation should not leave an accent line at the viewport edge. */
+@media (max-width: 800px) {
+  .sidebar {
+    box-shadow: none !important;
+  }
+
+  .sidebar .nav-link.active {
+    box-shadow: none !important;
+  }
+}
+
+/* Phones use stacked curriculum rows; the full comparison table stays on larger screens. */
+.curriculum-mobile-list {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .content .curriculum-table-wrap {
+    display: none !important;
+  }
+
+  .content .curriculum-mobile-list {
+    display: grid;
+    gap: 8px;
+  }
+
+  .content .curriculum-mobile-course,
+  .content .curriculum-mobile-total {
+    min-width: 0;
+    padding: 13px 14px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+  }
+
+  .content .curriculum-mobile-course {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 5px 12px;
+    align-items: start;
+  }
+
+  .content .curriculum-mobile-code {
+    min-width: 0;
+    color: var(--red);
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+
+  .content .curriculum-mobile-course h3 {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--ink);
+    font: 700 14px/1.25 "IBM Plex Sans", "Trebuchet MS", sans-serif;
+  }
+
+  .content .curriculum-mobile-meta {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 3px;
+    margin: 0;
+    color: var(--muted) !important;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .content .curriculum-mobile-total {
+    color: var(--ink);
+    background: color-mix(in srgb, var(--rule) 42%, var(--paper));
+    font-size: 10px;
+    font-weight: 700;
+    text-align: right;
+  }
+}
+
 /* Keep the mobile day list out of the desktop schedule; phones use it instead of the grid. */
 .content .schedule-mobile-list {
   display: none;

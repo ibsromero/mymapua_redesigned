@@ -1556,6 +1556,49 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+/* Use one geometric icon language instead of text-glyph fallbacks. */
+.theme-icon::before {
+	width: 10px;
+	height: 10px;
+	border: 1.5px solid currentColor;
+	border-radius: 50%;
+	content: "";
+}
+
+html[data-theme="dark"] .theme-icon::before {
+	width: 11px;
+	height: 11px;
+	border: 0;
+	border-radius: 50%;
+	background: currentColor;
+	box-shadow: 3px -2px 0 0 var(--paper);
+}
+
+.text-link span::before,
+.item-arrow::before,
+.quick-arrow::before,
+.primary-button span::before {
+	width: 7px;
+	height: 7px;
+	border-top: 1.5px solid currentColor;
+	border-right: 1.5px solid currentColor;
+	content: "";
+	transform: rotate(45deg);
+}
+
+.text-link span::before,
+.primary-button span::before {
+	display: inline-block;
+	margin-left: 2px;
+	vertical-align: middle;
+}
+
+.item-arrow::before,
+.quick-arrow::before {
+	display: block;
+	margin: 0 auto;
+}
+
 @media (max-width: 800px) {
 	.content .curriculum-table-wrap,
 	.content .soa-table,

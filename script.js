@@ -333,9 +333,43 @@ function exportScheduleCsv() {
   link.click();
   URL.revokeObjectURL(link.href);
 }
+
+function enhanceCurriculumMobileLayout(panel) {
+  if (!panel) return;
+  panel.querySelectorAll('.curriculum-term').forEach((term) => {
+    const table = term.querySelector('.curriculum-table');
+    if (!table || term.querySelector('.curriculum-mobile-list')) return;
+    const list = document.createElement('div');
+    list.className = 'curriculum-mobile-list';
+    table.querySelectorAll('tbody tr').forEach((row) => {
+      const cells = [...row.cells];
+      if (row.classList.contains('total-row')) {
+        const total = document.createElement('div');
+        total.className = 'curriculum-mobile-total';
+        total.textContent = row.querySelector('.mobile-total-values')?.textContent.trim() || row.textContent.trim();
+        list.append(total);
+        return;
+      }
+      const card = document.createElement('article');
+      card.className = 'curriculum-mobile-course';
+      const code = document.createElement('strong');
+      code.className = `curriculum-mobile-code ${cells[2]?.className || ''}`;
+      code.textContent = cells[2]?.textContent.trim() || '';
+      const title = document.createElement('h3');
+      title.textContent = cells[3]?.querySelector('.curriculum-course-title')?.textContent.trim() || cells[3]?.textContent.trim() || '';
+      card.append(code, title);
+      const meta = cells[3]?.querySelector('.curriculum-mobile-meta');
+      if (meta) card.append(meta.cloneNode(true));
+      list.append(card);
+    });
+    term.append(list);
+  });
+}
+
 function bindActions() {
   enhancePaymentLogos();
   applyReferenceFieldConstraints();
+  enhanceCurriculumMobileLayout(document.querySelector('#curriculumPanel'));
   document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => showToast(button.dataset.toast)));
   document.querySelectorAll('[data-view-statement]').forEach((link) => link.addEventListener('click', (event) => {
     event.preventDefault();
@@ -364,7 +398,10 @@ function bindActions() {
       const tabName = button.textContent.trim();
       const selectedYear = curriculum.querySelector('.curriculum-year-select')?.value || '2026 - 2027';
       group.querySelectorAll('button').forEach((item) => item.setAttribute('aria-selected', String(item === button)));
-      if (panel) panel.innerHTML = curriculumYearView(selectedYear, tabName);
+      if (panel) {
+        panel.innerHTML = curriculumYearView(selectedYear, tabName);
+        enhanceCurriculumMobileLayout(panel);
+      }
     }
   }));
   document.querySelectorAll('.grade-year-select').forEach((select) => select.addEventListener('change', () => {
@@ -386,7 +423,10 @@ function bindActions() {
     const page = select.closest('.content');
     const panel = page.querySelector('#curriculumPanel');
     const activeCategory = page.querySelector('.curriculum-tabs button.active')?.textContent.trim() || 'Core Courses';
-    if (panel) panel.innerHTML = curriculumYearView(select.value, activeCategory);
+    if (panel) {
+      panel.innerHTML = curriculumYearView(select.value, activeCategory);
+      enhanceCurriculumMobileLayout(panel);
+    }
   }));
   document.querySelectorAll('.mobile-day-button').forEach((button) => button.addEventListener('click', () => {
     const schedule = button.closest('.content');
