@@ -4098,20 +4098,7 @@ html[data-theme="dark"] .content .payment-method-grid .payment-logo.logo-cebuana
 
 .content .curriculum-table td.course-status-cell {
 	border-radius: 0 !important;
-	background: var(--paper) !important;
 	font-weight: 700;
-}
-.content .curriculum-table td.course-status-cell.status-taken,
-.content .curriculum-table td.course-status-cell.status-current,
-.content .curriculum-table td.course-status-cell.status-pending,
-.content .curriculum-table td.course-status-cell.status-incomplete,
-.content .curriculum-table td.course-status-cell.status-credited,
-html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-taken,
-html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-current,
-html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-pending,
-html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-incomplete,
-html[data-theme="dark"] .content .curriculum-table td.course-status-cell.status-credited {
-	background: var(--paper) !important;
 }
 .content .curriculum-table td.course-status-cell .course-status-dot {
 	width: 6px;

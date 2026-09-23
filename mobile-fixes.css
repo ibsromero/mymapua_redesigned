@@ -559,15 +559,16 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
   display: none;
 }
 
-/* Keep the subject cards as the primary view at every device width. */
-.content .curriculum-table-wrap {
-  display: none !important;
-}
+@media (max-width: 800px) {
+  .content .curriculum-table-wrap {
+    display: none !important;
+  }
 
-.content .curriculum-mobile-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  .content .curriculum-mobile-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
 }
 
 .content .curriculum-term-summary {
@@ -610,6 +611,7 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
 
 .content .curriculum-mobile-status.status-taken { color: #27634f; background: #e2f1e7; }
 .content .curriculum-mobile-status.status-current { color: #8b6510; background: #fff1cf; }
+.content .curriculum-mobile-status.status-pending { color: #666b73; background: #eceef1; }
 .content .curriculum-mobile-status.status-incomplete { color: #a0443b; background: #f8e3df; }
 .content .curriculum-mobile-status.status-credited { color: #315e91; background: #e5f0f8; }
 
@@ -641,6 +643,7 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
 
 html[data-theme="dark"] .content .curriculum-mobile-status.status-taken { color: #b9edcf; background: #24513f; }
 html[data-theme="dark"] .content .curriculum-mobile-status.status-current { color: #f5d58a; background: #594416; }
+html[data-theme="dark"] .content .curriculum-mobile-status.status-pending { color: #d0d5dd; background: #343941; }
 html[data-theme="dark"] .content .curriculum-mobile-status.status-incomplete { color: #f0aaa2; background: #512d32; }
 html[data-theme="dark"] .content .curriculum-mobile-status.status-credited { color: #a9cbed; background: #263e59; }
 
@@ -653,6 +656,24 @@ html[data-theme="dark"] .content .curriculum-mobile-status.status-credited { col
   .content .curriculum-mobile-total {
     padding: 13px 14px;
   }
+}
+
+/* Keep the theme control legible on wide screens and compact screens alike. */
+.theme-icon::before {
+  width: auto !important;
+  height: auto !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  content: "☼" !important;
+  font-size: 16px;
+  line-height: 1;
+}
+
+html[data-theme="dark"] .theme-icon::before {
+  content: "☾" !important;
+  font-size: 15px;
 }
 
 /* Keep the mobile day list out of the desktop schedule; phones use it instead of the grid. */
@@ -1682,14 +1703,14 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
 
 .content .table-card td,
 .content .soa-table td,
-.content .curriculum-table td,
+.content .curriculum-table td:not(.course-status-cell),
 .content .schedule-table tbody th {
   background: transparent !important;
 }
 
 .content .table-card tbody tr:hover td,
 .content .soa-table tbody tr:hover td,
-.content .curriculum-table tbody tr:hover td,
+.content .curriculum-table tbody tr:hover td:not(.course-status-cell),
 .content .schedule-table tbody tr:hover td,
 .content .schedule-table tbody tr:hover th {
   background: color-mix(in srgb, var(--red-soft) 45%, transparent) !important;
@@ -1705,7 +1726,7 @@ html[data-theme="dark"] .content .curriculum-table th {
 
 html[data-theme="dark"] .content .table-card td,
 html[data-theme="dark"] .content .soa-table td,
-html[data-theme="dark"] .content .curriculum-table td,
+html[data-theme="dark"] .content .curriculum-table td:not(.course-status-cell),
 html[data-theme="dark"] .content .schedule-table tbody th {
   background: transparent !important;
 }
@@ -1734,7 +1755,7 @@ html[data-theme="dark"] .content .mobile-class .class-block {
 
 html[data-theme="dark"] .content .table-card tbody tr:hover td,
 html[data-theme="dark"] .content .soa-table tbody tr:hover td,
-html[data-theme="dark"] .content .curriculum-table tbody tr:hover td,
+html[data-theme="dark"] .content .curriculum-table tbody tr:hover td:not(.course-status-cell),
 html[data-theme="dark"] .content .schedule-table tbody tr:hover td,
 html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
   background: color-mix(in srgb, var(--red-soft) 60%, transparent) !important;

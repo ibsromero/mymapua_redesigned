@@ -69,6 +69,28 @@ for (const viewport of viewports) {
           throw new Error(`${viewport.name}/${theme}/${route}: mobile curriculum content is missing or horizontally clipped`);
         }
       }
+      if (route === '#curriculum') {
+        const curriculumVisualState = await page.evaluate(() => {
+          const table = document.querySelector('.curriculum-table-wrap');
+          const cards = document.querySelector('.curriculum-mobile-list');
+          const mobile = window.innerWidth <= 800;
+          const statusSelector = mobile ? '.curriculum-mobile-status' : '.course-status-cell';
+          const statuses = [...document.querySelectorAll(statusSelector)];
+          return {
+            tableDisplay: table ? getComputedStyle(table).display : 'none',
+            cardsDisplay: cards ? getComputedStyle(cards).display : 'none',
+            statusBackgrounds: [...new Set(statuses.map((cell) => getComputedStyle(cell).backgroundColor))],
+          };
+        });
+        const expectedTableDisplay = isMobile ? 'none' : 'block';
+        const expectedCardsDisplay = isMobile ? 'grid' : 'none';
+        if (curriculumVisualState.tableDisplay !== expectedTableDisplay
+          || curriculumVisualState.cardsDisplay !== expectedCardsDisplay
+          || curriculumVisualState.statusBackgrounds.length < 4
+          || curriculumVisualState.statusBackgrounds.includes('rgba(0, 0, 0, 0)')) {
+          throw new Error(`${viewport.name}/${theme}/${route}: curriculum display or status color contract changed`);
+        }
+      }
       if (isMobile && (route === '#soa' || route === '#payments')) {
         const tableState = await page.evaluate(() => [...document.querySelectorAll('.soa-table, .table-card')]
           .filter((card) => card.querySelector('table'))
