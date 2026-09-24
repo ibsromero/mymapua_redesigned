@@ -90,6 +90,15 @@ for (const viewport of viewports) {
           || curriculumVisualState.statusBackgrounds.includes('rgba(0, 0, 0, 0)')) {
           throw new Error(`${viewport.name}/${theme}/${route}: curriculum display or status color contract changed`);
         }
+
+        for (const category of ['Electives', 'Specialization']) {
+          await page.locator('.curriculum-year-select').selectOption('2025 - 2026');
+          await page.getByRole('tab', { name: category }).click();
+          const categoryYears = await page.locator('.curriculum-table tbody tr:not(.total-row) td:first-child').allTextContents();
+          if (categoryYears.some((value) => value.trim() !== '3')) {
+            throw new Error(`${viewport.name}/${theme}/${route}: ${category} year changed with academic-year selection`);
+          }
+        }
       }
       if (isMobile && (route === '#soa' || route === '#payments')) {
         const tableState = await page.evaluate(() => [...document.querySelectorAll('.soa-table, .table-card')]

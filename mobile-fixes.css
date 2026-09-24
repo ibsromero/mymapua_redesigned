@@ -632,6 +632,14 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
   line-height: 1.35;
 }
 
+.content .curriculum-mobile-meta > span:nth-child(1),
+.content .curriculum-mobile-meta > span:nth-child(2) {
+  color: var(--ink);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
 .content .curriculum-mobile-details {
   grid-column: 1 / -1;
   color: var(--muted);

@@ -177,7 +177,7 @@ const previousCurriculum = {
 };
 function curriculumYearView(year, category = 'Core Courses') {
   if (year === '2026 - 2027' && curriculumTabs[category]) return curriculumTabs[category];
-  if (category !== 'Core Courses' && curriculumCategoryRows[category]) return curriculumTermTable(category === 'Specialization' ? 'Cybersecurity' : category, curriculumCategoryRows[category], category === 'Electives' ? ['22.5', '0', '15'] : ['18', '0', '12'], year === '2025 - 2026' ? 1 : 2, '1', category);
+  if (category !== 'Core Courses' && curriculumCategoryRows[category]) return curriculumTermTable(category === 'Specialization' ? 'Cybersecurity' : category, curriculumCategoryRows[category], category === 'Electives' ? ['22.5', '0', '15'] : ['18', '0', '12'], 3, '1', category);
   const terms = previousCurriculum[year];
   return terms ? terms.map((term, index) => curriculumTermTable(`Term ${index + 1}`, term.rows, term.totals, year === '2025 - 2026' ? 1 : 2)).join('') : coreCourseTerms();
 }
