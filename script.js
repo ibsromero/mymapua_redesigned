@@ -85,6 +85,7 @@ const pageData = {
 
 delete pageData['#settings'];
 delete pageData['#personal'];
+pageData['#department-contacts'] = ['Department Contacts', '<span class="section-kicker">SUPPORT &amp; HELP</span><h1>Department Contacts</h1><p class="intro">Reach the university team that can answer your question directly.</p>', '<div class="department-contact-list"><article><span class="department-contact-type">TREASURY</span><h2>Tuition and account balances</h2><a href="mailto:treasury@mapua.edu.ph">treasury@mapua.edu.ph</a><p>Payment posting, balances, due dates, and official receipts.</p></article><article><span class="department-contact-type">ADMINISTRATION</span><h2>Student records and enrollment</h2><a href="mailto:studentservices@mapua.edu.ph">studentservices@mapua.edu.ph</a><p>Enrollment records, student details, and general administrative requests.</p></article><article><span class="department-contact-type">SCHOLARSHIPS</span><h2>Scholarships and financial aid</h2><a href="mailto:scholarships@mapua.edu.ph">scholarships@mapua.edu.ph</a><p>Scholarship applications, eligibility, and financial assistance.</p></article><article><span class="department-contact-type">HELPDESK</span><h2>Portal and technical help</h2><a href="mailto:helpdesk@mapua.edu.ph">helpdesk@mapua.edu.ph</a><p>Login issues, portal errors, and technical support.</p></article></div>'];
 const contactFormMarkup = `<form class="form-card contact-form" id="contactForm"><div class="form-section-heading"><h2>Contact information</h2><p>Use this single page to keep your university records and emergency contacts current.</p></div><fieldset><legend>Personal contact</legend><div class="form-grid"><label>Email address<input type="email" autocomplete="email" placeholder="name@mapua.edu.ph" /></label></div><div class="phone-grid"><label>Smart country code<input value="63" inputmode="numeric" /></label><label>Mobile code<input placeholder="987" inputmode="numeric" /></label><label class="phone-number">Mobile number<input type="tel" autocomplete="tel" placeholder="1234567" /></label></div><div class="phone-grid"><label>Non-smart country code<input value="63" inputmode="numeric" /></label><label>Area code<input placeholder="2" inputmode="numeric" /></label><label class="phone-number">Landline number<input type="tel" placeholder="1234567" /></label></div></fieldset><fieldset><legend>Parent or guardian contacts</legend><div class="contact-person"><h3>Mother or guardian</h3><div class="name-grid"><label>Last name<input autocomplete="family-name" /></label><label>Given name<input autocomplete="given-name" /></label><label>Middle name<input /></label></div><div class="phone-grid"><label>Mobile country code<input value="63" inputmode="numeric" /></label><label>Mobile code<input placeholder="987" inputmode="numeric" /></label><label class="phone-number">Mobile number<input type="tel" placeholder="1234567" /></label></div></div><div class="contact-person"><h3>Father or guardian</h3><div class="name-grid"><label>Last name<input autocomplete="family-name" /></label><label>Given name<input autocomplete="given-name" /></label><label>Middle name<input /></label></div><div class="phone-grid"><label>Mobile country code<input value="63" inputmode="numeric" /></label><label>Mobile code<input placeholder="987" inputmode="numeric" /></label><label class="phone-number">Mobile number<input type="tel" placeholder="1234567" /></label></div></div></fieldset><fieldset><legend>Emergency contact</legend><div class="form-grid"><label>Last name<input autocomplete="family-name" /></label><label>Given name<input autocomplete="given-name" /></label><label>Middle name<input /></label><label>Relationship<select><option value="">Select relationship</option><option>Parent</option><option>Sibling</option><option>Relative</option><option>Guardian</option><option>Friend</option></select></label></div><div class="phone-grid"><label>Mobile country code<input value="63" inputmode="numeric" /></label><label>Mobile code<input placeholder="987" inputmode="numeric" /></label><label class="phone-number">Mobile number<input type="tel" placeholder="1234567" /></label></div></fieldset><div class="form-actions"><span>Your information is used for university communication and emergencies.</span><button class="primary-button" type="submit">Save changes <span>✓</span></button></div></form>`;
 const personalDetailsMarkup = '<fieldset><legend>Student details</legend><div class="form-grid"><label>Student number<input value="2024106318" readonly /></label><label>Program<input value="BS Information Technology" readonly /></label><label>First name<input autocomplete="given-name" placeholder="First name" /></label><label>Last name<input autocomplete="family-name" placeholder="Last name" /></label><label>Sex<select><option>Prefer not to say</option><option>Male</option><option>Female</option></select></label><label>Date of birth<input type="date" /></label></div></fieldset><fieldset><legend>Home address</legend><div class="form-grid address-grid"><label>Street address<input autocomplete="street-address" placeholder="Street address" /></label><label>Barangay<input placeholder="Barangay" /></label><label>City or municipality<input autocomplete="address-level2" placeholder="City or municipality" /></label><label>Postal code<input autocomplete="postal-code" placeholder="Postal code" /></label><label>Country<select><option>Philippines</option></select></label></div></fieldset>';
 const combinedContactMarkup = contactFormMarkup.replace('<fieldset><legend>Personal contact</legend>', `${personalDetailsMarkup}<fieldset><legend>Personal contact</legend>`);
@@ -378,7 +379,15 @@ function enhanceCurriculumMobileLayout(panel) {
       title.textContent = cells[3]?.querySelector('.curriculum-course-title')?.textContent.trim() || cells[3]?.textContent.trim() || '';
       card.append(code, status, title);
       const meta = cells[3]?.querySelector('.curriculum-mobile-meta');
-      if (meta) card.append(meta.cloneNode(true));
+      if (meta) {
+        const metaCopy = meta.cloneNode(true);
+        const detail = document.createElement('details');
+        detail.className = 'curriculum-mobile-details';
+        const summary = document.createElement('summary');
+        summary.textContent = 'Course details';
+        detail.append(summary, ...[...metaCopy.children].slice(2));
+        card.append(metaCopy, detail);
+      }
       list.append(card);
     });
     term.append(list);
@@ -389,6 +398,18 @@ function bindActions() {
   enhancePaymentLogos();
   applyReferenceFieldConstraints();
   enhanceCurriculumMobileLayout(document.querySelector('#curriculumPanel'));
+  const saveButton = document.querySelector('.contact-form button[type="submit"]');
+  if (saveButton) saveButton.textContent = 'Save changes';
+  const supportGroup = [...document.querySelectorAll('.nav-group')].find((group) => group.querySelector('.section-toggle')?.textContent.includes('Support'));
+  if (supportGroup && !supportGroup.querySelector('[href="#department-contacts"]')) {
+    const link = document.createElement('a');
+    link.className = 'nav-link';
+    link.href = '#department-contacts';
+    link.dataset.page = 'Department Contacts';
+    link.innerHTML = '<span class="nav-icon"></span>Department Contacts';
+    link.addEventListener('click', () => document.querySelector('#sidebar')?.classList.remove('open'));
+    supportGroup.append(link);
+  }
   document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => showToast(button.dataset.toast)));
   document.querySelectorAll('[data-view-statement]').forEach((link) => link.addEventListener('click', (event) => {
     event.preventDefault();

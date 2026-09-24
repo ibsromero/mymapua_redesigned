@@ -619,7 +619,7 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
   grid-column: 1 / -1;
   margin: 0;
   color: var(--ink);
-  font: 700 14px/1.25 "IBM Plex Sans", "Trebuchet MS", sans-serif;
+  font: 700 15px/1.28 "IBM Plex Sans", "Trebuchet MS", sans-serif;
 }
 
 .content .curriculum-mobile-meta {
@@ -628,8 +628,26 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
   gap: 3px;
   margin: 0;
   color: var(--muted) !important;
-  font-size: 10px;
+  font-size: 10.5px;
   line-height: 1.35;
+}
+
+.content .curriculum-mobile-details {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+.content .curriculum-mobile-details summary {
+  color: var(--red);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.content .curriculum-mobile-details span {
+  display: block;
+  margin-top: 3px;
 }
 
 .content .curriculum-mobile-total {
@@ -649,12 +667,102 @@ html[data-theme="dark"] .content .curriculum-mobile-status.status-credited { col
 
 @media (max-width: 800px) {
   .content .curriculum-mobile-list {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .content .curriculum-mobile-course,
   .content .curriculum-mobile-total {
-    padding: 13px 14px;
+    padding: 13px 12px;
+  }
+}
+
+.content .contact-form legend {
+  margin-bottom: 12px;
+  padding-bottom: 9px;
+}
+
+@media (max-width: 800px) {
+
+  .content .soa-table table {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+  }
+
+  .content .soa-table th,
+  .content .soa-table td {
+    padding: 10px 6px !important;
+    font-size: 10px !important;
+    overflow-wrap: anywhere;
+  }
+
+  .content .soa-table th:nth-child(1),
+  .content .soa-table td:nth-child(1) { width: 18%; }
+  .content .soa-table th:nth-child(2),
+  .content .soa-table td:nth-child(2) { width: 30%; }
+  .content .soa-table th:nth-child(3),
+  .content .soa-table td:nth-child(3) { width: 20%; }
+  .content .soa-table th:nth-child(4),
+  .content .soa-table td:nth-child(4) { display: none; }
+  .content .soa-table th:nth-child(5),
+  .content .soa-table td:nth-child(5) { width: 24%; }
+  .content .soa-table th:nth-child(6),
+  .content .soa-table td:nth-child(6) { width: 8%; }
+
+  .content .soa-table .table-total td:first-child {
+    display: table-cell !important;
+    text-align: right;
+  }
+}
+
+.department-contact-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border-top: 1px solid var(--rule);
+  background: var(--rule);
+}
+
+.department-contact-list article {
+  min-width: 0;
+  padding: 22px;
+  background: var(--paper);
+}
+
+.department-contact-type {
+  color: var(--red);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.department-contact-list h2 {
+  margin: 9px 0 7px;
+  color: var(--ink);
+  font: 400 21px/1.2 Georgia, "Times New Roman", serif;
+}
+
+.department-contact-list a {
+  color: var(--red);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.department-contact-list p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .department-contact-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .department-contact-list article {
+    padding: 18px 0;
   }
 }
 

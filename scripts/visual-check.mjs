@@ -4,7 +4,7 @@ import { mkdir } from 'node:fs/promises';
 const baseUrl = process.env.PREVIEW_URL || 'http://127.0.0.1:4173';
 const routes = [
   '#dashboard', '#announcements', '#contact', '#grades', '#schedule', '#curriculum', '#gsa',
-  '#soa', '#payments', '#forms', '#ecm', '#counselor', '#faqs', '#signout', '#terms', '#privacy',
+  '#soa', '#payments', '#forms', '#ecm', '#counselor', '#faqs', '#department-contacts', '#signout', '#terms', '#privacy',
 ];
 const viewports = [
   { name: 'desktop', width: 1440, height: 1000 },
