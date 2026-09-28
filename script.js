@@ -378,8 +378,29 @@ function exportTableCsv(table, filename) {
 }
 function downloadDocument(title) {
   const description = downloadableFormRows.find(([label]) => label === title)?.[1] || 'myMapua student portal document.';
-  const content = `${title}\n\n${description}\n\nMapua University\nmyMapua Student Portal\nGenerated from the mock student portal.`;
-  downloadBlob(new Blob([content], { type: 'text/plain;charset=utf-8' }), `${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.txt`);
+  const filename = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  if (window.jspdf?.jsPDF) {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(19);
+    pdf.text('MAPUA UNIVERSITY', 56, 68);
+    pdf.setDrawColor(157, 29, 42);
+    pdf.line(56, 82, 539, 82);
+    pdf.setTextColor(36, 37, 42);
+    pdf.setFontSize(17);
+    pdf.text(title, 56, 125);
+    pdf.setFont('helvetica', 'normal');
+    pdf.setFontSize(11);
+    pdf.text(pdf.splitTextToSize(description, 483), 56, 156);
+    pdf.setTextColor(113, 111, 115);
+    pdf.setFontSize(9);
+    pdf.text('myMapua Student Portal - generated document', 56, 780);
+    pdf.save(`${filename}.pdf`);
+  } else {
+    const content = `${title}\n\n${description}\n\nMapua University\nmyMapua Student Portal\nGenerated from the mock student portal.`;
+    downloadBlob(new Blob([content], { type: 'text/plain;charset=utf-8' }), `${filename}.txt`);
+  }
   showToast('Document downloaded.');
 }
 
