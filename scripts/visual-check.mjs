@@ -145,6 +145,12 @@ for (const viewport of viewports) {
           throw new Error(`${viewport.name}/${theme}/${route}: print or CSV export control is missing`);
         }
       }
+      if (route === '#gsa' && await page.locator('[data-print-page]').count() !== 1) {
+        throw new Error(`${viewport.name}/${theme}/${route}: GSA print control is missing`);
+      }
+      if (route === '#forms' && await page.locator('[data-download-title]').count() < 8) {
+        throw new Error(`${viewport.name}/${theme}/${route}: document download controls are incomplete`);
+      }
       if (route === '#contact') {
         const profileLayout = await page.evaluate(() => {
           const form = document.querySelector('.contact-form');

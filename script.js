@@ -197,7 +197,7 @@ const downloadableFormRows = [
   ['Course request form', 'Academic services form for requesting a course.'],
   ['Online enrollment user manual', 'Student guide for completing online enrollment.'],
 ];
-const downloadableFormsMarkup = `<div class="download-list">${downloadableFormRows.map(([title, description]) => `<div><section><strong>${title}</strong><small>${description}</small></section><button class="quiet-button" data-toast="Download prepared.">Download</button></div>`).join('')}</div>`;
+const downloadableFormsMarkup = `<div class="download-list">${downloadableFormRows.map(([title, description]) => `<div><section><strong>${title}</strong><small>${description}</small></section><button class="quiet-button" type="button" data-download-title="${title}">Download</button></div>`).join('')}</div>`;
 pageData['#forms'][2] = pageData['#forms'][2].replace(/<div class="download-list">[\s\S]*?<\/div><\/section><\/div>$/, `${downloadableFormsMarkup}</section></div>`);
 
 pageData['#faqs'][2] = '<div class="faq-list"><details open><summary>How do I request an academic document?</summary><p>Open Documents &amp; Forms, choose the record you need, and select Request document. Keep your student number ready if the helpdesk asks for it.</p></details><details><summary>Where can I view my current balance?</summary><p>Open Statement of Account under Bills &amp; Payments. The current charge, due date, payment options, and selected total are shown there.</p></details><details><summary>How do I print my GSA or certificate?</summary><p>Open Print GSA or E-CM and select the print action. Your browser print dialog will open so you can choose a printer or save the page as a PDF.</p></details><details><summary>How do I check my grades?</summary><p>Open My Grades under Academics. Use the school-year selector and term tabs to review current and previous records.</p></details><details><summary>How do I view my curriculum?</summary><p>Open My Curriculum to switch between core courses, electives, and specialization. Previous academic years can be selected from the academic-year menu.</p></details><details><summary>How do I export my schedule?</summary><p>Open My Schedule, select Export schedule, then choose PDF, image, or CSV. CSV is useful for moving the timetable into a spreadsheet.</p></details><details><summary>Why does my schedule look different on mobile?</summary><p>Mobile starts in a focused day view to keep classes readable. Select Full view to open the complete weekly timetable.</p></details><details><summary>Which email should I use for portal problems?</summary><p>Use helpdesk@mapua.edu.ph for login, portal, and technical problems. Include the page name and a screenshot when possible.</p></details><details><summary>How do I update my profile?</summary><p>Open Profile, update the available fields, and select Save changes. Read-only student-record fields are controlled by the university.</p></details><details><summary>What should I do if an email address is not accepted?</summary><p>Sign-in is limited to your @mymail.mapua.edu.ph or @mapua.edu.ph account. Check the spelling and use your official university address.</p></details></div>';
@@ -376,6 +376,12 @@ function exportTableCsv(table, filename) {
   downloadBlob(new Blob([csv], { type: 'text/csv;charset=utf-8' }), filename);
   showToast('CSV export downloaded.');
 }
+function downloadDocument(title) {
+  const description = downloadableFormRows.find(([label]) => label === title)?.[1] || 'myMapua student portal document.';
+  const content = `${title}\n\n${description}\n\nMapua University\nmyMapua Student Portal\nGenerated from the mock student portal.`;
+  downloadBlob(new Blob([content], { type: 'text/plain;charset=utf-8' }), `${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.txt`);
+  showToast('Document downloaded.');
+}
 
 async function renderScheduleCanvas() {
   const source = document.querySelector('.weekly-schedule');
@@ -528,6 +534,7 @@ function bindActions() {
     if (!table) return;
     exportTableCsv(table, `${button.dataset.exportTable || 'mymapua-table'}.csv`);
   }));
+  document.querySelectorAll('[data-download-title]').forEach((button) => button.addEventListener('click', () => downloadDocument(button.dataset.downloadTitle)));
   document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => {
     if (!button.dataset.printPage) showToast(button.dataset.toast);
   }));
