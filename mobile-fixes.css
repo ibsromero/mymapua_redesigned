@@ -1433,9 +1433,9 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
     }
     .content .soa-table table th:nth-child(6),
     .content .soa-table table td:nth-child(6) {
-      width: 48px !important;
+      width: 18% !important;
       min-width: 48px !important;
-      max-width: 48px !important;
+      max-width: none !important;
       padding-inline: 2px !important;
       text-align: center;
       white-space: nowrap !important;
@@ -1576,9 +1576,9 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
 
     .content .soa-table table th:nth-child(6),
     .content .soa-table table td:nth-child(6) {
-      width: 48px !important;
+      width: 18% !important;
       min-width: 48px !important;
-      max-width: 48px !important;
+      max-width: none !important;
       white-space: nowrap !important;
     }
   }
