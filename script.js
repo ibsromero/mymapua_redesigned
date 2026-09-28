@@ -3,7 +3,98 @@ const pageTitle = document.querySelector('#pageTitle');
 const content = document.querySelector('#dashboard');
 const footer = document.querySelector('.footer');
 const toast = document.querySelector('#toast');
+const authGate = document.querySelector('#authGate');
+const appShell = document.querySelector('.app-shell');
+const authEmailForm = document.querySelector('#authEmailForm');
+const authPasswordForm = document.querySelector('#authPasswordForm');
+const authEmailStep = document.querySelector('#authEmailStep');
+const authPasswordStep = document.querySelector('#authPasswordStep');
+const authEmail = document.querySelector('#authEmail');
+const authPassword = document.querySelector('#authPassword');
+const authEmailError = document.querySelector('#authEmailError');
+const authPasswordError = document.querySelector('#authPasswordError');
+const authAccount = document.querySelector('#authAccount');
+const authBackButton = document.querySelector('#authBackButton');
 const dashboardView = content.innerHTML;
+
+const authStorageKey = 'mymapua-auth-v1';
+const allowedEmailPattern = /^[^\s@]+@(mymail\.mapua\.edu\.ph|mapua\.edu\.ph)$/i;
+
+function getAuthSession() {
+  try {
+    const session = JSON.parse(window.localStorage.getItem(authStorageKey) || 'null');
+    return session?.email && allowedEmailPattern.test(session.email) ? session : null;
+  } catch {
+    return null;
+  }
+}
+function setAuthStep(step) {
+  const passwordActive = step === 'password';
+  authEmailStep.hidden = passwordActive;
+  authPasswordStep.hidden = !passwordActive;
+  if (passwordActive) authPassword.focus();
+  else authEmail.focus();
+}
+function showAuthError(element, message) { element.textContent = message; }
+function clearAuthErrors() {
+  showAuthError(authEmailError, '');
+  showAuthError(authPasswordError, '');
+}
+function showPortal() {
+  authGate.hidden = true;
+  appShell.hidden = false;
+  renderPage();
+}
+function showAuth() {
+  window.localStorage.removeItem(authStorageKey);
+  authGate.hidden = false;
+  appShell.hidden = true;
+  clearAuthErrors();
+  authEmailForm.reset();
+  authPasswordForm.reset();
+  setAuthStep('email');
+}
+function initAuth() {
+  authEmailForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = authEmail.value.trim().toLowerCase();
+    clearAuthErrors();
+    if (!allowedEmailPattern.test(email)) {
+      showAuthError(authEmailError, 'Enter a valid @mymail.mapua.edu.ph or @mapua.edu.ph account.');
+      authEmail.focus();
+      return;
+    }
+    authAccount.textContent = email;
+    authEmail.value = email;
+    setAuthStep('password');
+  });
+  authPasswordForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    clearAuthErrors();
+    if (!authPassword.value.trim()) {
+      showAuthError(authPasswordError, 'Enter your password.');
+      authPassword.focus();
+      return;
+    }
+    window.localStorage.setItem(authStorageKey, JSON.stringify({ email: authEmail.value.trim().toLowerCase() }));
+    showPortal();
+  });
+  authBackButton.addEventListener('click', () => {
+    clearAuthErrors();
+    authPasswordForm.reset();
+    setAuthStep('email');
+  });
+  document.querySelectorAll('[data-auth-help]').forEach((button) => button.addEventListener('click', () => {
+    const error = button.closest('.auth-step')?.querySelector('.auth-error') || authEmailError;
+    showAuthError(error, 'Please contact Mapua IT support to recover your account.');
+  }));
+  if (getAuthSession()) showPortal();
+  else {
+    authGate.hidden = false;
+    appShell.hidden = true;
+    setAuthStep('email');
+  }
+}
 
 function formatCurrentDate(date = new Date()) { return new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }).format(date).toUpperCase(); }
 function updateCurrentDate() {
@@ -504,6 +595,8 @@ function bindActions() {
       total.textContent = `₱ ${selectedAmount.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     }));
   }
+  const signOutButton = document.querySelector('.signout-card .primary-button');
+  if (signOutButton) signOutButton.addEventListener('click', showAuth);
 }
 function setActiveLink(hash) { document.querySelectorAll('.nav-link').forEach((link) => { const active = link.getAttribute('href') === hash || (hash === '#dashboard' && link.getAttribute('href') === '#dashboard'); link.classList.toggle('active', active); if (active) { const group = link.closest('.nav-group'); if (group) setSectionState(group, true); } }); }
 function setSectionState(group, isOpen) { group.classList.toggle('collapsed', !isOpen); const toggle = group.querySelector('.section-toggle'); if (toggle) toggle.setAttribute('aria-expanded', String(isOpen)); }
@@ -516,8 +609,8 @@ const closeSidebar = () => sidebar.classList.remove('open');
 document.querySelector('#closeMenu').addEventListener('click', closeSidebar);
 document.querySelector('#sidebarScrim').addEventListener('click', closeSidebar);
 document.querySelectorAll('.nav-link').forEach((link) => link.addEventListener('click', closeSidebar));
+window.addEventListener('hashchange', renderPage);
 initSectionToggles();
 initTheme();
-window.addEventListener('hashchange', renderPage);
-renderPage();
+initAuth();
 window.setInterval(updateCurrentDate, 60 * 1000);

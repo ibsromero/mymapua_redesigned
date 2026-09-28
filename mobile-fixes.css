@@ -559,6 +559,16 @@ html[data-theme="dark"] .content .schedule-table tbody tr:hover th {
   display: none;
 }
 
+@media (min-width: 801px) {
+  .content .curriculum-table-wrap {
+    display: block !important;
+  }
+
+  .content .curriculum-mobile-list {
+    display: none !important;
+  }
+}
+
 @media (max-width: 800px) {
   .content .curriculum-table-wrap {
     display: none !important;
@@ -1423,11 +1433,12 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
     }
     .content .soa-table table th:nth-child(6),
     .content .soa-table table td:nth-child(6) {
-      width: 30px !important;
-      min-width: 30px !important;
-      max-width: 30px !important;
+      width: 48px !important;
+      min-width: 48px !important;
+      max-width: 48px !important;
       padding-inline: 2px !important;
       text-align: center;
+      white-space: nowrap !important;
     }
 
     .content .soa-table table input[type="checkbox"] {
@@ -1562,11 +1573,13 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
       width: 80px !important;
       min-width: 80px !important;
     }
+
     .content .soa-table table th:nth-child(6),
     .content .soa-table table td:nth-child(6) {
-      width: 30px !important;
-      min-width: 30px !important;
-      max-width: 30px !important;
+      width: 48px !important;
+      min-width: 48px !important;
+      max-width: 48px !important;
+      white-space: nowrap !important;
     }
   }
 

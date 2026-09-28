@@ -30,6 +30,32 @@ for (const viewport of viewports) {
     await context.addInitScript((selectedTheme) => {
       localStorage.setItem('mymapua-theme', selectedTheme);
     }, theme);
+    const authPage = await context.newPage();
+    await authPage.goto(`${baseUrl}/#dashboard`, { waitUntil: 'networkidle' });
+    await authPage.evaluate(() => localStorage.removeItem('mymapua-auth-v1'));
+    await authPage.reload({ waitUntil: 'networkidle' });
+    if (!(await authPage.locator('#authGate').isVisible()) || await authPage.locator('.app-shell').isVisible()) {
+      throw new Error(`${viewport.name}/${theme}: unauthenticated portal gate is not active`);
+    }
+    await authPage.locator('#authEmail').fill('student@example.com');
+    await authPage.locator('#authEmailForm').evaluate((form) => form.requestSubmit());
+    if (!(await authPage.locator('#authEmailError').textContent()).includes('valid @mymail.mapua.edu.ph')) {
+      throw new Error(`${viewport.name}/${theme}: invalid email domain was accepted`);
+    }
+    await authPage.locator('#authEmail').fill('student@mymail.mapua.edu.ph');
+    await authPage.locator('#authEmailForm').evaluate((form) => form.requestSubmit());
+    if (!(await authPage.locator('#authPasswordStep').isVisible())) {
+      throw new Error(`${viewport.name}/${theme}: allowed mymail domain did not advance to password`);
+    }
+    await authPage.locator('#authBackButton').click();
+    await authPage.locator('#authEmail').fill('student@mapua.edu.ph');
+    await authPage.locator('#authEmailForm').evaluate((form) => form.requestSubmit());
+    await authPage.locator('#authPassword').fill('mock-password');
+    await authPage.locator('#authPasswordForm').evaluate((form) => form.requestSubmit());
+    if (await authPage.locator('#authGate').isVisible() || !(await authPage.locator('.app-shell').isVisible())) {
+      throw new Error(`${viewport.name}/${theme}: allowed mapua domain did not open the portal`);
+    }
+    await authPage.close();
     for (const route of routes) {
       const page = await context.newPage();
       await page.goto(`${baseUrl}/${route}`, { waitUntil: 'networkidle' });

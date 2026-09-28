@@ -12,6 +12,43 @@
   <script src="node_modules/jspdf/dist/jspdf.umd.min.js"></script>
 </head>
 <body>
+  <section class="auth-gate" id="authGate" aria-labelledby="authTitle">
+    <div class="auth-backdrop" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="auth-shell">
+      <div class="auth-brand" aria-label="Mapua University">
+        <img src="assets/mapua-logo.png" alt="Mapua University" />
+        <span>Student portal</span>
+      </div>
+      <div class="auth-card">
+        <div class="microsoft-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="auth-step" id="authEmailStep">
+          <h1 id="authTitle">Sign in</h1>
+          <p class="auth-copy">Use your Mapua account to continue to myMapua.</p>
+          <form id="authEmailForm" novalidate>
+            <label class="auth-field-label" for="authEmail">Email, phone, or Skype</label>
+            <input id="authEmail" name="email" type="email" autocomplete="username" spellcheck="false" placeholder="Email, phone, or Skype" required />
+            <p class="auth-error" id="authEmailError" role="alert" aria-live="polite"></p>
+            <button class="auth-primary" type="submit">Next</button>
+          </form>
+          <button class="auth-link-button" type="button" data-auth-help>Can’t access your account?</button>
+        </div>
+        <div class="auth-step" id="authPasswordStep" hidden>
+          <button class="auth-back-button" id="authBackButton" type="button" aria-label="Back to email entry">‹ <span>Back</span></button>
+          <h1>Enter password</h1>
+          <p class="auth-account" id="authAccount"></p>
+          <form id="authPasswordForm" novalidate>
+            <label class="auth-field-label" for="authPassword">Password</label>
+            <input id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="Password" required />
+            <p class="auth-error" id="authPasswordError" role="alert" aria-live="polite"></p>
+            <button class="auth-primary" type="submit">Sign in</button>
+          </form>
+          <button class="auth-link-button" type="button" data-auth-help>Forgot password?</button>
+        </div>
+        <div class="auth-options"><span class="auth-options-icon">?</span><span>Sign-in options</span></div>
+      </div>
+      <p class="auth-disclaimer">This is a mock sign-in for the redesigned myMapua portal.</p>
+    </div>
+  </section>
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <div class="brand-block">
@@ -58,6 +95,6 @@
     </div>
   </div>
   <div class="toast" id="toast" role="status">Help Center is coming right up.</div>
-  <script src="script.js?v=20260915-0100"></script>
+  <script src="script.js?v=20260928-0100"></script>
 </body>
 </html>
