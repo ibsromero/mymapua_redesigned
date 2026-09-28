@@ -1671,6 +1671,44 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+.mock-payment-page {
+	width: min(720px, 100%);
+	margin-top: 26px;
+	border-top: 1px solid var(--rule);
+}
+.mock-payment-brand {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 22px 0;
+	border-bottom: 1px solid var(--rule);
+}
+.mock-payment-brand strong { color: var(--red); font: 700 22px/1.1 "IBM Plex Sans", sans-serif; letter-spacing: .4px; }
+.mock-payment-brand span { color: var(--muted); font-size: 10px; text-transform: uppercase; }
+.mock-payment-summary { display: grid; gap: 6px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+.mock-payment-summary span,.mock-payment-summary small { color: var(--muted); font-size: 10px; }
+.mock-payment-summary strong { color: var(--ink); font: 400 28px Georgia, "Times New Roman", serif; }
+.mock-payment-form { max-width: 560px; padding: 24px 0; }
+.mock-payment-form h2 { margin: 0 0 20px; color: var(--ink); font: 400 23px/1.2 Georgia, "Times New Roman", serif; }
+.mock-payment-form > label { display: flex; flex-direction: column; gap: 7px; margin-bottom: 15px; color: var(--muted); font-size: 10px; font-weight: 700; }
+.mock-payment-form input { min-height: 40px; padding: 9px 10px; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink); background: var(--paper); font: inherit; }
+.mock-payment-form input:focus { border-color: var(--red); outline: 2px solid var(--red-soft); }
+.mock-payment-note { margin: 10px 0 24px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.mock-payment-actions { display: flex; justify-content: flex-start; gap: 10px; margin-top: 24px; }
+.mock-payment-success { display: grid; justify-items: start; gap: 12px; padding: 30px 0; }
+.mock-payment-success > span:first-child { display: grid; width: 42px; height: 42px; place-items: center; color: #fff; border-radius: 50%; background: var(--green); font-size: 23px; }
+.mock-payment-success h2 { margin: 0; color: var(--ink); font: 400 28px Georgia, "Times New Roman", serif; }
+.mock-payment-success p { max-width: 500px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.mock-payment-success strong { color: var(--red); font-size: 11px; letter-spacing: .7px; }
+@media(max-width:520px) {
+	.mock-payment-page { margin-top: 20px; }
+	.mock-payment-brand { align-items: flex-start; flex-direction: column; gap: 7px; }
+	.mock-payment-form { padding-top: 20px; }
+	.mock-payment-actions { align-items: stretch; flex-direction: column-reverse; }
+	.mock-payment-actions > * { width: 100%; }
+}
+
 .payment-modal {
 	position: fixed;
 	inset: 0;

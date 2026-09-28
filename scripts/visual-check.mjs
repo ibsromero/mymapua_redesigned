@@ -156,10 +156,10 @@ for (const viewport of viewports) {
           throw new Error(`${viewport.name}/${theme}/${route}: payment method list is incomplete`);
         }
         await page.locator('.payment-method-grid button').first().click();
-        if (!(await page.locator('.payment-modal').isVisible())) {
-          throw new Error(`${viewport.name}/${theme}/${route}: payment mock did not open`);
+        await page.waitForFunction(() => window.location.hash === '#payment-rcbc-online');
+        if (!page.url().includes('#payment-rcbc-online') || !(await page.locator('.mock-payment-page').isVisible())) {
+          throw new Error(`${viewport.name}/${theme}/${route}: payment provider redirect did not open`);
         }
-        await page.locator('button[data-payment-close]').first().click();
       }
       if (route === '#contact') {
         const profileLayout = await page.evaluate(() => {
