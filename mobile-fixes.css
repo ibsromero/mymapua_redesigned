@@ -1583,6 +1583,31 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
     }
   }
 
+  @media (max-width: 800px) {
+    .content .soa-table::after {
+      display: none;
+    }
+
+    .content .soa-table table thead th:nth-child(3) {
+      white-space: normal !important;
+      line-height: 1.1 !important;
+    }
+
+    .content .soa-table table tbody td:nth-child(3) {
+      white-space: nowrap !important;
+    }
+
+    .content .soa-table table th:nth-child(5),
+    .content .soa-table table td:nth-child(5) {
+      text-align: right !important;
+    }
+
+    .content .soa-table table th:nth-child(6),
+    .content .soa-table table td:nth-child(6) {
+      text-align: center !important;
+    }
+  }
+
   /* Keep transaction history focused on the fields students scan most. */
   @media (max-width: 800px) {
     .content .payment-history-table {
