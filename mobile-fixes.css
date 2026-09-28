@@ -1427,13 +1427,13 @@ html[data-theme="dark"] .content.schedule-full-view .schedule-table .class-block
     .content .soa-table table td:nth-child(3) { width: 18% !important; white-space: nowrap !important; }
     .content .soa-table table th:nth-child(5),
     .content .soa-table table td:nth-child(5) {
-      width: 76px !important;
-      min-width: 76px !important;
+      width: 21% !important;
+      min-width: 0 !important;
       white-space: nowrap !important;
     }
     .content .soa-table table th:nth-child(6),
     .content .soa-table table td:nth-child(6) {
-      width: 18% !important;
+      width: 19% !important;
       min-width: 48px !important;
       max-width: none !important;
       padding-inline: 2px !important;
