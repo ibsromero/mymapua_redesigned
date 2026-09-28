@@ -151,6 +151,16 @@ for (const viewport of viewports) {
       if (route === '#forms' && await page.locator('[data-download-title]').count() < 8) {
         throw new Error(`${viewport.name}/${theme}/${route}: document download controls are incomplete`);
       }
+      if (route === '#soa') {
+        if (await page.locator('.payment-method-grid button').count() !== 7) {
+          throw new Error(`${viewport.name}/${theme}/${route}: payment method list is incomplete`);
+        }
+        await page.locator('.payment-method-grid button').first().click();
+        if (!(await page.locator('.payment-modal').isVisible())) {
+          throw new Error(`${viewport.name}/${theme}/${route}: payment mock did not open`);
+        }
+        await page.locator('button[data-payment-close]').first().click();
+      }
       if (route === '#contact') {
         const profileLayout = await page.evaluate(() => {
           const form = document.querySelector('.contact-form');

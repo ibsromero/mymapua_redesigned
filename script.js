@@ -356,6 +356,36 @@ function applyReferenceFieldConstraints() {
 }
 
 function showToast(message) { toast.textContent = message; toast.classList.add('show'); window.clearTimeout(showToast.timeout); showToast.timeout = window.setTimeout(() => toast.classList.remove('show'), 2600); }
+function closePaymentModal() {
+  document.querySelector('.payment-modal')?.remove();
+}
+function openPaymentModal(button) {
+  closePaymentModal();
+  const method = button.querySelector('strong')?.textContent.trim() || 'Payment method';
+  const mode = [...button.querySelectorAll('span')].map((item) => item.textContent).find((text) => text.includes('Online') || text.includes('Pay in person')) || 'Online payment';
+  const isInPerson = mode.includes('in person');
+  const modal = document.createElement('div');
+  modal.className = 'payment-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'paymentModalTitle');
+  modal.innerHTML = `<div class="payment-modal-backdrop" data-payment-close></div><section class="payment-modal-card"><button class="payment-modal-close" type="button" aria-label="Close payment dialog" data-payment-close>×</button><span class="mini-label">MOCK CHECKOUT</span><h2 id="paymentModalTitle">${method}</h2><p class="payment-modal-copy">${isInPerson ? 'Prepare this reference before visiting the payment channel.' : 'Complete the details below to continue to the secure mock checkout.'}</p><div class="payment-modal-summary"><span>Amount due</span><strong>₱ 15,329.00</strong><small>1st Semester A.Y. 2026-2027</small></div>${isInPerson ? '<label class="payment-modal-field">Reference name<input value="Authorized student record" readonly /></label><p class="payment-modal-note">Present your student number and reference at the selected payment channel.</p>' : '<div class="payment-modal-fields"><label class="payment-modal-field">Cardholder name<input placeholder="Authorized student record" required /></label><label class="payment-modal-field">Card number<input inputmode="numeric" placeholder="0000 0000 0000 0000" required /></label><div class="payment-modal-field-row"><label class="payment-modal-field">Expiry<input placeholder="MM / YY" required /></label><label class="payment-modal-field">Security code<input inputmode="numeric" placeholder="CVV" required /></label></div></div>'}<p class="payment-modal-error" role="alert"></p><div class="payment-modal-actions"><button class="quiet-button" type="button" data-payment-close>Cancel</button><button class="primary-button" type="button" data-payment-confirm>${isInPerson ? 'Create payment reference' : 'Continue securely'}</button></div></section>`;
+  document.body.appendChild(modal);
+  const close = () => { closePaymentModal(); button.focus(); };
+  modal.querySelectorAll('[data-payment-close]').forEach((item) => item.addEventListener('click', close));
+  modal.querySelector('[data-payment-confirm]').addEventListener('click', () => {
+    const requiredFields = [...modal.querySelectorAll('input[required]')];
+    const error = modal.querySelector('.payment-modal-error');
+    if (requiredFields.some((field) => !field.value.trim())) {
+      error.textContent = 'Complete the required fields to continue.';
+      requiredFields.find((field) => !field.value.trim())?.focus();
+      return;
+    }
+    modal.querySelector('.payment-modal-card').innerHTML = '<div class="payment-success"><span class="payment-success-mark">✓</span><span class="mini-label">MOCK PAYMENT READY</span><h2>Payment request created</h2><p>Your payment was not charged. This demo created a secure-looking confirmation for testing the portal flow.</p><strong>Reference: MYM-2026-15329</strong><button class="primary-button" type="button" data-payment-close>Return to statement</button></div>';
+    modal.querySelector('[data-payment-close]').addEventListener('click', close);
+  });
+  modal.querySelector('input')?.focus();
+}
 function downloadBlob(blob, filename) {
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
@@ -556,6 +586,7 @@ function bindActions() {
     exportTableCsv(table, `${button.dataset.exportTable || 'mymapua-table'}.csv`);
   }));
   document.querySelectorAll('[data-download-title]').forEach((button) => button.addEventListener('click', () => downloadDocument(button.dataset.downloadTitle)));
+  document.querySelectorAll('.payment-method-grid button').forEach((button) => button.addEventListener('click', () => openPaymentModal(button)));
   document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => {
     if (!button.dataset.printPage) showToast(button.dataset.toast);
   }));
