@@ -134,6 +134,17 @@ for (const viewport of viewports) {
           throw new Error(`${viewport.name}/${theme}/${route}: mobile finance table overflows its card`);
         }
       }
+      if (route === '#faqs' && await page.locator('.faq-list details').count() < 8) {
+        throw new Error(`${viewport.name}/${theme}/${route}: FAQ content is incomplete`);
+      }
+      if (route === '#department-contacts' && await page.locator('.department-contact-list a[href^="mailto:"]').count() < 5) {
+        throw new Error(`${viewport.name}/${theme}/${route}: department contact list is incomplete`);
+      }
+      if (route === '#soa' || route === '#payments') {
+        if (await page.locator('[data-print-page]').count() !== 1 || await page.locator('[data-export-table]').count() !== 1) {
+          throw new Error(`${viewport.name}/${theme}/${route}: print or CSV export control is missing`);
+        }
+      }
       if (route === '#contact') {
         const profileLayout = await page.evaluate(() => {
           const form = document.querySelector('.contact-form');

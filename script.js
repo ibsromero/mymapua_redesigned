@@ -200,6 +200,14 @@ const downloadableFormRows = [
 const downloadableFormsMarkup = `<div class="download-list">${downloadableFormRows.map(([title, description]) => `<div><section><strong>${title}</strong><small>${description}</small></section><button class="quiet-button" data-toast="Download prepared.">Download</button></div>`).join('')}</div>`;
 pageData['#forms'][2] = pageData['#forms'][2].replace(/<div class="download-list">[\s\S]*?<\/div><\/section><\/div>$/, `${downloadableFormsMarkup}</section></div>`);
 
+pageData['#faqs'][2] = '<div class="faq-list"><details open><summary>How do I request an academic document?</summary><p>Open Documents &amp; Forms, choose the record you need, and select Request document. Keep your student number ready if the helpdesk asks for it.</p></details><details><summary>Where can I view my current balance?</summary><p>Open Statement of Account under Bills &amp; Payments. The current charge, due date, payment options, and selected total are shown there.</p></details><details><summary>How do I print my GSA or certificate?</summary><p>Open Print GSA or E-CM and select the print action. Your browser print dialog will open so you can choose a printer or save the page as a PDF.</p></details><details><summary>How do I check my grades?</summary><p>Open My Grades under Academics. Use the school-year selector and term tabs to review current and previous records.</p></details><details><summary>How do I view my curriculum?</summary><p>Open My Curriculum to switch between core courses, electives, and specialization. Previous academic years can be selected from the academic-year menu.</p></details><details><summary>How do I export my schedule?</summary><p>Open My Schedule, select Export schedule, then choose PDF, image, or CSV. CSV is useful for moving the timetable into a spreadsheet.</p></details><details><summary>Why does my schedule look different on mobile?</summary><p>Mobile starts in a focused day view to keep classes readable. Select Full view to open the complete weekly timetable.</p></details><details><summary>Which email should I use for portal problems?</summary><p>Use helpdesk@mapua.edu.ph for login, portal, and technical problems. Include the page name and a screenshot when possible.</p></details><details><summary>How do I update my profile?</summary><p>Open Profile, update the available fields, and select Save changes. Read-only student-record fields are controlled by the university.</p></details><details><summary>What should I do if an email address is not accepted?</summary><p>Sign-in is limited to your @mymail.mapua.edu.ph or @mapua.edu.ph account. Check the spelling and use your official university address.</p></details></div>';
+pageData['#department-contacts'][2] = '<div class="department-contact-list"><article><span class="department-contact-type">TREASURY</span><h2>Tuition and account balances</h2><a href="mailto:treasury@mapua.edu.ph">treasury@mapua.edu.ph</a><p>Payment posting, balances, due dates, official receipts, and account questions.</p></article><article><span class="department-contact-type">STUDENT SERVICES</span><h2>Student records and enrollment</h2><a href="mailto:studentservices@mapua.edu.ph">studentservices@mapua.edu.ph</a><p>Enrollment records, student details, and general administrative requests.</p></article><article><span class="department-contact-type">SCHOLARSHIPS</span><h2>Scholarships and financial aid</h2><a href="mailto:scholarships@mapua.edu.ph">scholarships@mapua.edu.ph</a><p>Scholarship applications, eligibility, and financial assistance.</p></article><article><span class="department-contact-type">IT HELPDESK</span><h2>Portal and technical help</h2><a href="mailto:helpdesk@mapua.edu.ph">helpdesk@mapua.edu.ph</a><p>Login issues, portal errors, and technical support.</p></article><article><span class="department-contact-type">COUNSELING</span><h2>Academic and student support</h2><a href="mailto:mycounselor@mapua.edu.ph">mycounselor@mapua.edu.ph</a><p>Academic planning, wellbeing, and student-support concerns.</p></article><article><span class="department-contact-type">GENERAL ADMINISTRATION</span><h2>Student services follow-up</h2><a href="mailto:studentservices@mapua.edu.ph">studentservices@mapua.edu.ph</a><p>Use this shared mailbox for requests that need administrative routing.</p></article></div>';
+['#gsa', '#soa', '#payments', '#ecm'].forEach((key) => {
+  pageData[key][2] = pageData[key][2].replace(/data-toast="([^"]*print[^"]*)"/gi, 'data-print-page="true" data-toast="$1"');
+});
+pageData['#soa'][2] = pageData['#soa'][2].replace('</button></div><table>', '</button><button class="quiet-button" type="button" data-export-table="soa">Export CSV</button></div><table>');
+pageData['#payments'][2] = pageData['#payments'][2].replace('</button></div><table class="payment-history-table">', '</button><button class="quiet-button" type="button" data-export-table="payments">Export CSV</button></div><table class="payment-history-table">');
+
 const curriculumTabs = {
   'Core Courses': coreCourseTerms(),
   Electives: curriculumTermTable('Electives', [['CSS171-1','Graphics and Visual Computing','4.5','-','3','CSS123P'],['CSS172-1','Pattern Recognition','4.5','-','3','CSS123P'],['ECE176-1','Introduction to Game Programming','4.5','-','3','CSS123P'],['ITS171-1','Fundamentals of SAP','4.5','-','3','ITS131P'],['ITS175-1','Cloud Computing','4.5','-','3','CSS123P']], ['22.5','0','15'], 3, '1', 'Electives'),
@@ -356,6 +364,19 @@ function downloadBlob(blob, filename) {
   window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
 }
 
+function printCurrentPage() {
+  window.print();
+}
+function csvValue(value) {
+  return `"${String(value).replace(/"/g, '""')}"`;
+}
+function exportTableCsv(table, filename) {
+  const rows = [...table.querySelectorAll('tr')].map((row) => [...row.cells].map((cell) => cell.textContent.replace(/\s+/g, ' ').trim()));
+  const csv = rows.map((row) => row.map(csvValue).join(',')).join('\n');
+  downloadBlob(new Blob([csv], { type: 'text/csv;charset=utf-8' }), filename);
+  showToast('CSV export downloaded.');
+}
+
 async function renderScheduleCanvas() {
   const source = document.querySelector('.weekly-schedule');
   if (!source || typeof window.html2canvas !== 'function') throw new Error('Schedule export is unavailable.');
@@ -501,7 +522,15 @@ function bindActions() {
     link.addEventListener('click', () => document.querySelector('#sidebar')?.classList.remove('open'));
     supportGroup.append(link);
   }
-  document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => showToast(button.dataset.toast)));
+  document.querySelectorAll('[data-print-page]').forEach((button) => button.addEventListener('click', printCurrentPage));
+  document.querySelectorAll('[data-export-table]').forEach((button) => button.addEventListener('click', () => {
+    const table = button.closest('.table-card')?.querySelector('table');
+    if (!table) return;
+    exportTableCsv(table, `${button.dataset.exportTable || 'mymapua-table'}.csv`);
+  }));
+  document.querySelectorAll('[data-toast]').forEach((button) => button.addEventListener('click', () => {
+    if (!button.dataset.printPage) showToast(button.dataset.toast);
+  }));
   document.querySelectorAll('[data-view-statement]').forEach((link) => link.addEventListener('click', (event) => {
     event.preventDefault();
     window.location.hash = '#soa';

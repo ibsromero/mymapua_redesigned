@@ -1671,6 +1671,56 @@ html[data-theme="dark"] .content .announcement-item h3 {
 	}
 }
 
+@media print {
+	* {
+		color: #000 !important;
+		background: #fff !important;
+		box-shadow: none !important;
+	}
+
+	.auth-gate,
+	.sidebar,
+	.sidebar-scrim,
+	.topbar,
+	.footer,
+	.toast,
+	.page-heading .intro,
+	.table-actions,
+	.primary-button,
+	.quiet-button,
+	.schedule-toolbar,
+	.mobile-schedule-controls {
+		display: none !important;
+	}
+
+	.app-shell,
+	.main-wrap,
+	.content {
+		display: block !important;
+		width: 100% !important;
+		max-width: none !important;
+		min-height: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.content .page-heading {
+		margin: 0 0 18px !important;
+	}
+
+	.content table {
+		width: 100% !important;
+		min-width: 0 !important;
+		border-collapse: collapse !important;
+	}
+
+	.content th,
+	.content td {
+		border: 1px solid #999 !important;
+		padding: 7px !important;
+	}
+}
+
 /* Authoritative Home arrow treatment: one geometric chevron, no text fallback. */
 .content .text-link span,
 .content .item-arrow,
